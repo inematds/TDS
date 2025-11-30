@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 5: Tecnicas de Fechamento - TDS</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .prose h2 { scroll-margin-top: 100px; }
+  </style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900 transition-colors">
+
+  <!-- Navegacao -->
+  <nav class="sticky top-0 z-50 bg-white dark:bg-neutral-800 shadow-sm">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="text-2xl font-bold text-blue-600 dark:text-blue-400">TDS</a>
+          <span class="text-neutral-400">/</span>
+          <a href="../index.html" class="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline">Vendas</a>
+          <span class="text-neutral-400">/</span>
+          <span class="text-neutral-600 dark:text-neutral-400">Modulo 5</span>
+        </div>
+
+        <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-700" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero do Modulo -->
+  <header class="bg-gradient-to-br from-emerald-600 via-emerald-700 to-green-700 py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+      <a href="../index.html" class="inline-flex items-center text-emerald-200 hover:text-white mb-4 text-sm">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Voltar para Trilha de Vendas
+      </a>
+      <div class="flex items-center gap-4 mb-4">
+        <span class="text-5xl">🤝</span>
+        <div>
+          <p class="text-emerald-200 text-sm font-medium">MODULO 5</p>
+          <h1 class="text-3xl sm:text-4xl font-bold">Tecnicas de Fechamento e Negociacao</h1>
+        </div>
+      </div>
+      <p class="text-lg text-white/90 max-w-2xl mb-4">
+        Transforme interessados em clientes. Domine as tecnicas que os melhores vendedores usam para fechar mais vendas com confianca e etica.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">5 horas</span>
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">4 topicos</span>
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">Nivel: Avancado</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Indice -->
+  <div class="bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 py-4 sticky top-16 z-40">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2 text-sm overflow-x-auto pb-2">
+        <span class="text-neutral-500 dark:text-neutral-400 whitespace-nowrap">Ir para:</span>
+        <a href="#topico-1" class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full whitespace-nowrap hover:bg-emerald-200 dark:hover:bg-emerald-900/50">5.1 Psicologia</a>
+        <a href="#topico-2" class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full whitespace-nowrap hover:bg-emerald-200 dark:hover:bg-emerald-900/50">5.2 Tecnicas</a>
+        <a href="#topico-3" class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full whitespace-nowrap hover:bg-emerald-200 dark:hover:bg-emerald-900/50">5.3 Objecoes</a>
+        <a href="#topico-4" class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full whitespace-nowrap hover:bg-emerald-200 dark:hover:bg-emerald-900/50">5.4 Follow-up</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conteudo Principal -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Introducao -->
+    <div class="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 rounded-2xl p-8 mb-12 border-2 border-emerald-200 dark:border-emerald-800">
+      <h2 class="text-2xl font-bold text-emerald-900 dark:text-emerald-100 mb-4 flex items-center">
+        <span class="text-3xl mr-3">🎯</span>
+        O Que Voce Vai Aprender Neste Modulo
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <ul class="space-y-2 text-neutral-700 dark:text-neutral-300">
+          <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-1">✓</span> Entender a psicologia do fechamento</li>
+          <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-1">✓</span> Aplicar 7 tecnicas comprovadas de fechamento</li>
+          <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-1">✓</span> Lidar com objecoes sem perder a venda</li>
+        </ul>
+        <ul class="space-y-2 text-neutral-700 dark:text-neutral-300">
+          <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-1">✓</span> Fazer follow-up que converte</li>
+          <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-1">✓</span> Negociar com confianca e etica</li>
+          <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-1">✓</span> Aumentar taxa de fechamento em 2-3x</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">5.1</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Psicologia do Fechamento</h2>
+      </div>
+
+      <!-- Conceito Principal -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🧠</span> Por Que Pessoas NAO Compram
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4 leading-relaxed">
+          O fechamento nao e "convencer" alguem a comprar. E <strong>remover os obstaculos</strong> que impedem uma pessoa qualificada de tomar uma decisao que ja deseja.
+        </p>
+        <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg border-l-4 border-red-500">
+          <p class="text-red-800 dark:text-red-200 font-semibold text-lg">
+            "As pessoas nao compram por 4 motivos: nao confiam, nao entendem, nao acreditam que funciona para elas, ou nao e urgente."
+          </p>
+        </div>
+      </div>
+
+      <!-- 4 Barreiras -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🚧</span> As 4 Barreiras do Fechamento
+        </h3>
+
+        <div class="space-y-4">
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">1</div>
+            <div class="flex-1">
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Falta de Confianca</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">"Sera que posso confiar nessa pessoa/empresa?"</p>
+              <div class="bg-green-50 dark:bg-green-900/20 p-2 rounded mt-2 text-sm">
+                <strong class="text-green-700 dark:text-green-400">Solucao:</strong> Prova social, depoimentos, garantia, transparencia
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-10 h-10 bg-amber-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">2</div>
+            <div class="flex-1">
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Falta de Clareza</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">"Nao entendi exatamente o que estou comprando."</p>
+              <div class="bg-green-50 dark:bg-green-900/20 p-2 rounded mt-2 text-sm">
+                <strong class="text-green-700 dark:text-green-400">Solucao:</strong> Explicar com clareza, usar analogias, mostrar exemplos
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">3</div>
+            <div class="flex-1">
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Duvida sobre Resultados</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">"Funciona para outras pessoas, mas sera que funciona para MIM?"</p>
+              <div class="bg-green-50 dark:bg-green-900/20 p-2 rounded mt-2 text-sm">
+                <strong class="text-green-700 dark:text-green-400">Solucao:</strong> Casos similares, garantia condicional, suporte personalizado
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">4</div>
+            <div class="flex-1">
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Falta de Urgencia</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">"Interessante, mas posso resolver isso depois."</p>
+              <div class="bg-green-50 dark:bg-green-900/20 p-2 rounded mt-2 text-sm">
+                <strong class="text-green-700 dark:text-green-400">Solucao:</strong> Mostrar custo da inacao, prazo real, escassez genuina
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gatilhos Mentais -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">⚡</span> 6 Gatilhos Mentais do Fechamento
+        </h3>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded-lg">
+            <p class="font-semibold text-emerald-700 dark:text-emerald-400 mb-1">1. Reciprocidade</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">Quando voce da algo, a pessoa sente vontade de retribuir.</p>
+            <p class="text-xs text-neutral-500 mt-1">Ex: Conteudo gratis, consultoria inicial, bonus extra</p>
+          </div>
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+            <p class="font-semibold text-blue-700 dark:text-blue-400 mb-1">2. Prova Social</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">Se outros estao fazendo, deve ser bom.</p>
+            <p class="text-xs text-neutral-500 mt-1">Ex: "Mais de 500 alunos", "92% de aprovacao"</p>
+          </div>
+          <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+            <p class="font-semibold text-purple-700 dark:text-purple-400 mb-1">3. Autoridade</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">Pessoas confiam em especialistas.</p>
+            <p class="text-xs text-neutral-500 mt-1">Ex: Certificacoes, aparicoes na midia, resultados proprios</p>
+          </div>
+          <div class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg">
+            <p class="font-semibold text-amber-700 dark:text-amber-400 mb-1">4. Escassez</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">Quanto mais raro, mais valioso.</p>
+            <p class="text-xs text-neutral-500 mt-1">Ex: "Ultimas 5 vagas", "Nunca mais nesse preco"</p>
+          </div>
+          <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
+            <p class="font-semibold text-red-700 dark:text-red-400 mb-1">5. Urgencia</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">Prazo cria acao imediata.</p>
+            <p class="text-xs text-neutral-500 mt-1">Ex: "So ate sexta", "Bonus expira em 24h"</p>
+          </div>
+          <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+            <p class="font-semibold text-green-700 dark:text-green-400 mb-1">6. Comprometimento</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">Pequenos "sims" levam a grandes "sims".</p>
+            <p class="text-xs text-neutral-500 mt-1">Ex: Perguntas que geram concordancia ao longo da conversa</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">5.2</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">7 Tecnicas de Fechamento</h2>
+      </div>
+
+      <!-- Tecnica 1 -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="bg-emerald-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm mr-3">1</span>
+          Fechamento Direto
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          Simples e eficaz. Apos apresentar a solucao, peca a venda diretamente.
+        </p>
+        <div class="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded-lg">
+          <p class="font-semibold text-emerald-800 dark:text-emerald-200 mb-2">Como usar:</p>
+          <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+            <li>"Entao, podemos comecar?"</li>
+            <li>"Vou enviar o link de pagamento para voce?"</li>
+            <li>"Qual email para eu te enviar o acesso?"</li>
+          </ul>
+        </div>
+        <p class="text-xs text-neutral-500 mt-3">
+          <strong>Quando usar:</strong> Cliente ja demonstrou interesse claro e nao tem objecoes aparentes.
+        </p>
+      </div>
+
+      <!-- Tecnica 2 -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="bg-emerald-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm mr-3">2</span>
+          Fechamento Alternativo
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          Ofereca duas opcoes, ambas levam a venda. Remove o "sim ou nao" e transforma em "qual opcao".
+        </p>
+        <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+          <p class="font-semibold text-blue-800 dark:text-blue-200 mb-2">Como usar:</p>
+          <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+            <li>"Voce prefere o plano mensal ou anual?"</li>
+            <li>"Quer comecar com o pacote basico ou completo?"</li>
+            <li>"Prefere pagamento via PIX ou cartao?"</li>
+          </ul>
+        </div>
+        <p class="text-xs text-neutral-500 mt-3">
+          <strong>Quando usar:</strong> Cliente esta indeciso entre opcoes, nao sobre comprar ou nao.
+        </p>
+      </div>
+
+      <!-- Tecnica 3 -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="bg-emerald-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm mr-3">3</span>
+          Fechamento por Resumo
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          Recapitule todos os beneficios e valor antes de pedir a decisao. Reforça a oferta completa.
+        </p>
+        <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+          <p class="font-semibold text-purple-800 dark:text-purple-200 mb-2">Como usar:</p>
+          <p class="text-sm text-neutral-700 dark:text-neutral-300">
+            "Entao, recapitulando: voce vai receber o curso completo com 40 aulas, os templates prontos para usar, acesso ao grupo VIP, e ainda a garantia de 30 dias. Tudo isso por apenas 12x de R$ 97. Faz sentido para voce?"
+          </p>
+        </div>
+        <p class="text-xs text-neutral-500 mt-3">
+          <strong>Quando usar:</strong> Conversas longas onde muitos pontos foram discutidos.
+        </p>
+      </div>
+
+      <!-- Tecnica 4 -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="bg-emerald-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm mr-3">4</span>
+          Fechamento por Urgencia
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          Cria um motivo real para agir agora. Funciona quando ha escassez ou prazo genuino.
+        </p>
+        <div class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg">
+          <p class="font-semibold text-amber-800 dark:text-amber-200 mb-2">Como usar:</p>
+          <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+            <li>"Esse preco so vale ate hoje a meia-noite."</li>
+            <li>"Restam apenas 3 vagas com bonus."</li>
+            <li>"A proxima turma so abre em 3 meses."</li>
+          </ul>
+        </div>
+        <div class="bg-red-50 dark:bg-red-900/20 p-3 rounded-lg mt-3">
+          <p class="text-sm text-red-700 dark:text-red-300">
+            <strong>⚠️ Importante:</strong> NUNCA invente urgencia falsa. Isso destroi confianca e reputacao.
+          </p>
+        </div>
+      </div>
+
+      <!-- Tecnica 5 -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="bg-emerald-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm mr-3">5</span>
+          Fechamento "Se... Entao"
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          Condiciona a venda a uma condicao especifica do cliente. Remove objecoes ao satisfazer necessidades.
+        </p>
+        <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+          <p class="font-semibold text-green-800 dark:text-green-200 mb-2">Como usar:</p>
+          <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+            <li>"Se eu conseguir parcelar em 12x, fechamos hoje?"</li>
+            <li>"Se eu incluir uma sessao extra de consultoria, faz sentido?"</li>
+            <li>"Se pudermos comecar semana que vem, voce estaria pronto?"</li>
+          </ul>
+        </div>
+        <p class="text-xs text-neutral-500 mt-3">
+          <strong>Quando usar:</strong> Cliente tem uma objecao especifica que pode ser resolvida.
+        </p>
+      </div>
+
+      <!-- Tecnica 6 -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="bg-emerald-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm mr-3">6</span>
+          Fechamento por Assumpcao
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          Age como se a venda ja estivesse feita e passa para os proximos passos.
+        </p>
+        <div class="bg-indigo-50 dark:bg-indigo-900/20 p-4 rounded-lg">
+          <p class="font-semibold text-indigo-800 dark:text-indigo-200 mb-2">Como usar:</p>
+          <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+            <li>"Qual email voce quer usar para o acesso?"</li>
+            <li>"Vou preparar o contrato para segunda, ok?"</li>
+            <li>"Vou te adicionar no grupo VIP agora mesmo."</li>
+          </ul>
+        </div>
+        <p class="text-xs text-neutral-500 mt-3">
+          <strong>Quando usar:</strong> Cliente demonstrou sinais fortes de interesse. Use com cuidado para nao parecer agressivo.
+        </p>
+      </div>
+
+      <!-- Tecnica 7 -->
+      <div class="bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 rounded-xl p-6 border-2 border-emerald-200 dark:border-emerald-800">
+        <h3 class="text-lg font-bold text-emerald-900 dark:text-emerald-100 mb-4 flex items-center">
+          <span class="bg-emerald-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm mr-3">7</span>
+          Fechamento Invertido (Minha Favorita)
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          Em vez de pressionar, voce questiona se realmente faz sentido. Remove a pressao e o cliente "se vende".
+        </p>
+        <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+          <p class="font-semibold text-emerald-800 dark:text-emerald-200 mb-2">Como usar:</p>
+          <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+            <li>"Olha, nao quero que voce compre se nao tiver certeza. Qual seria o maior motivo para NAO seguir em frente?"</li>
+            <li>"Sinceramente, esse programa nao e para todo mundo. O que te faria desistir?"</li>
+            <li>"Se voce decidir que nao e o momento, esta tudo bem. Mas me conta: o que te impede?"</li>
+          </ul>
+        </div>
+        <p class="text-sm text-emerald-700 dark:text-emerald-300 mt-3">
+          <strong>Por que funciona:</strong> Remove a defesa do cliente. Ele para de resistir e comeca a justificar POR QUE deveria comprar.
+        </p>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">5.3</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Lidando com Objecoes</h2>
+      </div>
+
+      <!-- Framework -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🔄</span> Framework LAER para Objecoes
+        </h3>
+
+        <div class="space-y-4">
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0 text-lg">L</div>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Listen (Ouca)</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Deixe o cliente falar completamente. Nao interrompa, nao contra-argumente imediatamente.</p>
+              <p class="text-xs text-blue-600 dark:text-blue-400 mt-1">"Entendo. Me conta mais sobre isso..."</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0 text-lg">A</div>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Acknowledge (Reconheca)</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Valide a preocupacao. Mostre que entende e que faz sentido.</p>
+              <p class="text-xs text-green-600 dark:text-green-400 mt-1">"Faz total sentido voce pensar assim. Muitos clientes tinham a mesma preocupacao..."</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0 text-lg">E</div>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Explore (Explore)</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Faca perguntas para entender a raiz da objecao. Muitas vezes nao e o que parece.</p>
+              <p class="text-xs text-purple-600 dark:text-purple-400 mt-1">"Me ajuda a entender: quando voce diz que esta caro, comparado com o que?"</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-12 h-12 bg-amber-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0 text-lg">R</div>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Respond (Responda)</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Agora responda com fatos, historias, ou perguntas que resolvam a preocupacao real.</p>
+              <p class="text-xs text-amber-600 dark:text-amber-400 mt-1">"Entendo. Na verdade, [cliente X] tinha a mesma duvida e conseguiu [resultado]..."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Objecoes Comuns -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">💬</span> Respostas para Objecoes Comuns
+        </h3>
+
+        <div class="space-y-4">
+          <div class="border-l-4 border-red-500 pl-4">
+            <p class="font-bold text-red-600 dark:text-red-400">"Esta caro"</p>
+            <div class="text-sm text-neutral-700 dark:text-neutral-300 mt-2 space-y-2">
+              <p><strong>Explore:</strong> "Caro comparado com o que? Com o resultado que voce quer?"</p>
+              <p><strong>Responda:</strong> "Entendo a preocupacao com o investimento. Mas deixa eu te fazer uma pergunta: quanto te custa NAO resolver esse problema? Se voce continuar onde esta por mais 6 meses, 1 ano, quanto deixa de ganhar/perder?"</p>
+            </div>
+          </div>
+
+          <div class="border-l-4 border-amber-500 pl-4">
+            <p class="font-bold text-amber-600 dark:text-amber-400">"Preciso pensar"</p>
+            <div class="text-sm text-neutral-700 dark:text-neutral-300 mt-2 space-y-2">
+              <p><strong>Explore:</strong> "Claro, tomar uma boa decisao e importante. Me conta: o que especificamente voce precisa analisar?"</p>
+              <p><strong>Responda:</strong> "Normalmente quando alguem diz que precisa pensar, tem uma duvida especifica. Qual e a sua? Posso te ajudar a esclarecer agora."</p>
+            </div>
+          </div>
+
+          <div class="border-l-4 border-blue-500 pl-4">
+            <p class="font-bold text-blue-600 dark:text-blue-400">"Preciso falar com meu socio/esposa"</p>
+            <div class="text-sm text-neutral-700 dark:text-neutral-300 mt-2 space-y-2">
+              <p><strong>Explore:</strong> "Entendo. Qual seria a principal preocupacao dele/dela?"</p>
+              <p><strong>Responda:</strong> "Se dependesse so de voce, faria sentido? Podemos agendar uma ligacao rapida com ele/ela para tirar duvidas juntos?"</p>
+            </div>
+          </div>
+
+          <div class="border-l-4 border-purple-500 pl-4">
+            <p class="font-bold text-purple-600 dark:text-purple-400">"Nao tenho tempo"</p>
+            <div class="text-sm text-neutral-700 dark:text-neutral-300 mt-2 space-y-2">
+              <p><strong>Explore:</strong> "Voce nao tem tempo para implementar, ou nao tem tempo para esperar os resultados?"</p>
+              <p><strong>Responda:</strong> "Justamente por isso voce precisa de um sistema. Quanto tempo voce perde hoje tentando fazer sozinho? Este programa foi feito para quem tem pouco tempo."</p>
+            </div>
+          </div>
+
+          <div class="border-l-4 border-green-500 pl-4">
+            <p class="font-bold text-green-600 dark:text-green-400">"Ja tentei antes e nao funcionou"</p>
+            <div class="text-sm text-neutral-700 dark:text-neutral-300 mt-2 space-y-2">
+              <p><strong>Explore:</strong> "O que exatamente voce tentou? O que acha que deu errado?"</p>
+              <p><strong>Responda:</strong> "Faz sentido. Mas me conta: o que era diferente no que voce tentou? [Explique diferencial]. Alem disso, temos garantia justamente para isso."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">5.4</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Follow-up que Converte</h2>
+      </div>
+
+      <!-- Importancia -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📊</span> Por Que Follow-up E Essencial
+        </h3>
+
+        <div class="grid md:grid-cols-3 gap-4 mb-4">
+          <div class="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded-lg text-center">
+            <p class="text-3xl font-bold text-emerald-600">80%</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">das vendas acontecem apos o 5º contato</p>
+          </div>
+          <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg text-center">
+            <p class="text-3xl font-bold text-red-600">44%</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">dos vendedores desistem apos 1 "nao"</p>
+          </div>
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg text-center">
+            <p class="text-3xl font-bold text-blue-600">12x</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">mais chances com follow-up sistematico</p>
+          </div>
+        </div>
+
+        <div class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg">
+          <p class="text-amber-800 dark:text-amber-200">
+            <strong>A maioria das vendas perdidas nao e rejeicao - e falta de follow-up.</strong> O cliente esquece, se distrai, ou precisa de mais tempo. Seu trabalho e estar presente quando ele estiver pronto.
+          </p>
+        </div>
+      </div>
+
+      <!-- Sequencia -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📅</span> Sequencia de Follow-up (7 Toques)
+        </h3>
+
+        <div class="space-y-3">
+          <div class="flex items-center gap-4 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="bg-emerald-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">1</span>
+            <div class="flex-1">
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Imediatamente apos contato</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Resumo da conversa + proximos passos</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="bg-emerald-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">2</span>
+            <div class="flex-1">
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">24 horas depois</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Conteudo de valor relacionado (artigo, video, caso de sucesso)</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="bg-emerald-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">3</span>
+            <div class="flex-1">
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">3 dias depois</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Perguntar se surgiu alguma duvida</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">4</span>
+            <div class="flex-1">
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">1 semana depois</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Depoimento de cliente ou resultado recente</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">5</span>
+            <div class="flex-1">
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">2 semanas depois</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">"Ainda faz sentido conversar sobre isso?"</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="bg-amber-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">6</span>
+            <div class="flex-1">
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">1 mes depois</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Novidade ou oferta especial</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="bg-amber-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">7</span>
+            <div class="flex-1">
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Breakup email</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">"Vou parar de entrar em contato, mas se mudar de ideia..."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Templates -->
+      <div class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl p-6 border-2 border-blue-200 dark:border-blue-800">
+        <h3 class="text-lg font-bold text-blue-900 dark:text-blue-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📝</span> Templates de Follow-up
+        </h3>
+
+        <div class="space-y-4">
+          <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2">Mensagem de Valor:</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300 font-mono">
+              "Oi [Nome], tudo bem? Lembrei de voce quando vi esse caso. A [Cliente] tinha o mesmo desafio que voce e conseguiu [resultado]. Achei que podia te interessar!"
+            </p>
+          </div>
+
+          <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2">Mensagem de Checagem:</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300 font-mono">
+              "Oi [Nome]! Passando para saber se surgiu alguma duvida sobre nossa conversa. Tem algo que posso esclarecer?"
+            </p>
+          </div>
+
+          <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2">Breakup Email:</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300 font-mono">
+              "Oi [Nome], tentei te contatar algumas vezes mas nao consegui retorno. Entendo que talvez nao seja o momento certo. Vou parar de entrar em contato para nao incomodar, mas saiba que se mudar de ideia, estou aqui. Te desejo sucesso!"
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resumo e Proximos Passos -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-emerald-600 to-green-600 rounded-2xl p-8 text-white">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="text-3xl mr-3">🎓</span> Resumo do Modulo 5
+        </h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Psicologia</p>
+            <p class="text-sm text-white/90">4 barreiras: confianca, clareza, resultados, urgencia. Remova-as.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Tecnicas</p>
+            <p class="text-sm text-white/90">7 formas de fechar. Use a certa para cada situacao.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Objecoes</p>
+            <p class="text-sm text-white/90">Framework LAER: Ouca, Reconheca, Explore, Responda.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Follow-up</p>
+            <p class="text-sm text-white/90">80% das vendas apos 5º contato. Seja persistente.</p>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="modulo4.html" class="bg-white/20 text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-white/30 transition-colors border border-white/30">
+            ← Modulo 4: Funis
+          </a>
+          <a href="modulo6.html" class="bg-white text-emerald-600 px-6 py-3 rounded-lg font-semibold text-center hover:bg-neutral-100 transition-colors">
+            Proximo: Modulo 6 - IA em Vendas →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-900 text-white py-8">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-neutral-400">&copy; 2025 TDS - Transformacao Digital e Social</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Theme Toggle
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+    if (localStorage.getItem('color-theme') === 'dark' ||
+        (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      themeToggleLightIcon.classList.remove('hidden');
+    } else {
+      themeToggleDarkIcon.classList.remove('hidden');
+    }
+
+    themeToggleBtn.addEventListener('click', function() {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+    });
+  </script>
+
+</body>
+</html>

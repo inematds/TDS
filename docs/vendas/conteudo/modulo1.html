@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 1: Fundamentos de Vendas e Negocios - TDS</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .prose h2 { scroll-margin-top: 100px; }
+  </style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900 transition-colors">
+
+  <!-- Navegacao -->
+  <nav class="sticky top-0 z-50 bg-white dark:bg-neutral-800 shadow-sm">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="text-2xl font-bold text-blue-600 dark:text-blue-400">TDS</a>
+          <span class="text-neutral-400">/</span>
+          <a href="../index.html" class="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline">Vendas</a>
+          <span class="text-neutral-400">/</span>
+          <span class="text-neutral-600 dark:text-neutral-400">Modulo 1</span>
+        </div>
+
+        <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-700" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero do Modulo -->
+  <header class="bg-gradient-to-br from-emerald-600 via-emerald-700 to-green-700 py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+      <a href="../index.html" class="inline-flex items-center text-emerald-200 hover:text-white mb-4 text-sm">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Voltar para Trilha de Vendas
+      </a>
+      <div class="flex items-center gap-4 mb-4">
+        <span class="text-5xl">📚</span>
+        <div>
+          <p class="text-emerald-200 text-sm font-medium">MODULO 1</p>
+          <h1 class="text-3xl sm:text-4xl font-bold">Fundamentos de Vendas e Negocios</h1>
+        </div>
+      </div>
+      <p class="text-lg text-white/90 max-w-2xl mb-4">
+        Construa a base solida para sua carreira em vendas. Desenvolva o mindset correto, aprenda a validar oportunidades e estruture seu negocio desde o inicio.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">4 horas</span>
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">3 topicos</span>
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">Nivel: Iniciante</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Indice -->
+  <div class="bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 py-4 sticky top-16 z-40">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2 text-sm overflow-x-auto pb-2">
+        <span class="text-neutral-500 dark:text-neutral-400 whitespace-nowrap">Ir para:</span>
+        <a href="#topico-1" class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full whitespace-nowrap hover:bg-emerald-200 dark:hover:bg-emerald-900/50">1.1 Mindset</a>
+        <a href="#topico-2" class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full whitespace-nowrap hover:bg-emerald-200 dark:hover:bg-emerald-900/50">1.2 Oportunidades</a>
+        <a href="#topico-3" class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full whitespace-nowrap hover:bg-emerald-200 dark:hover:bg-emerald-900/50">1.3 Estruturacao</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conteudo Principal -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Introducao -->
+    <div class="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 rounded-2xl p-8 mb-12 border-2 border-emerald-200 dark:border-emerald-800">
+      <h2 class="text-2xl font-bold text-emerald-900 dark:text-emerald-100 mb-4 flex items-center">
+        <span class="text-3xl mr-3">🎯</span>
+        O Que Voce Vai Aprender Neste Modulo
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <ul class="space-y-2 text-neutral-700 dark:text-neutral-300">
+          <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-1">✓</span> Desenvolver mentalidade empreendedora resiliente</li>
+          <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-1">✓</span> Entender a neurociencia por tras das rejeicoes</li>
+          <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-1">✓</span> Identificar oportunidades de mercado</li>
+        </ul>
+        <ul class="space-y-2 text-neutral-700 dark:text-neutral-300">
+          <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-1">✓</span> Validar ideias antes de investir tempo</li>
+          <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-1">✓</span> Escolher o formato juridico ideal</li>
+          <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-1">✓</span> Criar contratos e parcerias estrategicas</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">1.1</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Mindset e Mentalidade Empreendedora</h2>
+      </div>
+
+      <!-- Conceito Principal -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">💡</span> O Que E
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4 leading-relaxed">
+          O mindset empreendedor e a <strong>base mental necessaria</strong> para ter sucesso em vendas. Nao se trata de talento nato, mas de uma mentalidade que pode ser desenvolvida atraves de pratica e disciplina.
+        </p>
+        <div class="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded-lg border-l-4 border-emerald-500">
+          <p class="text-emerald-800 dark:text-emerald-200 font-semibold text-lg">
+            "Consistencia vence atalhos. Sempre."
+          </p>
+        </div>
+      </div>
+
+      <!-- Por Que Importa -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🧠</span> A Neurociencia do "Nao"
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4 leading-relaxed">
+          Quando voce recebe um "nao", seu cerebro processa isso como <strong>dor fisica</strong>. A mesma area do cerebro que se ativa quando voce se machuca fisicamente se ativa quando voce e rejeitado.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-4 mb-4">
+          <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
+            <p class="font-semibold text-red-700 dark:text-red-400 mb-2">❌ Reacao Natural</p>
+            <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+              <li>• Evitar situacoes de rejeicao</li>
+              <li>• Desistir apos poucos "naos"</li>
+              <li>• Levar para o lado pessoal</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+            <p class="font-semibold text-green-700 dark:text-green-400 mb-2">✅ Reacao Treinada</p>
+            <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+              <li>• Ver rejeicao como feedback</li>
+              <li>• Entender que "nao" e parte do processo</li>
+              <li>• Separar resultado de valor pessoal</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Framework Pratico -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🔧</span> Framework: Construindo Resiliencia
+        </h3>
+
+        <div class="space-y-4">
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">1</div>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Defina Metas de Atividade, Nao de Resultado</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Em vez de "fechar 5 vendas", defina "fazer 50 abordagens". Voce controla a atividade, nao o resultado.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">2</div>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Crie um "Diario de Rejeicoes"</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Anote cada "nao" e o que aprendeu. Transforme dor em dados. Celebre quando atingir sua meta de rejeicoes.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">3</div>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Pratique o "E Dai?"</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Quando receber um "nao", pergunte: "E dai? O que muda na minha vida?" Geralmente, nada. Siga em frente.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exemplo Pratico -->
+      <div class="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-xl p-6 border-2 border-amber-200 dark:border-amber-800">
+        <h3 class="text-lg font-bold text-amber-900 dark:text-amber-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📖</span> Caso Real
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          Um vendedor iniciante fez 100 ligacoes em uma semana. Resultado: 95 "naos", 3 "talvez", 2 "sims".
+        </p>
+        <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+          <p class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2">O que ele aprendeu:</p>
+          <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+            <li>• Taxa de conversao de 2% e normal no inicio</li>
+            <li>• Os 2 "sims" geraram R$ 8.000 em vendas</li>
+            <li>• Cada "nao" valia R$ 80 (8000 / 100 ligacoes)</li>
+            <li>• Na semana seguinte, ele estava <strong>ansioso</strong> para receber "naos"</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">1.2</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Identificando e Validando Oportunidades</h2>
+      </div>
+
+      <!-- Conceito Principal -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🔍</span> O Que E
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4 leading-relaxed">
+          Validacao de mercado e o processo de <strong>testar sua ideia com clientes reais</strong> antes de investir tempo e dinheiro significativos. O objetivo e descobrir se existe demanda real pelo que voce quer vender.
+        </p>
+        <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg border-l-4 border-red-500">
+          <p class="text-red-800 dark:text-red-200 font-semibold">
+            ⚠️ O maior erro de iniciantes: criar algo que ninguem quer comprar.
+          </p>
+        </div>
+      </div>
+
+      <!-- Framework de Validacao -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🎯</span> Framework de Validacao em 5 Passos
+        </h3>
+
+        <div class="space-y-6">
+          <!-- Passo 1 -->
+          <div class="border-l-4 border-emerald-500 pl-4">
+            <p class="font-bold text-emerald-600 dark:text-emerald-400 text-sm">PASSO 1</p>
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 text-lg">Identifique uma Dor Real</p>
+            <p class="text-neutral-600 dark:text-neutral-400 mt-1">Pergunte: "Que problema as pessoas estao tentando resolver AGORA?" Procure em:</p>
+            <ul class="text-sm text-neutral-700 dark:text-neutral-300 mt-2 space-y-1">
+              <li>• Grupos de Facebook/LinkedIn do seu nicho</li>
+              <li>• Perguntas no Quora/Reddit</li>
+              <li>• Reviews negativos de concorrentes</li>
+              <li>• Conversas com potenciais clientes</li>
+            </ul>
+          </div>
+
+          <!-- Passo 2 -->
+          <div class="border-l-4 border-emerald-500 pl-4">
+            <p class="font-bold text-emerald-600 dark:text-emerald-400 text-sm">PASSO 2</p>
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 text-lg">Entreviste 10 Pessoas</p>
+            <p class="text-neutral-600 dark:text-neutral-400 mt-1">Nao venda nada. Apenas pergunte:</p>
+            <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg mt-2">
+              <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-2">
+                <li>"Qual e seu maior desafio com [problema]?"</li>
+                <li>"O que voce ja tentou para resolver?"</li>
+                <li>"Quanto isso te custa (tempo/dinheiro)?"</li>
+                <li>"Se existisse uma solucao perfeita, como seria?"</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Passo 3 -->
+          <div class="border-l-4 border-emerald-500 pl-4">
+            <p class="font-bold text-emerald-600 dark:text-emerald-400 text-sm">PASSO 3</p>
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 text-lg">Crie uma Landing Page Simples</p>
+            <p class="text-neutral-600 dark:text-neutral-400 mt-1">Uma pagina com:</p>
+            <ul class="text-sm text-neutral-700 dark:text-neutral-300 mt-2 space-y-1">
+              <li>• Titulo que descreve a transformacao</li>
+              <li>• 3 beneficios principais</li>
+              <li>• Botao "Quero Saber Mais" (captura email)</li>
+              <li>• Nao precisa ter o produto pronto!</li>
+            </ul>
+          </div>
+
+          <!-- Passo 4 -->
+          <div class="border-l-4 border-emerald-500 pl-4">
+            <p class="font-bold text-emerald-600 dark:text-emerald-400 text-sm">PASSO 4</p>
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 text-lg">Teste com Trafego Real</p>
+            <p class="text-neutral-600 dark:text-neutral-400 mt-1">Invista R$ 100-200 em anuncios para testar:</p>
+            <ul class="text-sm text-neutral-700 dark:text-neutral-300 mt-2 space-y-1">
+              <li>• Taxa de clique (CTR) > 2% = interesse</li>
+              <li>• Taxa de conversao > 5% = demanda forte</li>
+              <li>• Se ninguem clica, mude a mensagem</li>
+            </ul>
+          </div>
+
+          <!-- Passo 5 -->
+          <div class="border-l-4 border-emerald-500 pl-4">
+            <p class="font-bold text-emerald-600 dark:text-emerald-400 text-sm">PASSO 5</p>
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 text-lg">Pre-venda Antes de Criar</p>
+            <p class="text-neutral-600 dark:text-neutral-400 mt-1">A validacao definitiva e alguem pagar ANTES de voce entregar.</p>
+            <div class="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded-lg mt-2">
+              <p class="text-emerald-800 dark:text-emerald-200 text-sm">
+                💰 Se 3+ pessoas pagam antecipado, voce tem um negocio. Se ninguem paga, voce economizou meses de trabalho.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Analise SWOT -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📊</span> Analise SWOT Simplificada
+        </h3>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+            <p class="font-bold text-blue-700 dark:text-blue-400 mb-2">💪 Forcas (Strengths)</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">O que voce faz melhor que outros? Qual sua vantagem unica?</p>
+          </div>
+          <div class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg">
+            <p class="font-bold text-amber-700 dark:text-amber-400 mb-2">⚠️ Fraquezas (Weaknesses)</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">Onde voce precisa melhorar? O que te falta?</p>
+          </div>
+          <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+            <p class="font-bold text-green-700 dark:text-green-400 mb-2">🚀 Oportunidades (Opportunities)</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">Que tendencias voce pode aproveitar? Que gaps existem no mercado?</p>
+          </div>
+          <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
+            <p class="font-bold text-red-700 dark:text-red-400 mb-2">🛑 Ameacas (Threats)</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">Quem sao seus concorrentes? O que pode dar errado?</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">1.3</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Estruturacao Inicial do Negocio</h2>
+      </div>
+
+      <!-- Conceito Principal -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🏗️</span> O Que E
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4 leading-relaxed">
+          Estruturar seu negocio corretamente desde o inicio evita problemas juridicos, fiscais e operacionais no futuro. E a diferenca entre ser <strong>amador</strong> e ser <strong>profissional</strong>.
+        </p>
+      </div>
+
+      <!-- PJ vs Autonomo -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">⚖️</span> PJ vs Autonomo: Qual Escolher?
+        </h3>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead class="bg-neutral-100 dark:bg-neutral-700">
+              <tr>
+                <th class="p-3 text-left font-semibold text-neutral-900 dark:text-neutral-100">Aspecto</th>
+                <th class="p-3 text-left font-semibold text-neutral-900 dark:text-neutral-100">Autonomo (CPF)</th>
+                <th class="p-3 text-left font-semibold text-neutral-900 dark:text-neutral-100">MEI</th>
+                <th class="p-3 text-left font-semibold text-neutral-900 dark:text-neutral-100">ME/EPP</th>
+              </tr>
+            </thead>
+            <tbody class="text-neutral-700 dark:text-neutral-300">
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-medium">Faturamento Max/Ano</td>
+                <td class="p-3">Ilimitado</td>
+                <td class="p-3">R$ 81.000</td>
+                <td class="p-3">R$ 4,8 milhoes</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-medium">Impostos</td>
+                <td class="p-3">Ate 27,5% IR</td>
+                <td class="p-3">~R$ 70/mes fixo</td>
+                <td class="p-3">6-15% (Simples)</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-medium">Burocracia</td>
+                <td class="p-3">Minima</td>
+                <td class="p-3">Baixa</td>
+                <td class="p-3">Media</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-medium">Ideal para</td>
+                <td class="p-3">Inicio (< R$ 3k/mes)</td>
+                <td class="p-3">Validacao (ate R$ 6,7k/mes)</td>
+                <td class="p-3">Escala</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded-lg mt-4 border-l-4 border-emerald-500">
+          <p class="text-emerald-800 dark:text-emerald-200 font-semibold">
+            💡 Recomendacao: Comece como MEI. Quando faturar acima de R$ 81k/ano, migre para ME no Simples Nacional.
+          </p>
+        </div>
+      </div>
+
+      <!-- Contratos Essenciais -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📝</span> Contratos Essenciais
+        </h3>
+
+        <div class="space-y-4">
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2">1. Contrato de Prestacao de Servicos</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Define escopo, prazos, valores e responsabilidades. Protege voce de clientes que pedem "so mais uma coisinha".</p>
+            <div class="mt-2 text-xs text-emerald-600 dark:text-emerald-400">
+              Clausulas essenciais: escopo, prazo, valor, forma de pagamento, cancelamento, confidencialidade.
+            </div>
+          </div>
+
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2">2. Termo de Confidencialidade (NDA)</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Protege informacoes sensiveis compartilhadas durante o projeto.</p>
+          </div>
+
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2">3. Proposta Comercial</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Documento pre-contrato que detalha a solucao e o investimento. Quando assinada, vira contrato.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Parcerias Estrategicas -->
+      <div class="bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 rounded-xl p-6 border-2 border-purple-200 dark:border-purple-800">
+        <h3 class="text-lg font-bold text-purple-900 dark:text-purple-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🤝</span> Parcerias Estrategicas
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          Voce nao precisa fazer tudo sozinho. Parcerias certas aceleram seu crescimento:
+        </p>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 mb-1">Parceiros de Indicacao</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Profissionais que atendem o mesmo publico mas nao competem. Ex: Contador + Advogado.</p>
+          </div>
+          <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 mb-1">Parceiros de Entrega</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Freelancers especializados que ajudam a entregar projetos maiores.</p>
+          </div>
+          <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 mb-1">Mentores</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Pessoas 2-3 passos a frente que podem encurtar sua curva de aprendizado.</p>
+          </div>
+          <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 mb-1">Comunidades</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Grupos de profissionais que trocam experiencias, indicacoes e apoio.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resumo e Proximos Passos -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-emerald-600 to-green-600 rounded-2xl p-8 text-white">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="text-3xl mr-3">🎓</span> Resumo do Modulo 1
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-6 mb-8">
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Mindset</p>
+            <p class="text-sm text-white/90">Consistencia vence atalhos. Rejeicao e parte do processo. Celebre os "naos".</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Validacao</p>
+            <p class="text-sm text-white/90">Teste antes de criar. Entreviste clientes. Pre-venda e a validacao definitiva.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Estrutura</p>
+            <p class="text-sm text-white/90">Comece como MEI. Use contratos. Construa parcerias estrategicas.</p>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="../index.html" class="bg-white text-emerald-600 px-6 py-3 rounded-lg font-semibold text-center hover:bg-neutral-100 transition-colors">
+            ← Voltar para Trilha
+          </a>
+          <a href="modulo2.html" class="bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-emerald-800 transition-colors border border-white/30">
+            Proximo: Modulo 2 - Precificacao →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-900 text-white py-8">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-neutral-400">&copy; 2025 TDS - Transformacao Digital e Social</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Theme Toggle
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+    if (localStorage.getItem('color-theme') === 'dark' ||
+        (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      themeToggleLightIcon.classList.remove('hidden');
+    } else {
+      themeToggleDarkIcon.classList.remove('hidden');
+    }
+
+    themeToggleBtn.addEventListener('click', function() {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+    });
+  </script>
+
+</body>
+</html>

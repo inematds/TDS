@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 4: Construcao de Funis de Vendas - TDS</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .prose h2 { scroll-margin-top: 100px; }
+  </style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900 transition-colors">
+
+  <!-- Navegacao -->
+  <nav class="sticky top-0 z-50 bg-white dark:bg-neutral-800 shadow-sm">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="text-2xl font-bold text-blue-600 dark:text-blue-400">TDS</a>
+          <span class="text-neutral-400">/</span>
+          <a href="../index.html" class="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline">Vendas</a>
+          <span class="text-neutral-400">/</span>
+          <span class="text-neutral-600 dark:text-neutral-400">Modulo 4</span>
+        </div>
+
+        <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-700" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero do Modulo -->
+  <header class="bg-gradient-to-br from-emerald-600 via-emerald-700 to-green-700 py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+      <a href="../index.html" class="inline-flex items-center text-emerald-200 hover:text-white mb-4 text-sm">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Voltar para Trilha de Vendas
+      </a>
+      <div class="flex items-center gap-4 mb-4">
+        <span class="text-5xl">🔄</span>
+        <div>
+          <p class="text-emerald-200 text-sm font-medium">MODULO 4</p>
+          <h1 class="text-3xl sm:text-4xl font-bold">Construcao de Funis de Vendas</h1>
+        </div>
+      </div>
+      <p class="text-lg text-white/90 max-w-2xl mb-4">
+        Aprenda a criar maquinas automatizadas de vendas. De captura de leads a conversao, domine cada etapa do funil e multiplique seus resultados.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">5 horas</span>
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">4 topicos</span>
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">Nivel: Intermediario</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Indice -->
+  <div class="bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 py-4 sticky top-16 z-40">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2 text-sm overflow-x-auto pb-2">
+        <span class="text-neutral-500 dark:text-neutral-400 whitespace-nowrap">Ir para:</span>
+        <a href="#topico-1" class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full whitespace-nowrap hover:bg-emerald-200 dark:hover:bg-emerald-900/50">4.1 Estrutura</a>
+        <a href="#topico-2" class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full whitespace-nowrap hover:bg-emerald-200 dark:hover:bg-emerald-900/50">4.2 Tipos</a>
+        <a href="#topico-3" class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full whitespace-nowrap hover:bg-emerald-200 dark:hover:bg-emerald-900/50">4.3 Metricas</a>
+        <a href="#topico-4" class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full whitespace-nowrap hover:bg-emerald-200 dark:hover:bg-emerald-900/50">4.4 Otimizacao</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conteudo Principal -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Introducao -->
+    <div class="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 rounded-2xl p-8 mb-12 border-2 border-emerald-200 dark:border-emerald-800">
+      <h2 class="text-2xl font-bold text-emerald-900 dark:text-emerald-100 mb-4 flex items-center">
+        <span class="text-3xl mr-3">🎯</span>
+        O Que Voce Vai Aprender Neste Modulo
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <ul class="space-y-2 text-neutral-700 dark:text-neutral-300">
+          <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-1">✓</span> Entender a estrutura completa de um funil</li>
+          <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-1">✓</span> Escolher o tipo de funil certo para seu negocio</li>
+          <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-1">✓</span> Criar landing pages que convertem</li>
+        </ul>
+        <ul class="space-y-2 text-neutral-700 dark:text-neutral-300">
+          <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-1">✓</span> Medir e interpretar metricas do funil</li>
+          <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-1">✓</span> Otimizar cada etapa para mais conversoes</li>
+          <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-1">✓</span> Automatizar follow-ups e nutrição</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">4.1</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Anatomia de um Funil de Vendas</h2>
+      </div>
+
+      <!-- Conceito Principal -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🔄</span> O Que E um Funil de Vendas
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4 leading-relaxed">
+          Um funil de vendas e uma <strong>sequencia estrategica de etapas</strong> que guia o visitante desde o primeiro contato ate a compra. Chama-se "funil" porque muitos entram no topo, mas apenas os qualificados chegam ao fim.
+        </p>
+        <div class="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded-lg border-l-4 border-emerald-500">
+          <p class="text-emerald-800 dark:text-emerald-200 font-semibold text-lg">
+            "Um funil bem construido vende 24/7, mesmo enquanto voce dorme."
+          </p>
+        </div>
+      </div>
+
+      <!-- Estrutura Visual do Funil -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📊</span> As 4 Etapas do Funil AIDA
+        </h3>
+
+        <div class="space-y-4">
+          <!-- Topo -->
+          <div class="relative">
+            <div class="bg-gradient-to-r from-blue-100 to-blue-200 dark:from-blue-900/30 dark:to-blue-800/30 p-4 rounded-lg">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="font-bold text-blue-700 dark:text-blue-400 text-sm">TOPO DO FUNIL (ToFu)</p>
+                  <p class="font-semibold text-neutral-900 dark:text-neutral-100 text-lg">A - Atencao</p>
+                  <p class="text-sm text-neutral-600 dark:text-neutral-400">Visitante descobre que voce existe</p>
+                </div>
+                <div class="text-right">
+                  <p class="text-3xl font-bold text-blue-600">1000</p>
+                  <p class="text-xs text-neutral-500">visitantes</p>
+                </div>
+              </div>
+              <div class="mt-2 text-xs text-neutral-500 dark:text-neutral-400">
+                <strong>Canais:</strong> Redes sociais, SEO, anuncios, indicacoes
+              </div>
+            </div>
+          </div>
+
+          <!-- Meio Superior -->
+          <div class="relative ml-8 mr-8">
+            <div class="bg-gradient-to-r from-green-100 to-green-200 dark:from-green-900/30 dark:to-green-800/30 p-4 rounded-lg">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="font-bold text-green-700 dark:text-green-400 text-sm">MEIO DO FUNIL (MoFu)</p>
+                  <p class="font-semibold text-neutral-900 dark:text-neutral-100 text-lg">I - Interesse</p>
+                  <p class="text-sm text-neutral-600 dark:text-neutral-400">Visitante vira lead (deixa contato)</p>
+                </div>
+                <div class="text-right">
+                  <p class="text-3xl font-bold text-green-600">250</p>
+                  <p class="text-xs text-neutral-500">leads (25%)</p>
+                </div>
+              </div>
+              <div class="mt-2 text-xs text-neutral-500 dark:text-neutral-400">
+                <strong>Acoes:</strong> Lead magnet, ebook, webinar gratuito, quiz
+              </div>
+            </div>
+          </div>
+
+          <!-- Meio Inferior -->
+          <div class="relative ml-16 mr-16">
+            <div class="bg-gradient-to-r from-amber-100 to-amber-200 dark:from-amber-900/30 dark:to-amber-800/30 p-4 rounded-lg">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="font-bold text-amber-700 dark:text-amber-400 text-sm">MEIO DO FUNIL (MoFu)</p>
+                  <p class="font-semibold text-neutral-900 dark:text-neutral-100 text-lg">D - Desejo</p>
+                  <p class="text-sm text-neutral-600 dark:text-neutral-400">Lead quer a solucao</p>
+                </div>
+                <div class="text-right">
+                  <p class="text-3xl font-bold text-amber-600">50</p>
+                  <p class="text-xs text-neutral-500">qualificados (20%)</p>
+                </div>
+              </div>
+              <div class="mt-2 text-xs text-neutral-500 dark:text-neutral-400">
+                <strong>Acoes:</strong> Emails de nurturing, casos de sucesso, demonstracao
+              </div>
+            </div>
+          </div>
+
+          <!-- Fundo -->
+          <div class="relative ml-24 mr-24">
+            <div class="bg-gradient-to-r from-emerald-400 to-emerald-500 p-4 rounded-lg text-white">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="font-bold text-emerald-100 text-sm">FUNDO DO FUNIL (BoFu)</p>
+                  <p class="font-semibold text-lg">A - Acao</p>
+                  <p class="text-sm text-white/80">Lead compra!</p>
+                </div>
+                <div class="text-right">
+                  <p class="text-3xl font-bold">10</p>
+                  <p class="text-xs text-white/70">clientes (20%)</p>
+                </div>
+              </div>
+              <div class="mt-2 text-xs text-white/70">
+                <strong>Acoes:</strong> Pagina de vendas, call, checkout, upsell
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+          <p class="text-sm text-neutral-700 dark:text-neutral-300">
+            <strong>Neste exemplo:</strong> De 1000 visitantes, 10 compraram = <strong>1% de conversao total</strong>.
+            Se seu produto custa R$ 500, isso significa R$ 5.000 de faturamento a cada 1000 visitantes.
+          </p>
+        </div>
+      </div>
+
+      <!-- Elementos Essenciais -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🧱</span> Elementos de Cada Etapa
+        </h3>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead class="bg-neutral-100 dark:bg-neutral-700">
+              <tr>
+                <th class="p-3 text-left font-semibold text-neutral-900 dark:text-neutral-100">Etapa</th>
+                <th class="p-3 text-left font-semibold text-neutral-900 dark:text-neutral-100">Objetivo</th>
+                <th class="p-3 text-left font-semibold text-neutral-900 dark:text-neutral-100">Ferramenta</th>
+                <th class="p-3 text-left font-semibold text-neutral-900 dark:text-neutral-100">Metrica Chave</th>
+              </tr>
+            </thead>
+            <tbody class="text-neutral-700 dark:text-neutral-300">
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-medium">Atencao</td>
+                <td class="p-3">Trazer trafego</td>
+                <td class="p-3">Anuncios, conteudo, SEO</td>
+                <td class="p-3">CPM, Alcance</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-medium">Interesse</td>
+                <td class="p-3">Capturar lead</td>
+                <td class="p-3">Landing page, formulario</td>
+                <td class="p-3">Taxa de conversao LP</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-medium">Desejo</td>
+                <td class="p-3">Nutrir e qualificar</td>
+                <td class="p-3">Email, WhatsApp, retargeting</td>
+                <td class="p-3">Taxa de abertura, cliques</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-medium">Acao</td>
+                <td class="p-3">Converter em cliente</td>
+                <td class="p-3">Pagina de vendas, checkout</td>
+                <td class="p-3">Taxa de conversao vendas</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">4.2</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Tipos de Funil de Vendas</h2>
+      </div>
+
+      <!-- Funil de Captura -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📥</span> 1. Funil de Captura (Lead Magnet)
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          O funil mais simples e essencial. Oferece algo de valor em troca do email/WhatsApp.
+        </p>
+
+        <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg mb-4">
+          <p class="font-semibold text-blue-700 dark:text-blue-400 mb-2">Estrutura:</p>
+          <div class="flex flex-wrap items-center gap-2 text-sm">
+            <span class="bg-blue-200 dark:bg-blue-800 px-3 py-1 rounded">Anuncio</span>
+            <span class="text-blue-500">→</span>
+            <span class="bg-blue-200 dark:bg-blue-800 px-3 py-1 rounded">Landing Page</span>
+            <span class="text-blue-500">→</span>
+            <span class="bg-blue-200 dark:bg-blue-800 px-3 py-1 rounded">Pagina de Obrigado</span>
+            <span class="text-blue-500">→</span>
+            <span class="bg-blue-200 dark:bg-blue-800 px-3 py-1 rounded">Sequencia Email</span>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2">Lead Magnets que Funcionam:</p>
+            <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+              <li>• Ebook/Guia PDF</li>
+              <li>• Checklist/Template</li>
+              <li>• Mini-curso gratuito</li>
+              <li>• Planilha pronta</li>
+              <li>• Quiz/Diagnostico</li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2">Metricas Esperadas:</p>
+            <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+              <li>• Taxa LP: 30-50%</li>
+              <li>• Custo por Lead: R$ 2-10</li>
+              <li>• Abertura email: 30-50%</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Funil de Webinar -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🎥</span> 2. Funil de Webinar/Aula Gratuita
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          Ideal para produtos de ticket medio/alto. Educa e vende ao mesmo tempo.
+        </p>
+
+        <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg mb-4">
+          <p class="font-semibold text-purple-700 dark:text-purple-400 mb-2">Estrutura:</p>
+          <div class="flex flex-wrap items-center gap-2 text-sm">
+            <span class="bg-purple-200 dark:bg-purple-800 px-3 py-1 rounded">Anuncio</span>
+            <span class="text-purple-500">→</span>
+            <span class="bg-purple-200 dark:bg-purple-800 px-3 py-1 rounded">LP Inscricao</span>
+            <span class="text-purple-500">→</span>
+            <span class="bg-purple-200 dark:bg-purple-800 px-3 py-1 rounded">Lembrete</span>
+            <span class="text-purple-500">→</span>
+            <span class="bg-purple-200 dark:bg-purple-800 px-3 py-1 rounded">Webinar</span>
+            <span class="text-purple-500">→</span>
+            <span class="bg-purple-200 dark:bg-purple-800 px-3 py-1 rounded">Oferta</span>
+          </div>
+        </div>
+
+        <div class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg">
+          <p class="font-semibold text-amber-800 dark:text-amber-200 mb-2">Estrutura do Webinar (60-90 min):</p>
+          <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+            <li><strong>0-10 min:</strong> Introducao + promessa</li>
+            <li><strong>10-40 min:</strong> Conteudo valioso (resolva 1 problema real)</li>
+            <li><strong>40-50 min:</strong> Transicao para oferta</li>
+            <li><strong>50-70 min:</strong> Apresentacao da oferta completa</li>
+            <li><strong>70-90 min:</strong> Q&A + urgencia</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Funil de Lancamento -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🚀</span> 3. Funil de Lancamento
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          Cria antecipacao e concentra vendas em um periodo curto. Gera picos de faturamento.
+        </p>
+
+        <div class="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded-lg mb-4">
+          <p class="font-semibold text-emerald-700 dark:text-emerald-400 mb-2">Estrutura (7-14 dias):</p>
+          <div class="space-y-2 text-sm">
+            <div class="flex items-center gap-2">
+              <span class="bg-emerald-200 dark:bg-emerald-800 px-2 py-1 rounded text-xs">D-7</span>
+              <span class="text-neutral-700 dark:text-neutral-300">Captacao de leads (lista de espera)</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="bg-emerald-200 dark:bg-emerald-800 px-2 py-1 rounded text-xs">D-3</span>
+              <span class="text-neutral-700 dark:text-neutral-300">CPL 1: Oportunidade</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="bg-emerald-200 dark:bg-emerald-800 px-2 py-1 rounded text-xs">D-2</span>
+              <span class="text-neutral-700 dark:text-neutral-300">CPL 2: Transformacao</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="bg-emerald-200 dark:bg-emerald-800 px-2 py-1 rounded text-xs">D-1</span>
+              <span class="text-neutral-700 dark:text-neutral-300">CPL 3: Experiencia</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="bg-emerald-500 px-2 py-1 rounded text-xs text-white">D-0</span>
+              <span class="text-neutral-700 dark:text-neutral-300 font-semibold">CPL 4: Abertura do carrinho</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="bg-red-200 dark:bg-red-800 px-2 py-1 rounded text-xs">D+7</span>
+              <span class="text-neutral-700 dark:text-neutral-300">Fechamento do carrinho</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
+          <p class="text-red-800 dark:text-red-200 text-sm">
+            <strong>⚠️ Importante:</strong> Lancamentos exigem lista aquecida e muito planejamento. Nao comece por aqui se voce esta iniciando.
+          </p>
+        </div>
+      </div>
+
+      <!-- Funil Perpétuo -->
+      <div class="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-xl p-6 border-2 border-amber-200 dark:border-amber-800">
+        <h3 class="text-lg font-bold text-amber-900 dark:text-amber-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">♾️</span> 4. Funil Perpetuo (Evergreen)
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          Roda 24/7 automaticamente. Ideal apos validar com lancamentos.
+        </p>
+
+        <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg mb-4">
+          <p class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2">Como funciona:</p>
+          <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-2">
+            <li class="flex items-start"><span class="text-amber-500 mr-2">1.</span> Lead entra → Comeca sequencia automatica</li>
+            <li class="flex items-start"><span class="text-amber-500 mr-2">2.</span> Recebe conteudo de valor (3-7 dias)</li>
+            <li class="flex items-start"><span class="text-amber-500 mr-2">3.</span> Ve video de vendas/webinar gravado</li>
+            <li class="flex items-start"><span class="text-amber-500 mr-2">4.</span> Oferta com prazo personalizado (timer)</li>
+            <li class="flex items-start"><span class="text-amber-500 mr-2">5.</span> Follow-up automatico</li>
+          </ul>
+        </div>
+
+        <p class="text-sm text-amber-800 dark:text-amber-200">
+          <strong>Vantagem:</strong> Receita previsivel, sem stress de datas de lancamento, escala com trafego pago.
+        </p>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">4.3</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Metricas Essenciais do Funil</h2>
+      </div>
+
+      <!-- Metricas Principais -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📈</span> As 7 Metricas que Voce Precisa Monitorar
+        </h3>
+
+        <div class="space-y-4">
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">1</div>
+            <div class="flex-1">
+              <div class="flex justify-between items-start">
+                <div>
+                  <p class="font-semibold text-neutral-900 dark:text-neutral-100">CPL - Custo por Lead</p>
+                  <p class="text-sm text-neutral-600 dark:text-neutral-400">Quanto voce paga para adquirir cada lead</p>
+                </div>
+                <div class="text-right">
+                  <p class="text-sm font-mono bg-blue-100 dark:bg-blue-900/30 px-2 py-1 rounded">Investimento / Leads</p>
+                  <p class="text-xs text-neutral-500 mt-1">Benchmark: R$ 3-15</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">2</div>
+            <div class="flex-1">
+              <div class="flex justify-between items-start">
+                <div>
+                  <p class="font-semibold text-neutral-900 dark:text-neutral-100">Taxa de Conversao LP</p>
+                  <p class="text-sm text-neutral-600 dark:text-neutral-400">% de visitantes que viram lead</p>
+                </div>
+                <div class="text-right">
+                  <p class="text-sm font-mono bg-green-100 dark:bg-green-900/30 px-2 py-1 rounded">Leads / Visitantes</p>
+                  <p class="text-xs text-neutral-500 mt-1">Benchmark: 25-50%</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">3</div>
+            <div class="flex-1">
+              <div class="flex justify-between items-start">
+                <div>
+                  <p class="font-semibold text-neutral-900 dark:text-neutral-100">Taxa de Abertura Email</p>
+                  <p class="text-sm text-neutral-600 dark:text-neutral-400">% de emails abertos</p>
+                </div>
+                <div class="text-right">
+                  <p class="text-sm font-mono bg-purple-100 dark:bg-purple-900/30 px-2 py-1 rounded">Aberturas / Enviados</p>
+                  <p class="text-xs text-neutral-500 mt-1">Benchmark: 30-50%</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-10 h-10 bg-amber-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">4</div>
+            <div class="flex-1">
+              <div class="flex justify-between items-start">
+                <div>
+                  <p class="font-semibold text-neutral-900 dark:text-neutral-100">CTR - Taxa de Clique</p>
+                  <p class="text-sm text-neutral-600 dark:text-neutral-400">% de pessoas que clicam nos links</p>
+                </div>
+                <div class="text-right">
+                  <p class="text-sm font-mono bg-amber-100 dark:bg-amber-900/30 px-2 py-1 rounded">Cliques / Aberturas</p>
+                  <p class="text-xs text-neutral-500 mt-1">Benchmark: 5-15%</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">5</div>
+            <div class="flex-1">
+              <div class="flex justify-between items-start">
+                <div>
+                  <p class="font-semibold text-neutral-900 dark:text-neutral-100">Taxa de Conversao Vendas</p>
+                  <p class="text-sm text-neutral-600 dark:text-neutral-400">% de leads que compram</p>
+                </div>
+                <div class="text-right">
+                  <p class="text-sm font-mono bg-red-100 dark:bg-red-900/30 px-2 py-1 rounded">Vendas / Leads</p>
+                  <p class="text-xs text-neutral-500 mt-1">Benchmark: 1-5%</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">6</div>
+            <div class="flex-1">
+              <div class="flex justify-between items-start">
+                <div>
+                  <p class="font-semibold text-neutral-900 dark:text-neutral-100">CAC - Custo de Aquisicao</p>
+                  <p class="text-sm text-neutral-600 dark:text-neutral-400">Quanto custa adquirir um cliente</p>
+                </div>
+                <div class="text-right">
+                  <p class="text-sm font-mono bg-emerald-100 dark:bg-emerald-900/30 px-2 py-1 rounded">Investimento / Clientes</p>
+                  <p class="text-xs text-neutral-500 mt-1">Deve ser < 30% do LTV</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border-2 border-emerald-300 dark:border-emerald-700">
+            <div class="w-10 h-10 bg-emerald-600 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">7</div>
+            <div class="flex-1">
+              <div class="flex justify-between items-start">
+                <div>
+                  <p class="font-semibold text-emerald-900 dark:text-emerald-100">ROAS - Retorno sobre Investimento</p>
+                  <p class="text-sm text-emerald-700 dark:text-emerald-300">A metrica final: quanto retorna para cada R$ 1 investido</p>
+                </div>
+                <div class="text-right">
+                  <p class="text-sm font-mono bg-emerald-200 dark:bg-emerald-800 px-2 py-1 rounded">Receita / Investimento</p>
+                  <p class="text-xs text-emerald-600 dark:text-emerald-400 mt-1">Minimo: 2x | Bom: 3-5x</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Calculadora -->
+      <div class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl p-6 border-2 border-blue-200 dark:border-blue-800">
+        <h3 class="text-lg font-bold text-blue-900 dark:text-blue-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🧮</span> Exemplo de Calculo de Funil
+        </h3>
+
+        <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+          <div class="grid md:grid-cols-2 gap-4 text-sm">
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2">Dados:</p>
+              <ul class="text-neutral-700 dark:text-neutral-300 space-y-1">
+                <li>• Investimento em anuncios: R$ 1.000</li>
+                <li>• Visitantes na LP: 2.000</li>
+                <li>• Leads capturados: 500 (25%)</li>
+                <li>• Vendas realizadas: 10 (2%)</li>
+                <li>• Preco do produto: R$ 497</li>
+              </ul>
+            </div>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2">Metricas:</p>
+              <ul class="text-neutral-700 dark:text-neutral-300 space-y-1">
+                <li>• CPL: R$ 2,00</li>
+                <li>• CAC: R$ 100,00</li>
+                <li>• Receita total: R$ 4.970</li>
+                <li>• <strong class="text-emerald-600">ROAS: 4,97x</strong></li>
+                <li>• <strong class="text-emerald-600">Lucro: R$ 3.970</strong></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">4.4</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Otimizando Seu Funil</h2>
+      </div>
+
+      <!-- Onde Otimizar -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🔧</span> Onde Focar a Otimizacao
+        </h3>
+
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          Pequenas melhorias em cada etapa geram grandes resultados no final. Foque nas alavancas de maior impacto:
+        </p>
+
+        <div class="space-y-4">
+          <div class="border-l-4 border-blue-500 pl-4">
+            <p class="font-bold text-blue-600 dark:text-blue-400 text-sm">PRIORIDADE 1</p>
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Oferta e Pagina de Vendas</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Aumentar conversao de 1% para 2% = dobrar faturamento sem gastar mais.</p>
+            <div class="bg-blue-50 dark:bg-blue-900/20 p-3 rounded mt-2 text-sm">
+              <strong>Teste:</strong> Headlines, garantia, bonus, preco, urgencia
+            </div>
+          </div>
+
+          <div class="border-l-4 border-green-500 pl-4">
+            <p class="font-bold text-green-600 dark:text-green-400 text-sm">PRIORIDADE 2</p>
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Landing Page de Captura</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Aumentar de 25% para 40% = 60% mais leads com mesmo trafego.</p>
+            <div class="bg-green-50 dark:bg-green-900/20 p-3 rounded mt-2 text-sm">
+              <strong>Teste:</strong> Titulo, imagem, formulario, lead magnet
+            </div>
+          </div>
+
+          <div class="border-l-4 border-purple-500 pl-4">
+            <p class="font-bold text-purple-600 dark:text-purple-400 text-sm">PRIORIDADE 3</p>
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Sequencia de Emails/WhatsApp</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Melhorar abertura e cliques = mais pessoas vendo sua oferta.</p>
+            <div class="bg-purple-50 dark:bg-purple-900/20 p-3 rounded mt-2 text-sm">
+              <strong>Teste:</strong> Assuntos, horarios, frequencia, CTA
+            </div>
+          </div>
+
+          <div class="border-l-4 border-amber-500 pl-4">
+            <p class="font-bold text-amber-600 dark:text-amber-400 text-sm">PRIORIDADE 4</p>
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Anuncios/Trafego</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Reduzir CPL = mais leads com mesmo orcamento.</p>
+            <div class="bg-amber-50 dark:bg-amber-900/20 p-3 rounded mt-2 text-sm">
+              <strong>Teste:</strong> Criativo, copy, publico, canal
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Framework de Testes -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🧪</span> Framework de Testes A/B
+        </h3>
+
+        <div class="grid md:grid-cols-2 gap-4 mb-4">
+          <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+            <p class="font-semibold text-green-700 dark:text-green-400 mb-2">✅ Regras do Teste</p>
+            <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+              <li>• Teste UMA variavel por vez</li>
+              <li>• Espere volume suficiente (min 100 conversoes)</li>
+              <li>• Use ferramentas estatisticas</li>
+              <li>• Documente todos os testes</li>
+            </ul>
+          </div>
+          <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
+            <p class="font-semibold text-red-700 dark:text-red-400 mb-2">❌ Erros Comuns</p>
+            <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+              <li>• Parar teste cedo demais</li>
+              <li>• Testar muitas coisas juntas</li>
+              <li>• Ignorar significancia estatistica</li>
+              <li>• Nao documentar aprendizados</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+          <p class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2">Ordem de Elementos para Testar:</p>
+          <div class="flex flex-wrap gap-2 text-sm">
+            <span class="bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-2 py-1 rounded">1. Headline</span>
+            <span class="bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-2 py-1 rounded">2. CTA</span>
+            <span class="bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-2 py-1 rounded">3. Imagem</span>
+            <span class="bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-2 py-1 rounded">4. Preco</span>
+            <span class="bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-2 py-1 rounded">5. Oferta</span>
+            <span class="bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-2 py-1 rounded">6. Layout</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ferramentas -->
+      <div class="bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 rounded-xl p-6 border-2 border-purple-200 dark:border-purple-800">
+        <h3 class="text-lg font-bold text-purple-900 dark:text-purple-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🛠️</span> Ferramentas Recomendadas
+        </h3>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2">Landing Pages</p>
+            <ul class="text-sm text-neutral-600 dark:text-neutral-400 space-y-1">
+              <li>• Carrd (gratis/barato)</li>
+              <li>• Leadpages</li>
+              <li>• ClickFunnels</li>
+              <li>• WordPress + Elementor</li>
+            </ul>
+          </div>
+          <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2">Email Marketing</p>
+            <ul class="text-sm text-neutral-600 dark:text-neutral-400 space-y-1">
+              <li>• Mailchimp (gratis ate 500)</li>
+              <li>• ActiveCampaign</li>
+              <li>• ConvertKit</li>
+              <li>• RD Station</li>
+            </ul>
+          </div>
+          <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2">Automacao WhatsApp</p>
+            <ul class="text-sm text-neutral-600 dark:text-neutral-400 space-y-1">
+              <li>• ManyChat</li>
+              <li>• ChatGuru</li>
+              <li>• Zap Funnels</li>
+              <li>• Take Blip</li>
+            </ul>
+          </div>
+          <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2">Analytics</p>
+            <ul class="text-sm text-neutral-600 dark:text-neutral-400 space-y-1">
+              <li>• Google Analytics (gratis)</li>
+              <li>• Hotjar (mapas de calor)</li>
+              <li>• Meta Pixel</li>
+              <li>• UTM Builder</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resumo e Proximos Passos -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-emerald-600 to-green-600 rounded-2xl p-8 text-white">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="text-3xl mr-3">🎓</span> Resumo do Modulo 4
+        </h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Estrutura</p>
+            <p class="text-sm text-white/90">AIDA: Atencao → Interesse → Desejo → Acao. Cada etapa filtra e qualifica.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Tipos</p>
+            <p class="text-sm text-white/90">Captura, Webinar, Lancamento, Perpetuo. Escolha baseado no seu momento.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Metricas</p>
+            <p class="text-sm text-white/90">CPL, CAC, conversao, ROAS. Se nao mede, nao pode melhorar.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Otimizacao</p>
+            <p class="text-sm text-white/90">Foque no fundo do funil primeiro. Teste uma variavel por vez.</p>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="modulo3.html" class="bg-white/20 text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-white/30 transition-colors border border-white/30">
+            ← Modulo 3: Estrategias
+          </a>
+          <a href="modulo5.html" class="bg-white text-emerald-600 px-6 py-3 rounded-lg font-semibold text-center hover:bg-neutral-100 transition-colors">
+            Proximo: Modulo 5 - Fechamento →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-900 text-white py-8">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-neutral-400">&copy; 2025 TDS - Transformacao Digital e Social</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Theme Toggle
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+    if (localStorage.getItem('color-theme') === 'dark' ||
+        (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      themeToggleLightIcon.classList.remove('hidden');
+    } else {
+      themeToggleDarkIcon.classList.remove('hidden');
+    }
+
+    themeToggleBtn.addEventListener('click', function() {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+    });
+  </script>
+
+</body>
+</html>

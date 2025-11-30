@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 2: Precificacao e Estrategia de Vendas - TDS</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .prose h2 { scroll-margin-top: 100px; }
+  </style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900 transition-colors">
+
+  <!-- Navegacao -->
+  <nav class="sticky top-0 z-50 bg-white dark:bg-neutral-800 shadow-sm">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="text-2xl font-bold text-blue-600 dark:text-blue-400">TDS</a>
+          <span class="text-neutral-400">/</span>
+          <a href="../index.html" class="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline">Vendas</a>
+          <span class="text-neutral-400">/</span>
+          <span class="text-neutral-600 dark:text-neutral-400">Modulo 2</span>
+        </div>
+
+        <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-700" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero do Modulo -->
+  <header class="bg-gradient-to-br from-emerald-600 via-emerald-700 to-green-700 py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+      <a href="../index.html" class="inline-flex items-center text-emerald-200 hover:text-white mb-4 text-sm">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Voltar para Trilha de Vendas
+      </a>
+      <div class="flex items-center gap-4 mb-4">
+        <span class="text-5xl">💰</span>
+        <div>
+          <p class="text-emerald-200 text-sm font-medium">MODULO 2</p>
+          <h1 class="text-3xl sm:text-4xl font-bold">Precificacao e Estrategia de Vendas</h1>
+        </div>
+      </div>
+      <p class="text-lg text-white/90 max-w-2xl mb-4">
+        Domine a arte de precificar seus produtos e servicos. Aprenda estrategias comprovadas para maximizar lucros e conquistar clientes com precos justos.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">5 horas</span>
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">4 topicos</span>
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">Nivel: Intermediario</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Indice -->
+  <div class="bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 py-4 sticky top-16 z-40">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2 text-sm overflow-x-auto pb-2">
+        <span class="text-neutral-500 dark:text-neutral-400 whitespace-nowrap">Ir para:</span>
+        <a href="#topico-1" class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full whitespace-nowrap hover:bg-emerald-200 dark:hover:bg-emerald-900/50">2.1 Psicologia</a>
+        <a href="#topico-2" class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full whitespace-nowrap hover:bg-emerald-200 dark:hover:bg-emerald-900/50">2.2 Metodos</a>
+        <a href="#topico-3" class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full whitespace-nowrap hover:bg-emerald-200 dark:hover:bg-emerald-900/50">2.3 Proposta</a>
+        <a href="#topico-4" class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full whitespace-nowrap hover:bg-emerald-200 dark:hover:bg-emerald-900/50">2.4 Erros</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conteudo Principal -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Introducao -->
+    <div class="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 rounded-2xl p-8 mb-12 border-2 border-emerald-200 dark:border-emerald-800">
+      <h2 class="text-2xl font-bold text-emerald-900 dark:text-emerald-100 mb-4 flex items-center">
+        <span class="text-3xl mr-3">🎯</span>
+        O Que Voce Vai Aprender Neste Modulo
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <ul class="space-y-2 text-neutral-700 dark:text-neutral-300">
+          <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-1">✓</span> Entender a psicologia por tras dos precos</li>
+          <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-1">✓</span> Calcular precos baseados em custos e valor</li>
+          <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-1">✓</span> Criar propostas irresistiveis</li>
+        </ul>
+        <ul class="space-y-2 text-neutral-700 dark:text-neutral-300">
+          <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-1">✓</span> Usar ancoragem para aumentar conversoes</li>
+          <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-1">✓</span> Evitar os erros mais comuns de precificacao</li>
+          <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-1">✓</span> Posicionar-se no mercado com confianca</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">2.1</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Psicologia de Precos</h2>
+      </div>
+
+      <!-- Conceito Principal -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🧠</span> O Que E
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4 leading-relaxed">
+          A psicologia de precos estuda como o cerebro humano <strong>percebe e processa valores monetarios</strong>. Nao e o preco em si que importa, mas como ele e apresentado e percebido pelo cliente.
+        </p>
+        <div class="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded-lg border-l-4 border-emerald-500">
+          <p class="text-emerald-800 dark:text-emerald-200 font-semibold text-lg">
+            "Preco e o que voce paga. Valor e o que voce leva."
+          </p>
+          <p class="text-emerald-700 dark:text-emerald-300 text-sm mt-1">- Warren Buffett</p>
+        </div>
+      </div>
+
+      <!-- Efeito Ancoragem -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">⚓</span> O Poder da Ancoragem
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4 leading-relaxed">
+          O cerebro usa o <strong>primeiro numero que ve como referencia</strong> (ancora) para julgar todos os valores subsequentes. Este e um dos principios mais poderosos em vendas.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-4 mb-4">
+          <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
+            <p class="font-semibold text-red-700 dark:text-red-400 mb-2">❌ Sem Ancoragem</p>
+            <div class="text-neutral-700 dark:text-neutral-300">
+              <p class="text-2xl font-bold">R$ 497</p>
+              <p class="text-sm mt-1">Cliente pensa: "E caro ou barato?"</p>
+            </div>
+          </div>
+          <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+            <p class="font-semibold text-green-700 dark:text-green-400 mb-2">✅ Com Ancoragem</p>
+            <div class="text-neutral-700 dark:text-neutral-300">
+              <p class="text-lg line-through text-neutral-500">De R$ 1.997</p>
+              <p class="text-2xl font-bold text-green-600">Por R$ 497</p>
+              <p class="text-sm mt-1">Cliente pensa: "Estou economizando R$ 1.500!"</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg">
+          <p class="font-semibold text-amber-800 dark:text-amber-200 mb-2">💡 Dica Pratica</p>
+          <p class="text-neutral-700 dark:text-neutral-300 text-sm">
+            Sempre mostre o valor "completo" ou "original" antes do preco promocional. Isso cria uma ancora mental que faz o preco real parecer uma barganha.
+          </p>
+        </div>
+      </div>
+
+      <!-- Precos Psicologicos -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🔢</span> Precos que Vendem Mais
+        </h3>
+
+        <div class="space-y-4">
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">.97</div>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Terminacao em 7 ou 9</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">R$ 97 parece MUITO menor que R$ 100. O cerebro processa apenas o primeiro digito. Use: R$ 47, R$ 97, R$ 197, R$ 497.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">00</div>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Numeros Redondos para Premium</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Para produtos de luxo, use R$ 500, R$ 1.000, R$ 5.000. Numeros redondos transmitem qualidade e prestigio.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">12x</div>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Fracione o Valor</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">"12x de R$ 97" parece mais acessivel que "R$ 1.164". Sempre mostre a parcela primeiro.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparacao de Precos -->
+      <div class="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-xl p-6 border-2 border-amber-200 dark:border-amber-800">
+        <h3 class="text-lg font-bold text-amber-900 dark:text-amber-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📊</span> Framework: Comparacao Inteligente
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          Compare seu preco com algo mais caro que o cliente ja conhece:
+        </p>
+        <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+          <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-2">
+            <li class="flex items-start"><span class="text-amber-500 mr-2">→</span> "Menos que uma pizza por semana" (R$ 30-40/semana = R$ 160/mes)</li>
+            <li class="flex items-start"><span class="text-amber-500 mr-2">→</span> "O preco de um cafe por dia" (R$ 10/dia = R$ 300/mes)</li>
+            <li class="flex items-start"><span class="text-amber-500 mr-2">→</span> "Custa menos que contratar um funcionario" (R$ 2.000+/mes)</li>
+            <li class="flex items-start"><span class="text-amber-500 mr-2">→</span> "Investimento de 3 meses = retorno de anos"</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">2.2</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Metodos de Precificacao</h2>
+      </div>
+
+      <!-- Conceito Principal -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🔧</span> Os 3 Metodos Principais
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4 leading-relaxed">
+          Existem tres abordagens fundamentais para precificar. A maioria dos negocios usa uma combinacao delas.
+        </p>
+      </div>
+
+      <!-- Metodo 1: Custos -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">1️⃣</span> Precificacao por Custo + Margem
+        </h3>
+
+        <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg mb-4">
+          <p class="font-mono text-blue-800 dark:text-blue-200 text-lg text-center">
+            Preco = Custo Total + Margem de Lucro
+          </p>
+        </div>
+
+        <div class="overflow-x-auto mb-4">
+          <table class="w-full text-sm">
+            <thead class="bg-neutral-100 dark:bg-neutral-700">
+              <tr>
+                <th class="p-3 text-left font-semibold text-neutral-900 dark:text-neutral-100">Componente</th>
+                <th class="p-3 text-left font-semibold text-neutral-900 dark:text-neutral-100">Exemplo (Curso Online)</th>
+                <th class="p-3 text-left font-semibold text-neutral-900 dark:text-neutral-100">Valor</th>
+              </tr>
+            </thead>
+            <tbody class="text-neutral-700 dark:text-neutral-300">
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3">Custos Fixos (mensal)</td>
+                <td class="p-3">Plataforma, internet, equipamentos</td>
+                <td class="p-3">R$ 500</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3">Custos Variaveis (por venda)</td>
+                <td class="p-3">Gateway, taxa de cartao (5%)</td>
+                <td class="p-3">R$ 25</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3">Custo de Aquisicao (CAC)</td>
+                <td class="p-3">Anuncios para 1 venda</td>
+                <td class="p-3">R$ 100</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-semibold">Custo Total por Venda</td>
+                <td class="p-3"></td>
+                <td class="p-3 font-semibold">R$ 125 + rateio fixo</td>
+              </tr>
+              <tr class="bg-emerald-50 dark:bg-emerald-900/20">
+                <td class="p-3 font-semibold">Preco com 100% margem</td>
+                <td class="p-3"></td>
+                <td class="p-3 font-bold text-emerald-600">R$ 497 (min)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg">
+          <p class="text-amber-800 dark:text-amber-200 text-sm">
+            <strong>⚠️ Limitacao:</strong> Este metodo ignora quanto o cliente esta disposto a pagar. Voce pode estar deixando dinheiro na mesa.
+          </p>
+        </div>
+      </div>
+
+      <!-- Metodo 2: Concorrencia -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">2️⃣</span> Precificacao por Concorrencia
+        </h3>
+
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          Analise o mercado e posicione-se estrategicamente em relacao aos concorrentes.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-4 mb-4">
+          <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg text-center">
+            <p class="text-3xl mb-2">🏷️</p>
+            <p class="font-semibold text-red-700 dark:text-red-400">Abaixo do Mercado</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">Foco em volume. Guerra de precos. Margens apertadas.</p>
+          </div>
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg text-center">
+            <p class="text-3xl mb-2">⚖️</p>
+            <p class="font-semibold text-blue-700 dark:text-blue-400">Na Media do Mercado</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">Seguro. Compete por diferenciacao. Menos arriscado.</p>
+          </div>
+          <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg text-center">
+            <p class="text-3xl mb-2">👑</p>
+            <p class="font-semibold text-green-700 dark:text-green-400">Acima do Mercado</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">Premium. Requer diferencial claro. Maiores margens.</p>
+          </div>
+        </div>
+
+        <div class="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded-lg">
+          <p class="text-emerald-800 dark:text-emerald-200">
+            <strong>💡 Recomendacao:</strong> Comece na media e suba gradualmente conforme construir autoridade e resultados comprovados.
+          </p>
+        </div>
+      </div>
+
+      <!-- Metodo 3: Valor -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">3️⃣</span> Precificacao por Valor (O Melhor Metodo)
+        </h3>
+
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          Baseie seu preco no <strong>valor que voce gera</strong> para o cliente, nao no seu custo.
+        </p>
+
+        <div class="bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 p-6 rounded-lg mb-4">
+          <h4 class="font-bold text-emerald-800 dark:text-emerald-200 mb-3">Framework: Calculo de Valor</h4>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between bg-white dark:bg-neutral-800 p-3 rounded">
+              <span class="text-neutral-700 dark:text-neutral-300">Quanto o cliente ganha/economiza com sua solucao?</span>
+              <span class="font-bold text-emerald-600">R$ 10.000</span>
+            </div>
+            <div class="flex items-center justify-between bg-white dark:bg-neutral-800 p-3 rounded">
+              <span class="text-neutral-700 dark:text-neutral-300">Seu preco deve ser 10-20% desse valor</span>
+              <span class="font-bold text-emerald-600">R$ 1.000 - 2.000</span>
+            </div>
+            <div class="flex items-center justify-between bg-white dark:bg-neutral-800 p-3 rounded">
+              <span class="text-neutral-700 dark:text-neutral-300">ROI para o cliente</span>
+              <span class="font-bold text-emerald-600">5x - 10x</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg">
+          <p class="font-semibold text-amber-800 dark:text-amber-200 mb-2">📖 Exemplo Pratico</p>
+          <p class="text-neutral-700 dark:text-neutral-300 text-sm">
+            Se seu curso ajuda o cliente a ganhar R$ 5.000/mes a mais, voce pode cobrar R$ 2.000-3.000 pelo curso completo. O cliente ainda tera ROI de 2-3x no primeiro mes!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">2.3</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Criando Propostas Irresistiveis</h2>
+      </div>
+
+      <!-- Estrutura da Oferta -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🎁</span> Anatomia de Uma Oferta Irresistivel
+        </h3>
+
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          Uma oferta irresistivel faz o cliente pensar: <strong>"Seria burrice nao comprar isso!"</strong>
+        </p>
+
+        <div class="space-y-4">
+          <div class="border-l-4 border-emerald-500 pl-4">
+            <p class="font-bold text-emerald-600 dark:text-emerald-400 text-sm">ELEMENTO 1</p>
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 text-lg">Transformacao Clara</p>
+            <p class="text-neutral-600 dark:text-neutral-400 mt-1">De onde o cliente esta → Para onde ele vai. Seja especifico.</p>
+            <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded mt-2 text-sm">
+              <span class="text-red-500">❌</span> "Aprenda marketing digital"<br>
+              <span class="text-green-500">✅</span> "De zero a 10 clientes em 60 dias usando Instagram"
+            </div>
+          </div>
+
+          <div class="border-l-4 border-blue-500 pl-4">
+            <p class="font-bold text-blue-600 dark:text-blue-400 text-sm">ELEMENTO 2</p>
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 text-lg">Bonus que Agregam Valor</p>
+            <p class="text-neutral-600 dark:text-neutral-400 mt-1">Adicione bonus que resolvem objecoes ou aceleram resultados.</p>
+            <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded mt-2 text-sm">
+              <ul class="space-y-1 text-neutral-700 dark:text-neutral-300">
+                <li>+ Templates prontos (economiza tempo)</li>
+                <li>+ Grupo de suporte (reduz medo de ficar sozinho)</li>
+                <li>+ Sessao de consultoria (atencao personalizada)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="border-l-4 border-purple-500 pl-4">
+            <p class="font-bold text-purple-600 dark:text-purple-400 text-sm">ELEMENTO 3</p>
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 text-lg">Garantia que Remove Risco</p>
+            <p class="text-neutral-600 dark:text-neutral-400 mt-1">Transfira o risco de volta para voce.</p>
+            <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded mt-2 text-sm">
+              <ul class="space-y-1 text-neutral-700 dark:text-neutral-300">
+                <li>• Garantia de 7/15/30 dias incondicional</li>
+                <li>• Garantia de resultado ("Se nao funcionar, devolvemos")</li>
+                <li>• Garantia de satisfacao + bonus ("Se nao gostar, fique com os bonus")</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="border-l-4 border-amber-500 pl-4">
+            <p class="font-bold text-amber-600 dark:text-amber-400 text-sm">ELEMENTO 4</p>
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 text-lg">Urgencia/Escassez Real</p>
+            <p class="text-neutral-600 dark:text-neutral-400 mt-1">De um motivo para agir AGORA.</p>
+            <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded mt-2 text-sm">
+              <ul class="space-y-1 text-neutral-700 dark:text-neutral-300">
+                <li>• Vagas limitadas (mentoria tem limite real)</li>
+                <li>• Preco de lancamento (sobe depois)</li>
+                <li>• Bonus expira (so ate sexta-feira)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stack de Valor -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📚</span> Stack de Valor: Mostre Tudo que Esta Incluido
+        </h3>
+
+        <div class="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 p-6 rounded-lg">
+          <p class="text-center text-neutral-500 dark:text-neutral-400 mb-4">Exemplo de Stack para Curso de R$ 997</p>
+
+          <div class="space-y-3">
+            <div class="flex justify-between items-center bg-white dark:bg-neutral-800 p-3 rounded">
+              <span class="text-neutral-700 dark:text-neutral-300">Curso Completo (40+ aulas)</span>
+              <span class="font-semibold text-neutral-900 dark:text-neutral-100">R$ 1.997</span>
+            </div>
+            <div class="flex justify-between items-center bg-white dark:bg-neutral-800 p-3 rounded">
+              <span class="text-neutral-700 dark:text-neutral-300">Pack de Templates Exclusivos</span>
+              <span class="font-semibold text-neutral-900 dark:text-neutral-100">R$ 497</span>
+            </div>
+            <div class="flex justify-between items-center bg-white dark:bg-neutral-800 p-3 rounded">
+              <span class="text-neutral-700 dark:text-neutral-300">Acesso ao Grupo VIP</span>
+              <span class="font-semibold text-neutral-900 dark:text-neutral-100">R$ 297</span>
+            </div>
+            <div class="flex justify-between items-center bg-white dark:bg-neutral-800 p-3 rounded">
+              <span class="text-neutral-700 dark:text-neutral-300">Sessao de Consultoria 1:1</span>
+              <span class="font-semibold text-neutral-900 dark:text-neutral-100">R$ 500</span>
+            </div>
+            <div class="flex justify-between items-center bg-white dark:bg-neutral-800 p-3 rounded border-t-2 border-neutral-300 dark:border-neutral-600 pt-3">
+              <span class="font-bold text-neutral-900 dark:text-neutral-100">Valor Total:</span>
+              <span class="font-bold text-neutral-900 dark:text-neutral-100 line-through">R$ 3.291</span>
+            </div>
+            <div class="flex justify-between items-center bg-emerald-500 text-white p-4 rounded-lg">
+              <span class="font-bold text-lg">HOJE POR APENAS:</span>
+              <span class="font-bold text-2xl">R$ 997</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modelo de Pacotes -->
+      <div class="bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 rounded-xl p-6 border-2 border-purple-200 dark:border-purple-800">
+        <h3 class="text-lg font-bold text-purple-900 dark:text-purple-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🎯</span> Estrategia dos 3 Pacotes
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          Oferecer 3 opcoes aumenta conversoes em ate 25%. O pacote do meio e geralmente o mais vendido.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-4">
+          <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+            <p class="text-center font-bold text-lg text-neutral-900 dark:text-neutral-100">Basico</p>
+            <p class="text-center text-3xl font-bold text-neutral-900 dark:text-neutral-100 my-2">R$ 297</p>
+            <ul class="text-sm text-neutral-600 dark:text-neutral-400 space-y-1">
+              <li>• Curso completo</li>
+              <li>• Acesso por 1 ano</li>
+              <li class="text-neutral-400">• Sem bonus</li>
+            </ul>
+          </div>
+          <div class="bg-emerald-500 text-white p-4 rounded-lg transform scale-105 shadow-lg">
+            <p class="text-center text-xs bg-white text-emerald-500 rounded px-2 py-1 mb-2 font-bold">MAIS POPULAR</p>
+            <p class="text-center font-bold text-lg">Profissional</p>
+            <p class="text-center text-3xl font-bold my-2">R$ 497</p>
+            <ul class="text-sm space-y-1">
+              <li>• Curso completo</li>
+              <li>• Acesso vitalicio</li>
+              <li>• Templates + Grupo</li>
+            </ul>
+          </div>
+          <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+            <p class="text-center font-bold text-lg text-neutral-900 dark:text-neutral-100">Premium</p>
+            <p class="text-center text-3xl font-bold text-neutral-900 dark:text-neutral-100 my-2">R$ 997</p>
+            <ul class="text-sm text-neutral-600 dark:text-neutral-400 space-y-1">
+              <li>• Tudo do Profissional</li>
+              <li>• 2 consultorias 1:1</li>
+              <li>• Suporte prioritario</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">2.4</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Erros Fatais de Precificacao</h2>
+      </div>
+
+      <!-- Lista de Erros -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🚫</span> Os 5 Erros que Destroem Negocios
+        </h3>
+
+        <div class="space-y-6">
+          <div class="border-l-4 border-red-500 pl-4 py-2">
+            <p class="font-bold text-red-600 dark:text-red-400 text-sm">ERRO #1</p>
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 text-lg">Cobrar Muito Barato</p>
+            <p class="text-neutral-600 dark:text-neutral-400 mt-1">Sindrome do impostor faz voce desvalorizar seu trabalho. Preco baixo atrai clientes problematicos e nao cobre seus custos.</p>
+            <div class="bg-green-50 dark:bg-green-900/20 p-3 rounded mt-2 text-sm">
+              <strong class="text-green-700 dark:text-green-400">Solucao:</strong>
+              <span class="text-neutral-700 dark:text-neutral-300">Calcule seu custo real + margem minima de 100%. Se o mercado nao pagar, mude o publico.</span>
+            </div>
+          </div>
+
+          <div class="border-l-4 border-red-500 pl-4 py-2">
+            <p class="font-bold text-red-600 dark:text-red-400 text-sm">ERRO #2</p>
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 text-lg">Nao Ter Pacotes/Opcoes</p>
+            <p class="text-neutral-600 dark:text-neutral-400 mt-1">Com apenas uma opcao, o cliente decide "sim ou nao". Com 3 opcoes, decide "qual delas".</p>
+            <div class="bg-green-50 dark:bg-green-900/20 p-3 rounded mt-2 text-sm">
+              <strong class="text-green-700 dark:text-green-400">Solucao:</strong>
+              <span class="text-neutral-700 dark:text-neutral-300">Sempre ofereca 3 pacotes. O do meio deve ter o melhor custo-beneficio.</span>
+            </div>
+          </div>
+
+          <div class="border-l-4 border-red-500 pl-4 py-2">
+            <p class="font-bold text-red-600 dark:text-red-400 text-sm">ERRO #3</p>
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 text-lg">Dar Desconto Facil Demais</p>
+            <p class="text-neutral-600 dark:text-neutral-400 mt-1">Descontos treinam clientes a sempre pedir desconto. Destroem sua margem e autoridade.</p>
+            <div class="bg-green-50 dark:bg-green-900/20 p-3 rounded mt-2 text-sm">
+              <strong class="text-green-700 dark:text-green-400">Solucao:</strong>
+              <span class="text-neutral-700 dark:text-neutral-300">Em vez de desconto, ofereca mais valor: "Nao consigo baixar o preco, mas posso incluir uma sessao extra."</span>
+            </div>
+          </div>
+
+          <div class="border-l-4 border-red-500 pl-4 py-2">
+            <p class="font-bold text-red-600 dark:text-red-400 text-sm">ERRO #4</p>
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 text-lg">Cobrar por Hora (Servicos)</p>
+            <p class="text-neutral-600 dark:text-neutral-400 mt-1">Voce e penalizado por ser eficiente. Quanto melhor voce fica, menos ganha por projeto.</p>
+            <div class="bg-green-50 dark:bg-green-900/20 p-3 rounded mt-2 text-sm">
+              <strong class="text-green-700 dark:text-green-400">Solucao:</strong>
+              <span class="text-neutral-700 dark:text-neutral-300">Cobre por projeto ou por resultado. "O site custa R$ 5.000" em vez de "R$ 100/hora".</span>
+            </div>
+          </div>
+
+          <div class="border-l-4 border-red-500 pl-4 py-2">
+            <p class="font-bold text-red-600 dark:text-red-400 text-sm">ERRO #5</p>
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 text-lg">Nao Comunicar o Valor</p>
+            <p class="text-neutral-600 dark:text-neutral-400 mt-1">Se o cliente nao entende o valor, qualquer preco parece caro. O problema nao e o preco, e a comunicacao.</p>
+            <div class="bg-green-50 dark:bg-green-900/20 p-3 rounded mt-2 text-sm">
+              <strong class="text-green-700 dark:text-green-400">Solucao:</strong>
+              <span class="text-neutral-700 dark:text-neutral-300">Sempre mostre o ROI. "Voce investe R$ 2.000 e em 3 meses tera retornado R$ 10.000."</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Checklist Final -->
+      <div class="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-xl p-6 border-2 border-amber-200 dark:border-amber-800">
+        <h3 class="text-lg font-bold text-amber-900 dark:text-amber-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">✅</span> Checklist de Precificacao
+        </h3>
+        <div class="grid md:grid-cols-2 gap-4">
+          <ul class="space-y-2 text-neutral-700 dark:text-neutral-300 text-sm">
+            <li class="flex items-start"><span class="text-amber-500 mr-2">□</span> Calculei meu custo total por venda</li>
+            <li class="flex items-start"><span class="text-amber-500 mr-2">□</span> Pesquisei precos dos concorrentes</li>
+            <li class="flex items-start"><span class="text-amber-500 mr-2">□</span> Estimei o valor que gero para o cliente</li>
+            <li class="flex items-start"><span class="text-amber-500 mr-2">□</span> Criei pelo menos 3 pacotes/opcoes</li>
+          </ul>
+          <ul class="space-y-2 text-neutral-700 dark:text-neutral-300 text-sm">
+            <li class="flex items-start"><span class="text-amber-500 mr-2">□</span> Montei um stack de valor completo</li>
+            <li class="flex items-start"><span class="text-amber-500 mr-2">□</span> Incluí garantia para remover risco</li>
+            <li class="flex items-start"><span class="text-amber-500 mr-2">□</span> Tenho urgencia/escassez real</li>
+            <li class="flex items-start"><span class="text-amber-500 mr-2">□</span> Testei o preco com clientes reais</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resumo e Proximos Passos -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-emerald-600 to-green-600 rounded-2xl p-8 text-white">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="text-3xl mr-3">🎓</span> Resumo do Modulo 2
+        </h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Psicologia</p>
+            <p class="text-sm text-white/90">Use ancoragem, precos em .97, e comparacoes inteligentes.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Metodos</p>
+            <p class="text-sm text-white/90">Precifique por valor, nao por custo. Conheca seus numeros.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Ofertas</p>
+            <p class="text-sm text-white/90">Transformacao + Bonus + Garantia + Urgencia = Irresistivel.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Evite</p>
+            <p class="text-sm text-white/90">Preco baixo, desconto facil, cobrar por hora.</p>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="modulo1.html" class="bg-white/20 text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-white/30 transition-colors border border-white/30">
+            ← Modulo 1: Fundamentos
+          </a>
+          <a href="modulo3.html" class="bg-white text-emerald-600 px-6 py-3 rounded-lg font-semibold text-center hover:bg-neutral-100 transition-colors">
+            Proximo: Modulo 3 - Estrategias →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-900 text-white py-8">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-neutral-400">&copy; 2025 TDS - Transformacao Digital e Social</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Theme Toggle
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+    if (localStorage.getItem('color-theme') === 'dark' ||
+        (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      themeToggleLightIcon.classList.remove('hidden');
+    } else {
+      themeToggleDarkIcon.classList.remove('hidden');
+    }
+
+    themeToggleBtn.addEventListener('click', function() {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+    });
+  </script>
+
+</body>
+</html>

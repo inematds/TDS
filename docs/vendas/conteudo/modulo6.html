@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 6: IA e Automacao em Vendas - TDS</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .prose h2 { scroll-margin-top: 100px; }
+  </style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900 transition-colors">
+
+  <!-- Navegacao -->
+  <nav class="sticky top-0 z-50 bg-white dark:bg-neutral-800 shadow-sm">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="text-2xl font-bold text-blue-600 dark:text-blue-400">TDS</a>
+          <span class="text-neutral-400">/</span>
+          <a href="../index.html" class="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline">Vendas</a>
+          <span class="text-neutral-400">/</span>
+          <span class="text-neutral-600 dark:text-neutral-400">Modulo 6</span>
+        </div>
+
+        <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-700" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero do Modulo -->
+  <header class="bg-gradient-to-br from-emerald-600 via-emerald-700 to-green-700 py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+      <a href="../index.html" class="inline-flex items-center text-emerald-200 hover:text-white mb-4 text-sm">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Voltar para Trilha de Vendas
+      </a>
+      <div class="flex items-center gap-4 mb-4">
+        <span class="text-5xl">🤖</span>
+        <div>
+          <p class="text-emerald-200 text-sm font-medium">MODULO 6</p>
+          <h1 class="text-3xl sm:text-4xl font-bold">IA e Automacao em Vendas</h1>
+        </div>
+      </div>
+      <p class="text-lg text-white/90 max-w-2xl mb-4">
+        Multiplique sua produtividade com inteligencia artificial. Aprenda a usar IA para prospectar, criar conteudo, automatizar follow-ups e vender mais com menos esforco.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">4 horas</span>
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">4 topicos</span>
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">Nivel: Avancado</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Indice -->
+  <div class="bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 py-4 sticky top-16 z-40">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2 text-sm overflow-x-auto pb-2">
+        <span class="text-neutral-500 dark:text-neutral-400 whitespace-nowrap">Ir para:</span>
+        <a href="#topico-1" class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full whitespace-nowrap hover:bg-emerald-200 dark:hover:bg-emerald-900/50">6.1 Fundamentos</a>
+        <a href="#topico-2" class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full whitespace-nowrap hover:bg-emerald-200 dark:hover:bg-emerald-900/50">6.2 Prompts</a>
+        <a href="#topico-3" class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full whitespace-nowrap hover:bg-emerald-200 dark:hover:bg-emerald-900/50">6.3 Automacao</a>
+        <a href="#topico-4" class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full whitespace-nowrap hover:bg-emerald-200 dark:hover:bg-emerald-900/50">6.4 Ferramentas</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conteudo Principal -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Introducao -->
+    <div class="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 rounded-2xl p-8 mb-12 border-2 border-emerald-200 dark:border-emerald-800">
+      <h2 class="text-2xl font-bold text-emerald-900 dark:text-emerald-100 mb-4 flex items-center">
+        <span class="text-3xl mr-3">🎯</span>
+        O Que Voce Vai Aprender Neste Modulo
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <ul class="space-y-2 text-neutral-700 dark:text-neutral-300">
+          <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-1">✓</span> Usar ChatGPT para vendas como um profissional</li>
+          <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-1">✓</span> Criar prompts que geram resultados reais</li>
+          <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-1">✓</span> Automatizar prospeccao e follow-up</li>
+        </ul>
+        <ul class="space-y-2 text-neutral-700 dark:text-neutral-300">
+          <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-1">✓</span> Gerar conteudo de vendas em minutos</li>
+          <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-1">✓</span> Criar chatbots de atendimento</li>
+          <li class="flex items-start"><span class="text-emerald-500 mr-2 mt-1">✓</span> Integrar IA ao seu fluxo de vendas</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Alerta IA -->
+    <div class="bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 rounded-xl p-6 mb-12 border-2 border-purple-200 dark:border-purple-800">
+      <h3 class="text-lg font-bold text-purple-900 dark:text-purple-100 mb-2 flex items-center">
+        <span class="text-2xl mr-2">⚡</span> A Revolucao da IA em Vendas
+      </h3>
+      <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+        Em 2024-2025, a IA esta transformando completamente como vendemos. Profissionais que dominam essas ferramentas estao tendo resultados <strong>5-10x superiores</strong> aos que nao usam.
+      </p>
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="bg-white dark:bg-neutral-800 p-3 rounded-lg text-center">
+          <p class="text-2xl font-bold text-purple-600">70%</p>
+          <p class="text-xs text-neutral-600 dark:text-neutral-400">das habilidades profissionais mudarao ate 2030</p>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-3 rounded-lg text-center">
+          <p class="text-2xl font-bold text-purple-600">11M</p>
+          <p class="text-xs text-neutral-600 dark:text-neutral-400">novos empregos serao criados com IA</p>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-3 rounded-lg text-center">
+          <p class="text-2xl font-bold text-purple-600">3h/dia</p>
+          <p class="text-xs text-neutral-600 dark:text-neutral-400">economizadas em tarefas repetitivas</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">6.1</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Fundamentos de IA para Vendas</h2>
+      </div>
+
+      <!-- O que IA pode fazer -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🧠</span> O Que a IA PODE Fazer por Voce
+        </h3>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+            <p class="font-semibold text-green-700 dark:text-green-400 mb-2">✅ IA Faz Bem</p>
+            <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+              <li>• Escrever emails e mensagens</li>
+              <li>• Criar roteiros de vendas</li>
+              <li>• Pesquisar sobre prospects</li>
+              <li>• Gerar ideias de conteudo</li>
+              <li>• Responder perguntas frequentes</li>
+              <li>• Analisar dados e padroes</li>
+              <li>• Automatizar tarefas repetitivas</li>
+            </ul>
+          </div>
+          <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
+            <p class="font-semibold text-red-700 dark:text-red-400 mb-2">❌ IA NAO Substitui</p>
+            <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+              <li>• Conexao humana genuina</li>
+              <li>• Empatia e leitura emocional</li>
+              <li>• Negociacao complexa</li>
+              <li>• Julgamento estrategico</li>
+              <li>• Relacionamentos de longo prazo</li>
+              <li>• Criatividade original</li>
+              <li>• Etica e responsabilidade</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg mt-4">
+          <p class="text-amber-800 dark:text-amber-200">
+            <strong>Mentalidade correta:</strong> IA e sua assistente, nao sua substituta. Ela faz o trabalho pesado, voce faz o trabalho inteligente.
+          </p>
+        </div>
+      </div>
+
+      <!-- Ferramentas Principais -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🛠️</span> As 5 Ferramentas de IA Essenciais
+        </h3>
+
+        <div class="space-y-4">
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center text-2xl flex-shrink-0">💬</div>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">ChatGPT / Claude</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Assistente de texto para emails, scripts, pesquisa, ideias. Seu "funcionario" 24/7.</p>
+              <p class="text-xs text-emerald-600 dark:text-emerald-400 mt-1">Gratis / R$ 100-200/mes (versao paga)</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center text-2xl flex-shrink-0">🎨</div>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Canva AI / Midjourney</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Criacao de imagens, posts, thumbnails, apresentacoes em segundos.</p>
+              <p class="text-xs text-blue-600 dark:text-blue-400 mt-1">Gratis / R$ 50-100/mes</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center text-2xl flex-shrink-0">🎙️</div>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">ElevenLabs / Synthesia</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Geracao de voz e video com avatar. Crie videos de vendas sem gravar.</p>
+              <p class="text-xs text-purple-600 dark:text-purple-400 mt-1">R$ 50-200/mes</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-12 h-12 bg-amber-500 rounded-xl flex items-center justify-center text-2xl flex-shrink-0">⚙️</div>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Make / Zapier</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Automacao de fluxos. Conecte ferramentas e crie automacoes sem codigo.</p>
+              <p class="text-xs text-amber-600 dark:text-amber-400 mt-1">Gratis / R$ 100-300/mes</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center text-2xl flex-shrink-0">🤖</div>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">ManyChat / ChatGuru</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Chatbots para WhatsApp, Instagram, Messenger. Atendimento automatizado.</p>
+              <p class="text-xs text-red-600 dark:text-red-400 mt-1">Gratis / R$ 100-500/mes</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">6.2</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Prompts que Vendem</h2>
+      </div>
+
+      <!-- Framework de Prompts -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📝</span> Framework CRISP para Prompts
+        </h3>
+
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          A qualidade do resultado da IA depende 90% da qualidade do seu prompt. Use o framework CRISP:
+        </p>
+
+        <div class="space-y-4">
+          <div class="border-l-4 border-emerald-500 pl-4">
+            <p class="font-bold text-emerald-600 dark:text-emerald-400">C - Contexto</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Quem voce e e qual a situacao. "Sou um consultor de marketing digital..."</p>
+          </div>
+
+          <div class="border-l-4 border-blue-500 pl-4">
+            <p class="font-bold text-blue-600 dark:text-blue-400">R - Role (Papel)</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Que papel a IA deve assumir. "Atue como um copywriter experiente..."</p>
+          </div>
+
+          <div class="border-l-4 border-purple-500 pl-4">
+            <p class="font-bold text-purple-600 dark:text-purple-400">I - Instrucao</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">O que exatamente voce quer. "Crie 5 opcoes de assunto de email..."</p>
+          </div>
+
+          <div class="border-l-4 border-amber-500 pl-4">
+            <p class="font-bold text-amber-600 dark:text-amber-400">S - Especificacoes</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Detalhes e restricoes. "Maximo 50 caracteres, tom informal, para publico feminino 30-40 anos..."</p>
+          </div>
+
+          <div class="border-l-4 border-red-500 pl-4">
+            <p class="font-bold text-red-600 dark:text-red-400">P - Padrao/Exemplo</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Formato desejado ou exemplo. "No formato: [Assunto] - [Por que funciona]"</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prompts Prontos -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🎯</span> 10 Prompts Prontos para Vendas
+        </h3>
+
+        <div class="space-y-4">
+          <!-- Prompt 1 -->
+          <div class="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded-lg">
+            <p class="font-semibold text-emerald-700 dark:text-emerald-400 mb-2">1. Pesquisar Prospect</p>
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded text-sm font-mono text-neutral-700 dark:text-neutral-300">
+              "Analise o perfil LinkedIn de [NOME] que trabalha na empresa [EMPRESA]. Identifique: 1) Possiveis dores baseadas no cargo, 2) Pontos de conexao que posso usar para abordagem, 3) Conquistas recentes que posso mencionar. Meu produto e [PRODUTO]."
+            </div>
+          </div>
+
+          <!-- Prompt 2 -->
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+            <p class="font-semibold text-blue-700 dark:text-blue-400 mb-2">2. Email de Prospeccao</p>
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded text-sm font-mono text-neutral-700 dark:text-neutral-300">
+              "Atue como um SDR especialista em cold email. Crie um email de prospeccao para [CARGO] de empresas de [SETOR]. O email deve: ter maximo 100 palavras, focar em uma dor especifica [DOR], nao parecer automatizado, terminar com pergunta simples. Tom: profissional mas humano."
+            </div>
+          </div>
+
+          <!-- Prompt 3 -->
+          <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+            <p class="font-semibold text-purple-700 dark:text-purple-400 mb-2">3. Script de Call</p>
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded text-sm font-mono text-neutral-700 dark:text-neutral-300">
+              "Crie um roteiro de ligacao de vendas de 3 minutos para [PRODUTO]. Estrutura: 1) Abertura com permissao, 2) Pergunta de qualificacao, 3) Pitch de 30 segundos, 4) Tratamento de objecao 'nao tenho tempo', 5) CTA para proxima etapa. Inclua exatamente o que dizer."
+            </div>
+          </div>
+
+          <!-- Prompt 4 -->
+          <div class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg">
+            <p class="font-semibold text-amber-700 dark:text-amber-400 mb-2">4. Responder Objecao</p>
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded text-sm font-mono text-neutral-700 dark:text-neutral-300">
+              "Meu prospect disse: '[OBJECAO]'. Contexto: [CONTEXTO]. Crie 3 respostas diferentes usando: 1) Tecnica de questionamento, 2) Tecnica de reframe, 3) Tecnica de prova social. Cada resposta deve ter maximo 2 frases."
+            </div>
+          </div>
+
+          <!-- Prompt 5 -->
+          <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+            <p class="font-semibold text-green-700 dark:text-green-400 mb-2">5. Proposta Comercial</p>
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded text-sm font-mono text-neutral-700 dark:text-neutral-300">
+              "Crie a estrutura de uma proposta comercial para [CLIENTE] que precisa de [SERVICO]. Inclua: resumo executivo, entendimento do problema (baseado em [CONVERSA]), solucao proposta, beneficios especificos, investimento com opcoes, proximos passos, garantias."
+            </div>
+          </div>
+
+          <!-- Prompt 6 -->
+          <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
+            <p class="font-semibold text-red-700 dark:text-red-400 mb-2">6. Follow-up Sequencia</p>
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded text-sm font-mono text-neutral-700 dark:text-neutral-300">
+              "Crie uma sequencia de 5 emails de follow-up para leads que demonstraram interesse mas nao compraram. Contexto: [PRODUTO/SERVICO]. Cada email deve: ter objetivo diferente, ter menos de 80 palavras, nao ser repetitivo, ter CTA claro. Espacamento: D+1, D+3, D+7, D+14, D+30."
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dica de Refinamento -->
+      <div class="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-xl p-6 border-2 border-amber-200 dark:border-amber-800">
+        <h3 class="text-lg font-bold text-amber-900 dark:text-amber-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">💡</span> Dica: Refinamento Iterativo
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          Nunca aceite a primeira resposta. Refine com comandos como:
+        </p>
+        <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-2">
+          <li>• "Torne mais conversacional/formal"</li>
+          <li>• "Reduza para metade do tamanho"</li>
+          <li>• "Adicione mais urgencia"</li>
+          <li>• "Faca 3 versoes diferentes"</li>
+          <li>• "Mude o tom para [ESPECIFICO]"</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">6.3</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Automacao de Vendas</h2>
+      </div>
+
+      <!-- Fluxos de Automacao -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">⚙️</span> 5 Automacoes que Todo Vendedor Precisa
+        </h3>
+
+        <div class="space-y-6">
+          <!-- Automacao 1 -->
+          <div class="border-l-4 border-emerald-500 pl-4">
+            <p class="font-bold text-emerald-600 dark:text-emerald-400">1. Lead → CRM Automatico</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-2">Quando lead preenche formulario, cria automaticamente no CRM com tags.</p>
+            <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded text-sm">
+              <strong>Fluxo:</strong> Formulario → Zapier → HubSpot/Pipedrive → Email de boas-vindas
+            </div>
+          </div>
+
+          <!-- Automacao 2 -->
+          <div class="border-l-4 border-blue-500 pl-4">
+            <p class="font-bold text-blue-600 dark:text-blue-400">2. Sequencia de Nurturing</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-2">Emails automaticos de valor que educam e aquecem o lead.</p>
+            <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded text-sm">
+              <strong>Fluxo:</strong> Lead entra → Email D+1 (valor) → Email D+3 (caso) → Email D+7 (oferta)
+            </div>
+          </div>
+
+          <!-- Automacao 3 -->
+          <div class="border-l-4 border-purple-500 pl-4">
+            <p class="font-bold text-purple-600 dark:text-purple-400">3. Lembrete de Follow-up</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-2">Notificacao automatica quando lead nao responde em X dias.</p>
+            <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded text-sm">
+              <strong>Fluxo:</strong> Email enviado + 3 dias sem resposta → Alerta no Slack/WhatsApp
+            </div>
+          </div>
+
+          <!-- Automacao 4 -->
+          <div class="border-l-4 border-amber-500 pl-4">
+            <p class="font-bold text-amber-600 dark:text-amber-400">4. Agendamento Automatico</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-2">Link de agendamento que sincroniza com seu calendario.</p>
+            <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded text-sm">
+              <strong>Fluxo:</strong> Calendly/Cal.com → Google Calendar → Email de confirmacao → Lembrete D-1
+            </div>
+          </div>
+
+          <!-- Automacao 5 -->
+          <div class="border-l-4 border-red-500 pl-4">
+            <p class="font-bold text-red-600 dark:text-red-400">5. Pos-Venda Automatizado</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-2">Onboarding e pedido de depoimento automaticos.</p>
+            <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded text-sm">
+              <strong>Fluxo:</strong> Compra → Email boas-vindas → D+7 check-in → D+30 pedir review
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chatbot WhatsApp -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🤖</span> Chatbot de Vendas no WhatsApp
+        </h3>
+
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          Um chatbot bem configurado pode qualificar leads e agendar reunioes 24/7. Estrutura basica:
+        </p>
+
+        <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+          <p class="font-semibold text-green-700 dark:text-green-400 mb-3">Fluxo de Conversacao:</p>
+          <div class="space-y-2 text-sm">
+            <div class="flex items-start gap-2">
+              <span class="bg-green-500 text-white px-2 py-0.5 rounded text-xs">BOT</span>
+              <span class="text-neutral-700 dark:text-neutral-300">"Oi! Sou o assistente da [Empresa]. Como posso te ajudar hoje?"</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="bg-neutral-400 text-white px-2 py-0.5 rounded text-xs">Botoes</span>
+              <span class="text-neutral-700 dark:text-neutral-300">[Conhecer servicos] [Falar com consultor] [Ver precos]</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="bg-green-500 text-white px-2 py-0.5 rounded text-xs">BOT</span>
+              <span class="text-neutral-700 dark:text-neutral-300">"Otimo! Para te direcionar melhor, me conta: qual seu maior desafio hoje com [area]?"</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="bg-neutral-400 text-white px-2 py-0.5 rounded text-xs">Qualif</span>
+              <span class="text-neutral-700 dark:text-neutral-300">Coleta: problema, urgencia, orcamento, decisor</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="bg-green-500 text-white px-2 py-0.5 rounded text-xs">BOT</span>
+              <span class="text-neutral-700 dark:text-neutral-300">"Perfeito! Vou te conectar com nosso especialista. Qual melhor horario?"</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg mt-4">
+          <p class="text-sm text-amber-800 dark:text-amber-200">
+            <strong>Dica:</strong> Sempre tenha opcao de falar com humano. Chatbots devem ajudar, nao frustar.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">6.4</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Stack de Ferramentas Recomendado</h2>
+      </div>
+
+      <!-- Stack Iniciante -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🌱</span> Stack Iniciante (R$ 0-100/mes)
+        </h3>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead class="bg-emerald-50 dark:bg-emerald-900/20">
+              <tr>
+                <th class="p-3 text-left font-semibold text-neutral-900 dark:text-neutral-100">Funcao</th>
+                <th class="p-3 text-left font-semibold text-neutral-900 dark:text-neutral-100">Ferramenta</th>
+                <th class="p-3 text-left font-semibold text-neutral-900 dark:text-neutral-100">Preco</th>
+              </tr>
+            </thead>
+            <tbody class="text-neutral-700 dark:text-neutral-300">
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3">IA Texto</td>
+                <td class="p-3">ChatGPT Free</td>
+                <td class="p-3 text-green-600">Gratis</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3">CRM</td>
+                <td class="p-3">HubSpot Free / Notion</td>
+                <td class="p-3 text-green-600">Gratis</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3">Email Marketing</td>
+                <td class="p-3">Mailchimp (ate 500)</td>
+                <td class="p-3 text-green-600">Gratis</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3">Agendamento</td>
+                <td class="p-3">Calendly Free / Cal.com</td>
+                <td class="p-3 text-green-600">Gratis</td>
+              </tr>
+              <tr>
+                <td class="p-3">Design</td>
+                <td class="p-3">Canva Free</td>
+                <td class="p-3 text-green-600">Gratis</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Stack Pro -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🚀</span> Stack Profissional (R$ 300-500/mes)
+        </h3>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead class="bg-blue-50 dark:bg-blue-900/20">
+              <tr>
+                <th class="p-3 text-left font-semibold text-neutral-900 dark:text-neutral-100">Funcao</th>
+                <th class="p-3 text-left font-semibold text-neutral-900 dark:text-neutral-100">Ferramenta</th>
+                <th class="p-3 text-left font-semibold text-neutral-900 dark:text-neutral-100">Preco</th>
+              </tr>
+            </thead>
+            <tbody class="text-neutral-700 dark:text-neutral-300">
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3">IA Texto</td>
+                <td class="p-3">ChatGPT Plus / Claude Pro</td>
+                <td class="p-3">~R$ 100/mes</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3">CRM</td>
+                <td class="p-3">Pipedrive / ActiveCampaign</td>
+                <td class="p-3">~R$ 100/mes</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3">Automacao</td>
+                <td class="p-3">Make / Zapier</td>
+                <td class="p-3">~R$ 100/mes</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3">WhatsApp Bot</td>
+                <td class="p-3">ManyChat / ChatGuru</td>
+                <td class="p-3">~R$ 150/mes</td>
+              </tr>
+              <tr>
+                <td class="p-3">Design/Video</td>
+                <td class="p-3">Canva Pro + Pictory</td>
+                <td class="p-3">~R$ 100/mes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Plano de Implementacao -->
+      <div class="bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 rounded-xl p-6 border-2 border-purple-200 dark:border-purple-800">
+        <h3 class="text-lg font-bold text-purple-900 dark:text-purple-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📅</span> Plano de Implementacao 30 Dias
+        </h3>
+
+        <div class="space-y-3">
+          <div class="flex items-center gap-4 bg-white dark:bg-neutral-800 p-3 rounded-lg">
+            <span class="bg-purple-500 text-white px-3 py-1 rounded text-sm font-bold">Semana 1</span>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">Configure ChatGPT + CRM basico. Crie 10 prompts personalizados.</p>
+          </div>
+          <div class="flex items-center gap-4 bg-white dark:bg-neutral-800 p-3 rounded-lg">
+            <span class="bg-purple-500 text-white px-3 py-1 rounded text-sm font-bold">Semana 2</span>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">Configure email marketing + sequencia de nurturing automatica.</p>
+          </div>
+          <div class="flex items-center gap-4 bg-white dark:bg-neutral-800 p-3 rounded-lg">
+            <span class="bg-purple-500 text-white px-3 py-1 rounded text-sm font-bold">Semana 3</span>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">Implemente agendamento automatico + chatbot basico WhatsApp.</p>
+          </div>
+          <div class="flex items-center gap-4 bg-white dark:bg-neutral-800 p-3 rounded-lg">
+            <span class="bg-purple-500 text-white px-3 py-1 rounded text-sm font-bold">Semana 4</span>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">Conecte tudo com automacoes. Teste e otimize fluxos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resumo e Proximos Passos -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-emerald-600 to-green-600 rounded-2xl p-8 text-white">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="text-3xl mr-3">🎓</span> Resumo do Modulo 6
+        </h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Fundamentos</p>
+            <p class="text-sm text-white/90">IA e assistente, nao substituta. Use para escalar, nao substituir humanos.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Prompts</p>
+            <p class="text-sm text-white/90">Framework CRISP. Bom prompt = bom resultado. Refine sempre.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Automacao</p>
+            <p class="text-sm text-white/90">5 automacoes essenciais. Chatbot qualifica 24/7. Foco no fluxo.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Ferramentas</p>
+            <p class="text-sm text-white/90">Comece gratis, escale conforme cresce. 30 dias para implementar.</p>
+          </div>
+        </div>
+
+        <div class="bg-white/20 backdrop-blur rounded-lg p-4 mb-6">
+          <p class="text-center text-lg font-semibold">
+            🎉 Parabens! Voce completou a Trilha de Vendas!
+          </p>
+          <p class="text-center text-sm text-white/80 mt-2">
+            Agora voce tem todas as ferramentas para vender mais e melhor. O proximo passo e APLICAR.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="modulo5.html" class="bg-white/20 text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-white/30 transition-colors border border-white/30">
+            ← Modulo 5: Fechamento
+          </a>
+          <a href="../index.html" class="bg-white text-emerald-600 px-6 py-3 rounded-lg font-semibold text-center hover:bg-neutral-100 transition-colors">
+            Voltar para Trilha de Vendas
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-900 text-white py-8">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-neutral-400">&copy; 2025 TDS - Transformacao Digital e Social</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Theme Toggle
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+    if (localStorage.getItem('color-theme') === 'dark' ||
+        (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      themeToggleLightIcon.classList.remove('hidden');
+    } else {
+      themeToggleDarkIcon.classList.remove('hidden');
+    }
+
+    themeToggleBtn.addEventListener('click', function() {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+    });
+  </script>
+
+</body>
+</html>
