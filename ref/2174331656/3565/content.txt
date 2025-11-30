@@ -1,0 +1,268 @@
+TOPICO 3565
+==================================================
+
+Titulo: Sem titulo
+Criado em: 2025-06-22 09:06:11+00:00
+
+Total de mensagens: 11
+Midias baixadas: 0
+
+--------------------------------------------------
+
+MENSAGEM 1
+Autor: INEMA
+Data: 2025-06-22T09:07:04+00:00
+Texto:
+Aqui estão os **principais hacks práticos** extraídos da masterclass com Jason, baseados nas lições de Alex Hormozi e sua experiência como CMO e copywriter no nicho de pickleball:
+
+---
+
+### **HACKS DE POSICIONAMENTO E CRESCIMENTO**
+
+1. **Escolha um nicho onde você possa ser “um de um”**
+
+   * Jason virou “o cara do e-mail de pickleball” sem nem saber jogar no início.
+   * *Hack:* Seja o único especialista em um micro nicho (ex: “automação para escolas de música”).
+
+2. **Seja o ‘fulano do nicho’ antes mesmo de dominar tudo**
+
+   * Ele se posicionou como especialista e aprendeu fazendo.
+   * *Hack:* Declare sua autoridade com um título específico e entregue valor imediatamente.
+
+3. **Não venda automação – resolva um problema urgente**
+
+   * Em vez de mostrar 20 serviços, ofereça **1 solução pontual**.
+   * *Exemplo:* “Eu crio seu conteúdo semanal, sem você precisar abrir o Instagram.”
+
+4. **Construa reputação com trabalho ‘extra’ antes de cobrar mais**
+
+   * Ele fez 40h/semana recebendo por 10h.
+   * *Hack:* Supere expectativas em clientes estratégicos, ganhe posições maiores depois.
+
+---
+
+### **HACKS DE AUTOMAÇÃO**
+
+5. **Use ClickUp como central de automações**
+
+   * Um simples link no ClickUp dispara um fluxo que cria 40 conteúdos a partir de um vídeo.
+   * *Hack:* Organize as tarefas no ClickUp e conecte com Make ou Zapier para evitar retrabalho.
+
+6. **Automação que gera 40 conteúdos com 1 URL**
+
+   * Entrada: link do YouTube → Saída: post, e-mail, short, título, descrição, etc.
+   * *Hack:* Faça isso usando Make + ChatGPT + planilhas + webhook.
+
+7. **Faça automações que resolvem ‘invisivelmente’**
+
+   * Jason não vende automação, ele apenas mostra a solução funcionando.
+   * *Hack:* Mostre antes → venda depois (demonstração prática conquista o cliente).
+
+---
+
+### **HACKS DE CAPTAÇÃO E ENGAJAMENTO**
+
+8. **Crie um quiz para captar e-mails 5x mais que um formulário**
+
+   * *Exemplo:* “Você sabe tudo sobre pickleball? Faça o quiz.”
+   * *Hack:* Use Typeform ou ScoreApp e colete e-mails para a newsletter automaticamente.
+
+9. **Sequência de e-mails automatizada com base nas respostas**
+
+   * *Hack:* Use “if/then” nos CRMs (Beehiiv, GoHighLevel, etc) para personalizar jornada do lead.
+
+10. **Chamada para ação no PS dos e-mails**
+
+    * Não encha o corpo do e-mail com promoções.
+    * *Hack:* Entregue valor e só mencione sua oferta no PS com prova social (ex: “Junte-se a 996 alunos…”).
+
+---
+
+### **HACKS DE ESTRATÉGIA DE COMUNIDADE**
+
+11. **Valor constante = churn abaixo de 2%**
+
+    * O padrão da plataforma Skool é 18% – Jason mantém 1,5%.
+    * *Hack:* Crie conteúdo novo, responda rápido e seja presente. Relacionamento direto segura o cliente.
+
+12. **Conteúdo gratuito por meses antes de vender**
+
+    * O canal de YouTube entregou conteúdo por 2 anos antes de vender.
+    * *Hack:* Crie uma base de autoridade antes de monetizar com cursos ou comunidade.
+
+---
+
+### **HACKS DE MENTORIA E POSICIONAMENTO**
+
+13. **Ofereça ajuda concreta, não perguntas vagas**
+
+    * “Posso automatizar algo pra você?” não funciona.
+    * *Hack:* Mostre algo já pronto, como: “Aqui está um CRM básico feito para clínicas como a sua.”
+
+14. **Venda indireta: compartilhe com empolgação**
+
+    * Jason mostrava suas automações como “olha isso que legal”, e isso virava venda.
+    * *Hack:* Compartilhe nos grupos com energia e curiosidade – quem precisa, vai te chamar.
+
+15. **Aposte em comunidades como funil de captação**
+
+    * Muitos clientes de Jason vieram de networking em grupos da Skool.
+    * *Hack:* Torne-se referência em 1 comunidade (ex: o cara do conteúdo, da automação, da arte…).
+
+---
+
+------------------------------
+
+MENSAGEM 2
+Autor: INEMA
+Data: 2025-06-22T09:06:42+00:00
+Texto:
+============
+
+------------------------------
+
+MENSAGEM 3
+Autor: INEMA
+Data: 2025-06-22T09:06:26+00:00
+Texto:
+**Resumo Completo – "Lessons from Alex Hormozi #3" com Jason – Masterclass sobre automação, copywriting e crescimento de comunidade**
+
+Jason compartilha sua jornada real e prática, saindo de um profissional demitido por agências para se tornar CMO de duas comunidades, ganhando o *School Games* 3 vezes em um trimestre. Ele usa automações, copywriting e foco extremo em nicho para construir autoridade e negócios.
+
+### Tópicos principais com exemplos e aprendizados
+
+1. **Origem humilde e foco em automações**
+
+   * Foi demitido 3 vezes em agências.
+   * Decidiu parar de trabalhar para “chefes humanos” e mergulhou em automações com IA.
+   * Entrou no grupo do Jack Roberts e aprendeu Make, Zapier e estratégias práticas.
+
+2. **3 pilares do sucesso**
+
+   * **Value stacking**: empilhou habilidades – copywriting → e-mail marketing → funis → automações.
+   * **Resolver problemas, não vender automações**: sempre focou em entregar valor antes de cobrar.
+   * **Trabalho acima do esperado**: entregou meses de trabalho full-time recebendo como part-time, para construir reputação e conquistar posição de CMO.
+
+3. **Escolha de um nicho poderoso**
+
+   * Começou escrevendo artigos de pickleball por R\$50 sem nem conhecer o esporte.
+   * Tornou-se referência no nicho, sendo reconhecido como “o cara do e-mail do pickleball”.
+   * Hoje lidera as duas principais comunidades da plataforma Skool no segmento esportivo.
+
+4. **Automação mais poderosa criada**
+
+   * Uma automação que transforma um único link do YouTube em 40 peças de conteúdo.
+   * Usa ClickUp como central de disparo e organização (foge do Google Drive).
+   * Utiliza Make como ferramenta principal pelas conexões visuais intuitivas.
+
+5. **Crescimento da comunidade com 1,5% de churn**
+
+   * Criaram um desafio “30 dias para sair do nível 3.5 para 4.0 no pickleball”.
+   * Usaram quiz como funil inicial (Typeform → ScoreApp), que gera leads com altíssima taxa de conversão.
+   * Cresceram em \$10 mil MRR no Q1, com churn de apenas 1,5% em uma comunidade low-ticket (\$39/mês).
+
+6. **Boas práticas de marketing**
+
+   * Criam newsletters com foco **100% em valor** e deixam a venda para o PS ou campanhas pontuais.
+   * Ex: +22 mil contatos com taxas de abertura de 58% e CTR de até 25%.
+   * Valorizam relacionamento, constância e conteúdo que “resolve um problema agora”.
+
+7. **Aprendizados no evento com Alex Hormozi**
+
+   * O sucesso vem de estar “totalmente dentro” de um nicho ou causa.
+   * “Você pode fazer qualquer coisa, mas não pode fazer tudo.”
+   * Comunidades de sucesso são feitas por quem ama ensinar algo específico, e não necessariamente por experts em marketing.
+
+8. **Estratégia para novos negócios**
+
+   * Foco em pessoas apaixonadas que “vencem apesar delas mesmas”, mas que precisam de automações e marketing para escalar.
+   * Ele mesmo deseja criar uma escola própria, ensinando copywriting e marketing para criadores de comunidades.
+
+9. **Recomendações de livros e mentores**
+
+   * Alex Hormozi (100M Offers e Leads)
+   * Russell Brunson (ClickFunnels)
+   * Dan Kennedy (Copywriting e oferta)
+   * StoryBrand (Donald Miller)
+   * Livro: *Software as a Science*
+
+### Exemplos práticos e hacks aplicáveis
+
+* Use quizzes em vez de apenas “inscreva-se na newsletter” para multiplicar os leads.
+* Comece com **uma única solução** para resolver um problema real do cliente e entre pela porta da confiança.
+* Compartilhe suas automações com entusiasmo, mesmo sem vender nada – isso gera autoridade e atrai oportunidades.
+* Transforme um canal de nicho em funil de entrada: o canal de YouTube do Kyle trouxe milhares de leads gratuitos para a comunidade de pickleball.
+
+### Conclusão
+
+Jason é o exemplo vivo de que:
+
+* Não precisa ser milionário para gerar impacto.
+* Nicho + valor real + constância = autoridade e renda.
+* Estar no 1% é aproveitar o que a maioria ignora: resolver problemas com tecnologia simples, mas bem aplicada.
+
+------------------------------
+
+MENSAGEM 4
+Autor: INEMA
+Data: 2025-06-22T09:06:22+00:00
+Texto:
+Masterclass sobre automação Jason
+
+------------------------------
+
+MENSAGEM 5
+Autor: INEMA
+Data: 2025-06-22T09:06:22+00:00
+Texto:
+.
+
+------------------------------
+
+MENSAGEM 6
+Autor: INEMA
+Data: 2025-06-22T09:06:22+00:00
+Texto:
+.
+
+------------------------------
+
+MENSAGEM 7
+Autor: INEMA
+Data: 2025-06-22T09:06:22+00:00
+Texto:
+.
+
+------------------------------
+
+MENSAGEM 8
+Autor: INEMA
+Data: 2025-06-22T09:06:21+00:00
+Texto:
+.
+
+------------------------------
+
+MENSAGEM 9
+Autor: INEMA
+Data: 2025-06-22T09:06:21+00:00
+Texto:
+.
+
+------------------------------
+
+MENSAGEM 10
+Autor: INEMA
+Data: 2025-06-22T09:06:21+00:00
+Texto:
+1
+
+------------------------------
+
+MENSAGEM 11
+Autor: INEMA
+Data: 2025-06-22T09:06:11+00:00
+Texto: [Sem texto]
+
+------------------------------
+

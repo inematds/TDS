@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TDS - Transformacao Digital Sustentavel</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6);
+      backdrop-filter: blur(4px);
+    }
+
+    .modal.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      background-color: white;
+      margin: auto;
+      padding: 0;
+      width: 90%;
+      max-width: 1000px;
+      max-height: 90vh;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 20px 25px rgba(0,0,0,0.3);
+    }
+
+    .dark .modal-content {
+      background-color: #1f2937;
+    }
+
+    .modal-header {
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid #e5e7eb;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .dark .modal-header {
+      border-bottom-color: #374151;
+    }
+
+    .modal-body {
+      padding: 2rem;
+      overflow-y: auto;
+      max-height: calc(90vh - 80px);
+    }
+
+    .close-modal {
+      color: #9ca3af;
+      font-size: 2rem;
+      font-weight: 700;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .close-modal:hover {
+      color: #ef4444;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900 transition-colors">
+
+  <!-- Navegacao -->
+  <nav class="sticky top-0 z-50 bg-white dark:bg-neutral-800 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <!-- Logo -->
+        <a href="/" class="text-2xl font-bold text-blue-600 dark:text-blue-400">
+          TDS
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#trilhas" class="text-neutral-700 dark:text-neutral-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Trilhas</a>
+          <a href="#sobre" class="text-neutral-700 dark:text-neutral-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Sobre</a>
+          <a href="#contato" class="text-neutral-700 dark:text-neutral-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contato</a>
+
+          <!-- Theme Toggle -->
+          <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600 transition-colors">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-700" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2">
+          <svg class="w-6 h-6 text-neutral-700 dark:text-neutral-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden pb-4">
+        <div class="flex flex-col space-y-3">
+          <a href="#trilhas" class="text-neutral-700 dark:text-neutral-300 hover:text-blue-600">Trilhas</a>
+          <a href="#sobre" class="text-neutral-700 dark:text-neutral-300 hover:text-blue-600">Sobre</a>
+          <a href="#contato" class="text-neutral-700 dark:text-neutral-300 hover:text-blue-600">Contato</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white animate-fade-in">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+        Transformacao Digital Sustentavel
+      </h1>
+      <p class="text-xl sm:text-2xl mb-4 text-white/90 max-w-3xl mx-auto">
+        Domine Vendas, Redes Sociais e Negocios com estrategias comprovadas
+      </p>
+      <p class="text-lg mb-8 text-white/80">
+        3 trilhas completas para transformar sua carreira digital
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#trilhas" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-neutral-100 transition-colors">
+          Ver Trilhas
+        </a>
+        <button onclick="openModal('modal-sobre')" class="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white/10 transition-colors">
+          Saiba Mais
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="bg-white dark:bg-neutral-800 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+        <div>
+          <p class="text-4xl font-bold text-blue-600 dark:text-blue-400">3</p>
+          <p class="text-neutral-600 dark:text-neutral-400 mt-2">Trilhas Completas</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-emerald-500">40+</p>
+          <p class="text-neutral-600 dark:text-neutral-400 mt-2">Modulos</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-purple-500">100+</p>
+          <p class="text-neutral-600 dark:text-neutral-400 mt-2">Horas de Conteudo</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-orange-500">82</p>
+          <p class="text-neutral-600 dark:text-neutral-400 mt-2">Casos Praticos</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trilhas Section -->
+  <section id="trilhas" class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+          Escolha Sua Trilha
+        </h2>
+        <p class="text-xl text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
+          Tres caminhos especializados para dominar o mercado digital
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <!-- Card Vendas (Emerald) -->
+        <div class="bg-gradient-to-br from-emerald-50 to-white dark:from-emerald-900/20 dark:to-neutral-800 border-2 border-emerald-200 dark:border-emerald-700 hover:border-emerald-400 dark:hover:border-emerald-500 rounded-2xl p-8 transition-all hover:-translate-y-1 hover:shadow-xl">
+          <div class="text-4xl mb-4">💰</div>
+          <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">Vendas</h3>
+
+          <span class="inline-block px-3 py-1 bg-emerald-500 text-white text-sm font-semibold rounded-full mb-4">
+            40 horas
+          </span>
+
+          <p class="text-neutral-600 dark:text-neutral-400 mb-6">
+            Domine tecnicas de vendas consultivas, precificacao estrategica e fechamento de alto valor
+          </p>
+
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-start">
+              <span class="text-emerald-500 mr-2">✓</span>
+              <span class="text-neutral-700 dark:text-neutral-300 text-sm">High Ticket Sales</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-emerald-500 mr-2">✓</span>
+              <span class="text-neutral-700 dark:text-neutral-300 text-sm">Precificacao por Valor</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-emerald-500 mr-2">✓</span>
+              <span class="text-neutral-700 dark:text-neutral-300 text-sm">Funis de Conversao</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-emerald-500 mr-2">✓</span>
+              <span class="text-neutral-700 dark:text-neutral-300 text-sm">Prospeccao e Outreach</span>
+            </li>
+          </ul>
+
+          <div class="space-y-3">
+            <a href="vendas/index.html" class="block w-full bg-emerald-500 text-white py-3 rounded-lg font-semibold hover:bg-emerald-600 text-center transition-colors">
+              Acessar Trilha
+            </a>
+            <button onclick="openModal('modal-vendas')" class="w-full border-2 border-emerald-500 text-emerald-600 dark:text-emerald-400 py-3 rounded-lg font-semibold hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-colors">
+              Ver Detalhes
+            </button>
+          </div>
+        </div>
+
+        <!-- Card Redes Sociais (Blue) -->
+        <div class="bg-gradient-to-br from-blue-50 to-white dark:from-blue-900/20 dark:to-neutral-800 border-2 border-blue-200 dark:border-blue-700 hover:border-blue-400 dark:hover:border-blue-500 rounded-2xl p-8 transition-all hover:-translate-y-1 hover:shadow-xl">
+          <div class="text-4xl mb-4">📱</div>
+          <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">Redes Sociais</h3>
+
+          <span class="inline-block px-3 py-1 bg-blue-500 text-white text-sm font-semibold rounded-full mb-4">
+            35 horas
+          </span>
+
+          <p class="text-neutral-600 dark:text-neutral-400 mb-6">
+            Domine TikTok, Instagram, YouTube e LinkedIn com estrategias de crescimento organico
+          </p>
+
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-start">
+              <span class="text-blue-500 mr-2">✓</span>
+              <span class="text-neutral-700 dark:text-neutral-300 text-sm">TikTok e Algoritmos</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-blue-500 mr-2">✓</span>
+              <span class="text-neutral-700 dark:text-neutral-300 text-sm">Conteudo Viral</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-blue-500 mr-2">✓</span>
+              <span class="text-neutral-700 dark:text-neutral-300 text-sm">Copywriting para Social</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-blue-500 mr-2">✓</span>
+              <span class="text-neutral-700 dark:text-neutral-300 text-sm">Engajamento e Comunidade</span>
+            </li>
+          </ul>
+
+          <div class="space-y-3">
+            <a href="redes-sociais/index.html" class="block w-full bg-blue-500 text-white py-3 rounded-lg font-semibold hover:bg-blue-600 text-center transition-colors">
+              Acessar Trilha
+            </a>
+            <button onclick="openModal('modal-redes')" class="w-full border-2 border-blue-500 text-blue-600 dark:text-blue-400 py-3 rounded-lg font-semibold hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors">
+              Ver Detalhes
+            </button>
+          </div>
+        </div>
+
+        <!-- Card Negocios (Purple) -->
+        <div class="bg-gradient-to-br from-purple-50 to-white dark:from-purple-900/20 dark:to-neutral-800 border-2 border-purple-200 dark:border-purple-700 hover:border-purple-400 dark:hover:border-purple-500 rounded-2xl p-8 transition-all hover:-translate-y-1 hover:shadow-xl">
+          <div class="text-4xl mb-4">🚀</div>
+          <h3 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">Negocios</h3>
+
+          <span class="inline-block px-3 py-1 bg-purple-500 text-white text-sm font-semibold rounded-full mb-4">
+            45 horas
+          </span>
+
+          <p class="text-neutral-600 dark:text-neutral-400 mb-6">
+            Construa negocios escalaveis com automacao, modelos inovadores e tendencias 2025
+          </p>
+
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-start">
+              <span class="text-purple-500 mr-2">✓</span>
+              <span class="text-neutral-700 dark:text-neutral-300 text-sm">Modelos de Negocio</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-purple-500 mr-2">✓</span>
+              <span class="text-neutral-700 dark:text-neutral-300 text-sm">Automacao com IA</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-purple-500 mr-2">✓</span>
+              <span class="text-neutral-700 dark:text-neutral-300 text-sm">Escalabilidade</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-purple-500 mr-2">✓</span>
+              <span class="text-neutral-700 dark:text-neutral-300 text-sm">Tendencias 2025-2026</span>
+            </li>
+          </ul>
+
+          <div class="space-y-3">
+            <a href="negocios/index.html" class="block w-full bg-purple-500 text-white py-3 rounded-lg font-semibold hover:bg-purple-600 text-center transition-colors">
+              Acessar Trilha
+            </a>
+            <button onclick="openModal('modal-negocios')" class="w-full border-2 border-purple-500 text-purple-600 dark:text-purple-400 py-3 rounded-lg font-semibold hover:bg-purple-50 dark:hover:bg-purple-900/30 transition-colors">
+              Ver Detalhes
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Metodologia Section -->
+  <section class="bg-white dark:bg-neutral-800 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+          Nossa Metodologia
+        </h2>
+        <p class="text-xl text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
+          Aprendizado pratico baseado em casos reais do mercado
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="text-center p-6">
+          <div class="w-16 h-16 bg-emerald-100 dark:bg-emerald-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-3xl">📚</span>
+          </div>
+          <h3 class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">Teoria Aplicada</h3>
+          <p class="text-neutral-600 dark:text-neutral-400 text-sm">Conceitos diretos com aplicacao imediata</p>
+        </div>
+        <div class="text-center p-6">
+          <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-3xl">🎯</span>
+          </div>
+          <h3 class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">Casos Reais</h3>
+          <p class="text-neutral-600 dark:text-neutral-400 text-sm">82 exemplos praticos do mercado</p>
+        </div>
+        <div class="text-center p-6">
+          <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-3xl">🔧</span>
+          </div>
+          <h3 class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">Ferramentas</h3>
+          <p class="text-neutral-600 dark:text-neutral-400 text-sm">Templates e automacoes prontas</p>
+        </div>
+        <div class="text-center p-6">
+          <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-3xl">👥</span>
+          </div>
+          <h3 class="font-bold text-neutral-900 dark:text-neutral-100 mb-2">Comunidade</h3>
+          <p class="text-neutral-600 dark:text-neutral-400 text-sm">Suporte e networking ativo</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-gradient-to-br from-blue-600 to-purple-700 py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-6">
+        Pronto para Transformar sua Carreira?
+      </h2>
+      <p class="text-xl mb-8 text-white/90">
+        Escolha sua trilha e comece agora mesmo sua jornada de transformacao digital
+      </p>
+      <a href="#trilhas" class="inline-block bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-neutral-100 transition-colors">
+        Comecar Agora
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contato" class="bg-neutral-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <div>
+          <h3 class="text-xl font-bold mb-4">TDS</h3>
+          <p class="text-neutral-400 text-sm">
+            Transformacao Digital Sustentavel - Seu caminho para o sucesso no mercado digital.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-semibold mb-4">Trilhas</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="vendas/index.html" class="text-neutral-400 hover:text-white transition-colors">Vendas</a></li>
+            <li><a href="redes-sociais/index.html" class="text-neutral-400 hover:text-white transition-colors">Redes Sociais</a></li>
+            <li><a href="negocios/index.html" class="text-neutral-400 hover:text-white transition-colors">Negocios</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-semibold mb-4">Contato</h4>
+          <p class="text-neutral-400 text-sm">contato@tds.com.br</p>
+        </div>
+
+      </div>
+
+      <div class="border-t border-neutral-800 mt-8 pt-8 text-center text-sm text-neutral-400">
+        <p>&copy; 2025 TDS - Transformacao Digital Sustentavel. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal Vendas -->
+  <div id="modal-vendas" class="modal">
+    <div class="modal-content dark:bg-neutral-800">
+      <div class="modal-header dark:border-neutral-700">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">💰 Trilha de Vendas</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+
+        <!-- Intro -->
+        <div class="mb-6">
+          <p class="text-lg text-neutral-800 dark:text-neutral-200 mb-3 font-semibold">
+            Domine a arte de vender valor, nao preco. Aprenda tecnicas comprovadas de vendas consultivas e High Ticket.
+          </p>
+          <div class="flex gap-3 flex-wrap">
+            <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 rounded-full text-sm font-semibold">
+              40 horas
+            </span>
+            <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 rounded-full text-sm font-semibold">
+              12 Modulos
+            </span>
+            <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 rounded-full text-sm font-semibold">
+              30+ Casos Praticos
+            </span>
+          </div>
+        </div>
+
+        <!-- Modulos -->
+        <div class="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 rounded-lg p-6 mb-6 border-2 border-emerald-200 dark:border-emerald-800">
+          <div class="flex items-center mb-4">
+            <span class="text-3xl mr-3">📋</span>
+            <h3 class="text-xl font-bold text-emerald-900 dark:text-emerald-300">Modulos da Trilha</h3>
+          </div>
+          <div class="grid md:grid-cols-2 gap-3">
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded border-l-4 border-emerald-400">
+              <p class="font-bold text-emerald-900 dark:text-emerald-300 text-sm">1. Fundamentos de Vendas</p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">Mindset, validacao e estruturacao</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded border-l-4 border-emerald-400">
+              <p class="font-bold text-emerald-900 dark:text-emerald-300 text-sm">2. Precificacao Estrategica</p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">Valor, ancoragem e modelos</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded border-l-4 border-emerald-400">
+              <p class="font-bold text-emerald-900 dark:text-emerald-300 text-sm">3. High Ticket Sales</p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">Vendas de alto valor</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded border-l-4 border-emerald-400">
+              <p class="font-bold text-emerald-900 dark:text-emerald-300 text-sm">4. Funis de Conversao</p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">ToFu, MoFu, BoFu</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded border-l-4 border-emerald-400">
+              <p class="font-bold text-emerald-900 dark:text-emerald-300 text-sm">5. Prospeccao e Outreach</p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">Cold outreach estruturado</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded border-l-4 border-emerald-400">
+              <p class="font-bold text-emerald-900 dark:text-emerald-300 text-sm">6. Fechamento</p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">Tecnicas e contratos</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- O que voce vai aprender -->
+        <div class="bg-white dark:bg-neutral-800 rounded-lg p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+          <div class="flex items-center mb-4">
+            <span class="text-3xl mr-3">🎯</span>
+            <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">O Que Voce Vai Dominar</h3>
+          </div>
+          <ul class="space-y-2 text-sm text-neutral-700 dark:text-neutral-300">
+            <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Vender consultivamente com foco em valor</li>
+            <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Precificar baseado em ROI do cliente</li>
+            <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Criar propostas que vendem sozinhas</li>
+            <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Fechar contratos de alto valor</li>
+            <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Construir pipeline de vendas consistente</li>
+          </ul>
+        </div>
+
+        <!-- CTA -->
+        <div class="bg-gradient-to-br from-emerald-600 to-green-600 text-white rounded-lg p-6 text-center">
+          <h3 class="text-xl font-bold mb-3">🚀 Comece Sua Jornada em Vendas</h3>
+          <p class="mb-4 text-sm">
+            Aprenda a vender valor e transforme sua carreira
+          </p>
+          <a href="vendas/index.html" class="inline-block bg-white text-emerald-600 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors">
+            Acessar Trilha Completa →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Redes Sociais -->
+  <div id="modal-redes" class="modal">
+    <div class="modal-content dark:bg-neutral-800">
+      <div class="modal-header dark:border-neutral-700">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">📱 Trilha de Redes Sociais</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+
+        <!-- Intro -->
+        <div class="mb-6">
+          <p class="text-lg text-neutral-800 dark:text-neutral-200 mb-3 font-semibold">
+            Domine os algoritmos e crie conteudo que viraliza. De TikTok a LinkedIn, todas as plataformas.
+          </p>
+          <div class="flex gap-3 flex-wrap">
+            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-sm font-semibold">
+              35 horas
+            </span>
+            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-sm font-semibold">
+              10 Modulos
+            </span>
+            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-sm font-semibold">
+              25+ Casos Praticos
+            </span>
+          </div>
+        </div>
+
+        <!-- Modulos -->
+        <div class="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-lg p-6 mb-6 border-2 border-blue-200 dark:border-blue-800">
+          <div class="flex items-center mb-4">
+            <span class="text-3xl mr-3">📋</span>
+            <h3 class="text-xl font-bold text-blue-900 dark:text-blue-300">Modulos da Trilha</h3>
+          </div>
+          <div class="grid md:grid-cols-2 gap-3">
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded border-l-4 border-blue-400">
+              <p class="font-bold text-blue-900 dark:text-blue-300 text-sm">1. Fundamentos de Conteudo</p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">Nicho, publico e estrategia</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded border-l-4 border-blue-400">
+              <p class="font-bold text-blue-900 dark:text-blue-300 text-sm">2. TikTok Mastery</p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">Algoritmo e TikTok Shop</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded border-l-4 border-blue-400">
+              <p class="font-bold text-blue-900 dark:text-blue-300 text-sm">3. Instagram Strategy</p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">Reels, Stories e Carrosseis</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded border-l-4 border-blue-400">
+              <p class="font-bold text-blue-900 dark:text-blue-300 text-sm">4. YouTube Authority</p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">Long-form e Shorts</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded border-l-4 border-blue-400">
+              <p class="font-bold text-blue-900 dark:text-blue-300 text-sm">5. LinkedIn B2B</p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">Autoridade profissional</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded border-l-4 border-blue-400">
+              <p class="font-bold text-blue-900 dark:text-blue-300 text-sm">6. Copywriting Social</p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">Hooks e CTAs</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- O que voce vai aprender -->
+        <div class="bg-white dark:bg-neutral-800 rounded-lg p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+          <div class="flex items-center mb-4">
+            <span class="text-3xl mr-3">🎯</span>
+            <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">O Que Voce Vai Dominar</h3>
+          </div>
+          <ul class="space-y-2 text-sm text-neutral-700 dark:text-neutral-300">
+            <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> Algoritmos de cada plataforma</li>
+            <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> Criar conteudo viral consistentemente</li>
+            <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> Construir comunidade engajada</li>
+            <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> Monetizar atraves de conteudo</li>
+            <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> Estrategia multi-plataforma</li>
+          </ul>
+        </div>
+
+        <!-- CTA -->
+        <div class="bg-gradient-to-br from-blue-600 to-cyan-600 text-white rounded-lg p-6 text-center">
+          <h3 class="text-xl font-bold mb-3">🚀 Domine as Redes Sociais</h3>
+          <p class="mb-4 text-sm">
+            Aprenda a criar conteudo que viraliza e constroi autoridade
+          </p>
+          <a href="redes-sociais/index.html" class="inline-block bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors">
+            Acessar Trilha Completa →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Negocios -->
+  <div id="modal-negocios" class="modal">
+    <div class="modal-content dark:bg-neutral-800">
+      <div class="modal-header dark:border-neutral-700">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">🚀 Trilha de Negocios</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+
+        <!-- Intro -->
+        <div class="mb-6">
+          <p class="text-lg text-neutral-800 dark:text-neutral-200 mb-3 font-semibold">
+            Construa negocios escalaveis com automacao, IA e modelos inovadores para 2025.
+          </p>
+          <div class="flex gap-3 flex-wrap">
+            <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-semibold">
+              45 horas
+            </span>
+            <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-semibold">
+              14 Modulos
+            </span>
+            <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-semibold">
+              27+ Casos Praticos
+            </span>
+          </div>
+        </div>
+
+        <!-- Modulos -->
+        <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg p-6 mb-6 border-2 border-purple-200 dark:border-purple-800">
+          <div class="flex items-center mb-4">
+            <span class="text-3xl mr-3">📋</span>
+            <h3 class="text-xl font-bold text-purple-900 dark:text-purple-300">Modulos da Trilha</h3>
+          </div>
+          <div class="grid md:grid-cols-2 gap-3">
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded border-l-4 border-purple-400">
+              <p class="font-bold text-purple-900 dark:text-purple-300 text-sm">1. Modelos de Negocio</p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">SaaS, InfoSaaS, Consultoria</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded border-l-4 border-purple-400">
+              <p class="font-bold text-purple-900 dark:text-purple-300 text-sm">2. Automacao com IA</p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">Agentes e workflows</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded border-l-4 border-purple-400">
+              <p class="font-bold text-purple-900 dark:text-purple-300 text-sm">3. Escalabilidade</p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">3 pilares do crescimento</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded border-l-4 border-purple-400">
+              <p class="font-bold text-purple-900 dark:text-purple-300 text-sm">4. Consultoria de IA</p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">Auditoria e implementacao</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded border-l-4 border-purple-400">
+              <p class="font-bold text-purple-900 dark:text-purple-300 text-sm">5. Comunidade como Motor</p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">Aquisicao e retencao</p>
+            </div>
+            <div class="bg-white dark:bg-neutral-800 p-3 rounded border-l-4 border-purple-400">
+              <p class="font-bold text-purple-900 dark:text-purple-300 text-sm">6. Tendencias 2025-2026</p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">10 mandamentos digitais</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- O que voce vai aprender -->
+        <div class="bg-white dark:bg-neutral-800 rounded-lg p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+          <div class="flex items-center mb-4">
+            <span class="text-3xl mr-3">🎯</span>
+            <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">O Que Voce Vai Dominar</h3>
+          </div>
+          <ul class="space-y-2 text-sm text-neutral-700 dark:text-neutral-300">
+            <li class="flex items-start"><span class="text-purple-500 mr-2">✓</span> Criar negocios escalaveis</li>
+            <li class="flex items-start"><span class="text-purple-500 mr-2">✓</span> Implementar automacoes com IA</li>
+            <li class="flex items-start"><span class="text-purple-500 mr-2">✓</span> Vender consultoria de IA</li>
+            <li class="flex items-start"><span class="text-purple-500 mr-2">✓</span> Construir receita recorrente</li>
+            <li class="flex items-start"><span class="text-purple-500 mr-2">✓</span> Antecipar tendencias do mercado</li>
+          </ul>
+        </div>
+
+        <!-- CTA -->
+        <div class="bg-gradient-to-br from-purple-600 to-pink-600 text-white rounded-lg p-6 text-center">
+          <h3 class="text-xl font-bold mb-3">🚀 Escale Seu Negocio</h3>
+          <p class="mb-4 text-sm">
+            Aprenda a construir negocios que crescem com automacao
+          </p>
+          <a href="negocios/index.html" class="inline-block bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors">
+            Acessar Trilha Completa →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Sobre -->
+  <div id="modal-sobre" class="modal">
+    <div class="modal-content dark:bg-neutral-800">
+      <div class="modal-header dark:border-neutral-700">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">🎯 Sobre o TDS</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+
+        <div class="mb-6">
+          <p class="text-lg text-neutral-800 dark:text-neutral-200 mb-3 font-semibold">
+            O TDS (Transformacao Digital Sustentavel) e um programa completo para dominar vendas, marketing digital e negocios no cenario atual.
+          </p>
+        </div>
+
+        <div class="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-lg p-6 mb-6 border-2 border-blue-200 dark:border-blue-800">
+          <div class="flex items-center mb-4">
+            <span class="text-3xl mr-3">📖</span>
+            <h3 class="text-xl font-bold text-blue-900 dark:text-blue-300">Nossa Historia</h3>
+          </div>
+          <p class="text-sm text-neutral-700 dark:text-neutral-300">
+            Este curso foi desenvolvido a partir de mais de 82 casos praticos coletados de profissionais de sucesso no mercado digital brasileiro. Cada modulo representa aprendizados reais, erros evitados e estrategias comprovadas.
+          </p>
+        </div>
+
+        <div class="bg-white dark:bg-neutral-800 rounded-lg p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+          <div class="flex items-center mb-4">
+            <span class="text-3xl mr-3">🎯</span>
+            <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Para Quem E</h3>
+          </div>
+          <ul class="space-y-2 text-sm text-neutral-700 dark:text-neutral-300">
+            <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> Empreendedores digitais iniciantes</li>
+            <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> Profissionais que querem escalar</li>
+            <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> Donos de pequenos e medios negocios</li>
+            <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> Criadores de conteudo</li>
+            <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> Consultores e coaches</li>
+          </ul>
+        </div>
+
+        <div class="bg-gradient-to-br from-indigo-600 to-purple-600 text-white rounded-lg p-6 text-center">
+          <h3 class="text-xl font-bold mb-3">🚀 Comece Sua Transformacao</h3>
+          <p class="mb-4 text-sm">
+            Escolha sua trilha e de o primeiro passo
+          </p>
+          <a href="#trilhas" onclick="closeModal('modal-sobre')" class="inline-block bg-white text-indigo-600 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors">
+            Ver Trilhas →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Theme Toggle
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+    if (localStorage.getItem('color-theme') === 'dark' ||
+        (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      themeToggleLightIcon.classList.remove('hidden');
+    } else {
+      themeToggleDarkIcon.classList.remove('hidden');
+    }
+
+    themeToggleBtn.addEventListener('click', function() {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+    });
+
+    // Mobile Menu
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuBtn.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Modal Functions
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Modal Event Listeners
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('modal')) {
+        e.target.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+
+      if (e.target.classList.contains('close-modal')) {
+        const modal = e.target.closest('.modal');
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        const activeModals = document.querySelectorAll('.modal.active');
+        activeModals.forEach(modal => {
+          modal.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        });
+      }
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          // Close mobile menu if open
+          mobileMenu.classList.add('hidden');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+[
+  {
+    "id": 3466,
+    "author": "INEMA",
+    "date": "2025-06-22T03:09:10+00:00",
+    "text": "--\n\n**Tópicos Listados com Exemplos e Respostas**\n\n1. **Como organizar dados no Airtable para IA?**\n\n   * Criar uma tabela \"bruta\" que armazena tudo.\n   * A partir dela, gerar tabelas limpas e organizadas.\n   * Exemplo: `Parceiros` → `Descoberta` → `Contatos`.\n\n2. **Devo usar uma tabela por ferramenta MCP?**\n\n   * Depende, mas em geral, é melhor usar uma só ferramenta por tarefa clara.\n   * Facilita o controle e reduz ambiguidade no uso dos agentes.\n\n3. **Voice Agents ainda são um bom negócio?**\n\n   * Sim, mas com data de validade.\n   * Ideal como “extra” ou “brinde”, não como produto central.\n\n4. **Como me manter atualizado sobre mudanças rápidas na IA?**\n\n   * Participar de comunidades.\n   * Revisar constantemente as ferramentas e suas atualizações.\n   * Exemplo: GPTs agora permitem trocar de modelo, o que revalorizou sua utilidade.\n\n5. **Vale a pena começar com white-label?**\n\n   * Sim, se for para aprender ou vender rápido.\n   * Mas o ideal é migrar para uma solução própria o quanto antes.\n\n6. **Como evitar que meu canal pareça genérico de IA?**\n\n   * Use exemplos reais e específicos de negócios.\n   * Evite clickbait ou promessas de dinheiro fácil.\n   * Exemplo: usar roupa formal em thumbnail atraiu clientes mais sérios.\n\n7. **Prompts desorganizados: como resolver?**\n\n   * Use reverse metaprompting e crie uma biblioteca pessoal de prompts bons.\n   * Junte os melhores em sequências reutilizáveis.",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3465,
+    "author": "INEMA",
+    "date": "2025-06-22T03:08:50+00:00",
+    "text": ".**Resumo Completo das Dicas e Estratégicas**\n\n**1. Integração com Airtable e Estrutura de Dados**\n\n* Discussão sobre como conectar um agente de chat à Airtable, separando os dados em múltiplas tabelas: `Contatos`, `Parceiros` e `Respostas`.\n* Sugestão de usar um *Raw Table* (tabela bruta) para armazenar tudo e depois filtrar e curar os dados em tabelas temáticas (modelo Bronze, Silver, Gold da Medallion Architecture).\n* Argumento: mais escalável e flexível no longo prazo, principalmente ao migrar para Superbase ou Postgres.\n* Exemplo: dump de dados completo (bronze), limpeza leve (silver), dados prontos para análise (gold).\n\n**2. Voice Agents e Futuro**\n\n* Voz sintetizada está se tornando indistinguível da humana.\n* Surgem estratégias para enganar a regulação, como:\n\n  * IA faz o início da ligação e transfere para um humano com voz parecida.\n  * Empresas usando truques para parecerem humanas e evitar serem detectadas.\n* Expectativa de leis mais rígidas em breve, o que pode inviabilizar negócios inteiros baseados em voz IA.\n\n**3. Sustentabilidade de Modelos de Negócio com IA**\n\n* Voice agents hoje ainda são vendáveis, mas o valor percebido tende a cair rapidamente (commoditização).\n* Sugestão: usar como diferencial agregado (ex: brinde num pacote maior), não como produto principal.\n* Avaliar sempre se o que está oferecendo será facilmente substituído por uma solução gratuita ou embutida em breve.\n\n**4. Organização de Prompts e Aprendizado**\n\n* Estratégia: usar *reverse metaprompting* para revisar interações e sintetizar prompts mais eficazes para uso futuro.\n* Criar repositório pessoal de prompts otimizados e combiná-los em *mega-prompts*.\n* Valor da organização e documentação pessoal dos testes para gerar escalabilidade e reuso.\n\n**5. Estratégia de Canal no YouTube**\n\n* Aconselhamento: evite nichar demais. Seja generalista inicialmente, deixe o nicho emergir com o tempo.\n* Exemplos nas thumbnails e nos vídeos atraem exatamente os tipos de clientes desejados.\n* Ex: usar roupas formais nas thumbnails atraiu donos de negócio e investidores.\n\n**6. Considerações sobre Ferramentas de Prompting (ex: Fido)**\n\n* Boa para iniciantes entenderem estrutura.\n* Não deve substituir o aprendizado manual — habilidade de prompt será valiosa por muito tempo.\n\n**7. Avatares de Clientes**\n\n* Três tipos:\n\n  1. Quer aprender e precisa de ajuda (curioso e aberto).\n  2. Quer tentar sozinho, mas volta se achar difícil.\n  3. Sabe que quer contratar, mas quer aprender durante o processo (cliente estratégico).\n\n**8. Organização de Workflows no n8n com MCP**\n\n* Dica: evitar inflar o número de ferramentas em um só agente.\n* Melhor manter ferramentas separadas e com nomes explícitos para facilitar o controle e evitar confusão.\n* Usar agentes separados e bem organizados facilita a manutenção e o escalonamento.",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3464,
+    "author": "INEMA",
+    "date": "2025-06-22T03:08:28+00:00",
+    "text": "",
+    "has_media": true,
+    "media_type": "MessageMediaPhoto",
+    "media_file": "photo_3464_003.jpg"
+  },
+  {
+    "id": 3463,
+    "author": "INEMA",
+    "date": "2025-06-22T03:08:23+00:00",
+    "text": "Dicas e Estratégias 22/6/25",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3461,
+    "author": "INEMA",
+    "date": "2025-06-22T03:06:23+00:00",
+    "text": ".",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3460,
+    "author": "INEMA",
+    "date": "2025-06-22T03:06:22+00:00",
+    "text": ".",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3459,
+    "author": "INEMA",
+    "date": "2025-06-22T03:06:22+00:00",
+    "text": ".",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3458,
+    "author": "INEMA",
+    "date": "2025-06-22T03:06:22+00:00",
+    "text": ".",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3457,
+    "author": "INEMA",
+    "date": "2025-06-22T03:06:22+00:00",
+    "text": "https://chatgpt.com/c/68577209-76a0-8009-b0fb-a45a54c2ec7b",
+    "has_media": true,
+    "media_type": "MessageMediaWebPage"
+  },
+  {
+    "id": 3456,
+    "author": "INEMA",
+    "date": "2025-06-22T03:06:19+00:00",
+    "text": "1",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3455,
+    "author": "INEMA",
+    "date": "2025-06-22T03:06:12+00:00",
+    "text": "",
+    "has_media": false,
+    "media_type": null
+  }
+]

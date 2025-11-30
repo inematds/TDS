@@ -1,0 +1,109 @@
+[
+  {
+    "id": 4211,
+    "author": "INEMA",
+    "date": "2025-09-17T04:06:25+00:00",
+    "text": "",
+    "has_media": true,
+    "media_type": "MessageMediaPhoto",
+    "media_file": "photo_4211_001.jpg"
+  },
+  {
+    "id": 4209,
+    "author": "INEMA",
+    "date": "2025-09-17T03:57:03+00:00",
+    "text": "### Hacks apresentados na fala de Zeb Evans\n\n1. **Convergência de ferramentas**\n\n   * Em vez de usar vários softwares diferentes (Asana, Trello, Jira, Docs, Slack etc.), integrar tudo em uma única plataforma.\n   * Aumenta eficiência, reduz tempo perdido e evita o “work about work”.\n\n2. **Construção de “primitivos de plataforma”**\n\n   * Criar blocos básicos (tarefas, docs, comunicação, automações) que podem ser configurados para qualquer workflow.\n   * Isso permite flexibilidade e personalização sem precisar de múltiplos apps.\n\n3. **Uso de contexto como diferencial competitivo**\n\n   * Centralizar dados, tarefas, conversas e arquivos em um só lugar para dar contexto à IA.\n   * Com mais contexto, a IA pode agir com precisão e de forma autônoma.\n\n4. **Ambient AI (IA Proativa)**\n\n   * IA que sugere ou executa ações sem ser solicitada, como um assistente humano faria.\n   * Exemplo: detectar em um chat que alguém mencionou “marcar reunião” e automaticamente sugerir horários disponíveis.\n\n5. **Personalização de software para cada usuário**\n\n   * Experiências únicas e adaptadas: cada pessoa pode organizar sua Inbox ou dashboards da forma que preferir.\n   * Evita sobrecarga de informações e torna a interface mais produtiva.\n\n6. **Construção de agentes com orquestração e contexto**\n\n   * Agentes dentro da plataforma que usam os guias de estilo, dados internos, Google Drive, Figma e outros conectores para criar conteúdos ou executar tarefas.\n   * Orquestram os melhores LLMs e fazem **context engineering**.\n\n7. **Agent Execution Loop (ciclo de execução com validação)**\n\n   * Após cada ação, outro agente valida se a tarefa foi executada corretamente.\n   * Caso haja erro, ele corrige automaticamente, aumentando a qualidade e segurança.\n\n8. **Segurança e mitigação de prompt injection**\n\n   * Uso de agentes validadores para interromper ações suspeitas.\n   * Agentes podem “personificar” o usuário, garantindo que só acessem informações que a própria pessoa teria permissão.",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4208,
+    "author": "INEMA",
+    "date": "2025-09-17T03:53:32+00:00",
+    "text": "",
+    "has_media": true,
+    "media_type": "MessageMediaPhoto",
+    "media_file": "photo_4208_003.jpg"
+  },
+  {
+    "id": 4207,
+    "author": "INEMA",
+    "date": "2025-09-17T03:53:07+00:00",
+    "text": "Aqui está o resumo da conversa com Zeb Evans, fundador e CEO da ClickUp:\n\n### Principais pontos\n\n* Zeb compartilha sua trajetória como empreendedor e explica que criou a ClickUp após frustrações com excesso de ferramentas desconectadas.\n* O conceito central da ClickUp é **convergência**: reunir em uma plataforma flexível tarefas, docs, comunicação e automações, em contraste com softwares rígidos como Asana, Trello ou Jira.\n* A empresa alcançou **300 milhões de ARR**, marco importante citado na abertura.\n* Zeb destaca que o valor da IA em B2B vem do **contexto e engajamento**: integrar dados, comunicações e workflows em um só lugar.\n* Ele introduz o conceito de **Ambient AI**, inteligência artificial que age proativamente, sugerindo ações sem ser solicitada, como um assistente que acompanha as tarefas.\n* ClickUp vem investindo em **personalização de software**: cada usuário poderá moldar sua experiência (ex.: inbox em formato de jornal ou priorizando temas específicos).\n* Foi apresentado o **Agent Vibe Builder**, que permite criar agentes personalizados conectados a ferramentas internas e externas (Google Drive, Figma, calendário etc.), com foco em **context engineering** e **orquestração de modelos de IA**.\n* O sistema da ClickUp inclui um **agent execution loop**, onde um segundo agente verifica se a ação do primeiro está correta, aumentando a segurança e evitando falhas ou injeções de prompt.\n* Zeb contou ainda sobre sua vida: espírito empreendedor desde criança, abandono da faculdade após dois anos por não ver aplicabilidade prática e aprendizado autodidata em tecnologia e programação.\n\n### Exemplos e respostas\n\n* Quando perguntado sobre por que apostaram cedo na convergência: Zeb disse que era “óbvio” para ele que eficiência viria de unir tudo em um só lugar, apesar de investidores considerarem a ideia ruim.\n* Sobre Ambient AI: citou exemplo de um chat em que se fala em marcar reunião e o sistema automaticamente sugere horários.\n* Na demo, mostrou um agente para criar rascunhos de marketing com base em guias de estilo e contexto do ClickUp, que gera conteúdo automaticamente sem precisar configurar campos manualmente.\n* Respondendo sobre segurança: explicou que o agente pode **“impersonar” o usuário** para garantir que não acesse dados além do que a pessoa já tem permissão.",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4206,
+    "author": "INEMA",
+    "date": "2025-09-17T03:49:45+00:00",
+    "text": "",
+    "has_media": true,
+    "media_type": "MessageMediaPhoto",
+    "media_file": "photo_4206_005.jpg"
+  },
+  {
+    "id": 4205,
+    "author": "INEMA",
+    "date": "2025-09-17T03:49:37+00:00",
+    "text": "Fundador ClipUp -**Zeb Evans**",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4204,
+    "author": "INEMA",
+    "date": "2025-09-17T03:49:33+00:00",
+    "text": ".",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4203,
+    "author": "INEMA",
+    "date": "2025-09-17T03:49:32+00:00",
+    "text": ".",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4202,
+    "author": "INEMA",
+    "date": "2025-09-17T03:49:32+00:00",
+    "text": ".",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4201,
+    "author": "INEMA",
+    "date": "2025-09-17T03:49:32+00:00",
+    "text": ".",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4200,
+    "author": "INEMA",
+    "date": "2025-09-17T03:49:32+00:00",
+    "text": "https://chatgpt.com/c/68ca2ebe-5f68-8332-a2cd-a3714a0a40cb",
+    "has_media": true,
+    "media_type": "MessageMediaWebPage"
+  },
+  {
+    "id": 4199,
+    "author": "INEMA",
+    "date": "2025-09-17T03:49:31+00:00",
+    "text": "1",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4198,
+    "author": "INEMA",
+    "date": "2025-09-17T03:49:25+00:00",
+    "text": "",
+    "has_media": false,
+    "media_type": null
+  }
+]

@@ -1,0 +1,234 @@
+[
+  {
+    "id": 3963,
+    "author": "INEMA",
+    "date": "2025-08-25T05:23:45+00:00",
+    "text": "",
+    "has_media": true,
+    "media_type": "MessageMediaPhoto",
+    "media_file": "photo_3963_001.jpg"
+  },
+  {
+    "id": 3962,
+    "author": "INEMA",
+    "date": "2025-08-25T05:20:06+00:00",
+    "text": "",
+    "has_media": true,
+    "media_type": "MessageMediaPhoto",
+    "media_file": "photo_3962_002.jpg"
+  },
+  {
+    "id": 3961,
+    "author": "INEMA",
+    "date": "2025-08-25T05:16:22+00:00",
+    "text": "**evolução profissional recomendada** para quem quer vender workflows de IA sem se perder no modelo de agência. A sequência é assim:\n\n---\n\n## 1. Freelancer de IA\n\n* Primeira etapa prática.\n* Você vende pequenas automações, testa ideias, erra barato e ganha experiência real.\n* Objetivo: entregar **3 a 5 projetos pagos** (ou até gratuitos, em troca de depoimentos).\n* Benefícios:\n  • Ganha prova de resultados.\n  • Constrói confiança no processo.\n  • Descobre qual nicho e tipo de cliente mais gosta de atender.\n\nExemplo: criar um bot no WhatsApp para responder dúvidas básicas de um e-commerce.\n\n---\n\n## 2. Consultor de IA\n\n* Segunda etapa, após já ter cases e experiência.\n* Aqui você **não vende mais tarefas**, mas sim **estratégia + solução**.\n* O cliente pede sua visão de especialista: você ajuda a diagnosticar o problema e desenhar a solução de IA.\n* Você pode cobrar bem mais (de US\\$ 10k para cima) porque não é só “automatização”, mas sim **impacto no negócio**.\n* Pode fechar contratos de longo prazo, como **retainers mensais, acompanhamento estratégico ou participação em receita**.\n\nExemplo: em vez de vender “um chatbot”, vender “um sistema completo de qualificação de leads que reduz o tempo da equipe de vendas e aumenta taxa de conversão”.\n\n---\n\n## 3. Agência de IA (opcional e só no final)\n\n* Só faz sentido depois que você domina o processo como freelancer e consultor.\n* Nesse ponto, você já tem playbooks, casos de sucesso e confiança para treinar uma equipe.\n* A agência só deve vir quando você realmente sabe liderar desenvolvedores, vendedores e entregas, sem comprometer qualidade.\n\nExemplo: estruturar uma equipe para atender várias empresas de médio porte em paralelo, com processos bem definidos.\n\n---\n\nResumindo:\nFreelancer → Consultor → (talvez) Agência\n\nQuer que eu monte uma **linha do tempo visual com as habilidades e valores médios cobrados em cada fase** (freelancer, consultor, agência), para você enxergar a progressão de forma mais clara e prática?",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3960,
+    "author": "INEMA",
+    "date": "2025-08-25T05:15:43+00:00",
+    "text": "===================",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3959,
+    "author": "INEMA",
+    "date": "2025-08-25T05:15:40+00:00",
+    "text": "# Hacks para Vender Workflows de IA\n\n## 1. Posicionamento\n\n* Nunca diga “faço qualquer automação” → soa genérico.\n  Hack: escolha 1 dor específica de 1 nicho e repita isso em todo seu discurso.\n  Exemplo: “Eu ajudo e-commerces a reduzir em 70% o tempo de atendimento no WhatsApp”.\n\n* Venda resultado, não tecnologia.\n  Hack: fale em **tempo e dinheiro** (horas poupadas, custo evitado, aumento de receita), nunca em “nós usamos GPT/n8n”.\n\n---\n\n## 2. Prova antes da venda\n\n* Demonstre rápido com **Loom de 2 minutos**.\n  Hack: antes/depois direto, sem detalhes técnicos → o cliente só precisa ver o impacto.\n\n* Se não tem cliente ainda, crie um **case fictício realista**.\n  Hack: use dados médios de mercado (ex.: 4h/dia → 88h/mês) para simular ROI.\n\n---\n\n## 3. Outreach inteligente\n\n* Use a **linguagem do bolso do dono**.\n  Hack: sempre traduza em \\$/R\\$.\n  Exemplo: “Esse fluxo te economiza R\\$ 2.000/mês, te cobrando apenas R\\$ 2.000 uma única vez.”\n\n* Estruture o contato em **3 linhas**:\n\n  1. dor atual,\n  2. solução com prova,\n  3. chamada de ação curta (“Quer ver o vídeo de 2 minutos?”).\n\n---\n\n## 4. Proposta sem burocracia\n\n* 1 página no máximo.\n  Hack: escreva **Objetivo → Escopo → Meta → Prazo → Preço**. Nada mais.\n\n* Sempre inclua “limite de escopo” e “entrega em 7 dias”.\n  Hack: isso evita cliente pedindo 10 coisas extras sem pagar.\n\n---\n\n## 5. Fechamento mais fácil\n\n* Use a conta reversa.\n  Hack: calcule valor anual da perda e cobre 1–2 meses dessa economia.\n  Exemplo: empresa perde R\\$ 24k/ano em tempo → cobre R\\$ 2k para entregar o fluxo.\n\n* Diga “teste de 7 dias com métrica definida”.\n  Hack: reduz risco percebido e acelera sim ou não.\n\n---\n\n## 6. Entrega que vira case\n\n* Sempre documente **antes e depois** com números.\n  Hack: transforme cada entrega em case de 1 página → vira arma de vendas.\n\n* Peça depoimento com 3 frases:\n  Problema → Resultado → Recomendação.\n\n---\n\n## 7. Evolução para consultoria\n\n* Hack: mude o discurso de “vou fazer X automação” para “vou desenhar sua estratégia de IA”.\n* Hack: cobre por resultado/roadmap, não por hora de trabalho.\n* Hack: contratos de consultoria permitem **retenção mensal** (recorrência).\n\n---\n\n## 8. Mentalidade\n\n* Pense em **jogo de volume de provas**.\n  Hack: primeiros 3–5 projetos podem ser até de baixo preço ou até grátis → o ROI vem da credibilidade e dos cases.\n\n* “Pague para aprender”.\n  Hack: cada projeto inicial é treino pago → seu playbook vai se formando.\n\n---\n\n## 9. Precificação ninja\n\n* Hack 1: nunca cobre fixo sem antes medir “horas economizadas”.\n* Hack 2: precifique por ROI (2–6× economia mensal projetada).\n* Hack 3: aumente preços só depois de ter 3 cases fortes → aí você escala.\n\n---\n\n## 10. Diferencial competitivo\n\n* Hack: ofereça **estratégia + execução** no mesmo pacote.\n* Hack: simplifique o processo para o cliente (“me dê acesso ao WhatsApp + planilha e em 7 dias você tem resultado”).\n* Hack: clientes compram **tranquilidade**, não só automação.",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3958,
+    "author": "INEMA",
+    "date": "2025-08-25T05:11:24+00:00",
+    "text": "dublado",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3957,
+    "author": "INEMA",
+    "date": "2025-08-25T05:11:20+00:00",
+    "text": "https://www.youtube.com/watch?v=QIsJe-nZ5XE",
+    "has_media": true,
+    "media_type": "MessageMediaWebPage"
+  },
+  {
+    "id": 3956,
+    "author": "INEMA",
+    "date": "2025-08-25T05:09:21+00:00",
+    "text": "",
+    "has_media": true,
+    "media_type": "MessageMediaPhoto",
+    "media_file": "photo_3956_008.jpg"
+  },
+  {
+    "id": 3955,
+    "author": "INEMA",
+    "date": "2025-08-25T05:06:57+00:00",
+    "text": "",
+    "has_media": true,
+    "media_type": "MessageMediaPhoto",
+    "media_file": "photo_3955_009.jpg"
+  },
+  {
+    "id": 3954,
+    "author": "INEMA",
+    "date": "2025-08-25T05:05:48+00:00",
+    "text": "",
+    "has_media": true,
+    "media_type": "MessageMediaPhoto",
+    "media_file": "photo_3954_010.jpg"
+  },
+  {
+    "id": 3953,
+    "author": "INEMA",
+    "date": "2025-08-25T05:05:28+00:00",
+    "text": "==============",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3952,
+    "author": "INEMA",
+    "date": "2025-08-25T05:05:26+00:00",
+    "text": "Fallback humano claro.\n* Variáveis e prompts versionados.\n* Chaves e segredos fora do fluxo.\n\nPerguntas e respostas\n\n* P: Preciso de WhatsApp oficial?\n  R: para produção, sim. Para POC, pode simular ou usar um provedor sandbox.\n\n## 8) Meça antes/depois e gere o case\n\nObjetivo: prova objetiva de ROI.\n\nPlanilha de métricas mínima\n\n* Linha de base: tempo médio por demanda, volume semanal, taxa de erro.\n* Pós-MVP: mesmos campos + % auto-resolvido + horas poupadas + R\\$ economizado.\n\nFórmula de valor\n\n* Horas poupadas/mês × valor/hora do time = economia mensal.\n* Preço do MVP ≤ 1–2 meses de economia percebida.\n\nPerguntas e respostas\n\n* P: E se a meta não bater?\n  R: ajuste 1 iteração sem custo ou devolução parcial definida na proposta.\n\n## 9) Capture depoimentos e empacote a oferta\n\nObjetivo: transformar o MVP em prova social e produto.\n\nComo fazer\n\n* Depoimento de 3 frases: problema → resultado → recomendação.\n* Case de 1 página com gráficos de antes/depois.\n* Página simples com oferta focada no resultado (tempo/dinheiro).\n\n## 10) Evolua para consultoria e recorrência\n\nObjetivo: sair de “projeto” para “sistema”.\n\nOfertas de consultoria\n\n* Diagnóstico e roteiro de IA de 2–4 semanas.\n* Roadmap trimestral com OKRs de automação.\n* Retainer mensal de melhoria contínua e monitoramento.\n\nExemplos de pacotes\n\n* Diagnóstico: R\\$ 5k–15k.\n* Implementação por sprints: R\\$ 8k–30k/mês.\n* Retainer: R\\$ 2k–10k/mês conforme SLAs.\n\nPerguntas e respostas\n\n* P: Quando escalar para equipe?\n  R: depois de 5–10 entregas repetíveis, com playbooks e templates prontos.\n\n---\n\n# Materiais prontos para copiar e usar\n\n## Roteiro de Loom de 2 minutos\n\n1. Contexto: em 20s, descreva a tarefa repetitiva e o custo.\n2. Demonstração: mostre o fluxo resolvendo 1–2 casos reais.\n3. Impacto: horas e reais economizados/mês.\n4. Fechamento: meta da POC e chamada para próxima etapa.\n\n## Script de descoberta (15–20 min)\n\n* O que hoje mais toma tempo? Como fazem?\n* Quanto tempo por semana e qual o custo/h?\n* O que é sucesso em duas semanas?\n* Quais exceções e quem decide?\n* Quem testa e aprova?\n\n## Mini-proposta em texto\n\n```Objetivo: reduzir X horas/semana no [processo].\nEscopo MVP: [canais], [3 intenções], [handoff humano].\nMeta: ≥[percentual]% auto-resolução em 7 dias.\nMétricas: antes/depois em planilha compartilhada.\nPrazo: 7 dias corridos a partir do acesso.\nPreço: R$ [valor] (50% início, 50% entrega).\nMudanças fora do escopo: R$ [hora]/h.```\n\n## Tabela de ideias por nicho\n\n* E-commerce: WhatsApp/Email de status, trocas/devoluções, FAQ.\n* Clínicas: pré-triagem, lembrete de consulta, confirmação automática.\n* Imobiliárias: qualificação de leads, agendamento de visitas, perguntas sobre imóveis.\n* Escolas/cursos: dúvidas recorrentes, emissão de 2ª via, matrícula.\n* Academias: planos, horário de pico, follow-up de leads.\n\nExemplo e resposta\n\n* P: Qual começo mais simples em e-commerce?\n  R: status de pedido por WhatsApp + FAQ de frete/prazo + handoff.\n\n## Modelo de cálculo rápido de preço\n\n* Estime horas poupadas/mês × R\\$/h do time = valor mensal.\n* POC: 1–2× esse valor. Projeto completo: 3–6×.\n* Sempre ancorar em economia anual projetada.\n\n---\n\n# Plano de execução em 10 dias\n\nDia 1: escolher nicho e dor; escrever meta de 7 dias.\nDia 2: gravar Loom de 2 min.\nDia 3: enviar 25 DMs/emails com oferta da POC.\nDia 4: calls de descoberta; registrar métricas de base.\nDia 5–6: construir MVP com logs e fallback.\nDia 7: implantar e medir.\nDia 8: ajustar e bater meta.\nDia 9: coletar depoimento e montar case de 1 página.\nDia 10: publicar oferta e repetir.\n\n---\n\n# Perguntas comuns e respostas curtas\n\n* E se não tivermos dados?\n  Meça por 3 dias a linha de base e só então ative o MVP.\n\n* Dá para integrar ao nosso CRM?\n  Sim, começamos via CSV/planilha; se mantiver resultado, integramos API.\n\n* E a privacidade?\n  Use provedores com DPA, restrinja dados sensíveis e registre acessos.\n\n* Suporte após o MVP?\n  Ofereço retainer mensal com monitoramento e otimizações.",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3951,
+    "author": "INEMA",
+    "date": "2025-08-25T05:05:25+00:00",
+    "text": "# Passo a passo para vender workflows de IA sem abrir agência\n\n## 1) Defina um recorte simples e valioso\n\nObjetivo: escolher 1 persona e 1 dor cara, mensurável em tempo/dinheiro.\n\nComo fazer\n\n* Escolha um nicho que você entende minimamente: e-commerce, clínicas, imobiliárias, escolas, academias, restaurantes.\n* Liste 3 tarefas repetitivas do nicho que consomem horas e geram erros.\n* Converta cada tarefa em horas/mês e valor/hora do time.\n\nExemplo\n\n* Nicho: e-commerce.\n* Dor: responder perguntas repetidas no WhatsApp e status de pedido.\n* Cálculo: 4 h/dia x 22 dias = 88 h/mês. A R\\$ 30/h → R\\$ 2.640/mês.\n\nPerguntas e respostas\n\n* P: E se eu não souber o nicho?\n  R: Comece pelo que você já usa no dia a dia (lojas, clínicas, cursos). Priorize onde você tem acesso a 1–2 donos para validar.\n\n## 2) Projete um micro-resultado de 1 semana\n\nObjetivo: um resultado visível em até 7 dias.\n\nComo fazer\n\n* Escolha 1 fluxo fim-a-fim, pequeno, mas completo.\n* Defina sucesso com 1 métrica: horas economizadas, tickets/dia, taxa de resposta.\n\nChecklist de escopo mínimo\n\n* Entrada clara (ex.: mensagem no WhatsApp com 3 intenções mais comuns).\n* Saída clara (ex.: resposta automática + handoff humano).\n* Logs e planilha simples de métricas.\n\nExemplo de meta\n\n* Reduzir 60% das respostas repetidas em 7 dias.\n* Métrica: % de mensagens resolvidas sem humano.\n\nPerguntas e respostas\n\n* P: E se o cliente quiser 10 coisas?\n  R: feche um MVP com 1 objetivo e um backlog para fase 2.\n\n## 3) Crie um demo rápido antes/depois\n\nObjetivo: mostrar destino, não o carro.\n\nComo fazer\n\n* Grave um Loom de 2 minutos:\n  30s problema atual → 60s seu fluxo funcionando → 30s impacto em números.\n* Use dados fictícios plausíveis se ainda não tiver cliente.\n\nRoteiro pronto (resumo)\n\n* Antes: 5 h/semana respondendo status.\n* Depois: bot qualifica intenção, responde status e só passa exceções.\n* Impacto: −20 h/mês, −R\\$ 600/mês, melhora do SLA de 8 h para 2 min.\n\nPerguntas e respostas\n\n* P: Preciso do n8n já?\n  R: Para o demo, pode ser simulado. Para POC real, n8n Cloud e uma planilha já bastam.\n\n## 4) Faça outreach com oferta irrecusável\n\nObjetivo: contactar 30–50 leads com mensagem objetiva focada em tempo/dinheiro.\n\nRoteiro de mensagem (DM/email curto)\n\n```Assunto: 20h/mês de volta pro seu time com um fluxo simples\n\nSou [seu nome]. Vi que vocês atendem [canal]. \nMontei um fluxo que responde status de pedido e dúvidas repetidas no WhatsApp. \nEm testes, economiza ~20h/mês e reduz resposta para 2 min.\n\nProponho:\n• POC de 7 dias\n• Meta: resolver ≥60% das perguntas repetidas\n• Investimento único: R$ 2.000\nSe não bater a meta, ajusto sem custo ou devolvo.\n\nQuer ver um vídeo de 2 minutos?```\n\nPerguntas e respostas\n\n* P: E se não responderem?\n  R: reenvie com um resumo do Loom e um número: “mostro como economizar R\\$ 2.400/ano”.\n\n## 5) Conduza a call de descoberta\n\nObjetivo: alinhar expectativa, mapear processo e decidir go/no-go.\n\nPerguntas essenciais\n\n* Qual tarefa mais consome tempo hoje? Quanto tempo por semana?\n* Quanto vale uma hora desse time?\n* Quais exceções exigem humano?\n* O que é sucesso em 14 dias?\n* Quem aprova? Quem testa? Quem é o dono do processo?\n\nSinais verdes\n\n* Fala em investimento, não milagre.\n* Tem 1 dono do processo.\n* Topa métricas antes/depois.\n\nSinais vermelhos\n\n* Quer “IA mágica”, está em crise/pressa extrema, quer escopo infinito por preço fixo.\n\n## 6) Proposta objetiva em 1 página\n\nObjetivo: fechar rápido sem burocracia.\n\nEstrutura\n\n* Contexto e objetivo de 1 parágrafo.\n* Escopo do MVP: entradas, saídas, limites.\n* Meta e métrica de sucesso.\n* Prazos e responsabilidades (cliente e você).\n* Preço, condições e política de mudança de escopo.\n\nExemplo de meta\n\n* Resolver ≥60% das mensagens repetidas no WhatsApp em 7 dias, medido por planilha de logs.\n\nCondições sugeridas\n\n* 50% na aprovação, 50% na entrega do MVP.\n* Alterações fora do escopo por hora adicional.\n\n## 7) Entrega técnica mínima viável\n\nPilha mínima\n\n* n8n Cloud, Google Sheets/Airtable, webhooks/WhatsApp API (provedor), e-mail/Telegram para alertas.\n\nBoas práticas\n\n* Logs por etapa.\n*",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3950,
+    "author": "INEMA",
+    "date": "2025-08-25T05:03:45+00:00",
+    "text": "",
+    "has_media": true,
+    "media_type": "MessageMediaPhoto",
+    "media_file": "photo_3950_014.jpg"
+  },
+  {
+    "id": 3949,
+    "author": "INEMA",
+    "date": "2025-08-25T05:02:35+00:00",
+    "text": "==========",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3948,
+    "author": "INEMA",
+    "date": "2025-08-25T05:02:32+00:00",
+    "text": "Aqui está um resumo estruturado:\n\n### 1. Por que não começar com uma agência\n\n* Iniciar uma agência de IA sem experiência é uma armadilha: margens baixas, excesso de funções (vendas, escopo, entrega) e clientes difíceis.\n* Problemas de precificação, atrasos e reputação prejudicada.\n* Agências exigem lidar com múltiplos clientes e equipes — algo insustentável para quem ainda não domina o processo.\n\n### 2. O caminho recomendado\n\n* Começar como freelancer: entregar projetos sozinho, aprender na prática e construir provas de resultado.\n* Evoluir para consultor: vender estratégia e soluções personalizadas, não apenas tarefas.\n* Só depois, se quiser, montar uma equipe ou agência.\n\n### 3. Etapas práticas para vender seus primeiros workflows\n\n1. Escolher um problema específico de um nicho (ex.: coaches, e-commerce, agências).\n2. Criar um demo ou estudo de caso simples (ex.: Loom de 2 minutos mostrando antes/depois).\n3. Fazer outreach com uma oferta irrecusável, sempre traduzindo para tempo e dinheiro.\n\n   * Exemplo: “Essa tarefa te toma 5h/semana (\\$500). Eu entrego uma automação que te economiza \\$24k por ano, cobrando só \\$2k.”\n4. Documentar e medir métricas antes e depois da automação para comprovar ROI e gerar novos cases.\n\n### 4. Transição para consultoria\n\n* Com 3 a 5 projetos entregues, já é possível cobrar mais caro e se posicionar como consultor.\n* O consultor não só executa, mas guia empresas na estratégia de IA.\n* Isso permite cobrar por resultado e não por tarefa, fechar contratos maiores (acima de \\$10k) e até obter retenções mensais.\n\n### 5. Oportunidade de mercado\n\n* Grandes consultorias faturam bilhões com estratégia de IA, mas pequenas e médias empresas não podem pagar.\n* Isso abre espaço para consultores independentes com preços mais acessíveis.\n* O modelo é sustentável, gera credibilidade e permite crescimento gradual sem se queimar.\n\n### 6. Mensagem final\n\n* Não pule etapas.\n* Comece pequeno, valide com freelancing, depois escale para consultoria e só então pense em agência.\n* Foque em resolver problemas reais e gerar ROI.",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3947,
+    "author": "INEMA",
+    "date": "2025-08-25T05:01:58+00:00",
+    "text": "",
+    "has_media": true,
+    "media_type": "MessageMediaDocument",
+    "media_file": "How to Sell AI Workflows (w_o starting an agency).pdf"
+  },
+  {
+    "id": 3946,
+    "author": "INEMA",
+    "date": "2025-08-25T05:01:43+00:00",
+    "text": "===============",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3945,
+    "author": "INEMA",
+    "date": "2025-08-25T05:01:36+00:00",
+    "text": "Como Vender Workflows de IA (Sem Precisar Criar uma Agência)\n\nVou mostrar como vender workflows de IA sem precisar abrir uma agência. A maioria das pessoas acha que precisa começar uma agência para ganhar dinheiro com IA, mas isso simplesmente não é verdade. Eu sei disso porque já fiz isso na prática.\n\nEntão, hoje vou compartilhar meu guia passo a passo de como vender workflows de IA sem precisar criar uma agência. Aproveite!",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3943,
+    "author": "INEMA",
+    "date": "2025-08-25T05:00:25+00:00",
+    "text": "",
+    "has_media": true,
+    "media_type": "MessageMediaPhoto",
+    "media_file": "photo_3943_020.jpg"
+  },
+  {
+    "id": 3942,
+    "author": "INEMA",
+    "date": "2025-08-25T05:00:22+00:00",
+    "text": "Não Crie uma Agencia de IA",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3941,
+    "author": "INEMA",
+    "date": "2025-08-25T05:00:19+00:00",
+    "text": ".",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3940,
+    "author": "INEMA",
+    "date": "2025-08-25T05:00:18+00:00",
+    "text": ".",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3939,
+    "author": "INEMA",
+    "date": "2025-08-25T05:00:18+00:00",
+    "text": ".",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3938,
+    "author": "INEMA",
+    "date": "2025-08-25T05:00:18+00:00",
+    "text": ".",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3937,
+    "author": "INEMA",
+    "date": "2025-08-25T05:00:17+00:00",
+    "text": "https://chatgpt.com/c/68abed1b-7ef0-8328-b339-c895d2c3bf19",
+    "has_media": true,
+    "media_type": "MessageMediaWebPage"
+  },
+  {
+    "id": 3936,
+    "author": "INEMA",
+    "date": "2025-08-25T05:00:17+00:00",
+    "text": "1",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3935,
+    "author": "INEMA",
+    "date": "2025-08-25T05:00:08+00:00",
+    "text": "",
+    "has_media": false,
+    "media_type": null
+  }
+]

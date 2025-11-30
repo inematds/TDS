@@ -1,0 +1,156 @@
+[
+  {
+    "id": 4246,
+    "author": "INEMA",
+    "date": "2025-10-03T02:53:48+00:00",
+    "text": "### Passo a Passo SEO + Automação\n\n1. **Definir Objetivo**\n\n   * Escolha o que quer ranquear: serviço, produto ou autoridade.\n\n2. **Pesquisa de Palavras-chave**\n\n   * Use Google Keyword Planner, Answer the Public ou SeRanking.\n   * Foque em palavras com **alto volume + baixa concorrência**.\n   * Monte **clusters temáticos** (principal + relacionadas).\n\n3. **Planejamento de Conteúdo**\n\n   * Separe em dois tipos:\n\n     * **Transacional** (páginas de serviço/produto).\n     * **Informativo** (artigos de apoio que fortalecem autoridade).\n   * Crie outline (estrutura H1, H2, H3) para cada página.\n\n4. **Criação de Conteúdo**\n\n   * Gere esboço com ChatGPT/Claude.\n   * Insira **experiência pessoal ou da empresa** no prompt.\n   * Produza imagens com Ideogram → otimize com TinyPNG.\n\n5. **Automatização do Fluxo**\n\n   * Configure Google Sheets (ao adicionar keyword → dispara webhook).\n   * Automação (n8n/Make):\n\n     * Gera outline + conteúdo.\n     * Cria imagem destacada.\n     * Publica no WordPress como **rascunho** com categorias e metadados.\n\n6. **SEO Técnico**\n\n   * Plugins: **WP Rocket** (velocidade), **RankMath** (SEO).\n   * Extensões: **SEO Meta in 1 Click** (verificar estrutura).\n   * Gere e envie sitemap.xml para Google Search Console.\n   * Use **canonical** para evitar desperdício de crawl budget.\n\n7. **Schemas (Dados Estruturados)**\n\n   * Adicione blocos HTML com FAQ, Reviews, Produtos, Serviços.\n   * Teste no Schema Validator para garantir que está funcionando.\n\n8. **Autoridade de Marca**\n\n   * Vincule conteúdos a autor real (LinkedIn, perfis em diretórios).\n   * Publique em redes sociais para reforçar credibilidade.\n   * Use blog para **dar suporte** às páginas transacionais (linkagem interna).\n\n---\n\nIsso gera:\n\n* **Visibilidade orgânica real**.\n* **Autoridade no Google/LLMs**.\n* **Processo escalável e automático**.",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4245,
+    "author": "INEMA",
+    "date": "2025-10-03T02:53:37+00:00",
+    "text": "=================",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4244,
+    "author": "INEMA",
+    "date": "2025-10-03T02:53:22+00:00",
+    "text": "### Hacks de Conteúdo e Estrutura\n\n* Divida sempre o site em **conteúdos transacionais** (páginas de venda) e **conteúdos informativos** (artigos de apoio).\n* Use **H1, H2, H3 em hierarquia correta** – nunca pule níveis.\n* Em páginas transacionais, finalize sempre com **CTA** (formulário, botão, WhatsApp, etc.).\n* Use **conteúdo informativo** como apoio para aumentar autoridade e empurrar as páginas transacionais no ranking.\n\n### Hacks de Palavras-chave\n\n* Use ferramentas gratuitas (Google Keyword Planner, Answer the Public, SeRanking) para encontrar palavras com **alto volume + baixa concorrência**.\n* Valide ideias no ChatGPT/Claude pedindo sugestões de conteúdo alinhado ao seu público.\n* Gere **clusters temáticos** para estruturar conteúdos em família de tópicos.\n\n### Hacks de Automação\n\n* Dispare criação de conteúdo via **webhook** sempre que adicionar uma keyword em uma planilha (Google Sheets + n8n/Make).\n* Gere outline e texto com GPT/Claude, mas **inclua experiência pessoal** nos prompts para evitar conteúdo genérico.\n* Crie imagens com **Ideogram** e otimize no **TinyPNG** antes de publicar.\n* Publique em WordPress de forma automática como rascunho (já com categorias e metadados).\n\n### Hacks de SEO Técnico\n\n* Use **RankMath** em vez de Yoast (mais opções e flexível).\n* Instale **WP Rocket** para acelerar o site (velocidade é fator de ranking).\n* Use **Wappalyzer** para ver tecnologias de sites concorrentes.\n* Use **SEO Meta in 1 Click** para checar se a estrutura está correta (titles, meta, Hs).\n* Tenha sempre um **sitemap.xml** atualizado para guiar os bots de Google.\n* Evite desperdício de crawl budget (use canonical em variações de produto iguais).\n\n### Hacks de Dados Estruturados (Schemas)\n\n* Adicione **FAQ, Reviews, Serviços, Produtos** como schema para destacar no Google.\n* Insira schemas via **bloco HTML no Elementor** ou Advanced Custom Fields.\n* Sempre alinhe visual (o que aparece na página) com código schema (o que Google lê).\n\n### Hacks de Autoridade\n\n* Construa **marca pessoal** (LinkedIn, perfis em sites relevantes, assinaturas de artigos).\n* Associe conteúdos a **autores reais com credibilidade** (médicos, especialistas, consultores).\n* Nichar só depois de validar onde está o maior retorno.",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4243,
+    "author": "INEMA",
+    "date": "2025-10-03T02:52:41+00:00",
+    "text": "===================",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4242,
+    "author": "INEMA",
+    "date": "2025-10-03T02:52:20+00:00",
+    "text": "### Contexto\n\nO apresentador fala para uma comunidade de freelancers e empresas interessadas em SEO e automação. Ele traz uma visão prática de como estruturar páginas web para gerar resultados de negócio com SEO, destacando a importância de alinhar conteúdos informativos e transacionais.\n\n### Principais pontos abordados\n\n1. **Tipos de conteúdo**\n\n   * **Transacional**: páginas de serviços, produtos, cursos – orientadas à venda.\n   * **Informativo**: artigos de blog, tutoriais, comparativos – orientados a atrair e informar, mas devem reforçar a autoridade do domínio.\n\n2. **Estrutura SEO das páginas**\n\n   * Uso correto de **H1, H2, H3** em hierarquia.\n   * Conteúdo deve ser organizado e contextualizado, evitando títulos vagos.\n   * Páginas precisam ter **call-to-action** claros (formulário, botão, WhatsApp, etc.).\n\n3. **Ferramentas citadas**\n\n   * Google Keyword Planner, Answer the Public, SeRanking → pesquisa de palavras-chave.\n   * Ranklytics e Machined → geração de conteúdo estruturado.\n   * WordPress para sites de conteúdo; Shopify para e-commerce.\n   * Plugins: WP Rocket (performance), RankMath/Yoast (SEO).\n   * Extensões Chrome: Wappalyzer (tecnologias usadas), SEO Meta 1 Click (verificação de estrutura).\n\n4. **Automação do fluxo**\n\n   * Uso de **webhooks** para disparar criação de conteúdos a partir de palavras-chave.\n   * Geração de outlines + textos via GPT/Claude, incorporando experiências pessoais para originalidade.\n   * Criação de imagens com Ideogram e compressão com TinyPNG.\n   * Publicação automática em WordPress como rascunho, com metadados e categorias.\n   * Registro em planilhas (Google Sheets, Baserow) e uso de Advanced Custom Fields para dados dinâmicos.\n\n5. **Dados estruturados (schemas)**\n\n   * Essenciais para indexação e destaque no Google (estrelas, FAQ, reviews, produtos, serviços).\n   * Podem ser inseridos manualmente em blocos HTML no Elementor.\n   * Diferenciam páginas informativas e transacionais.\n\n6. **Conselhos-chave**\n\n   * Não focar apenas em blog posts: autoridade vem de páginas transacionais bem estruturadas.\n   * A automação deve manter qualidade: prompts precisam incluir experiência própria.\n   * Construir **marca pessoal** aumenta muito a autoridade e facilita o ranqueamento.\n   * SEO atual não é suficiente sozinho: combinar com presença digital e reputação.\n   * Blogs devem servir como apoio estratégico para posicionar serviços/produtos.\n\n7. **Discussão com participantes**\n\n   * Questões sobre como iniciar SEO do zero: recomenda foco em páginas transacionais otimizadas + autoridade da marca.\n   * Debate sobre nichar ou não: no início, melhor explorar; depois, nichar onde há mais retorno.\n   * Importância do **sitemap** para indexação e do **crawl budget** (evitar desperdiçar recursos de rastreamento com páginas irrelevantes).\n\n### Resumindo em 3 prioridades (regra de Pareto 20/80)\n\n1. Criar uma **web bem estruturada** com páginas transacionais claras.\n2. Trabalhar a **autoridade da marca pessoal** (LinkedIn, redes sociais, perfis em diretórios relevantes).\n3. Usar **dados estruturados (schemas)** para reforçar indexação no Google e LLMs.",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4241,
+    "author": "INEMA",
+    "date": "2025-10-03T02:51:07+00:00",
+    "text": "https://peter.academy/curso-seo/gratis/",
+    "has_media": true,
+    "media_type": "MessageMediaWebPage"
+  },
+  {
+    "id": 4240,
+    "author": "INEMA",
+    "date": "2025-10-03T02:50:28+00:00",
+    "text": "=================",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4239,
+    "author": "INEMA",
+    "date": "2025-10-03T02:50:25+00:00",
+    "text": "SEO real: IA + estrutura + negócio\n\nVocê aprende a automatizar a geração e publicação de conteúdo SEO em seus sites, combinando inteligência artificial e ferramentas de automação para conquistar um posicionamento orgânico real que gera negócio. O foco não está em criar conteúdos apenas por criar, mas sim em desenvolver estruturas e fluxos que escalem de forma sustentável e efetiva.\n\n🛠️ O que conseguimos com essa automação?\n\n* Criar conteúdos SEO que realmente ranqueiam e são voltados para gerar negócio.\n* Gerar clusters temáticos com IA e distribuí-los em uma estrutura web coerente.\n* Automatizar a redação de conteúdos com prompts personalizados.\n* Publicar conteúdos diretamente no WordPress, com imagem otimizada e metadados.\n* Estruturar corretamente páginas informativas e transacionais.\n* Aplicar dados estruturados (schemas) para melhorar a indexação e aparição no Google e em outros LLMs.\n\n🧩 Estrutura do fluxo automatizado\n\n* Pesquisa de palavras-chave usando ferramentas como Google Keyword Planner, Answer The Public e SeRanking.\n* Geração de clusters temáticos com Machined ou manualmente.\n* Criação do outline e do conteúdo com ferramentas como Ranklytics ou prompts no ChatGPT/Claude.\n* Automação do fluxo:\n\n  * Webhook que dispara o fluxo ao inserir uma palavra-chave.\n  * Geração de outline e conteúdo personalizado com Claude + experiência própria.\n  * Criação de imagem destacada com Ideogram e otimização com TinyPNG.\n  * Publicação no WordPress como rascunho com categoria e metadados.\n  * Registro do conteúdo em uma base de controle (ex. Google Sheet ou Baserow).\n  * Aplicação de dados estruturados (FAQ, avaliações, produtos, serviços etc.) por meio de blocos HTML personalizados no Elementor ou Advanced Custom Fields.\n\n🧰 Ferramentas mencionadas\n\n* Plugin de otimização: [https://wp-rocket.me/es/](https://wp-rocket.me/es/)\n* Plugin RankMath: [https://rankmath.com/wordpress/plugin/seo-suite/](https://rankmath.com/wordpress/plugin/seo-suite/)\n* Extensão Chrome SEO: [https://chromewebstore.google.com/detail/seo-meta-in-1-click/bjogjfinolnhfhkbipphpdlldadpnmhc?hl=es](https://chromewebstore.google.com/detail/seo-meta-in-1-click/bjogjfinolnhfhkbipphpdlldadpnmhc?hl=es)\n* Ferramenta de conteúdo Ranklytics: [https://ranklytics.ai/](https://ranklytics.ai/)\n* Ferramenta de conteúdo Machined: [https://machined.ai/](https://machined.ai/)\n\n🧠 Conselhos chave que aprendemos\n\n* Nem todo conteúdo que ranqueia gera negócio: foque nas páginas transacionais.\n* O conteúdo informativo deve fortalecer a autoridade do domínio, não apenas atrair visitas.\n* Estrutura clara com H1, H2 e H3 coerentes é fundamental.\n* Automatizar não significa perder qualidade: use prompts que incorporem experiência própria.\n* A autoridade também se constrói pela marca pessoal: exponha-se.\n* Os schemas fazem a diferença em LLMs e no Google: use-os sempre.\n* Não abuse de conteúdos gerados sem critério: a IA pode ser sua aliada, não sua desculpa.",
+    "has_media": true,
+    "media_type": "MessageMediaWebPage"
+  },
+  {
+    "id": 4238,
+    "author": "INEMA",
+    "date": "2025-10-03T02:49:36+00:00",
+    "text": "",
+    "has_media": true,
+    "media_type": "MessageMediaDocument",
+    "media_file": "SEO-con-IA-De-los-Fundamentos-a-la-Automatizacion.pdf"
+  },
+  {
+    "id": 4237,
+    "author": "INEMA",
+    "date": "2025-10-03T02:48:37+00:00",
+    "text": "",
+    "has_media": true,
+    "media_type": "MessageMediaPhoto",
+    "media_file": "photo_4237_010.jpg"
+  },
+  {
+    "id": 4236,
+    "author": "INEMA",
+    "date": "2025-10-03T02:47:41+00:00",
+    "text": "SEO real: IA + estrutura + negócio",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4235,
+    "author": "INEMA",
+    "date": "2025-10-03T02:47:40+00:00",
+    "text": ".",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4234,
+    "author": "INEMA",
+    "date": "2025-10-03T02:47:40+00:00",
+    "text": ".",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4233,
+    "author": "INEMA",
+    "date": "2025-10-03T02:47:39+00:00",
+    "text": ".",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4232,
+    "author": "INEMA",
+    "date": "2025-10-03T02:47:39+00:00",
+    "text": ".",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4231,
+    "author": "INEMA",
+    "date": "2025-10-03T02:47:39+00:00",
+    "text": ".",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4230,
+    "author": "INEMA",
+    "date": "2025-10-03T02:47:39+00:00",
+    "text": "https://chatgpt.com/c/68df391f-02d0-8325-bc28-1dc03a278ea5",
+    "has_media": true,
+    "media_type": "MessageMediaWebPage"
+  },
+  {
+    "id": 4229,
+    "author": "INEMA",
+    "date": "2025-10-03T02:47:38+00:00",
+    "text": "1",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4228,
+    "author": "INEMA",
+    "date": "2025-10-03T02:47:23+00:00",
+    "text": "",
+    "has_media": false,
+    "media_type": null
+  }
+]

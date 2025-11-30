@@ -1,0 +1,123 @@
+[
+  {
+    "id": 3846,
+    "author": "INEMA",
+    "date": "2025-08-07T04:37:58+00:00",
+    "text": "",
+    "has_media": true,
+    "media_type": "MessageMediaDocument",
+    "media_file": "Resumo_Automacao_Consultoria.pdf"
+  },
+  {
+    "id": 3845,
+    "author": "INEMA",
+    "date": "2025-08-07T04:37:51+00:00",
+    "text": "=============",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3844,
+    "author": "INEMA",
+    "date": "2025-08-07T04:37:47+00:00",
+    "text": "alavras-chave, tom técnico, estrutura lógica, e até \"jargões\".\n\n**Aplicação**:\nCole um texto base → gere o estilo → aplique nos conteúdos futuros para manter coerência.\n\n-",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3843,
+    "author": "INEMA",
+    "date": "2025-08-07T04:37:47+00:00",
+    "text": "Abaixo está a explicação de **cada ponto do vídeo** com **exemplos práticos e aplicação direta**,\n\n---\n\n### **00:22 - Processo de implementação do cliente (contrato até a conclusão)**\n\n**Resumo**:\nO processo ideal começa com uma ou duas reuniões (descoberta e proposta). Após o contrato assinado e o pagamento feito, é enviado um **documento de aprovação de escopo**. Esse documento detalha o que será entregue, evitando que o cliente peça “mais do que foi combinado”.\n\n**Exemplo**:\n\n> Cliente pediu automação de qualificação de leads. Depois, quis incluir nutrição de leads. Sem o documento de aprovação, ele cobraria tudo como se fosse parte do contrato.\n\n**Aplicação**:\nUse **diagramas (Mermaid)** e um documento visual com os componentes acordados para garantir que o escopo seja claro desde o início.\n\n---\n\n### **04:23 - Discussão sobre modelos, frameworks e rotinas**\n\n**Resumo**:\nNão há um modelo fixo ou template universal, pois cada cliente é diferente. Uma proposta para um dentista é diferente de uma para uma loja de espuma ou uma ONG.\n\n**Exemplo**:\n\n> Cada proposta é feita do zero com base no negócio, geralmente gerenciada no Notion e com checklist customizado.\n\n**Aplicação**:\nCrie um template base com campos genéricos e personalize conforme o nicho do cliente.\n\n---\n\n### **04:59 - Comunicação e feedback durante a implementação**\n\n**Resumo**:\nEvite o erro de fazer tudo e entregar de surpresa (o chamado “voilà moment”). Prefira enviar **Looms semanais ou quinzenais** com o progresso e solicite feedback.\n\n**Exemplo**:\n\n> Cliente não viu os vídeos e reclamou no final que estava tudo diferente. Se tivesse dado feedback no meio, isso teria sido evitado.\n\n**Aplicação**:\nUse Loom + analytics (veja se assistiram). Peça para o cliente responder “OK” ou “Ajustar X” em cada entrega parcial.\n\n---\n\n### **11:30 - Convertendo insights em etapas acionáveis**\n\n**Resumo**:\nPegue os aprendizados da primeira call e converta em diagramas ou estruturas acionáveis. Use IA (Claude, GPT, etc.) para gerar **possíveis fluxos futuros**.\n\n**Exemplo**:\n\n> Foram gerados 4 fluxos diferentes com IA para mostrar ao cliente, cada um com um nível de automação e possíveis falhas.\n\n**Aplicação**:\nApresente variações de solução para validar a abordagem e alinhar expectativas.\n\n---\n\n### **13:49 - Gerenciamento de documentação no Notion**\n\n**Resumo**:\nTudo é centralizado no Notion: requisitos, credenciais, transcrições de calls, handoff, etc. Para cada cliente, há um workspace separado.\n\n**Exemplo**:\n\n> Mesmo com poucos clientes hoje, ele ainda usa documentação organizada para evitar ruídos.\n\n**Aplicação**:\nTenha um modelo de workspace no Notion com:\n\n* Requisitos\n* Escopo\n* Looms\n* Acessos\n* Status\n\n---\n\n### **18:55 - Construindo em plataforma própria vs. plataforma do cliente**\n\n**Resumo**:\nPreferência por **desenvolver em ambiente próprio** e depois transferir. Só começa no cliente se houver urgência ou dificuldades com APIs/acessos.\n\n**Exemplo**:\n\n> Um cliente de imóveis nunca conseguiu subir a conta do OpenAI. Resultado: não pagou pelo projeto mesmo tudo funcionando.\n\n**Aplicação**:\nSempre valide se o cliente tem os acessos certos antes de aceitar o projeto.\n\n---\n\n### **23:31 - Execução de sistemas paralelos e discussões sobre retenção**\n\n**Resumo**:\nEvite contratos de manutenção (retainer) com pequenos negócios. A automação pode quebrar por mudanças externas (modelos, APIs) que não são sua culpa.\n\n**Exemplo**:\n\n> O retainer de R\\$5.000 se tornou um fardo, pois exigia retrabalho contínuo por mudanças no sistema do cliente.\n\n**Aplicação**:\nOfereça garantia de 90 dias sem alterações. Se alterarem, perde-se a garantia.\n\n---\n\n### **26:09 - Processo de transferência e configuração de recursos do cliente**\n\n**Resumo**:\nPor segurança e responsabilidade, **não configure serviços como Google Drive ou Gmail diretamente**. Forneça guias passo a passo com Loom ou Scribe.\n\n**Exemplo**:\n\n> Um erro na permissão do Google Drive poderia abrir brechas sem intenção, gerando culpa para o consultor.\n\n**Aplicação**:\nGrave um Loom ou use o Scribe (print + passo a passo interativo)",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3842,
+    "author": "INEMA",
+    "date": "2025-08-07T04:36:57+00:00",
+    "text": "=======",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3841,
+    "author": "INEMA",
+    "date": "2025-08-07T04:36:54+00:00",
+    "text": "Os Assuntos\n\n\n00:22 - Processo de implementação do cliente (contrato até a conclusão)\n04:23 - Discussão sobre modelos, frameworks e rotinas\n04:59 - Comunicação e feedback durante a implementação\n11h30 - Convertendo insights em etapas acionáveis\n13:49 - Gerenciamento de documentação no Notion\n18:55 - Construindo em plataforma própria vs. plataforma do cliente\n23:31 - Execução de sistemas paralelos e discussões sobre retenção\n26:09 - Processo de transferência e configuração de recursos do cliente\n27:50 - Protocolos de treinamento de clientes e SOPs\n29:22 - Navegando em mercados com baixa adoção de IA\n33:13 - Recurso de favoritos do plugin Chrome para escolas\n35:00 - Estruturação de contratos para escopos em evolução\n38:01 - Sessões de descoberta vs. construção com dados simulados\n39:28 - Definindo expectativas com clientes incertos\n42:47 - Gerenciando ambientes de desenvolvimento multi-cliente\n45:34 - Processamento de transcrições de clientes e insights de dados\n48:40 - Construindo GPTs e projetos personalizados\n51:47 - Combinando a voz e o tom da marca em textos de IA",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3840,
+    "author": "INEMA",
+    "date": "2025-08-07T04:36:27+00:00",
+    "text": "==============",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3839,
+    "author": "INEMA",
+    "date": "2025-08-07T04:36:24+00:00",
+    "text": "## **Resumo Geral**\n\n### 1. **Processo entre assinatura do contrato e entrega final**\n\n* **Antes**: Era comum assumir projetos menores, agora só projetos enterprise ou de alto valor simbólico (celebridades).\n* **Estrutura de chamadas**:\n\n  * Primeira call: avaliar o “vibe check” entre cliente e consultor.\n  * Segunda call: vir preparado com esboço ou diagrama (ex: mermaid diagram) de automações.\n* **Ferramentas utilizadas**:\n\n  * Claude ou outras IA para gerar automações antes de apresentar.\n  * Aprovação formal após pagamento, com documento detalhado (escopo, limitações, e estrutura visual).\n  * Esse documento surgiu para evitar “amnésia de escopo” após início do projeto.\n\n### 2. **Como evitar escopo flutuante**\n\n* Escopo muda com frequência e pode virar “bola de neve”.\n* Criar um **documento de aprovação pós-proposta** para mitigar riscos.\n* Inclui buffers e margens de manobra para ajustes sem abrir portas para abusos.\n\n### 3. **Templates e frameworks**\n\n* Não utiliza templates fixos pois atua em diferentes nichos.\n* Usa checklists personalizados no Notion para cada cliente.\n\n### 4. **Comunicação e feedback durante o projeto**\n\n* **Evitar “momento voilà”** (mostrar tudo de uma vez no final).\n* **Looms semanais ou quinzenais** com atualizações, não diárias (evita parecer “funcionário”).\n* Monitorar taxa de visualização dos looms → se não assistem, marcar reunião.\n\n### 5. **Gestão de expectativas**\n\n* Criar loops de feedback: “Se não respondeu ao Loom, assumo que está tudo certo”.\n* Marcar chamadas de checkpoint aos 80% do projeto para evitar desalinhamento.\n\n### 6. **Projetos paralelos ou mockup**\n\n* Evitar “vibe coding” sem validação.\n* Criar mockups 100% funcionais com dados fictícios para testar interface e fluxo.\n* Exemplo: clicar em botões e ver se tem resposta, mesmo que seja apenas texto simulado.\n\n### 7. **Gestão de acesso e credenciais**\n\n* Criar conta separada (ex: `handoff-team@empresa.com`) para separar ambientes.\n* Nunca usar contas pessoais.\n* Realizar chamadas para configurar APIs com o cliente (ex: OpenAI, Supabase, etc).\n\n### 8. **Contrato de escopo em evolução**\n\n* Utilizar **Discovery Retainer**: contrato pago para avaliar a situação antes de propor a solução.\n* Entregáveis da fase de descoberta:\n\n  * Diagnóstico.\n  * Documento com roadmap.\n  * Diagrama mermaid.\n  * Avaliação de oportunidades.\n\n### 9. **Evitar problemas com pagamentos e expectativas**\n\n* Checar se o cliente tem conta com nível necessário na OpenAI ou outras plataformas.\n* Evitar clientes que reclamam de custos pequenos (ex: \\$100 para aumentar limite da OpenAI).\n\n### 10. **Suporte e treinamento**\n\n* Treinamento gravado por Loom (20 a 60 min).\n* Documento Notion com instruções.\n* Canal de suporte no Slack por 30 dias — **não manter acesso contínuo**.\n\n### 11. **Criação de IA customizada**\n\n* ChatGPT permite criar GPTs customizados facilmente.\n* Claude também permite, mas com menos acessibilidade para leigos.\n* Ferramenta sugerida: **Style Extractor GPT** — analisa tom e estilo de qualquer texto.\n\n### 12. **Extra: distilação de conhecimento**\n\n* Em vez de usar RAG + vetores, sugere distilação com Python ou n8n:\n\n  * Passar por todos os documentos e extrair os principais insights por página.\n  * Concatenar os insights em um “super resumo”.\n  * Alimentar um modelo com esse resumo (muito mais eficaz que mandar os documentos brutos).",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3838,
+    "author": "INEMA",
+    "date": "2025-08-07T04:35:02+00:00",
+    "text": "Resumo de Consultoria - Perguntas e Respostas",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3837,
+    "author": "INEMA",
+    "date": "2025-08-07T04:35:00+00:00",
+    "text": ".",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3836,
+    "author": "INEMA",
+    "date": "2025-08-07T04:34:59+00:00",
+    "text": ".",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3835,
+    "author": "INEMA",
+    "date": "2025-08-07T04:34:59+00:00",
+    "text": "..",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3834,
+    "author": "INEMA",
+    "date": "2025-08-07T04:34:58+00:00",
+    "text": "https://chatgpt.com/c/68942725-06c0-832b-84db-ee65424ebec9",
+    "has_media": true,
+    "media_type": "MessageMediaWebPage"
+  },
+  {
+    "id": 3833,
+    "author": "INEMA",
+    "date": "2025-08-07T04:34:57+00:00",
+    "text": "1",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3832,
+    "author": "INEMA",
+    "date": "2025-08-07T04:34:46+00:00",
+    "text": "",
+    "has_media": false,
+    "media_type": null
+  }
+]

@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trilha de Vendas - TDS</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6);
+      backdrop-filter: blur(4px);
+    }
+
+    .modal.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      background-color: white;
+      margin: auto;
+      padding: 0;
+      width: 90%;
+      max-width: 900px;
+      max-height: 90vh;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 20px 25px rgba(0,0,0,0.3);
+    }
+
+    .dark .modal-content {
+      background-color: #1f2937;
+    }
+
+    .modal-header {
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid #e5e7eb;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-body {
+      padding: 2rem;
+      overflow-y: auto;
+      max-height: calc(90vh - 80px);
+    }
+
+    .close-modal {
+      color: #9ca3af;
+      font-size: 2rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .close-modal:hover {
+      color: #ef4444;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 0.8s ease-out;
+    }
+  </style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900 transition-colors">
+
+  <!-- Navegacao -->
+  <nav class="sticky top-0 z-50 bg-white dark:bg-neutral-800 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center space-x-4">
+          <a href="../index.html" class="text-2xl font-bold text-blue-600 dark:text-blue-400">TDS</a>
+          <span class="text-neutral-400">/</span>
+          <span class="text-emerald-600 dark:text-emerald-400 font-semibold">Vendas</span>
+        </div>
+
+        <div class="hidden md:flex items-center space-x-6">
+          <a href="../index.html" class="text-neutral-700 dark:text-neutral-300 hover:text-emerald-600 transition-colors">Inicio</a>
+          <a href="../redes-sociais/index.html" class="text-neutral-700 dark:text-neutral-300 hover:text-blue-600 transition-colors">Redes Sociais</a>
+          <a href="../negocios/index.html" class="text-neutral-700 dark:text-neutral-300 hover:text-purple-600 transition-colors">Negocios</a>
+
+          <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-700" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-emerald-600 via-emerald-700 to-green-700 py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white animate-fade-in">
+      <div class="flex items-center mb-4">
+        <span class="text-5xl mr-4">💰</span>
+        <div>
+          <p class="text-emerald-200 text-sm font-medium">TRILHA DE</p>
+          <h1 class="text-4xl sm:text-5xl font-bold">Vendas</h1>
+        </div>
+      </div>
+      <p class="text-xl text-white/90 max-w-2xl mb-6">
+        Domine a arte de vender valor. Aprenda tecnicas comprovadas de vendas consultivas, precificacao estrategica e fechamento de alto valor.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-medium">40 horas</span>
+        <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-medium">12 Modulos</span>
+        <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-medium">30+ Casos Praticos</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Progress Bar -->
+  <div class="bg-white dark:bg-neutral-800 py-4 border-b border-neutral-200 dark:border-neutral-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">Seu Progresso</span>
+        <span class="text-sm font-medium text-emerald-600 dark:text-emerald-400">0%</span>
+      </div>
+      <div class="w-full h-2 bg-neutral-200 dark:bg-neutral-700 rounded-full overflow-hidden">
+        <div class="h-full bg-gradient-to-r from-emerald-500 to-green-500 transition-all duration-500" style="width: 0%"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modulos -->
+  <section class="py-12 lg:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Modulo 1 -->
+      <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center">
+            <span class="text-2xl mr-3">📚</span>
+            <div>
+              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 1: Fundamentos de Vendas e Negocios</h2>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Mindset, validacao e estruturacao inicial</p>
+            </div>
+          </div>
+          <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-sm font-medium rounded-full">4h</span>
+        </div>
+
+        <ul class="topics-list space-y-0.5">
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 1.1 Mindset e Mentalidade Empreendedora
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border-l-4 border-emerald-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">O que e:</strong> A base mental necessaria para ter sucesso em vendas - consistencia vence atalhos.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Por que aprender:</strong> Resiliencia emocional e fundamental para lidar com rejeicoes e manter o foco.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Conceitos chave:</strong> Disciplina, neurociencia do "nao", mentalidade de escala.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 1.2 Identificando e Validando Oportunidades
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border-l-4 border-emerald-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">O que e:</strong> Processo de pesquisa de mercado e validacao de demanda antes de investir.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Por que aprender:</strong> Evitar criar produtos/servicos que ninguem quer comprar.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Conceitos chave:</strong> Entrevistas com clientes, landing pages de teste, analise SWOT.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 1.3 Estruturacao Inicial do Negocio
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border-l-4 border-emerald-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">O que e:</strong> Escolha de formato juridico, protecao legal e documentacao essencial.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Por que aprender:</strong> Base solida evita problemas futuros e permite escalar com seguranca.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Conceitos chave:</strong> PJ vs Autonomo, contratos, parcerias estrategicas.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Modulo 2 -->
+      <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center">
+            <span class="text-2xl mr-3">💎</span>
+            <div>
+              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 2: Precificacao e Estrategia de Vendas</h2>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Metodologia de precificacao e ofertas de alto valor</p>
+            </div>
+          </div>
+          <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-sm font-medium rounded-full">5h</span>
+        </div>
+
+        <ul class="topics-list space-y-0.5">
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 2.1 Metodologia de Precificacao (High Ticket)
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border-l-4 border-emerald-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">O que e:</strong> Teoria das Restricoes aplicada a vendas - identificar gargalos e precificar pelo valor.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Tecnica chave:</strong> Entrevista de preco: "Qual preco seria tao alto que voce nao compraria?"
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Conceitos chave:</strong> Ancoragem de preco, precificacao por ROI (2-6x economia mensal).
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 2.2 Tipos de Ofertas de Alto Valor
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border-l-4 border-emerald-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">O que e:</strong> Modelos de oferta que maximizam valor percebido e margem.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Tipos principais:</strong> Done-for-You (entrega pronta), Done-with-You (colaborativo), Acesso exclusivo.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Conceitos chave:</strong> Packaging, diferenciacao, pacotes escalonados.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 2.3 Modelos de Precificacao Inovadores
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border-l-4 border-emerald-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">O que e:</strong> Alternativas ao preco fixo tradicional.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Modelos:</strong> Por resultado, por tarefa, por conversa, por sucesso, participacao em receita.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Conceitos chave:</strong> Alinhamento de incentivos, retainers mensais.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Modulo 3 -->
+      <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center">
+            <span class="text-2xl mr-3">🎯</span>
+            <div>
+              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 3: Estrategias de Vendas Eficazes</h2>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Formula AIR, prospeccao e follow-up</p>
+            </div>
+          </div>
+          <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-sm font-medium rounded-full">4h</span>
+        </div>
+
+        <ul class="topics-list space-y-0.5">
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 3.1 Formula AIR (Pesquisa > Acao > Feedback)
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border-l-4 border-emerald-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">O que e:</strong> Ciclo de crescimento organico continuo baseado em dados e acao.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Aplicacao:</strong> Analise de concorrentes, identificacao de produtos com melhor desempenho, ajuste continuo.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Conceitos chave:</strong> Data-driven selling, inteligencia competitiva.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 3.2 Prospeccao Ativa e Outreach
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border-l-4 border-emerald-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">O que e:</strong> Abordagem estruturada 1:1 personalizada para conquistar clientes.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Estrutura:</strong> 3 linhas - dor atual, solucao com prova, CTA curto.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Conceitos chave:</strong> Cold outreach, LinkedIn ABM, rede pessoal como primeira fonte.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 3.3 Follow-up Estruturado
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border-l-4 border-emerald-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">O que e:</strong> Sistema de acompanhamento que fecha vendas - "Follow-up fecha vendas".
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Ferramentas:</strong> CRM para metas semanais, tratamento de leads frios vs quentes.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Conceitos chave:</strong> Apresentar valor ANTES de falar em preco, meta minima 5 abordagens/semana.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Modulo 4 -->
+      <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center">
+            <span class="text-2xl mr-3">🔥</span>
+            <div>
+              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 4: Funis de Vendas e Jornada do Cliente</h2>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">ToFu, MoFu, BoFu e gatilhos mentais</p>
+            </div>
+          </div>
+          <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-sm font-medium rounded-full">4h</span>
+        </div>
+
+        <ul class="topics-list space-y-0.5">
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 4.1 Estrutura do Funil de Vendas
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border-l-4 border-emerald-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">O que e:</strong> Jornada completa do cliente desde o primeiro contato ate a compra.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Etapas:</strong> ToFu (educacao), MoFu (solucoes), BoFu (provas e ROI).
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Conceitos chave:</strong> Niveis de consciencia, touchpoints estrategicos.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 4.2 Gatilhos Mentais e Engajamento
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border-l-4 border-emerald-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">O que e:</strong> Tecnicas psicologicas que aceleram decisoes de compra.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Gatilhos principais:</strong> Curiosidade, urgencia, escassez, prova social, autoridade, reciprocidade, FOMO.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Conceitos chave:</strong> Aspiracao, medo de perder oportunidade.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 4.3 Copy e Copywriting Estrategico
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border-l-4 border-emerald-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">O que e:</strong> Escrita persuasiva que converte leitores em compradores.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Estrutura:</strong> Titulo provocativo, primeira frase impactante, storytelling, foco na transformacao, CTA claro.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Conceitos chave:</strong> Linguagem conversacional, testes A/B.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Modulo 5 -->
+      <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center">
+            <span class="text-2xl mr-3">🤝</span>
+            <div>
+              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 5: Fechamento de Negocios</h2>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Propostas, contratos e tecnicas de fechamento</p>
+            </div>
+          </div>
+          <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-sm font-medium rounded-full">4h</span>
+        </div>
+
+        <ul class="topics-list space-y-0.5">
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 5.1 Propostas que Vendem Sozinhas
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border-l-4 border-emerald-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">O que e:</strong> Documentos de proposta que convencem sem sua presenca.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Estrutura:</strong> 1 pagina no maximo - Objetivo, Escopo, Meta, Prazo, Preco.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Conceitos chave:</strong> Limite de escopo, entrega em 7 dias, evitar extras sem pagamento.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 5.2 Tecnicas de Fechamento
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border-l-4 border-emerald-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">O que e:</strong> Metodos para converter interesse em contrato assinado.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Tecnicas:</strong> Conta reversa (valor anual da perda), teste de 7 dias, urgencia real.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Conceitos chave:</strong> Nunca assumir cliente garantido antes de assinatura e pagamento.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 5.3 Contratos e Retainers
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border-l-4 border-emerald-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">O que e:</strong> Estrutura juridica que protege ambos os lados e gera receita recorrente.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Elementos:</strong> Clausulas de escopo, alteracoes, pagamento, entrega.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Conceitos chave:</strong> Transformar projetos unicos em assinaturas (retainers mensais).
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Modulo 6 -->
+      <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center">
+            <span class="text-2xl mr-3">🚀</span>
+            <div>
+              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 6: Hacks para Vender Workflows de IA</h2>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Auditoria de IA e evolucao profissional</p>
+            </div>
+          </div>
+          <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-sm font-medium rounded-full">5h</span>
+        </div>
+
+        <ul class="topics-list space-y-0.5">
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 6.1 Auditoria de IA que Fecha Contratos (Efeito WOW)
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border-l-4 border-emerald-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">O que e:</strong> Estrategia para impressionar o cliente antes de pagar - entrega valor antecipado.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Passos:</strong> Pesquisa profunda com IA, criar 6-7 workflows relevantes, deck visual, Trojan Horse ou Premium.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Conceitos chave:</strong> Efeito WOW, cliente sente que ja investiu tempo, confianca imediata.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 6.2 Evolucao: Freelancer → Consultor → Agencia
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border-l-4 border-emerald-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">O que e:</strong> Caminho de evolucao profissional para quem vende workflows de IA.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Etapas:</strong> Freelancer (3-5 projetos), Consultor (US$10k+, estrategia), Agencia (so no final, com equipe).
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Conceitos chave:</strong> Playbooks, casos de sucesso, retainers de longo prazo.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 6.3 Posicionamento e Diferenciacao
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border-l-4 border-emerald-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">O que e:</strong> Como se destacar no mercado de automacao com IA.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Regras:</strong> Nunca diga "faco qualquer automacao", escolha 1 dor de 1 nicho, venda resultado nao tecnologia.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-emerald-600">Exemplo:</strong> "Ajudo e-commerces a reduzir em 70% o tempo de atendimento no WhatsApp".
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- CTA Final -->
+      <div class="bg-gradient-to-br from-emerald-600 to-green-600 rounded-xl p-8 text-white text-center">
+        <h3 class="text-2xl font-bold mb-4">Continue Sua Jornada</h3>
+        <p class="mb-6 text-white/90">
+          Explore as outras trilhas para uma formacao completa em transformacao digital
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="../redes-sociais/index.html" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors">
+            📱 Redes Sociais
+          </a>
+          <a href="../negocios/index.html" class="bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors">
+            🚀 Negocios
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-900 text-white py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-neutral-400">&copy; 2025 TDS - Transformacao Digital Sustentavel</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Theme Toggle
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+    if (localStorage.getItem('color-theme') === 'dark' ||
+        (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      themeToggleLightIcon.classList.remove('hidden');
+    } else {
+      themeToggleDarkIcon.classList.remove('hidden');
+    }
+
+    themeToggleBtn.addEventListener('click', function() {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+    });
+
+    // Topic Accordion
+    document.addEventListener('click', function(e) {
+      const topicButton = e.target.closest('.topic-button');
+
+      if (topicButton) {
+        const topicItem = topicButton.closest('.topic-item');
+        const explanation = topicItem.querySelector('.topic-explanation');
+
+        if (explanation) {
+          const moduleCard = topicItem.closest('.module-card');
+          moduleCard.querySelectorAll('.topic-explanation').forEach(exp => {
+            if (exp !== explanation) {
+              exp.classList.add('hidden');
+            }
+          });
+
+          explanation.classList.toggle('hidden');
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>

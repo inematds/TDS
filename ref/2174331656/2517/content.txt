@@ -1,0 +1,36 @@
+TOPICO 2517
+==================================================
+
+Titulo: Sem titulo
+Criado em: 2024-10-31 18:39:11+00:00
+
+Total de mensagens: 3
+Midias baixadas: 2
+
+--------------------------------------------------
+
+MENSAGEM 1
+Autor: INEMA
+Data: 2024-10-31T18:41:21+00:00
+Texto:
+https://chatgpt.com/c/67238b86-7470-8009-98b3-d1a91407c3c6
+Midia: MessageMediaWebPage
+
+------------------------------
+
+MENSAGEM 2
+Autor: INEMA
+Data: 2024-10-31T18:39:16+00:00
+Texto:
+https://chatgpt.com/c/67238633-ac34-8009-8793-4d4a2ec1a296
+Midia: MessageMediaWebPage
+
+------------------------------
+
+MENSAGEM 3
+Autor: INEMA
+Data: 2024-10-31T18:39:11+00:00
+Texto: [Sem texto]
+
+------------------------------
+

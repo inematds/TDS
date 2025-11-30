@@ -1,0 +1,197 @@
+[
+  {
+    "id": 4033,
+    "author": "INEMA",
+    "date": "2025-08-28T02:53:55+00:00",
+    "text": "dublado",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4032,
+    "author": "INEMA",
+    "date": "2025-08-28T02:53:50+00:00",
+    "text": "https://www.youtube.com/watch?v=lcQ_JqSlpsg",
+    "has_media": true,
+    "media_type": "MessageMediaWebPage"
+  },
+  {
+    "id": 4031,
+    "author": "INEMA",
+    "date": "2025-08-28T02:53:33+00:00",
+    "text": "### Hacks para cada etapa\n\n**1) NotebookLM (Pesquisa & Estratégia)**\n\n* Copie prompts de pesquisas já prontos em inglês e cole em português (NotebookLM traduz e entende bem, mas em inglês traz mais fontes).\n* Use o campo **Discover Sources** pedindo relatórios de *Statista, IBISWorld, Grand View Research* → geralmente retorna relatórios melhores do que buscas abertas.\n* Depois da análise, peça sempre um **“resumo em bullets para investidores”**: isso transforma o relatório longo em pitch de mercado.\n\n**2) Google AI Studio (Espinha dorsal criativa)**\n\n* Gere **3 versões de identidade da empresa** (nome + cores + slogan) e escolha a melhor → isso dá uma marca mais forte.\n* Peça variações de tom: formal, jovem, divertido → escolha o que combina com a comunidade Skool.\n* Hack de copywriting: peça “reescreva em formato AIDA (Atenção, Interesse, Desejo, Ação)” para ter textos prontos para o site e anúncios.\n\n**3) Firebase Studio (Site ao vivo)**\n\n* Sempre gere o esqueleto do site no AI Studio e só depois cole no Firebase → o resultado fica 3x mais profissional do que usar os templates prontos.\n* Suba imagens no **Firebase Storage** e use as URLs → isso evita que imagens quebrem quando atualizar o protótipo.\n* Hack visual: peça no AI Studio “inclua microinterações, botões animados e seção de FAQ expansível” → Firebase já consegue interpretar e aplicar.\n\n**4) Opal (Marketing & Ads)**\n\n* Crie **dois apps separados**: um para vídeo-ads (Reels/TikTok/Shorts) e outro para imagem-ads (Instagram/LinkedIn). Isso permite escalar rápido.\n* Use o mesmo input de descrição da empresa, mas troque só o “Social Platform” → você gera 5–6 anúncios diferentes em minutos.\n* Hack de autoridade: peça para o Opal gerar anúncios em formato de “antes e depois” ou “estudo de caso em 15s” → costuma performar melhor em comunidades.\n\n---\n\n### Hacks extras de integração\n\n* Integre Firebase + Google Analytics desde o início → você já começa coletando dados de visitas.\n* No Opal, guarde o **workflow base de ads** → depois só troca o texto/oferta e gera novos criativos.\n* Sempre que NotebookLM gerar relatório, copie e cole direto no AI Studio → ele transforma os dados técnicos em mensagens comerciais em segundos.\n\n---",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4030,
+    "author": "INEMA",
+    "date": "2025-08-28T02:53:10+00:00",
+    "text": "==========================",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4029,
+    "author": "INEMA",
+    "date": "2025-08-28T02:53:04+00:00",
+    "text": "detalhes de estampas e uma mockup realista no corpo.\n3. Depoimentos: 3 retratos 16:9 com fundo neutro, luz natural, pessoas sorrindo, leve bokeh.\n\n* leve os prompts resultantes para sua ferramenta de geração de imagens preferida; exporte em 1920×1080.\n  perguntas rápidas\n* por que 16:9 em tudo? para manter consistência visual e reaproveitar em vídeos/capas.\n* posso usar fotos reais? sim, apenas mantenha a paleta e o estilo.\n\n6. publicar e trocar imagens no firebase studio\n\n* no protótipo do Firebase Studio, clique em Publish para criar projeto/hosting/storage.\n* suba as imagens no Firebase Storage e copie as URLs seguras.\n* no chat do Firebase Studio, cole cada URL para substituir os placeholders (banner, seções e depoimentos).\n* revise cores, CTAs e links; publique novamente.\n  exemplo\n  “Substitua a imagem do Hero por esta URL: https\\://… e ajuste o título para ‘Camisetas que vestem a sua comunidade.’”\n  perguntas rápidas\n* não consigo subir imagem direto? suba no Storage e use a URL pública.\n* como trocar cor global? peça no chat: “trocar primária para #0B1F3B e secundária para #FF7A00”.\n\n7. marketing no opal: apps de vídeo e imagem para ads\n\n* crie dois apps: gerador de vídeo-ads e gerador de image-ads.\n  prompt para vídeo-ads no Opal\n  App: Video Ads Generator\n  Company Name: Skool Swag\n  Company Theme Colors: azul marinho e laranja\n  Company Description: Marca de camisetas sob demanda para comunidades Skool, com designs personalizados e produção rápida.\n  Inputs:\n  Social Platform: \\[Instagram Reels/TikTok/YouTube Shorts]\n  Video Ads Content: \\[benefício principal + oferta + CTA curta]\n  Output: vídeo pronto para a plataforma escolhida, com cortes dinâmicos, textos on-screen, paleta da marca e proporção recomendada pela plataforma.\n  prompt para image-ads no Opal\n  App: Image Ads Generator\n  Company Name: Skool Swag\n  Company Theme Colors: azul marinho e laranja\n  Company Description: Marca de camisetas sob demanda para comunidades Skool.\n  Inputs:\n  Social Platform: \\[Instagram Feed/Stories/LinkedIn]\n  Image Ads Content: \\[headline curta, prova social, CTA]\n  Output: imagem final em 16:9 e variações para o formato da plataforma, mantendo identidade visual.\n  perguntas rápidas\n* dá para personalizar fontes? inclua “usar tipografia sem serifa clean”.\n* preciso de variações? peça “3 variações A/B de headline e CTA”.\n\n8. checklist de qualidade e lançamento\n\n* mobile first: teste no celular e ajuste tamanhos de fonte/CTA.\n* velocidade: otimize imagens (webp) antes de subir.\n* funil: adicione formulário simples de interesse/WhatsApp e um cupom de primeira compra.\n* prova social: inclua 2–3 depoimentos e uma mini-galeria de designs.\n  perguntas rápidas\n* como medir? adicione Google Analytics/Tag Manager pelo Firebase.\n* e domínio próprio? conecte seu domínio ao Hosting do Firebase nas configurações.",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4028,
+    "author": "INEMA",
+    "date": "2025-08-28T02:53:03+00:00",
+    "text": "Aqui vai um passo a passo enxuto, replicável, com prompts prontos e mini-FAQ em cada etapa para você sair do zero ao site no ar + anúncios.\n\n1. preparar o terreno\n\n* crie/entre nas contas: NotebookLM, Google AI Studio, Firebase Studio e Opal\n* defina rapidamente: nome da marca, cores e público\n  exemplo\n* nome: Skool Swag\n* cores: azul marinho e laranja\n  perguntas rápidas\n* preciso saber programar? não.\n* dá para fazer tudo em PT-BR? sim, pode usar português em todos os prompts.\n\n2. pesquisa e validação no notebooklm\n\n* use primeiro o Discover Sources para coletar fontes atuais.\n  prompt para descobrir fontes\n  Copie e cole no NotebookLM:\n  Pesquise e selecione as melhores fontes recentes (2023–2025) sobre mercado de print-on-demand com foco em camisetas. Traga tamanho do mercado, CAGR, margens típicas, taxa de sobrevivência de novos negócios, riscos (saturação/custos de marketing) e tendências (personalização, e-commerce). Inclua insights sobre comunidades Skool: tamanho, engajamento e poder de compra.\n* depois rode a análise de viabilidade com notas 1–10.\n  prompt para análise com notas\n  Estou considerando abrir um negócio de camisetas sob demanda para comunidades Skool. Faça uma análise de viabilidade com notas de 1 a 10 para: tamanho do mercado e crescimento, lucratividade, competição, viabilidade do nicho Skool e barreiras de entrada. Conclua com recomendação final e os porquês.\n* por fim, peça a recomendação direta (nota final 1–10).\n  prompt de recomendação final\n  Com base nos dados acima, você recomenda iniciar? Dê uma nota de 1 a 10 e explique pontos fortes, riscos e oportunidades.\n  perguntas rápidas\n* e se vierem poucas fontes? refine: adicione “use relatórios de firmas como Statista, Grand View Research, IBISWorld quando possível”.\n* posso trocar o nicho? sim, substitua “Skool” por outro nicho e reexecute.\n\n3. identidade da empresa no google ai studio\n\n* gere nome, cores e descrição curta profissional.\n  prompt\n  Gere um perfil de empresa:\n  Company Name: Skool Swag\n  Company Theme Color: azul marinho e laranja\n  Company Description: Marca de camisetas sob demanda para comunidades Skool, com designs personalizados e produção rápida, focada em engajamento e identidade de grupo.\n* se quiser variar cores, peça variações e escolha.\n  perguntas rápidas\n* posso usar paletas exatas? peça códigos hex na resposta.\n* e slogan? peça 5 slogans curtos e escolha 1.\n\n4. esqueleto do site no firebase studio (via ai studio)\n\n* peça ao AI Studio para criar um prompt final “pronto para Firebase Studio”.\n  prompt gerador de site\n  Você é um assistente de construção de sites para o Firebase Studio. Crie um prompt completo para gerar um site profissional da empresa abaixo:\n  Company Name: Skool Swag\n  Company Theme Color: azul marinho e laranja\n  Company Description: Marca de camisetas sob demanda para comunidades Skool, com designs personalizados e produção rápida, focada em engajamento e identidade de grupo.\n  Requisitos:\n\n1. Seções: Hero, Sobre, Produtos/Serviços, Visão & Missão, Depoimentos, Contato.\n2. Direção de design: tipografia limpa, hero com chamada forte, botões com alto contraste, uso consistente das cores, imagens em 16:9.\n3. Conteúdo base: títulos, subtítulos e CTAs curtos; texto placeholder para cada seção; links de navegação.\n4. Entregue apenas o prompt final para colar no Firebase Studio.\n\n* copie o prompt gerado e cole no Firebase Studio para prototipar.\n  perguntas rápidas\n* ficou genérico? peça “versão mais ousada e com linguagem de comunidade”.\n* sem favicon/logo? inclua no prompt: “gerar favicon placeholder e logomarca tipográfica”.\n\n5. imagens do site em 16:9 via ai studio\n\n* gere prompts de imagem alinhados à marca, sempre 16:9.\n  prompt para gerar prompts de imagem\n  Crie prompts detalhados para gerar imagens do site da Skool Swag, todas em 16:9 (1920×1080), estilo vibrante e moderno, coerente com azul marinho e laranja:\n\n1. Banner hero: grupo diverso usando camisetas personalizadas em um espaço de comunidade, clima de pertencimento, luz suave.\n2. Produtos: 3 imagens 16:9 mostrando camisetas dobradas,",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4027,
+    "author": "INEMA",
+    "date": "2025-08-28T02:52:31+00:00",
+    "text": "==============",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4026,
+    "author": "INEMA",
+    "date": "2025-08-28T02:52:29+00:00",
+    "text": "### Desafio inicial\n\n* Tradicionalmente, abrir e rodar um negócio exige equipe, código, design, marketing e muito tempo.\n* Google lançou 4 ferramentas de IA gratuitas que permitem a um empreendedor solo construir e lançar um negócio em poucas horas.\n\n### As 4 ferramentas e suas funções\n\n1. **NotebookLM (pesquisa e estratégia)**\n\n   * Usado para validar ideias de negócio.\n   * Faz pesquisa de mercado, concorrência, nicho e gera análise de viabilidade.\n   * Exemplo: análise do mercado de camisetas sob demanda para comunidades Skool → mercado de rápido crescimento (CAGR 26%), margens médias 20–40%, baixa barreira de entrada, comunidade engajada.\n   * Resultado: recomendação 9/10 de viabilidade.\n\n2. **Google AI Studio (espinha dorsal criativa)**\n\n   * Cria perfil da empresa (nome, cores, descrição).\n   * Gera textos e estrutura para o site, serviços, visão e mensagens de marca.\n   * Serve como “diretor criativo” que transforma dados em conteúdo vivo.\n\n3. **Firebase Studio (site ao vivo)**\n\n   * Pega o conteúdo do AI Studio e transforma em um site real hospedado no Firebase.\n   * Permite personalizar cores e imagens.\n   * Processo: prototipar → substituir placeholders por imagens geradas → publicar com hosting e storage do Firebase.\n\n4. **Opal AI (marketing e anúncios)**\n\n   * Constrói apps sem código para criar entregáveis de marketing.\n   * Gera anúncios em vídeo e imagem adaptados a qualquer rede social.\n   * Totalmente personalizável: basta inserir info da empresa e conteúdo.\n\n### Fluxo do negócio\n\n1. **Pesquisa e validação** (NotebookLM).\n2. **Criação da espinha dorsal e copy** (AI Studio).\n3. **Protótipo e site publicado** (Firebase).\n4. **Marketing com anúncios prontos** (Opal).\n\n### Conclusão\n\n* O que antes exigia uma equipe de estrategistas, redatores, desenvolvedores e designers, agora pode ser feito em uma única tarde por uma pessoa.\n* O modelo mostra como empreendedores podem lançar rapidamente negócios completos com ferramentas de IA gratuitas do Google.",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4025,
+    "author": "INEMA",
+    "date": "2025-08-28T02:51:36+00:00",
+    "text": "",
+    "has_media": true,
+    "media_type": "MessageMediaDocument",
+    "media_file": "Prompt List.docx"
+  },
+  {
+    "id": 4024,
+    "author": "INEMA",
+    "date": "2025-08-28T02:50:58+00:00",
+    "text": "Construir um negócio completo em 15 minutos usando 4 ferramentas gratuitas de IA do Google (NotebookLM, AI Studio, Firebase e Opal).\nSem equipe, sem código, sem custo. Apenas IA + prompts → site no ar + anúncios.\n\nSe você ainda não está usando isso, está deixando dinheiro na mesa.",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4023,
+    "author": "INEMA",
+    "date": "2025-08-28T02:49:52+00:00",
+    "text": "",
+    "has_media": true,
+    "media_type": "MessageMediaPhoto",
+    "media_file": "photo_4023_011.jpg"
+  },
+  {
+    "id": 4022,
+    "author": "INEMA",
+    "date": "2025-08-28T02:46:25+00:00",
+    "text": "",
+    "has_media": true,
+    "media_type": "MessageMediaPhoto",
+    "media_file": "photo_4022_012.jpg"
+  },
+  {
+    "id": 4021,
+    "author": "INEMA",
+    "date": "2025-08-28T02:46:22+00:00",
+    "text": "Negocios  com Ferramentas Google AI",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4020,
+    "author": "INEMA",
+    "date": "2025-08-28T02:46:22+00:00",
+    "text": ".",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4019,
+    "author": "INEMA",
+    "date": "2025-08-28T02:46:21+00:00",
+    "text": ".",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4018,
+    "author": "INEMA",
+    "date": "2025-08-28T02:46:21+00:00",
+    "text": ".",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4017,
+    "author": "INEMA",
+    "date": "2025-08-28T02:46:20+00:00",
+    "text": ".",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4015,
+    "author": "INEMA",
+    "date": "2025-08-28T02:46:14+00:00",
+    "text": ".",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4014,
+    "author": "INEMA",
+    "date": "2025-08-28T02:46:13+00:00",
+    "text": ".",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4013,
+    "author": "INEMA",
+    "date": "2025-08-28T02:46:11+00:00",
+    "text": ".",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4012,
+    "author": "INEMA",
+    "date": "2025-08-28T02:46:11+00:00",
+    "text": ".",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4011,
+    "author": "INEMA",
+    "date": "2025-08-28T02:46:10+00:00",
+    "text": "https://chatgpt.com/c/68afc1af-7a58-8330-bd3a-6bcc6fdd363f",
+    "has_media": true,
+    "media_type": "MessageMediaWebPage"
+  },
+  {
+    "id": 4010,
+    "author": "INEMA",
+    "date": "2025-08-28T02:46:09+00:00",
+    "text": "1",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 4009,
+    "author": "INEMA",
+    "date": "2025-08-28T02:46:01+00:00",
+    "text": "",
+    "has_media": false,
+    "media_type": null
+  }
+]

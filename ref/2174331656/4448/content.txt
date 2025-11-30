@@ -1,0 +1,231 @@
+TOPICO 4448
+==================================================
+
+Titulo: Sem titulo
+Criado em: 2025-11-30 20:11:40+00:00
+
+Total de mensagens: 9
+Midias baixadas: 0
+
+--------------------------------------------------
+
+MENSAGEM 1
+Autor: INEMA
+Data: 2025-11-30T20:13:01+00:00
+Texto:
+Para desenvolver empreendedorismo em **crianças, adolescentes e adultos**, precisamos trabalhar **3 pilares**:
+
+1. **Perfil comportamental** (atitudes e mentalidades)
+2. **Talentos/habilidades desenvolvíveis**
+3. **Experiências práticas** (ação real + projetos)
+
+Com isso, preparei um **PROMPT COMPLETO** que você pode usar em treinamentos, cursos, IA, planejamento pedagógico ou desenvolvimento humano.
+
+---
+
+# 🚀 **PROMPT COMPLETO – Desenvolvimento de Mentalidade Empreendedora**
+
+*(para crianças, adolescentes e adultos)*
+
+Use assim: **“ChatGPT, use o prompt a seguir para estruturar meu projeto.”**
+
+---
+
+## 🧩 **PROMPT**
+
+Quero que você atue como um especialista em **desenvolvimento humano, empreendedorismo comportamental e aprendizagem baseada em projetos**, criando um programa completo para desenvolver a mentalidade empreendedora em **crianças, adolescentes e adultos**.
+
+O programa deve ser baseado em **3 pilares essenciais**:
+
+---
+
+### **1. PERFIL COMPORTAMENTAL (Mindset empreendedora)**
+
+Desenvolver atitudes que caracterizam empreendedores bem-sucedidos, incluindo:
+
+* Autonomia
+* Criatividade
+* Confiança
+* Perseverança
+* Pensamento crítico
+* Resolução de problemas
+* Iniciativa
+* Adaptabilidade
+* Comunicação
+* Responsabilidade
+* Visão de oportunidade
+* Disciplina
+* Gestão emocional e tolerância ao erro
+
+Para cada faixa etária, descreva **como essa mentalidade se forma**, o que deve ser estimulado e quais comportamentos observar.
+
+---
+
+### **2. TALENTOS QUE PODEM SER DESENVOLVIDOS**
+
+Deixar claro que empreendedorismo é **aprendizado**, não destino.
+
+Liste e desenvolva habilidades que podem ser treinadas:
+
+* Criatividade aplicada
+* Liderança
+* Inteligência emocional
+* Organização
+* Planejamento
+* Capacidade de vender ideias
+* Negociação
+* Noções básicas de finanças
+* Visão de cliente
+* Solução criativa de problemas
+* Uso de IA e tecnologia como ferramenta
+
+Mostre **como treinar cada talento nas 3 idades** (criança, adolescente e adulto).
+
+---
+
+### **3. EXPERIÊNCIAS PRÁTICAS (Aprendizagem pela ação)**
+
+Criar atividades práticas e projetos reais para desenvolver empreendedorismo de forma concreta.
+
+Inclua:
+
+* Mini projetos semanais
+* Atividades colaborativas
+* Micro desafios reais
+* Situações de tomada de decisão
+* Pequenos negócios simulados ou reais
+* Uso de IA para criação de produtos e serviços
+* Ações de apresentação, vendas e comunicação
+* Exercícios de reflexão e melhoria contínua
+
+Especifique atividades adequadas para:
+
+* Crianças
+* Adolescentes
+* Adultos
+
+---
+
+## 🎯 **Formato Final do Programa**
+
+Peço que você entregue:
+
+### ✔️ 1. **Visão geral do programa**
+
+Explicar a lógica, pilares e metodologia.
+
+### ✔️ 2. **Plano completo por faixa etária**
+
+Cada faixa deve ter:
+
+* Objetivo comportamental
+* Habilidades a desenvolver
+* Atividades práticas
+* Materiais e ferramentas
+* Formas de medir progresso
+
+### ✔️ 3. **Planos de ação**
+
+Criar planos de 7 dias, 30 dias e 12 semanas.
+
+### ✔️ 4. **Biblioteca de atividades**
+
+Listar exercícios, dinâmicas e projetos fáceis de aplicar.
+
+### ✔️ 5. **Indicadores de evolução**
+
+Como monitorar mentalidade, comportamento e habilidades.
+
+---
+
+## 📌 Tons e estilo do conteúdo solicitado
+
+* Simples de aplicar
+* Motivador
+* Estruturado
+* Focado em desenvolvimento real
+* Prático e baseado em evidências
+* Com linguagem acessível para famílias, escolas e empresas
+
+---
+
+# 🔥 **Fim do prompt**
+
+---
+
+Se quiser, posso **adaptar o prompt** para:
+
+* escolas
+* famílias
+* empresas
+* ONGs
+* cursos presenciais
+* plataformas digitais
+* treinamentos com IA
+* mentorias individuais
+
+------------------------------
+
+MENSAGEM 2
+Autor: INEMA
+Data: 2025-11-30T20:11:52+00:00
+Texto:
+Formação de Emprendedores
+
+------------------------------
+
+MENSAGEM 3
+Autor: INEMA
+Data: 2025-11-30T20:11:50+00:00
+Texto:
+..
+
+------------------------------
+
+MENSAGEM 4
+Autor: INEMA
+Data: 2025-11-30T20:11:49+00:00
+Texto:
+.
+
+------------------------------
+
+MENSAGEM 5
+Autor: INEMA
+Data: 2025-11-30T20:11:49+00:00
+Texto:
+.
+
+------------------------------
+
+MENSAGEM 6
+Autor: INEMA
+Data: 2025-11-30T20:11:49+00:00
+Texto:
+.
+
+------------------------------
+
+MENSAGEM 7
+Autor: INEMA
+Data: 2025-11-30T20:11:48+00:00
+Texto:
+.
+
+------------------------------
+
+MENSAGEM 8
+Autor: INEMA
+Data: 2025-11-30T20:11:47+00:00
+Texto:
+1
+
+------------------------------
+
+MENSAGEM 9
+Autor: INEMA
+Data: 2025-11-30T20:11:40+00:00
+Texto: [Sem texto]
+
+------------------------------
+

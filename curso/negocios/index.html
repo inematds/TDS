@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trilha de Negocios - TDS</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 0.8s ease-out;
+    }
+  </style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900 transition-colors">
+
+  <!-- Navegacao -->
+  <nav class="sticky top-0 z-50 bg-white dark:bg-neutral-800 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center space-x-4">
+          <a href="../index.html" class="text-2xl font-bold text-blue-600 dark:text-blue-400">TDS</a>
+          <span class="text-neutral-400">/</span>
+          <span class="text-purple-600 dark:text-purple-400 font-semibold">Negocios</span>
+        </div>
+
+        <div class="hidden md:flex items-center space-x-6">
+          <a href="../index.html" class="text-neutral-700 dark:text-neutral-300 hover:text-purple-600 transition-colors">Inicio</a>
+          <a href="../vendas/index.html" class="text-neutral-700 dark:text-neutral-300 hover:text-emerald-600 transition-colors">Vendas</a>
+          <a href="../redes-sociais/index.html" class="text-neutral-700 dark:text-neutral-300 hover:text-blue-600 transition-colors">Redes Sociais</a>
+
+          <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-700" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-purple-600 via-purple-700 to-pink-700 py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white animate-fade-in">
+      <div class="flex items-center mb-4">
+        <span class="text-5xl mr-4">🚀</span>
+        <div>
+          <p class="text-purple-200 text-sm font-medium">TRILHA DE</p>
+          <h1 class="text-4xl sm:text-5xl font-bold">Negocios</h1>
+        </div>
+      </div>
+      <p class="text-xl text-white/90 max-w-2xl mb-6">
+        Construa negocios escalaveis com automacao, IA e modelos inovadores. Prepare-se para as tendencias de 2025-2026.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-medium">45 horas</span>
+        <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-medium">14 Modulos</span>
+        <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-medium">27+ Casos Praticos</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Progress Bar -->
+  <div class="bg-white dark:bg-neutral-800 py-4 border-b border-neutral-200 dark:border-neutral-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">Seu Progresso</span>
+        <span class="text-sm font-medium text-purple-600 dark:text-purple-400">0%</span>
+      </div>
+      <div class="w-full h-2 bg-neutral-200 dark:bg-neutral-700 rounded-full overflow-hidden">
+        <div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-500" style="width: 0%"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modulos -->
+  <section class="py-12 lg:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Modulo 1 -->
+      <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center">
+            <span class="text-2xl mr-3">🏗️</span>
+            <div>
+              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 1: Modelos de Negocio Inovadores</h2>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">SaaS, InfoSaaS, Consultoria e novos modelos</p>
+            </div>
+          </div>
+          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium rounded-full">4h</span>
+        </div>
+
+        <ul class="topics-list space-y-0.5">
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 1.1 SaaS Verticais e Microsolucoes
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Solucoes ultra-especificas para nichos - quanto mais nichado, mais valor.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Exemplos:</strong> CRM para psicologos, gestao para barbearias, plataforma para esteticistas.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Alto impacto + baixa dificuldade, focar em dores especificas.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 1.2 InfoSaaS: Conteudo + Solucao
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Novo modelo que combina conhecimento pessoal com software funcionando.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Estrutura:</strong> Criadores deixam de so ensinar para resolver - microprodutos digitais automatizados.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Conhecimento + IA + comunidade = produto, plataformas autorais.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 1.3 Agentes no WhatsApp (Interfaces Invisiveis)
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Futuro sem paineis - bots conversacionais que resolvem tudo.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Visao:</strong> WhatsApp como novo sistema operacional - resolver por voz, mensagem ou QR code.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Valor esta no que se resolve, nao na UI. Quem domina conversa, domina caixa.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Modulo 2 -->
+      <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center">
+            <span class="text-2xl mr-3">🤖</span>
+            <div>
+              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 2: Automacao com IA</h2>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Agentes, workflows e ferramentas essenciais</p>
+            </div>
+          </div>
+          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium rounded-full">5h</span>
+        </div>
+
+        <ul class="topics-list space-y-0.5">
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 2.1 Agentes Autonomos com IA
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Agentes com memoria, contexto e decisoes autonomas - nao chatbots travados.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Aplicacoes:</strong> Agentes de voz (Vapi, Retell), bots de vendas completos, atendentes 24/7.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Contexto persistente, orquestracao, fallback humano.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 2.2 Ferramentas de Automacao
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Stack essencial para criar automacoes poderosas.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Ferramentas:</strong> Make.com, n8n, Zapier, ChatGPT/Claude APIs, WhatsApp API (Z-API, Gupshup).
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Webhooks, integracoes, CRM automatizado, email marketing behavior-based.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 2.3 Desenvolvimento No-Code com IA
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Criar apps completos sem programar - democratizacao do desenvolvimento.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Ferramentas:</strong> Cursor, Lovable, Replit - dashboard funcional em minutos.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Automatize ou morra tentando, integracao com APIs automatica.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Modulo 3 -->
+      <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center">
+            <span class="text-2xl mr-3">📈</span>
+            <div>
+              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 3: Escalabilidade</h2>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Os 3 pilares do crescimento sustentavel</p>
+            </div>
+          </div>
+          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium rounded-full">4h</span>
+        </div>
+
+        <ul class="topics-list space-y-0.5">
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 3.1 Os 3 Pilares da Escalabilidade
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Framework fundamental para crescer de forma sustentavel.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Os 3 Pilares:</strong> 1) Automacao (sistemas para tarefas repetitivas), 2) Expansao (novos mercados), 3) Padronizacao (processos replicaveis).
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Teoria das Restricoes, eliminacao de gargalos.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 3.2 Estrategia 10 → 100 → 1000
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Fases de crescimento com pontos criticos em cada etapa.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Fases:</strong> Ate 10 clientes (validacao), ate 100 (processos), ate 1000 (equipe e sistemas).
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Cada fase requer habilidades diferentes, nao pular etapas.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 3.3 Receita Recorrente (Retainers)
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Transformar projetos unicos em fluxo de receita previsivel.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Modelos:</strong> Assinaturas mensais, retainers de manutencao, participacao em receita.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> LTV (valor do cliente), churn reduction, upsell estrategico.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Modulo 4 -->
+      <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center">
+            <span class="text-2xl mr-3">🎯</span>
+            <div>
+              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 4: Consultoria de IA</h2>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Auditoria, implementacao e monetizacao</p>
+            </div>
+          </div>
+          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium rounded-full">5h</span>
+        </div>
+
+        <ul class="topics-list space-y-0.5">
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 4.1 Estrutura de Consultoria de IA
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Framework completo para vender consultoria em IA para empresas.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Pacotes:</strong> Diagnostico (R$5k-15k), Implementacao por sprints (R$8k-30k/mes), Retainer (R$2k-10k/mes).
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Diagnostico como diferencial, roadmap trimestral com OKRs.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 4.2 Formulario de Auditoria de IA
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Ferramenta que qualifica leads e gera insights automaticamente.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Secoes:</strong> Operacoes atuais e dores, ecossistema de tecnologia, oportunidades de automacao, consideracoes para implementacao.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Automatizar processamento com IA, gerar PDF de insights automatico.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 4.3 Metricas e ROI
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Como medir e demonstrar valor das implementacoes de IA.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Formula:</strong> Horas poupadas/mes x valor/hora = economia mensal. Preco do MVP ≤ 1-2 meses de economia.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Planilha de metricas antes/depois, % auto-resolvido, R$ economizado.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Modulo 5 -->
+      <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center">
+            <span class="text-2xl mr-3">👥</span>
+            <div>
+              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 5: Comunidade como Motor</h2>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Aquisicao, retencao e fidelizacao</p>
+            </div>
+          </div>
+          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium rounded-full">3h</span>
+        </div>
+
+        <ul class="topics-list space-y-0.5">
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 5.1 Comunidade Nao E Bonus, E Pipeline
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Comunidades geram mais autoridade e leads que anuncios caros.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Dado:</strong> Grupos no Telegram superam paginas com 50k seguidores em conversao.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Funil completo (fidelizacao, autoridade, aquisicao), boca a boca amplificado.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 5.2 Construcao de Comunidade
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Comunidade deve ser cocriada, nao centralizada.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Principios:</strong> 1000 pequenas acoes (DMs, ligacoes, suporte), eventos exclusivos, gamificacao.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Telegram/Discord como centros de gravidade, indicacoes naturais.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Modulo 6 -->
+      <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center">
+            <span class="text-2xl mr-3">⚠️</span>
+            <div>
+              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 6: 26 Erros de Agencias que Falham</h2>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Licoes de quem errou para voce nao errar</p>
+            </div>
+          </div>
+          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium rounded-full">4h</span>
+        </div>
+
+        <ul class="topics-list space-y-0.5">
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 6.1 Erros de Estrategia e Foco
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Erros mais comuns que quebram agencias antes de decolar.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Erros:</strong> Nao ter nicho definido, ser amplo demais, criar produtos antes de validar, nao focar em dores.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Solucao:</strong> Escolha 1 nicho, valide demanda com entrevistas, foque em problemas reais.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 6.2 Erros de Precificacao e Vendas
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Erros que destroem margem e sustentabilidade.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Erros:</strong> Cobrar muito barato, nao alinhar expectativas, vender sem retainers, assumir cliente antes de pagar.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Solucao:</strong> Precifique por ROI, use contratos claros, nunca trabalhe de graca.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 6.3 Erros de Gestao de Projetos
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Erros operacionais que consomem tempo e recursos.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Erros:</strong> Scope creep, subestimar prazos, nao considerar testes, gastar com ferramentas antes de ter cliente.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Solucao:</strong> Limite de escopo em contrato, buffers de tempo, MVP antes de escalar.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Modulo 7 -->
+      <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center">
+            <span class="text-2xl mr-3">🔮</span>
+            <div>
+              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 7: Tendencias 2025-2026</h2>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Os 10 mandamentos do jogo digital</p>
+            </div>
+          </div>
+          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium rounded-full">5h</span>
+        </div>
+
+        <ul class="topics-list space-y-0.5">
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 7.1 As 10 Tendencias que Dominam o Mercado
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Mapa do futuro do mercado digital para os proximos 2 anos.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Tendencias:</strong> 1) Agentes autonomos, 2) SaaS verticais, 3) WhatsApp = novo SO, 4) Comunidade como motor, 5) Videos com avatares IA.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Mais:</strong> 6) Precificacao por resultado, 7) Operadores de voz, 8) No-code obrigatorio, 9) LLMs open source, 10) InfoSaaS.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 7.2 Os 10 Mandamentos do Jogo Digital
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Regras fundamentais para sobreviver e prosperar.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Mandamentos:</strong> IA que age sozinha, SaaS de nicho cirurgico, WhatsApp domina, comunidade e motor, video infinito com IA.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Mais:</strong> Cobrar por resultado, operadores de voz, automacao sem desculpa, LLMs abertos, InfoSaaS.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 7.3 Conteudo FRG, UGC e Avatares IA
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Novos modelos de criacao de conteudo em escala.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Tipos:</strong> FRG (Founder Generated - bastidores), UGC (User Generated - prova social), Avatares IA (escala 10x).
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Ferramentas:</strong> HeyGen, Synthesia, ElevenLabs para voz, Lumina.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Modulo 8 -->
+      <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center">
+            <span class="text-2xl mr-3">🏆</span>
+            <div>
+              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 8: 41 Licoes de Quem Faturou R$1M</h2>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Sabedoria pratica condensada</p>
+            </div>
+          </div>
+          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium rounded-full">4h</span>
+        </div>
+
+        <ul class="topics-list space-y-0.5">
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 8.1 Mindset e Execucao
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Licoes chave:</strong> Cliente quer resultado, nao tecnologia. Venda o destino, nao a passagem.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Mais licoes:</strong> Volume e seu gargalo. Ninguem sabe exatamente o que esta fazendo - faca mesmo assim.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Atitude:</strong> Construa o aviao enquanto voa. Comece antes de estar pronto.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 8.2 Negocio e Precificacao
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Licoes chave:</strong> Venda para quem tem dinheiro - melhor pagador, menos trabalho.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Mais licoes:</strong> Precifique pelo valor, nao pelo custo. Compre seu tempo de volta.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Diferencial:</strong> Junte 3 talentos unicos = rarissimo no mercado. Nunca subestime seu valor.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 8.3 Crescimento e Aprendizado
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Licoes chave:</strong> YouTube constroi marca. Packaging importa mais que conteudo.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Mais licoes:</strong> Faca 20 videos ruins primeiro. Desconstrua os melhores frame por frame.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Rede:</strong> Voce e a media das 5 pessoas com quem mais convive. Bons talentos sao investimentos.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- CTA Final -->
+      <div class="bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl p-8 text-white text-center">
+        <h3 class="text-2xl font-bold mb-4">Continue Sua Jornada</h3>
+        <p class="mb-6 text-white/90">
+          Explore as outras trilhas para uma formacao completa em transformacao digital
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="../vendas/index.html" class="bg-white text-emerald-600 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors">
+            💰 Vendas
+          </a>
+          <a href="../redes-sociais/index.html" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors">
+            📱 Redes Sociais
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-900 text-white py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-neutral-400">&copy; 2025 TDS - Transformacao Digital Sustentavel</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Theme Toggle
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+    if (localStorage.getItem('color-theme') === 'dark' ||
+        (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      themeToggleLightIcon.classList.remove('hidden');
+    } else {
+      themeToggleDarkIcon.classList.remove('hidden');
+    }
+
+    themeToggleBtn.addEventListener('click', function() {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+    });
+
+    // Topic Accordion
+    document.addEventListener('click', function(e) {
+      const topicButton = e.target.closest('.topic-button');
+
+      if (topicButton) {
+        const topicItem = topicButton.closest('.topic-item');
+        const explanation = topicItem.querySelector('.topic-explanation');
+
+        if (explanation) {
+          const moduleCard = topicItem.closest('.module-card');
+          moduleCard.querySelectorAll('.topic-explanation').forEach(exp => {
+            if (exp !== explanation) {
+              exp.classList.add('hidden');
+            }
+          });
+
+          explanation.classList.toggle('hidden');
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>

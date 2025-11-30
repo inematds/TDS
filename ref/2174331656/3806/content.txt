@@ -1,0 +1,740 @@
+TOPICO 3806
+==================================================
+
+Titulo: Sem titulo
+Criado em: 2025-07-30 21:25:15+00:00
+
+Total de mensagens: 25
+Midias baixadas: 5
+
+--------------------------------------------------
+
+MENSAGEM 1
+Autor: INEMA
+Data: 2025-07-30T21:42:36+00:00
+Texto:
+**Resumo final:**
+O crescimento empresarial sustentável exige:
+
+* Exigência interna
+* Evitar zona de conforto
+* Curiosidade constante e melhoria contínua
+
+------------------------------
+
+MENSAGEM 2
+Autor: INEMA
+Data: 2025-07-30T21:42:36+00:00
+Texto:
+## e23. Domine a Arte de Vender com Perguntas
+
+🚨 **ALERTA!** e34 no n8n
+
+Vemos uma das automações mais poderosas do ano: como usar inteligência artificial para **analisar chamadas de vendas**, detectar se o lead está qualificado e **melhorar todo o processo comercial**.
+Fique até o final porque isso vai mudar a forma de vender, treinar a equipe e **escalar sem perder qualidade**.
+
+---
+
+### 🎯 1. Foco no Negócio e no Processo Comercial
+
+Nesta aula, começamos falando sobre **negócio e vendas**, diferenciando empresas de sucesso das que fracassam: o **motor principal é o processo comercial**, não apenas técnica ou marketing.
+
+Foram revisadas estratégias como **cross-selling** e **upselling** para aumentar o ticket médio e a recorrência de compras.
+**Exemplo:** clínicas que integram estética, automação e serviços adicionais para se tornarem mais lucrativas.
+
+---
+
+### 2. Papéis: Setters, Closers e Automação Inteligente
+
+Em Bilbao, a equipe de recepção entregava uma "tabela de preços" e vendia mal.
+Foi substituído por um **enfoque mais consultivo**, com **role‑play, perguntas estratégicas e mudança de crenças limitantes**.
+
+Foi apresentado o uso de **IA (N8N + GPT)** para analisar chamadas dos setters, qualificá-las e gerar feedback automático:
+
+* Detectar necessidade
+* Avaliar desejo
+* Verificar capacidade financeira
+* Atribuir nota e recomendações
+
+---
+
+### 3. Venda Consultiva: O Modelo das 4 Etapas (Ciglar/Sigfiglar)
+
+As quatro fases do processo consultivo:
+
+1. **Descoberta** – ouvir e detectar o problema real com perguntas.
+2. **Consciência** – o cliente percebe urgência e consequências da inação.
+3. **Solução** – apresentar solução com foco em **benefícios emocionais**.
+4. **Satisfação** – reforçar confiança e fechar com firmeza.
+
+**Importante:** não tentar fechar antes de cumprir bem as três primeiras etapas.
+
+---
+
+### 4. Perguntas Abertas, Fechadas e Fechamento com Alternativas
+
+A **pergunta é a ferramenta mais poderosa de vendas**:
+
+* **Abertas** criam conexão e permitem ao cliente se expressar.
+  Ex: “Qual seu objetivo com esse serviço?”, “Como isso afeta seu dia a dia?”
+
+* **Fechadas** servem para confirmar dados e conduzir ao fechamento.
+  Ex: “Prefere terça ou quarta?”, “Faz sentido pra você?”
+
+* **Técnica favorita:** Fechamento por alternativas (duas opções diretas).
+
+**Regra de ouro:** *Always Be Closing* desde o primeiro contato.
+
+---
+
+### 5. Objeções e Seguimento com Propósito
+
+Objeções como “está caro” não são rejeições, **são sinais de interesse**.
+
+* Validar o prospecto com empatia.
+* Reforçar o valor da solução.
+* Oferecer alternativas.
+
+**Seguimento precisa de objetivo claro**: nada de “ligação de cortesia”. Cada contato deve avançar para o fechamento.
+
+---
+
+### 6. De Serviços Técnicos para Benefícios Emocionais
+
+Enfatizou-se a venda de **benefícios emocionais**, não apenas características técnicas:
+
+* **Característica = dado frio.**
+* **Benefício = transformação sentida pelo cliente.**
+
+Exemplos:
+
+* Recuperar harmonia facial em 30 minutos.
+* Automatizar processos e ganhar liberdade.
+* Conciliar vida profissional e pessoal.
+
+**Resultado:** maior valor percebido e menor concorrência por preço.
+
+---
+
+### 7. Automação Avançada com IA para Melhorar Vendas
+
+Sistema com N8N + GPT que:
+
+* Grava e transcreve chamadas.
+* Classifica se o prospecto está qualificado.
+* Avalia necessidade, desejo e capacidade financeira.
+* Atribui nota, justificativa e 5 recomendações automáticas.
+* Integra tudo ao CRM e Google Sheets.
+
+**Objetivo:** automatizar a qualificação comercial, economizar tempo e profissionalizar o time.
+
+---
+
+### 🏋️ 8. Exercícios Recomendados
+
+* **Role‑play comercial em equipe:** praticar perguntas, objeções e fechamentos.
+* **Exercício prático:** listar 5 características de um serviço e converter em **benefícios emocionais**.
+* **Classificar objeções reais** e responder com técnica dos 3F:
+
+  * Sentir
+  * Funcionou com outros
+  * Descobrir o valor
+* **Seguimento com propósito:** cada contato deve mover o cliente no funil.
+
+---
+
+------------------------------
+
+MENSAGEM 3
+Autor: INEMA
+Data: 2025-07-30T21:40:39+00:00
+Texto:
+====================
+
+------------------------------
+
+MENSAGEM 4
+Autor: INEMA
+Data: 2025-07-30T21:36:19+00:00
+Texto: [Sem texto]
+Midia: MessageMediaPhoto -> photo_3827_004.jpg
+
+------------------------------
+
+MENSAGEM 5
+Autor: INEMA
+Data: 2025-07-30T21:36:11+00:00
+Texto: [Sem texto]
+Midia: MessageMediaPhoto -> photo_3826_005.jpg
+
+------------------------------
+
+MENSAGEM 6
+Autor: INEMA
+Data: 2025-07-30T21:34:51+00:00
+Texto:
+### 🚀 HACKS PARA SER UM SUPERVENDEDOR MODERNO
+
+#### 1. **Use perguntas para vender, não para argumentar**
+
+* **Por que funciona?** Ativa o cérebro racional do cliente e o leva a refletir sobre a própria dor.
+* **Hack prático:** Use 3 perguntas abertas no início para criar rapport e entender o real problema antes de apresentar qualquer proposta.
+
+#### 2. **Transforme objeções em validações**
+
+* Em vez de rebater, **reconheça, humanize e redirecione**.
+* **Hack prático (Feel–Felt–Found):**
+
+  * “Entendo como você se sente…”
+  * “Outros também se sentiram assim…”
+  * “Mas descobriram que era exatamente o que precisavam.”
+
+#### 3. **Venda o resultado, não o processo**
+
+* O cliente quer “ficar em forma”, não “fazer 30 minutos de cardio”.
+* **Hack prático:** Apresente o benefício emocional com frases como:
+  “Imagine como vai se sentir quando…”
+
+#### 4. **Fechamento sem pressão usando alternativas**
+
+* Dê duas opções em vez de perguntar “você quer?”
+* **Exemplo:** “Quer começar hoje ou prefere agendar para amanhã?”
+
+#### 5. **Seguimento com ação clara**
+
+* Nunca envie um “Oi, tudo bem?”. Envie sempre com **microação**.
+* **Hack prático:** “Se quiser ver um caso real de sucesso igual ao seu, posso te mandar agora.”
+
+#### 6. **Grave, ouça e corrija**
+
+* A maioria dos vendedores se sabota sem perceber.
+* **Hack prático:** Use IA para transcrever e analisar suas ligações/vídeos e identificar falhas de comunicação, tom ou argumentos fracos.
+
+#### 7. **Treine vendas todos os dias como um atleta**
+
+* Não basta saber. É preciso condicionar.
+* **Hack prático:** 30 minutos por dia com um parceiro de treino (roleplay de objeções e perguntas).
+
+#### 8. **Organize o CRM como um campo de batalha**
+
+* Cada contato deve ter próxima ação marcada.
+* **Hack prático:** Use IA ou automação para alertar leads inativos e retomar com estratégia de conteúdo.
+
+------------------------------
+
+MENSAGEM 7
+Autor: INEMA
+Data: 2025-07-30T21:33:51+00:00
+Texto:
+============
+
+------------------------------
+
+MENSAGEM 8
+Autor: INEMA
+Data: 2025-07-30T21:33:47+00:00
+Texto:
+## 🧭 Principais Temas e Estrutura do Treinamento
+
+### 1. **Importância do Processo Comercial**
+
+* Vendas é o que diferencia empresários bem-sucedidos dos que fracassam. Aumentar ticket médio, frequência de compra e margem de contribuição são fundamentais. Estratégias como cross-selling, pricing e otimização de fornecedores foram discutidas.
+
+### 2. **Case de Clínica em Bilbao**
+
+* O instrutor utilizou roleplay, reformulou scripts de atendimento e mudou crenças limitantes da equipe para elevar o nível do comercial, resultando em um negócio mais eficiente e lucrativo.
+
+### 3. **Papel do Diretor Comercial**
+
+* Atribuição de responsabilidades, promoção de lideranças internas, importância de comunicar alterações de cargo para não gerar conflitos.
+
+### 4. **Metodologia "Supervendedor"**
+
+* Menos falar, mais perguntar: as perguntas são a principal ferramenta dos vendedores.
+
+#### 4.1 Etapas da Venda Consultiva (com base no método de Ciglar)
+
+1. **Descoberta da Necessidade** – identificar problemas reais do cliente.
+2. **Consciência da Necessidade** – fazer o cliente reconhecer a urgência da solução.
+3. **Apresentação da Solução** – focar em benefícios e resultados, não em características técnicas.
+4. **Satisfação e Fechamento** – reforçar confiança no produto, empresa e vendedor.
+
+#### 4.2 Perguntas
+
+* **Abertas** (começam com *como*, *por que*, *qual*) permitem entender a necessidade profunda e criar rapport.
+* **Fechadas** ajudam a confirmar informações específicas e conduzir para o fechamento.
+
+#### 4.3 Técnicas de Fechamento
+
+* **Fechamento por Alternativas**: oferecer duas opções claras como “terça ou quarta?”, facilita a decisão.
+* **“Trem do ‘sim’”**: sequência de três perguntas fechadas que levam o cliente gradualmente ao fechamento.
+
+### 5. **Seguimento (Follow-up)**
+
+* Essencial para avançar no funil; deve ter objetivo claro (confirmar encontro, sanar dúvida, compartilhar casos de sucesso).
+* Seguimento sem propósito é improdutivo.
+
+### 6. **Gestão de Objeções**
+
+* As três certezas necessárias para o cliente: confiança no produto, na empresa, e no vendedor.
+* Objeções são sinais de interesse, não de rejeição.
+* Técnica **Feel–Felt–Found** (sentir, sentir, descobrir) para lidar com objeções como “é caro”.
+
+### 7. **Transformação de Características em Benefícios**
+
+* Destaque para o valor emocional e transformacional do serviço, em vez de características técnicas, para justificar preço e evitar guerra de preços.
+
+### 8. **Automação e Avaliação de Desempenho**
+
+* Uso de CRM, transcrição de chamadas, avaliação de performance do time (como setters e closers) com IA, e integração com ferramentas para melhorar a eficiência e mensurar resultados.
+
+---
+
+### ✅ Conclusão
+
+Esta aula final (“Supervendedor”) reforçou conceitos cruciais de vendas consultivas com foco em perguntas bem colocadas, rapport, follow‑up estratégico, fechamento eficiente e uso de automação para maximizar resultados e evolução comercial.
+
+------------------------------
+
+MENSAGEM 9
+Autor: INEMA
+Data: 2025-07-30T21:31:38+00:00
+Texto:
+====================
+
+------------------------------
+
+MENSAGEM 10
+Autor: INEMA
+Data: 2025-07-30T21:31:21+00:00
+Texto:
+**O supervendedor** é um profissional que domina técnicas avançadas de vendas baseadas em empatia, escuta ativa e estratégia. Ele vai além de apenas oferecer um produto – seu foco é **ajudar o cliente a perceber sua necessidade**, apresentar a **solução certa no momento certo**, e fazer o **acompanhamento com propósito**, sem pressão.
+
+---
+
+### Principais características de um supervendedor:
+
+1. **Faz perguntas certas**
+   Descobre a dor do cliente e conduz a conversa com inteligência.
+
+2. **Transforma características em benefícios**
+   Não fala o que o produto faz, mas sim **o que isso muda na vida do cliente**.
+
+3. **Segue com estratégia**
+   Faz o cliente avançar com pequenas ações, sempre oferecendo ajuda.
+
+4. **Lida com objeções com naturalidade**
+   Usa empatia e mostra casos reais para construir confiança.
+
+5. **Tem confiança no que vende**
+   Passa segurança porque acredita no produto, na empresa e em si mesmo.
+
+---
+
+**Frase que resume o supervendedor:**
+“Ele não vende. Ele orienta, escuta, entende e transforma a conversa em decisão.”
+
+------------------------------
+
+MENSAGEM 11
+Autor: INEMA
+Data: 2025-07-30T21:31:14+00:00
+Texto:
+================
+
+------------------------------
+
+MENSAGEM 12
+Autor: INEMA
+Data: 2025-07-30T21:30:55+00:00
+Texto:
+funciona e traz resultado              |
+| Empresa       | Que é séria e confiável                    |
+| Vendedor      | Que entende, orienta e transmite segurança |
+
+### Técnica Feel – Felt – Found:
+
+| Etapa | Exemplo aplicado a “É caro”                                   |
+| ----- | ------------------------------------------------------------- |
+| Feel  | “Entendo. Muitos clientes sentiram o mesmo.”                  |
+| Felt  | “Eles também pensavam que talvez fosse um investimento alto.” |
+| Found | “Mas viram que era o que precisavam e valeu cada centavo.”    |
+
+### Reformular e devolver:
+
+* “Você se preocupa mais com o tempo, o valor ou o resultado?”
+
+### Outros exemplos de objeções:
+
+| Objeção                       | Exemplo de resposta usando Feel – Felt – Found                                 |
+| ----------------------------- | ------------------------------------------------------------------------------ |
+| “Não tenho tempo”             | “Entendo. Muitos pensaram igual. Depois viram que em poucas sessões já mudou.” |
+| “Tenho medo que não funcione” | “Normal! Outros também tinham. Ao ver os casos reais, passaram a confiar.”     |
+| “Não sei se serve para mim”   | “Outros também tinham dúvidas. Testaram e funcionou no dia a dia deles.”       |
+
+---
+
+## ✅ Conclusão
+
+**Frases de encerramento para motivar a equipe:**
+
+* “Se você vende características, discutem preço.
+  Se vende benefícios, pagam pelo valor.”
+
+* “As objeções não são muros. São placas apontando onde você precisa gerar confiança.”
+
+* “Every follow-up has to move the client from point A to point B. Sempre.”
+
+------------------------------
+
+MENSAGEM 13
+Autor: INEMA
+Data: 2025-07-30T21:30:55+00:00
+Texto:
+Abaixo está um resumo completo com todos os tópicos da aula **CLASE 23 – El supervendedor**, incluindo exemplos e respostas para facilitar o aprendizado e aplicação:
+
+---
+
+### 🧠 Objetivos da Aula
+
+* Entender que **perguntas são as ferramentas mais poderosas do vendedor**
+* Aprender as **4 etapas de necessidades** segundo Zig Ziglar
+* Aplicar **perguntas que vendem** para conduzir conversas
+* Diferenciar **características x benefícios**
+* Fazer **seguimentos efetivos**
+* **Lidar com objeções** e fechar vendas com naturalidade
+
+---
+
+## 1️⃣ Etapas de Necessidades – Zig Ziglar
+
+### As 4 Fases:
+
+| Fase                       | O que fazer                                           | Exemplo de pergunta                                   |
+| -------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| Descoberta da necessidade  | Identificar o problema ou desejo real                 | “O que está te impedindo de alcançar seus objetivos?” |
+| Consciência da necessidade | Levar o cliente a perceber que é hora de agir         | “Se isso continuar, como você se sentirá em 6 meses?” |
+| Solução da necessidade     | Apresentar solução como ponte para resultado desejado | “Esse plano resolve exatamente o que você mencionou.” |
+| Satisfação da necessidade  | Reforçar confiança e incentivar a decisão             | “Ficarei feliz em ver você alcançar esse resultado!”  |
+
+**Frase-chave:**
+“Pare de tentar fechar antes da hora. Ajude o cliente a passar pelas etapas.”
+
+---
+
+## 2️⃣ Perguntas para Vender
+
+### Objetivos:
+
+* Criar **conexão e engajamento**
+* Diagnosticar o problema
+* Guiar para o fechamento
+
+### Tipos de perguntas:
+
+| Tipo          | Função                                  | Exemplos                                                |
+| ------------- | --------------------------------------- | ------------------------------------------------------- |
+| Abertas       | Criar confiança, entender a fundo       | “O que te motivou a buscar ajuda agora?”                |
+| Fechadas      | Obter resposta clara e objetiva         | “Você prefere terça ou quarta para conversar melhor?”   |
+| De fechamento | Guiar para a ação sem parecer agressivo | “Vamos agendar para esta semana ou prefere na próxima?” |
+
+**Dica prática:**
+
+* O cliente deve falar 70% do tempo
+* O vendedor pergunta com curiosidade, não como interrogatório
+
+---
+
+## 3️⃣ Características vs Benefícios
+
+| Conceito       | Definição                                     | Exemplo                                                        |
+| -------------- | --------------------------------------------- | -------------------------------------------------------------- |
+| Característica | Dado técnico do serviço/produto               | “Inclui 10 sessões de 30 minutos com ácido hialurônico.”       |
+| Benefício      | Resultado emocional ou prático para o cliente | “Você verá seu rosto rejuvenescido sem cirurgia no mesmo dia.” |
+
+**Frase-chave:**
+“A característica informa. O benefício convence.”
+
+### Exercício:
+
+1. Liste 5 características do seu serviço
+2. Para cada uma, pergunte: **“Isso entrega o quê para o cliente?”**
+3. Destaque o **benefício emocional** final
+
+---
+
+## 4️⃣ Seguimento em Vendas
+
+### Regra de ouro:
+
+**Seguimento = Ação. Não perseguição.**
+
+| Objetivo do Seguimento | Ação concreta sugerida                         |
+| ---------------------- | ---------------------------------------------- |
+| Confirmar algo         | “Prefere confirmar agora ou mando o link?”     |
+| Agendar novo passo     | “Quer que eu ligue amanhã às 10 ou às 16h?”    |
+| Tirar dúvida           | “Quer ver o caso de alguém parecido com você?” |
+
+**Frase:**
+“O seguimento sem objetivo é acoso. Com ação clara é serviço.”
+
+### Evitar:
+
+* Mensagens sem proposta
+* Ligações que apenas dizem: “Só ligando para ver…”
+
+---
+
+## 5️⃣ Manejo de Objeções
+
+### As 3 Certidões (3 Tens):
+
+| Certeza no... | O cliente precisa confiar em:              |
+| ------------- | ------------------------------------------ |
+| Produto       | Que
+
+------------------------------
+
+MENSAGEM 14
+Autor: INEMA
+Data: 2025-07-30T21:30:39+00:00
+Texto:
+=======================
+
+------------------------------
+
+MENSAGEM 15
+Autor: INEMA
+Data: 2025-07-30T21:28:59+00:00
+Texto:
+O documento "CLASE 23 - El supervendedor" é uma aula completa voltada ao treinamento de vendedores de alta performance. Ele está dividido em cinco tópicos principais e inclui exercícios práticos. Abaixo, apresento um resumo completo com tópicos listados, exemplos e respostas esperadas para facilitar o entendimento e aplicação.
+
+---
+
+**Resumo Completo da Aula – El Supervendedor**
+
+🧠 **Objetivos da aula**
+
+* Entender que perguntas são a principal ferramenta de vendas.
+* Aplicar etapas para identificar necessidades do cliente.
+* Aprender a converter conversas em vendas com perguntas.
+* Diferenciar características de benefícios.
+* Realizar acompanhamentos eficazes.
+* Dominar o manejo de objeções e fechamento de vendas.
+
+---
+
+1️⃣ **Etapas de Necessidades (Zig Ziglar)**
+
+1. *Descoberta da necessidade*
+   → Fazer perguntas, ouvir e entender o problema real do cliente.
+   *Exemplo:* “Qual o seu maior desafio hoje com \[tema]?”
+
+2. *Consciência da necessidade*
+   → Levar o cliente a reconhecer que tem um problema.
+   *Exemplo:* “E se isso continuar por mais 6 meses, o que muda na sua vida?”
+
+3. *Solução da necessidade*
+   → Apresentar a solução conectada ao desejo do cliente.
+   *Exemplo:* “Isso que você me falou resolve com este plano aqui…”
+
+4. *Satisfação da necessidade*
+   → Gerar confiança e incentivar a decisão.
+   *Exemplo:* “Muitos clientes que passaram por isso hoje nos recomendam.”
+
+---
+
+2️⃣ **Perguntas para Vender**
+
+*Objetivos das perguntas:*
+
+* Criar conexão
+* Diagnosticar o problema
+* Guiar para o fechamento
+
+*Tipos de perguntas:*
+
+* **Abertas**: Criam rapport.
+  *Exemplos:*
+  “Como isso te afeta hoje?”
+  “O que te motivou a procurar essa solução?”
+
+* **Fechadas**: Obtem respostas claras.
+  *Exemplos:*
+  “Você quer iniciar essa semana?”
+  “É para você ou para alguém da equipe?”
+
+* **De fechamento**: Direcionam decisão.
+  *Exemplos:*
+  “Prefere terça ou quarta para agendar?”
+  “Quer iniciar com o plano A ou B?”
+
+*Regra ABC*: Always Be Closing – sempre conduzindo o cliente para o próximo passo.
+
+---
+
+3️⃣ **Características vs Benefícios**
+
+* **Características**: Fatos técnicos.
+  *Exemplo:* “São 10 sessões de 30 min com tecnologia X.”
+
+* **Benefícios**: Transformação e valor emocional.
+  *Exemplo:* “Você recupera a autoestima e se vê bem no espelho novamente.”
+
+*Frase-chave:*
+“Características informam, benefícios convencem.”
+
+*Exercício:*
+Liste 5 características e transforme em benefícios.
+*Exemplo:*
+Característica: "Plataforma com automações."
+Benefício: "Você economiza horas por semana e foca no crescimento."
+
+---
+
+4️⃣ **Seguimento em Vendas**
+
+*Conceito:*
+Seguir = provocar uma ação, não incomodar.
+
+*Ações esperadas:*
+
+* Microações: confirmar presença, responder dúvidas.
+* Avanço: agendar reunião, aceitar proposta.
+
+*Exemplo certo:*
+“Você prefere confirmar agora ou quer que eu envie o link?”
+
+*Erro comum:*
+“Só liguei para saber se pensou melhor…” (soa como cobrança).
+
+*Frase final:*
+“O seguimento sem propósito é perseguição.
+Com ação clara, é serviço.”
+
+---
+
+5️⃣ **Manejo de Objeções**
+
+*As 3 Certidões (3 Tens):*
+
+1. Confiança no produto
+2. Confiança na empresa
+3. Confiança no vendedor
+
+*Objeções comuns:*
+
+* “É caro”
+* “Não tenho tempo”
+* “Tenho dúvidas se funciona”
+
+*Técnicas:*
+
+* **Feel – Felt – Found**
+  “Entendo o que sente, outros sentiram o mesmo, mas descobriram que…”
+
+* **Reformular e devolver**
+  “O que mais te preocupa: resultado, tempo ou custo?”
+
+*Exemplos práticos:*
+
+1. **Objeção:** “É caro”
+   *Resposta:*
+   “Entendo. Muitos acharam assim no início, mas ao ver os resultados, perceberam que foi a melhor decisão.”
+
+2. **Objeção:** “Não tenho tempo”
+   *Resposta:*
+   “Sim, outros estavam na mesma, mas organizaram as sessões e chegaram ao evento tranquilos.”
+
+3. **Objeção:** “Não sei se serve para minha empresa”
+   *Resposta:*
+   “Outros também pensaram assim. Quando testaram, viram como simplificou tudo.”
+
+---
+
+**Exercício prático sugerido na aula:**
+
+* Roleplay com avatar de cliente, praticando as perguntas, o uso de benefícios e o tratamento de objeções com base nas técnicas apresentadas.
+
+------------------------------
+
+MENSAGEM 16
+Autor: INEMA
+Data: 2025-07-30T21:28:22+00:00
+Texto: [Sem texto]
+Midia: MessageMediaDocument -> CLASE_23_El_supervendedor_Etapa_de_necesidades,_manejo_de_objeciones.docx
+
+------------------------------
+
+MENSAGEM 17
+Autor: INEMA
+Data: 2025-07-30T21:26:22+00:00
+Texto: [Sem texto]
+Midia: MessageMediaPhoto -> photo_3814_017.jpg
+
+------------------------------
+
+MENSAGEM 18
+Autor: INEMA
+Data: 2025-07-30T21:26:01+00:00
+Texto:
+e23 - Supervendedor
+
+------------------------------
+
+MENSAGEM 19
+Autor: INEMA
+Data: 2025-07-30T21:25:23+00:00
+Texto:
+.
+
+------------------------------
+
+MENSAGEM 20
+Autor: INEMA
+Data: 2025-07-30T21:25:23+00:00
+Texto:
+.
+
+------------------------------
+
+MENSAGEM 21
+Autor: INEMA
+Data: 2025-07-30T21:25:22+00:00
+Texto:
+.
+
+------------------------------
+
+MENSAGEM 22
+Autor: INEMA
+Data: 2025-07-30T21:25:22+00:00
+Texto:
+.
+
+------------------------------
+
+MENSAGEM 23
+Autor: INEMA
+Data: 2025-07-30T21:25:22+00:00
+Texto:
+https://chatgpt.com/c/688852ff-9f14-832d-beec-e253ae17e550
+Midia: MessageMediaWebPage
+
+------------------------------
+
+MENSAGEM 24
+Autor: INEMA
+Data: 2025-07-30T21:25:21+00:00
+Texto:
+1
+
+------------------------------
+
+MENSAGEM 25
+Autor: INEMA
+Data: 2025-07-30T21:25:15+00:00
+Texto: [Sem texto]
+
+------------------------------
+

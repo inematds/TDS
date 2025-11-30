@@ -1,0 +1,133 @@
+TOPICO 1846
+==================================================
+
+Titulo: Sem titulo
+Criado em: 2024-10-01 21:13:13+00:00
+
+Total de mensagens: 14
+Midias baixadas: 1
+
+--------------------------------------------------
+
+MENSAGEM 1
+Autor: INEMA
+Data: 2024-10-01T21:15:46+00:00
+Texto:
+Apify.ai
+
+------------------------------
+
+MENSAGEM 2
+Autor: INEMA
+Data: 2024-10-01T21:15:28+00:00
+Texto:
+Quais as melhores e mais populares alternativas ao SEMRush
+1. Ahrefs
+2. Moz
+3. SE Ranking
+4. SpyFu
+5. Ubersuggest
+6. Serpstat
+7. CognitiveSEO
+8. Majestic SEO
+9. Long Tail Pro
+10. Mangools
+
+------------------------------
+
+MENSAGEM 3
+Autor: INEMA
+Data: 2024-10-01T21:15:28+00:00
+Texto:
+https://www.semrush.com/
+Midia: MessageMediaWebPage
+
+------------------------------
+
+MENSAGEM 4
+Autor: INEMA
+Data: 2024-10-01T21:15:28+00:00
+Texto:
+https://trends.google.com.br/trends/
+
+------------------------------
+
+MENSAGEM 5
+Autor: INEMA
+Data: 2024-10-01T21:13:21+00:00
+Texto:
+9
+
+------------------------------
+
+MENSAGEM 6
+Autor: INEMA
+Data: 2024-10-01T21:13:21+00:00
+Texto:
+8
+
+------------------------------
+
+MENSAGEM 7
+Autor: INEMA
+Data: 2024-10-01T21:13:20+00:00
+Texto:
+7
+
+------------------------------
+
+MENSAGEM 8
+Autor: INEMA
+Data: 2024-10-01T21:13:20+00:00
+Texto:
+6
+
+------------------------------
+
+MENSAGEM 9
+Autor: INEMA
+Data: 2024-10-01T21:13:19+00:00
+Texto:
+5
+
+------------------------------
+
+MENSAGEM 10
+Autor: INEMA
+Data: 2024-10-01T21:13:19+00:00
+Texto:
+4
+
+------------------------------
+
+MENSAGEM 11
+Autor: INEMA
+Data: 2024-10-01T21:13:18+00:00
+Texto:
+3
+
+------------------------------
+
+MENSAGEM 12
+Autor: INEMA
+Data: 2024-10-01T21:13:18+00:00
+Texto:
+2
+
+------------------------------
+
+MENSAGEM 13
+Autor: INEMA
+Data: 2024-10-01T21:13:18+00:00
+Texto:
+1
+
+------------------------------
+
+MENSAGEM 14
+Autor: INEMA
+Data: 2024-10-01T21:13:13+00:00
+Texto: [Sem texto]
+
+------------------------------
+

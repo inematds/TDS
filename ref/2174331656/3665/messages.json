@@ -1,0 +1,138 @@
+[
+  {
+    "id": 3681,
+    "author": "INEMA",
+    "date": "2025-07-02T23:50:38+00:00",
+    "text": "Aqui estão **hacks práticos** para turbinar sua automação de vendas e aumentar os fechamentos **sem equipe extra**:\n\n---\n\n### 1. **Formulário com pergunta-chave = segmentação automática**\n\n* **Hack:** Adicione no formulário a pergunta:\n  *“Quando você pretende tomar a decisão?”*\n* **Por quê:** Essa resposta permite criar **fluxos escalonados e personalizados** para 1 semana, 1 mês, 2 meses...\n\n---\n\n### 2. **Mensagens humanizadas com IA**\n\n* **Hack:** Use ChatGPT para gerar mensagens com **toque pessoal**, que parecem escritas por um humano.\n* Exemplo:\n  “Oi, Maria! Vi que o contrato ainda não foi assinado. Posso te ajudar com alguma dúvida?”\n\n---\n\n### 3. **Botões com ações inteligentes**\n\n* **Hack:** Use **botões no WhatsApp**:\n\n  * “Me ligue” → cria uma **tarefa manual** para ligação no CRM\n  * “Não estou mais interessado” → abre formulário automático pedindo feedback\n\n---\n\n### 4. **Tags ao invés de status de lead**\n\n* **Hack:** Não use só “lead” ou “cliente” — crie **tags por etapa real**:\n\n  * `orcamento_pendente`, `orcamento_aceito`, `contrato_assinado`\n* **Por quê:** Isso evita perder acompanhamento em clientes com recompra ou múltiplos contratos.\n\n---\n\n### 5. **Esquema de espera inteligente**\n\n* **Hack:** Insira **esperas (wait)** de 24h, 48h ou 7 dias entre as mensagens.\n* E use **condicionais** para interromper a automação se o cliente **já respondeu ou assinou**.\n\n---\n\n### 6. **Reciclagem de feedback**\n\n* **Hack:** Quando o cliente disser que não tem interesse, pergunte:\n  *“Só para melhorar meu atendimento: o que te fez desistir?”*\n\n  * Salve a resposta no CRM → use para **otimizar objeções futuras**.\n\n---\n\n### 7. **Folderização de templates**\n\n* **Hack:** Crie pastas nomeadas no WhatsApp API por fluxo:\n\n  * \"Dia 1 – Imediato\", \"Dia 4 – 2 semanas\", \"Feedback – Não me interessa\"\n* **Benefício:** organização e **reaproveitamento fácil** em novos clientes ou setores.\n\n---\n\n### 8. **Usar campos obrigatórios no formulário para forçar qualidade**\n\n* Exemplo: e-mail, telefone, tipo de serviço, valor estimado, urgência.\n* **Hack:** Isso evita base de dados “fraca” e prepara melhor o fluxo de atendimento.\n\n---\n\n### 9. **Aplicável a qualquer setor**\n\n* Imobiliária, clínicas, mentorias, academias, marketing, reformas...\n* Basta adaptar os textos e templates — **a lógica é a mesma**.\n\n---\n\n### 10. **Escalabilidade real com poucas pessoas**\n\n* Com esses hacks, você pode acompanhar **100, 500 ou 1000 clientes** em paralelo com **apenas 1 ou 2 pessoas** na equipe.\n\n---",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3680,
+    "author": "INEMA",
+    "date": "2025-07-02T23:50:30+00:00",
+    "text": "========",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3679,
+    "author": "INEMA",
+    "date": "2025-07-02T23:50:15+00:00",
+    "text": "Aqui está o **passo a passo objetivo** para automatizar o acompanhamento de orçamentos e contratos e **escalar vendas sem equipe extra**:\n\n---\n\n### **1. Estruture seu processo no CRM (ex: Wixin)**\n\n* Crie **etiquetas (tags)**:\n\n  * `orcamento_pendente`, `orcamento_aceito`\n  * `contrato_pendente`, `contrato_assinado`\n\n* Adicione um **campo obrigatório** no formulário:\n\n  * \"Em quanto tempo você tomará a decisão?\"\n    (Ex: imediato, 1 semana, 2 semanas, 1 mês, 2 meses, etc.)\n\n---\n\n### **2. Configure os gatilhos (triggers)**\n\n* A automação começa quando:\n\n  * Um **orçamento é enviado**\n  * Um **contrato é enviado**\n  * Uma **fatura é enviada e ainda não paga**\n\n---\n\n### **3. Crie os fluxos de mensagens no WhatsApp API (Meta)**\n\n* **Sequência de mensagens automatizadas** com base no tempo de decisão:\n\n  * **Imediato** → mensagens nos dias 1, 2, 4\n  * **1 semana** → mensagem após 7 dias\n  * **2 semanas, 1 mês, etc.** → mensagens a cada 48h dentro do período\n\n* **Inclua botões**:\n\n  * “Me ligue” → aciona equipe para ligação\n  * “Não me interessa mais” → envia formulário de feedback\n\n---\n\n### **4. Use condicional nas automações**\n\n* Verifique se o contrato/fatura **foi assinado ou pago**:\n\n  * Se **sim** → remove a tag “pendente” e encerra o fluxo\n  * Se **não** → continua no fluxo até o cliente interagir\n\n---\n\n### **5. Automatize follow-up com personalização (ChatGPT opcional)**\n\n* Escreva mensagens que **não pareçam automáticas**\n* Exemplo:\n\n  * \"Olá Maria, conseguimos te ajudar com alguma dúvida sobre o contrato?\"\n\n---\n\n### **6. Organize os fluxos por tempo de decisão**\n\n* Para cada resposta no campo “tempo para decisão”, crie:\n\n  * **Templates separados** no WhatsApp API\n  * Ações de **espera (wait)** + **condicionais** para ramificar o fluxo corretamente\n\n---\n\n### **7. Finalize com feedback e reciclagem de dados**\n\n* Se o cliente clicar “não me interessa”:\n\n  * Envie pergunta: “Por qual motivo?”\n  * Salve essa resposta no CRM (custom field)\n  * Notifique o responsável da conta\n\n---\n\n### **8. Monitore tudo no painel**\n\n* Use dashboards com:\n\n  * Quantidade de orçamentos enviados\n  * Quantos foram aceitos, recusados, sem resposta\n  * Resultados por período de decisão\n\n---",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3678,
+    "author": "INEMA",
+    "date": "2025-07-02T23:49:47+00:00",
+    "text": "============",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3677,
+    "author": "INEMA",
+    "date": "2025-07-02T23:49:44+00:00",
+    "text": "Aqui está um **resumo completo e estruturado**  sobre **como escalar vendas sem equipe extra**:\n\n---\n\n### Objetivo\n\n* Ensinar **como automatizar o acompanhamento de orçamentos e contratos** para fechar mais vendas **sem precisar contratar mais gente**.\n\n---\n\n### Contexto Pessoal\n\n* Em 2023, Alfonso quase quebrou financeiramente.\n* Reduziu equipe, otimizou fluxo de caixa e implementou **automação total de processos comerciais** (envio de contratos, orçamentos e acompanhamentos).\n* A automação salvou o negócio e o permitiu crescer com estrutura enxuta.\n\n---\n\n### Princípios-Chave\n\n1. **O problema não é falta de leads, é falta de sistema.**\n2. Vendedores não devem perder tempo com tarefas manuais, mas sim vender.\n3. Automatização **não é frieza**, e sim eficiência com humanização.\n\n---\n\n### Estratégia de Automação de Acompanhamento\n\n#### Etapas Técnicas\n\n* Uso de **etiquetas (tags)** no CRM:\n\n  * `contrato_pendente`, `contrato_assinado`\n  * `orcamento_pendente`, `orcamento_aceito`\n* Gatilhos:\n\n  * Orçamento enviado\n  * Contrato enviado\n  * Fatura enviada (não paga)\n* WhatsApp API com **mensagens automáticas** e **botões**:\n\n  * Ex: “Me ligue” ou “Não me interessa mais”\n  * Se clicar em \"não me interessa\", envia formulário de feedback\n\n#### Segmentação por Tempo de Decisão\n\n* Imediato → mensagens em 24h, 48h, 72h, 96h\n* 1 semana → em 7 dias\n* 2 semanas, 1 mês, 2 meses → protocolos escalados\n\n---\n\n### Casos Reais Aplicados\n\n* **Bravo Room (imobiliária)**: Contratos e captação de imóveis com automações.\n* **Clínicas capilares**: Verticalização por serviço (prótese, micro pigmentação, etc).\n* **Academias, mentorias, agências de marketing**: Acompanhamento gradual até o fechamento.\n\n---\n\n### Vantagens da Automação\n\n* Redução de pessoal e de tarefas repetitivas\n* Aumento da taxa de conversão\n* Escalabilidade sem sobrecarga\n* Processo previsível e sistematizado\n* CRM como central de comando (ex: Wixin)\n\n---\n\n### Recomendações\n\n* Sempre perguntar: **“Quando você tomará a decisão?”** para segmentar o fluxo corretamente.\n* Evitar deixar na mão da IA conversacional o controle do processo; usar **formularios estruturados e campos obrigatórios**.\n* Formularios são os melhores gatilhos (triggers) para iniciar sequências.\n\n---\n\n### Ferramentas Utilizadas\n\n* **Wixin**: CRM com suporte a etiquetas e automações\n* **Holder**: Sistema contábil com integração a Stripe, PayPal, Revolut, etc.\n* **Google Workspace**: Documentação e formulários\n* **WhatsApp API**: Envio de mensagens com lógica condicional\n\n---\n\n### Filosofia de Trabalho\n\n* Simplicidade: eliminar ferramentas desnecessárias.\n* Estrutura mínima: Wixin + Holder + Google Workspace.\n* Foco: deixar vendedores livres para vender, com processos claros e previsíveis.\n\n---\n\n### Frases-Chave\n\n* “Novos milionários são os que escalam negócios sem ter muitos funcionários.”\n* “Automação é mentalidade, não ferramenta.”\n* “Se não tem sistema, você está perdendo dinheiro.”\n\n---",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3676,
+    "author": "INEMA",
+    "date": "2025-07-02T23:48:26+00:00",
+    "text": "=============",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3675,
+    "author": "INEMA",
+    "date": "2025-07-02T23:48:23+00:00",
+    "text": "**Resumo objetivo – Aula: Como escalar vendas sem equipe extra**\n\n* **Problema:** Muitas empresas perdem vendas por falta de acompanhamento estruturado, não por falta de leads.\n\n* **Solução:** Automatizar o processo de **seguimento de orçamentos e contratos** com mensagens personalizadas via WhatsApp API, usando **etiquetas (tags)** e **gatilhos no CRM**.\n\n* **Benefícios:**\n\n  * Aumenta taxa de conversão, especialmente em vendas reflexivas (acima de 1000€).\n  * Libera o vendedor para focar em fechar negócios.\n  * Evita perda de oportunidades por esquecimento ou falta de processos.\n  * Escalável sem contratar mais pessoas.\n\n* **Ferramentas usadas:**\n\n  * **Wixin (CRM)**\n  * **WhatsApp API (Meta)**\n  * **Holder (sistema contábil)**\n  * **Google Workspace**\n\n* **Etapas automatizadas:**\n\n  * Envio de orçamento ou contrato = **gatilho**\n  * CRM aplica tag \"pendente\"\n  * Sequência de mensagens com botões:\n\n    * “Me ligue”\n    * “Não estou mais interessado” → gera feedback automático\n  * Após pagamento ou assinatura → muda tag para \"assinado/pago\" e encerra o fluxo\n\n* **Mensagem-chave:**\n  Automatização não é frieza, é **eficiência com toque humano**.\n  O segredo está em **formular fluxos previsíveis e personalizados** para cada estágio da decisão do cliente.",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3674,
+    "author": "INEMA",
+    "date": "2025-07-02T23:48:02+00:00",
+    "text": ".MasterClasse - Como escalar vendas sem equipe extra",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3673,
+    "author": "INEMA",
+    "date": "2025-07-02T23:48:00+00:00",
+    "text": ".",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3672,
+    "author": "INEMA",
+    "date": "2025-07-02T23:48:00+00:00",
+    "text": "..",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3671,
+    "author": "INEMA",
+    "date": "2025-07-02T23:48:00+00:00",
+    "text": ".",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3670,
+    "author": "INEMA",
+    "date": "2025-07-02T23:47:59+00:00",
+    "text": ".",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3669,
+    "author": "INEMA",
+    "date": "2025-07-02T23:47:59+00:00",
+    "text": ".",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3668,
+    "author": "INEMA",
+    "date": "2025-07-02T23:47:59+00:00",
+    "text": ".",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3667,
+    "author": "INEMA",
+    "date": "2025-07-02T23:47:58+00:00",
+    "text": "https://chatgpt.com/c/6865c417-bb2c-8009-abfd-d6ee06831e2a",
+    "has_media": true,
+    "media_type": "MessageMediaWebPage"
+  },
+  {
+    "id": 3666,
+    "author": "INEMA",
+    "date": "2025-07-02T23:47:58+00:00",
+    "text": "1",
+    "has_media": false,
+    "media_type": null
+  },
+  {
+    "id": 3665,
+    "author": "INEMA",
+    "date": "2025-07-02T23:47:52+00:00",
+    "text": "",
+    "has_media": false,
+    "media_type": null
+  }
+]

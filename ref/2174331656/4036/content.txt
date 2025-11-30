@@ -1,0 +1,167 @@
+TOPICO 4036
+==================================================
+
+Titulo: Sem titulo
+Criado em: 2025-09-03 02:35:44+00:00
+
+Total de mensagens: 13
+Midias baixadas: 4
+
+--------------------------------------------------
+
+MENSAGEM 1
+Autor: INEMA
+Data: 2025-09-03T02:37:15+00:00
+Texto:
+Aqui vai o resumo de tudo o que tratamos nesta sessão:
+
+---
+
+### 1. Estrutura de vídeos virais (TikTok/Instagram)
+
+* Baseada nos prints que você trouxe, a fórmula sugerida foi:
+
+  1. Gancho forte (3s iniciais, curiosidade, medo ou ganho).
+  2. Desenvolvimento rápido com insight/microtransformação.
+  3. Quebra de expectativa (“porta na cara”) para looping.
+  4. CTA emocional (seguir, salvar, compartilhar).
+* Vídeos devem ser simples, frases curtas, linguagem fácil e ritmo acelerado.
+
+---
+
+### 2. Trabalhando ganchos
+
+* Criamos várias versões de **ganchos** para atrair atenção sobre engenharia de prompts:
+
+  * Ganhos: “Você pode se transformar em qualquer coisa se usar engenharia de prompts.”
+  * Medo: “Deu ruim: milhares estão usando IA errado…”
+  * Autoridade: “Pablo Marçal ficou milionário porque usou códigos que você também deve usar.”
+  * Exclusividade/status: “A mente dos bilionários funciona como a IA usando engenharia de prompts.”
+* Ajustamos os ganchos para ficarem mais fortes, explorando **ganho, perda e interesse direto**.
+
+---
+
+### 3. Uso do “Deu Ruim”
+
+* Você testou vídeos com **“Deu ruim”** e percebeu que renderam mais.
+* Criamos 10 variações nesse estilo, trazendo risco de perda, erro comum e contraste com quem sabe usar engenharia de prompts.
+
+---
+
+### 4. Criação de imagens
+
+* Primeiro, fiz ilustrações em estilo cartoon.
+* Você pediu para seguir o **padrão correto (futurista, ultrarrealista, elegante, 16:9)**.
+* Refizemos e geramos uma arte nesse estilo, com contraste entre **frustração humana** e **potencial da IA**, acompanhada do texto centralizado e com margens de segurança.
+
+---
+
+### 5. Direcionamento final
+
+* Todo o conteúdo foi pensado para:
+
+  * Criar roteiros de até 30s com forte impacto.
+  * Usar ganchos baseados em **medo ou ganho** para reter público.
+  * Fechar com CTA para a **Comunidade Inema VIP**.
+  * Criar imagens no padrão visual que fortaleçam a mensagem.
+
+---
+
+------------------------------
+
+MENSAGEM 2
+Autor: INEMA
+Data: 2025-09-03T02:36:53+00:00
+Texto: [Sem texto]
+Midia: MessageMediaPhoto -> photo_4047_002.jpg
+
+------------------------------
+
+MENSAGEM 3
+Autor: INEMA
+Data: 2025-09-03T02:36:37+00:00
+Texto: [Sem texto]
+Midia: MessageMediaPhoto -> photo_4046_003.jpg
+
+------------------------------
+
+MENSAGEM 4
+Autor: INEMA
+Data: 2025-09-03T02:36:23+00:00
+Texto: [Sem texto]
+Midia: MessageMediaPhoto -> photo_4045_004.jpg
+
+------------------------------
+
+MENSAGEM 5
+Autor: INEMA
+Data: 2025-09-03T02:35:52+00:00
+Texto:
+Deu Ruim - Ficou Viral
+
+------------------------------
+
+MENSAGEM 6
+Autor: INEMA
+Data: 2025-09-03T02:35:50+00:00
+Texto:
+..
+
+------------------------------
+
+MENSAGEM 7
+Autor: INEMA
+Data: 2025-09-03T02:35:50+00:00
+Texto:
+.
+
+------------------------------
+
+MENSAGEM 8
+Autor: INEMA
+Data: 2025-09-03T02:35:49+00:00
+Texto:
+.
+
+------------------------------
+
+MENSAGEM 9
+Autor: INEMA
+Data: 2025-09-03T02:35:49+00:00
+Texto:
+.
+
+------------------------------
+
+MENSAGEM 10
+Autor: INEMA
+Data: 2025-09-03T02:35:49+00:00
+Texto:
+.
+
+------------------------------
+
+MENSAGEM 11
+Autor: INEMA
+Data: 2025-09-03T02:35:49+00:00
+Texto:
+https://chatgpt.com/c/68b6a5d4-ccbc-8327-bfac-01b439e5d704
+Midia: MessageMediaWebPage
+
+------------------------------
+
+MENSAGEM 12
+Autor: INEMA
+Data: 2025-09-03T02:35:48+00:00
+Texto:
+1
+
+------------------------------
+
+MENSAGEM 13
+Autor: INEMA
+Data: 2025-09-03T02:35:44+00:00
+Texto: [Sem texto]
+
+------------------------------
+

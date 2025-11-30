@@ -1,0 +1,502 @@
+{
+  "grupo_id": "2174331656",
+  "chat_id": -1002174331656,
+  "titulo": "INEMA.TDS",
+  "total_topicos": 82,
+  "extraction_date": "2025-11-30T17:16:54.185716",
+  "midia_baixada": true,
+  "topicos": [
+    {
+      "id": 3264,
+      "title": "MENUS Links Topicos",
+      "date": "2025-03-28T02:11:15+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3215,
+      "title": "Duvidas Sobre TDS",
+      "date": "2025-02-02T19:49:45+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 2667,
+      "title": "Assistentes",
+      "date": "2024-11-06T23:43:09+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 1895,
+      "title": "Objetivo Digital - Mentoria",
+      "date": "2024-10-01T21:27:58+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 2765,
+      "title": "Gravacao das Lives",
+      "date": "2024-11-11T16:17:16+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 4448,
+      "title": "Formação de Emprendedores",
+      "date": "2025-11-30T20:11:40+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 4436,
+      "title": "Como Cobrar Automações ou Serviços",
+      "date": "2025-11-30T19:47:00+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 4410,
+      "title": "O Sucesso do Simples",
+      "date": "2025-11-11T23:42:14+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 1,
+      "title": "General",
+      "date": "2024-07-17T20:05:43+00:00",
+      "from_id": 2174331656
+    },
+    {
+      "id": 4394,
+      "title": "231 mil Dolares Mes em Consultoria",
+      "date": "2025-11-02T22:11:57+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 4374,
+      "title": "Aula - O futuro Chegou - AI -> Humanoides",
+      "date": "2025-11-02T02:17:17+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 4342,
+      "title": "Mestres da Estratégia Não Transformam PME",
+      "date": "2025-10-27T20:17:30+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 4319,
+      "title": "FUTURO da IA Profissinal",
+      "date": "2025-10-25T02:51:38+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 4307,
+      "title": "Estratégia de LinkEdin",
+      "date": "2025-10-18T06:45:09+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 4284,
+      "title": "Pare de vender agentes de IA, venda soluções de IA",
+      "date": "2025-10-06T17:15:22+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 4259,
+      "title": "Como Ganhar Dinheiro em 2026 segundo NATE",
+      "date": "2025-10-06T16:29:24+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 4248,
+      "title": "O Bom NICHO q lhe da $$$$",
+      "date": "2025-10-06T16:20:19+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 4228,
+      "title": "SEO real: IA + estrutura + negócio",
+      "date": "2025-10-03T02:47:23+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 4212,
+      "title": "US$ 41.230 em apenas 5 horas",
+      "date": "2025-09-17T04:13:29+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 4198,
+      "title": "Fundador ClipUp -Zeb Evans",
+      "date": "2025-09-17T03:49:25+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 4174,
+      "title": "Vendendo Automações de Forma Certa",
+      "date": "2025-09-14T15:22:39+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 4150,
+      "title": "Analise TikTOK - 09/2025",
+      "date": "2025-09-11T23:36:09+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 4131,
+      "title": "Mercado Online 2025 DashBoard",
+      "date": "2025-09-11T23:12:51+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 4104,
+      "title": "TikTok Ads: de 0 a 100k seguidores",
+      "date": "2025-09-11T18:49:43+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 4078,
+      "title": "4 Talentos Humanos",
+      "date": "2025-09-10T02:43:01+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 4050,
+      "title": "Não Venda Automações e Sim Soluções",
+      "date": "2025-09-05T17:08:23+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 4036,
+      "title": "Deu Ruim - Ficou Viral",
+      "date": "2025-09-03T02:35:44+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 4009,
+      "title": "Negocios com Ferramentas Google AI",
+      "date": "2025-08-28T02:46:01+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3985,
+      "title": "Venda - Canais Multi Nivel",
+      "date": "2025-08-27T05:45:22+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3964,
+      "title": "Venda - Estratégia em Todos Niveis",
+      "date": "2025-08-27T05:24:26+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3935,
+      "title": "Não Crie uma Agencia de IA",
+      "date": "2025-08-25T05:00:08+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3918,
+      "title": "Como Construir MARCAS",
+      "date": "2025-08-21T07:33:52+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3873,
+      "title": "Tsunami da IA 2025",
+      "date": "2025-08-16T01:50:02+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3848,
+      "title": "Monetizando a Automação",
+      "date": "2025-08-09T19:09:10+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3832,
+      "title": "Resumo de Consultoria - Perguntas e Respostas",
+      "date": "2025-08-07T04:34:46+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3806,
+      "title": "e23 - Supervendedor",
+      "date": "2025-07-30T21:25:15+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3794,
+      "title": "Futuro da INTERNET 2025 /07",
+      "date": "2025-07-27T03:23:18+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3772,
+      "title": "Precificacao",
+      "date": "2025-07-14T01:07:19+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3756,
+      "title": "Fim dos Diplomas ?",
+      "date": "2025-07-12T23:05:15+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3738,
+      "title": "Como Vender de Forma Disruptiva",
+      "date": "2025-07-10T03:24:47+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3713,
+      "title": "MasterClass m2 - Auditoria Processo e Estrutura",
+      "date": "2025-07-06T22:51:43+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3683,
+      "title": "MasterClass m1 -Vendas - Auditoria como Imã",
+      "date": "2025-07-05T23:49:09+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3665,
+      "title": "MasterClasse - Como escalar vendas sem equipe extra",
+      "date": "2025-07-02T23:47:52+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3620,
+      "title": "MasterClass Agencia de IA - j1",
+      "date": "2025-07-02T21:10:16+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3603,
+      "title": "Masterclass com Dan Martell – Adoção de IA",
+      "date": "2025-06-22T09:27:16+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3589,
+      "title": "Masterclass com Evelyn - Comunidade",
+      "date": "2025-06-22T09:15:39+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3577,
+      "title": "Masterclass com Ryan - Comunidade",
+      "date": "2025-06-22T09:11:45+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3565,
+      "title": "Masterclass sobre automação Jason",
+      "date": "2025-06-22T09:06:11+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3551,
+      "title": "Masterclass Calvin Hollywood - Comunidades",
+      "date": "2025-06-22T08:58:49+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3538,
+      "title": "Masterclass com Mina",
+      "date": "2025-06-22T08:53:03+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3526,
+      "title": "Masterclass Youtube Kai",
+      "date": "2025-06-22T06:30:57+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3513,
+      "title": "Masterclass sobre Vendas High Ticket Harut",
+      "date": "2025-06-22T06:26:18+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3499,
+      "title": "Estrategias Virais Pratice",
+      "date": "2025-06-22T06:19:46+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3468,
+      "title": "MasterClass Hormozi - Comunidades",
+      "date": "2025-06-22T05:36:06+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3485,
+      "title": "Estrategias Virais Pohoon Linkedin",
+      "date": "2025-06-22T06:12:31+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3455,
+      "title": "Dicas Quentes 22/6/25",
+      "date": "2025-06-22T03:06:12+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3441,
+      "title": "Vendendo Soluções AI",
+      "date": "2025-06-21T05:47:11+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3412,
+      "title": "Prevendo 2026",
+      "date": "2025-06-08T15:18:09+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3402,
+      "title": "Passo para um Projeto de IA para Cliente",
+      "date": "2025-06-07T18:58:12+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3391,
+      "title": "Guia para Agencias de IA",
+      "date": "2025-05-29T01:59:45+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3379,
+      "title": "Agencia de IA - 10 Questoes 2025",
+      "date": "2025-04-23T07:49:56+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3343,
+      "title": "10 Topicos Agencias Digitais 2025",
+      "date": "2025-04-23T05:21:52+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3325,
+      "title": "2025 - Erros de Agencias de IA Fracassadas",
+      "date": "2025-04-23T05:06:27+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3307,
+      "title": "Analise das Automções e IA 2025",
+      "date": "2025-04-22T22:53:10+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3292,
+      "title": "🏆 #1 Conselho de agências de IA",
+      "date": "2025-04-21T19:25:23+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3284,
+      "title": "SUCESSO com IA",
+      "date": "2025-04-13T08:03:10+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3273,
+      "title": "Como comecar, pedi ajuda ao Chat",
+      "date": "2025-04-03T01:08:43+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3243,
+      "title": "Formação Transformação Digital",
+      "date": "2025-03-20T17:51:24+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3233,
+      "title": "Estratégia de Adoção IA para PME",
+      "date": "2025-03-15T18:05:11+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3229,
+      "title": "Furada TIKTOK",
+      "date": "2025-02-07T20:11:26+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3196,
+      "title": "TDS1 - Vendas de Alto Valor (High Ticket Sales)",
+      "date": "2025-02-02T19:43:11+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 3189,
+      "title": "IA nos Negócios",
+      "date": "2025-01-10T04:54:35+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 1680,
+      "title": "Crescendo no TIKTOK",
+      "date": "2024-10-01T17:36:36+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 2225,
+      "title": "Mkt Conteudo",
+      "date": "2024-10-21T00:59:22+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 2903,
+      "title": "Assistntes GPT",
+      "date": "2024-11-21T00:35:13+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 2863,
+      "title": "Mentalidade do NÃO",
+      "date": "2024-11-18T22:11:04+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 2588,
+      "title": "Sistemas de Email",
+      "date": "2024-11-04T16:05:51+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 2517,
+      "title": "modelos em DEV",
+      "date": "2024-10-31T18:39:11+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 1795,
+      "title": "Criando Canal de Sucesso",
+      "date": "2024-10-01T18:09:52+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 1835,
+      "title": "Inovacao",
+      "date": "2024-10-01T21:11:29+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 1846,
+      "title": "Pesquisa de Mercado",
+      "date": "2024-10-01T21:13:13+00:00",
+      "from_id": 7388953786
+    },
+    {
+      "id": 1725,
+      "title": "Escalando Negocios",
+      "date": "2024-10-01T17:43:37+00:00",
+      "from_id": 7388953786
+    }
+  ]
+}
