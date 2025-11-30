@@ -53,7 +53,7 @@
       margin: auto;
       padding: 0;
       width: 90%;
-      max-width: 900px;
+      max-width: 1000px;
       max-height: 90vh;
       border-radius: 1rem;
       overflow: hidden;
@@ -61,7 +61,7 @@
     }
 
     .dark .modal-content {
-      background-color: #1f2937;
+      background-color: #262626;
     }
 
     .modal-header {
@@ -70,6 +70,10 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+    }
+
+    .dark .modal-header {
+      border-bottom-color: #404040;
     }
 
     .modal-body {
@@ -83,6 +87,7 @@
       font-size: 2rem;
       font-weight: 700;
       cursor: pointer;
+      transition: color 0.2s;
     }
 
     .close-modal:hover {
@@ -143,9 +148,9 @@
         Domine a arte de vender valor. Aprenda tecnicas comprovadas de vendas consultivas, precificacao estrategica e fechamento de alto valor.
       </p>
       <div class="flex flex-wrap gap-3">
-        <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-medium">40 horas</span>
-        <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-medium">12 Modulos</span>
-        <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-medium">30+ Casos Praticos</span>
+        <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-medium">26 horas</span>
+        <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-medium">6 Modulos</span>
+        <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-medium">18 Topicos</span>
       </div>
     </div>
   </section>
@@ -177,7 +182,12 @@
               <p class="text-sm text-neutral-600 dark:text-neutral-400">Mindset, validacao e estruturacao inicial</p>
             </div>
           </div>
-          <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-sm font-medium rounded-full">4h</span>
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-sm font-medium rounded-full">4h</span>
+            <button onclick="openModal('modal-modulo1')" class="px-4 py-2 bg-emerald-500 text-white text-sm font-medium rounded-lg hover:bg-emerald-600 transition-colors">
+              Ver Detalhes
+            </button>
+          </div>
         </div>
 
         <ul class="topics-list space-y-0.5">
@@ -244,7 +254,12 @@
               <p class="text-sm text-neutral-600 dark:text-neutral-400">Metodologia de precificacao e ofertas de alto valor</p>
             </div>
           </div>
-          <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-sm font-medium rounded-full">5h</span>
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-sm font-medium rounded-full">5h</span>
+            <button onclick="openModal('modal-modulo2')" class="px-4 py-2 bg-emerald-500 text-white text-sm font-medium rounded-lg hover:bg-emerald-600 transition-colors">
+              Ver Detalhes
+            </button>
+          </div>
         </div>
 
         <ul class="topics-list space-y-0.5">
@@ -311,7 +326,12 @@
               <p class="text-sm text-neutral-600 dark:text-neutral-400">Formula AIR, prospeccao e follow-up</p>
             </div>
           </div>
-          <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-sm font-medium rounded-full">4h</span>
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-sm font-medium rounded-full">4h</span>
+            <button onclick="openModal('modal-modulo3')" class="px-4 py-2 bg-emerald-500 text-white text-sm font-medium rounded-lg hover:bg-emerald-600 transition-colors">
+              Ver Detalhes
+            </button>
+          </div>
         </div>
 
         <ul class="topics-list space-y-0.5">
@@ -378,7 +398,12 @@
               <p class="text-sm text-neutral-600 dark:text-neutral-400">ToFu, MoFu, BoFu e gatilhos mentais</p>
             </div>
           </div>
-          <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-sm font-medium rounded-full">4h</span>
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-sm font-medium rounded-full">4h</span>
+            <button onclick="openModal('modal-modulo4')" class="px-4 py-2 bg-emerald-500 text-white text-sm font-medium rounded-lg hover:bg-emerald-600 transition-colors">
+              Ver Detalhes
+            </button>
+          </div>
         </div>
 
         <ul class="topics-list space-y-0.5">
@@ -445,7 +470,12 @@
               <p class="text-sm text-neutral-600 dark:text-neutral-400">Propostas, contratos e tecnicas de fechamento</p>
             </div>
           </div>
-          <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-sm font-medium rounded-full">4h</span>
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-sm font-medium rounded-full">4h</span>
+            <button onclick="openModal('modal-modulo5')" class="px-4 py-2 bg-emerald-500 text-white text-sm font-medium rounded-lg hover:bg-emerald-600 transition-colors">
+              Ver Detalhes
+            </button>
+          </div>
         </div>
 
         <ul class="topics-list space-y-0.5">
@@ -512,7 +542,12 @@
               <p class="text-sm text-neutral-600 dark:text-neutral-400">Auditoria de IA e evolucao profissional</p>
             </div>
           </div>
-          <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-sm font-medium rounded-full">5h</span>
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-sm font-medium rounded-full">5h</span>
+            <button onclick="openModal('modal-modulo6')" class="px-4 py-2 bg-emerald-500 text-white text-sm font-medium rounded-lg hover:bg-emerald-600 transition-colors">
+              Ver Detalhes
+            </button>
+          </div>
         </div>
 
         <ul class="topics-list space-y-0.5">
@@ -588,10 +623,430 @@
     </div>
   </section>
 
+  <!-- MODAIS -->
+
+  <!-- Modal Modulo 1 -->
+  <div id="modal-modulo1" class="modal">
+    <div class="modal-content">
+      <div class="modal-header dark:border-neutral-700">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">📚 Modulo 1: Fundamentos de Vendas e Negocios</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <!-- Intro -->
+        <div class="mb-6">
+          <p class="text-lg text-neutral-800 dark:text-neutral-200 mb-3 font-semibold">
+            Construa uma base solida para sua carreira em vendas. Desenvolva o mindset correto, aprenda a validar oportunidades e estruture seu negocio desde o inicio.
+          </p>
+          <div class="flex gap-3 flex-wrap">
+            <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 rounded-full text-sm font-semibold">4 horas</span>
+            <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 rounded-full text-sm font-semibold">3 topicos</span>
+            <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 rounded-full text-sm font-semibold">Nivel: Iniciante</span>
+          </div>
+        </div>
+
+        <!-- Secao 1 -->
+        <div class="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 rounded-lg p-6 mb-6 border-2 border-emerald-200 dark:border-emerald-800">
+          <div class="flex items-center mb-4">
+            <span class="text-3xl mr-3">🧠</span>
+            <h3 class="text-xl font-bold text-emerald-900 dark:text-emerald-300">O Que Voce Vai Aprender</h3>
+          </div>
+          <ul class="space-y-2 text-sm text-neutral-700 dark:text-neutral-300">
+            <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Desenvolver mentalidade empreendedora resiliente</li>
+            <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Identificar e validar oportunidades de mercado</li>
+            <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Estruturar seu negocio de forma profissional</li>
+            <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Lidar com rejeicoes de forma produtiva</li>
+          </ul>
+        </div>
+
+        <!-- Secao 2 -->
+        <div class="bg-white dark:bg-neutral-800 rounded-lg p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+          <div class="flex items-center mb-4">
+            <span class="text-3xl mr-3">📋</span>
+            <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Conteudo Detalhado</h3>
+          </div>
+          <div class="space-y-4">
+            <div class="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded border-l-4 border-emerald-400">
+              <p class="font-bold text-emerald-900 dark:text-emerald-300 mb-1 text-sm">1.1 Mindset e Mentalidade Empreendedora</p>
+              <p class="text-xs text-neutral-700 dark:text-neutral-300">Consistencia vence atalhos. Neurociencia do "nao" e como construir resiliencia.</p>
+            </div>
+            <div class="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded border-l-4 border-emerald-400">
+              <p class="font-bold text-emerald-900 dark:text-emerald-300 mb-1 text-sm">1.2 Identificando e Validando Oportunidades</p>
+              <p class="text-xs text-neutral-700 dark:text-neutral-300">Pesquisa de mercado, entrevistas com clientes, landing pages de teste.</p>
+            </div>
+            <div class="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded border-l-4 border-emerald-400">
+              <p class="font-bold text-emerald-900 dark:text-emerald-300 mb-1 text-sm">1.3 Estruturacao Inicial do Negocio</p>
+              <p class="text-xs text-neutral-700 dark:text-neutral-300">Formato juridico, protecao legal, contratos e parcerias estrategicas.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA Final -->
+        <div class="bg-gradient-to-br from-emerald-600 to-green-600 text-white rounded-lg p-6 text-center">
+          <h3 class="text-xl font-bold mb-3">🚀 Pronto para Comecar?</h3>
+          <p class="mb-4 text-sm">Acesse o conteudo completo e comece sua transformacao em vendas</p>
+          <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="conteudo/modulo1.html" class="inline-block bg-white text-emerald-600 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors">
+              Ver Conteudo Completo →
+            </a>
+            <a href="../assets/downloads/vendas-modulo1.pdf" class="inline-block bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-800 transition-colors border border-white/30">
+              📥 Baixar PDF
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Modulo 2 -->
+  <div id="modal-modulo2" class="modal">
+    <div class="modal-content">
+      <div class="modal-header dark:border-neutral-700">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">💎 Modulo 2: Precificacao e Estrategia de Vendas</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-6">
+          <p class="text-lg text-neutral-800 dark:text-neutral-200 mb-3 font-semibold">
+            Aprenda a precificar seus produtos e servicos pelo valor que entregam, nao pelo custo. Domine ofertas high-ticket e modelos de precificacao inovadores.
+          </p>
+          <div class="flex gap-3 flex-wrap">
+            <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 rounded-full text-sm font-semibold">5 horas</span>
+            <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 rounded-full text-sm font-semibold">3 topicos</span>
+            <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 rounded-full text-sm font-semibold">Nivel: Intermediario</span>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 rounded-lg p-6 mb-6 border-2 border-emerald-200 dark:border-emerald-800">
+          <div class="flex items-center mb-4">
+            <span class="text-3xl mr-3">💰</span>
+            <h3 class="text-xl font-bold text-emerald-900 dark:text-emerald-300">O Que Voce Vai Aprender</h3>
+          </div>
+          <ul class="space-y-2 text-sm text-neutral-700 dark:text-neutral-300">
+            <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Metodologia de precificacao high-ticket</li>
+            <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Criar ofertas Done-for-You e Done-with-You</li>
+            <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Modelos por resultado e participacao em receita</li>
+            <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Ancoragem de preco e ROI</li>
+          </ul>
+        </div>
+
+        <div class="bg-white dark:bg-neutral-800 rounded-lg p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+          <div class="flex items-center mb-4">
+            <span class="text-3xl mr-3">📋</span>
+            <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Conteudo Detalhado</h3>
+          </div>
+          <div class="space-y-4">
+            <div class="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded border-l-4 border-emerald-400">
+              <p class="font-bold text-emerald-900 dark:text-emerald-300 mb-1 text-sm">2.1 Metodologia de Precificacao (High Ticket)</p>
+              <p class="text-xs text-neutral-700 dark:text-neutral-300">Teoria das Restricoes, entrevista de preco, precificacao por ROI (2-6x economia).</p>
+            </div>
+            <div class="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded border-l-4 border-emerald-400">
+              <p class="font-bold text-emerald-900 dark:text-emerald-300 mb-1 text-sm">2.2 Tipos de Ofertas de Alto Valor</p>
+              <p class="text-xs text-neutral-700 dark:text-neutral-300">Done-for-You, Done-with-You, acesso exclusivo, pacotes escalonados.</p>
+            </div>
+            <div class="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded border-l-4 border-emerald-400">
+              <p class="font-bold text-emerald-900 dark:text-emerald-300 mb-1 text-sm">2.3 Modelos de Precificacao Inovadores</p>
+              <p class="text-xs text-neutral-700 dark:text-neutral-300">Por resultado, por tarefa, por sucesso, participacao em receita, retainers.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-br from-emerald-600 to-green-600 text-white rounded-lg p-6 text-center">
+          <h3 class="text-xl font-bold mb-3">🚀 Pronto para Comecar?</h3>
+          <p class="mb-4 text-sm">Acesse o conteudo completo e domine precificacao</p>
+          <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="conteudo/modulo2.html" class="inline-block bg-white text-emerald-600 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors">
+              Ver Conteudo Completo →
+            </a>
+            <a href="../assets/downloads/vendas-modulo2.pdf" class="inline-block bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-800 transition-colors border border-white/30">
+              📥 Baixar PDF
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Modulo 3 -->
+  <div id="modal-modulo3" class="modal">
+    <div class="modal-content">
+      <div class="modal-header dark:border-neutral-700">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">🎯 Modulo 3: Estrategias de Vendas Eficazes</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-6">
+          <p class="text-lg text-neutral-800 dark:text-neutral-200 mb-3 font-semibold">
+            Domine a Formula AIR, prospeccao ativa e follow-up estruturado. Aprenda a abordar clientes de forma eficiente e converter mais vendas.
+          </p>
+          <div class="flex gap-3 flex-wrap">
+            <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 rounded-full text-sm font-semibold">4 horas</span>
+            <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 rounded-full text-sm font-semibold">3 topicos</span>
+            <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 rounded-full text-sm font-semibold">Nivel: Intermediario</span>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 rounded-lg p-6 mb-6 border-2 border-emerald-200 dark:border-emerald-800">
+          <div class="flex items-center mb-4">
+            <span class="text-3xl mr-3">🎯</span>
+            <h3 class="text-xl font-bold text-emerald-900 dark:text-emerald-300">O Que Voce Vai Aprender</h3>
+          </div>
+          <ul class="space-y-2 text-sm text-neutral-700 dark:text-neutral-300">
+            <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Formula AIR: Pesquisa > Acao > Feedback</li>
+            <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Prospeccao ativa e cold outreach eficiente</li>
+            <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Follow-up que converte (meta 5/semana)</li>
+            <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> LinkedIn ABM e rede pessoal</li>
+          </ul>
+        </div>
+
+        <div class="bg-white dark:bg-neutral-800 rounded-lg p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+          <div class="flex items-center mb-4">
+            <span class="text-3xl mr-3">📋</span>
+            <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Conteudo Detalhado</h3>
+          </div>
+          <div class="space-y-4">
+            <div class="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded border-l-4 border-emerald-400">
+              <p class="font-bold text-emerald-900 dark:text-emerald-300 mb-1 text-sm">3.1 Formula AIR</p>
+              <p class="text-xs text-neutral-700 dark:text-neutral-300">Ciclo de crescimento organico: analise de concorrentes, ajuste continuo.</p>
+            </div>
+            <div class="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded border-l-4 border-emerald-400">
+              <p class="font-bold text-emerald-900 dark:text-emerald-300 mb-1 text-sm">3.2 Prospeccao Ativa e Outreach</p>
+              <p class="text-xs text-neutral-700 dark:text-neutral-300">Estrutura 3 linhas: dor atual, solucao com prova, CTA curto.</p>
+            </div>
+            <div class="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded border-l-4 border-emerald-400">
+              <p class="font-bold text-emerald-900 dark:text-emerald-300 mb-1 text-sm">3.3 Follow-up Estruturado</p>
+              <p class="text-xs text-neutral-700 dark:text-neutral-300">CRM para metas, tratamento de leads frios vs quentes, valor antes de preco.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-br from-emerald-600 to-green-600 text-white rounded-lg p-6 text-center">
+          <h3 class="text-xl font-bold mb-3">🚀 Pronto para Comecar?</h3>
+          <p class="mb-4 text-sm">Acesse o conteudo completo e domine estrategias de vendas</p>
+          <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="conteudo/modulo3.html" class="inline-block bg-white text-emerald-600 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors">
+              Ver Conteudo Completo →
+            </a>
+            <a href="../assets/downloads/vendas-modulo3.pdf" class="inline-block bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-800 transition-colors border border-white/30">
+              📥 Baixar PDF
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Modulo 4 -->
+  <div id="modal-modulo4" class="modal">
+    <div class="modal-content">
+      <div class="modal-header dark:border-neutral-700">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">🔥 Modulo 4: Funis de Vendas e Jornada do Cliente</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-6">
+          <p class="text-lg text-neutral-800 dark:text-neutral-200 mb-3 font-semibold">
+            Entenda a jornada completa do cliente e construa funis que convertem. Domine gatilhos mentais e copywriting estrategico.
+          </p>
+          <div class="flex gap-3 flex-wrap">
+            <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 rounded-full text-sm font-semibold">4 horas</span>
+            <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 rounded-full text-sm font-semibold">3 topicos</span>
+            <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 rounded-full text-sm font-semibold">Nivel: Intermediario</span>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 rounded-lg p-6 mb-6 border-2 border-emerald-200 dark:border-emerald-800">
+          <div class="flex items-center mb-4">
+            <span class="text-3xl mr-3">🔥</span>
+            <h3 class="text-xl font-bold text-emerald-900 dark:text-emerald-300">O Que Voce Vai Aprender</h3>
+          </div>
+          <ul class="space-y-2 text-sm text-neutral-700 dark:text-neutral-300">
+            <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Estrutura ToFu, MoFu, BoFu</li>
+            <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Gatilhos mentais que vendem</li>
+            <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Copywriting que converte</li>
+            <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Niveis de consciencia do cliente</li>
+          </ul>
+        </div>
+
+        <div class="bg-white dark:bg-neutral-800 rounded-lg p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+          <div class="flex items-center mb-4">
+            <span class="text-3xl mr-3">📋</span>
+            <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Conteudo Detalhado</h3>
+          </div>
+          <div class="space-y-4">
+            <div class="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded border-l-4 border-emerald-400">
+              <p class="font-bold text-emerald-900 dark:text-emerald-300 mb-1 text-sm">4.1 Estrutura do Funil de Vendas</p>
+              <p class="text-xs text-neutral-700 dark:text-neutral-300">ToFu (educacao), MoFu (solucoes), BoFu (provas e ROI).</p>
+            </div>
+            <div class="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded border-l-4 border-emerald-400">
+              <p class="font-bold text-emerald-900 dark:text-emerald-300 mb-1 text-sm">4.2 Gatilhos Mentais e Engajamento</p>
+              <p class="text-xs text-neutral-700 dark:text-neutral-300">Curiosidade, urgencia, escassez, prova social, FOMO.</p>
+            </div>
+            <div class="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded border-l-4 border-emerald-400">
+              <p class="font-bold text-emerald-900 dark:text-emerald-300 mb-1 text-sm">4.3 Copy e Copywriting Estrategico</p>
+              <p class="text-xs text-neutral-700 dark:text-neutral-300">Titulo provocativo, storytelling, foco na transformacao, testes A/B.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-br from-emerald-600 to-green-600 text-white rounded-lg p-6 text-center">
+          <h3 class="text-xl font-bold mb-3">🚀 Pronto para Comecar?</h3>
+          <p class="mb-4 text-sm">Acesse o conteudo completo e construa funis que convertem</p>
+          <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="conteudo/modulo4.html" class="inline-block bg-white text-emerald-600 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors">
+              Ver Conteudo Completo →
+            </a>
+            <a href="../assets/downloads/vendas-modulo4.pdf" class="inline-block bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-800 transition-colors border border-white/30">
+              📥 Baixar PDF
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Modulo 5 -->
+  <div id="modal-modulo5" class="modal">
+    <div class="modal-content">
+      <div class="modal-header dark:border-neutral-700">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">🤝 Modulo 5: Fechamento de Negocios</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-6">
+          <p class="text-lg text-neutral-800 dark:text-neutral-200 mb-3 font-semibold">
+            Domine a arte de fechar negocios. Aprenda a criar propostas irresistiveis, tecnicas de fechamento e contratos que protegem e geram receita recorrente.
+          </p>
+          <div class="flex gap-3 flex-wrap">
+            <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 rounded-full text-sm font-semibold">4 horas</span>
+            <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 rounded-full text-sm font-semibold">3 topicos</span>
+            <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 rounded-full text-sm font-semibold">Nivel: Avancado</span>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 rounded-lg p-6 mb-6 border-2 border-emerald-200 dark:border-emerald-800">
+          <div class="flex items-center mb-4">
+            <span class="text-3xl mr-3">🤝</span>
+            <h3 class="text-xl font-bold text-emerald-900 dark:text-emerald-300">O Que Voce Vai Aprender</h3>
+          </div>
+          <ul class="space-y-2 text-sm text-neutral-700 dark:text-neutral-300">
+            <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Propostas de 1 pagina que vendem sozinhas</li>
+            <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Tecnicas de fechamento eficazes</li>
+            <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Contratos e clausulas essenciais</li>
+            <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Transformar projetos em retainers</li>
+          </ul>
+        </div>
+
+        <div class="bg-white dark:bg-neutral-800 rounded-lg p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+          <div class="flex items-center mb-4">
+            <span class="text-3xl mr-3">📋</span>
+            <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Conteudo Detalhado</h3>
+          </div>
+          <div class="space-y-4">
+            <div class="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded border-l-4 border-emerald-400">
+              <p class="font-bold text-emerald-900 dark:text-emerald-300 mb-1 text-sm">5.1 Propostas que Vendem Sozinhas</p>
+              <p class="text-xs text-neutral-700 dark:text-neutral-300">Estrutura: Objetivo, Escopo, Meta, Prazo, Preco. Entrega em 7 dias.</p>
+            </div>
+            <div class="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded border-l-4 border-emerald-400">
+              <p class="font-bold text-emerald-900 dark:text-emerald-300 mb-1 text-sm">5.2 Tecnicas de Fechamento</p>
+              <p class="text-xs text-neutral-700 dark:text-neutral-300">Conta reversa, teste de 7 dias, urgencia real, assinatura + pagamento.</p>
+            </div>
+            <div class="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded border-l-4 border-emerald-400">
+              <p class="font-bold text-emerald-900 dark:text-emerald-300 mb-1 text-sm">5.3 Contratos e Retainers</p>
+              <p class="text-xs text-neutral-700 dark:text-neutral-300">Clausulas de escopo, alteracoes, pagamento, receita recorrente.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-br from-emerald-600 to-green-600 text-white rounded-lg p-6 text-center">
+          <h3 class="text-xl font-bold mb-3">🚀 Pronto para Comecar?</h3>
+          <p class="mb-4 text-sm">Acesse o conteudo completo e feche mais negocios</p>
+          <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="conteudo/modulo5.html" class="inline-block bg-white text-emerald-600 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors">
+              Ver Conteudo Completo →
+            </a>
+            <a href="../assets/downloads/vendas-modulo5.pdf" class="inline-block bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-800 transition-colors border border-white/30">
+              📥 Baixar PDF
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Modulo 6 -->
+  <div id="modal-modulo6" class="modal">
+    <div class="modal-content">
+      <div class="modal-header dark:border-neutral-700">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">🚀 Modulo 6: Hacks para Vender Workflows de IA</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-6">
+          <p class="text-lg text-neutral-800 dark:text-neutral-200 mb-3 font-semibold">
+            Aprenda a estrategia da Auditoria de IA que fecha contratos, evolua de Freelancer para Consultor e domine posicionamento no mercado de automacao.
+          </p>
+          <div class="flex gap-3 flex-wrap">
+            <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 rounded-full text-sm font-semibold">5 horas</span>
+            <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 rounded-full text-sm font-semibold">3 topicos</span>
+            <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 rounded-full text-sm font-semibold">Nivel: Avancado</span>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 rounded-lg p-6 mb-6 border-2 border-emerald-200 dark:border-emerald-800">
+          <div class="flex items-center mb-4">
+            <span class="text-3xl mr-3">🚀</span>
+            <h3 class="text-xl font-bold text-emerald-900 dark:text-emerald-300">O Que Voce Vai Aprender</h3>
+          </div>
+          <ul class="space-y-2 text-sm text-neutral-700 dark:text-neutral-300">
+            <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Auditoria de IA - Efeito WOW</li>
+            <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Evolucao: Freelancer → Consultor → Agencia</li>
+            <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Posicionamento e diferenciacao</li>
+            <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Vender resultado, nao tecnologia</li>
+          </ul>
+        </div>
+
+        <div class="bg-white dark:bg-neutral-800 rounded-lg p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+          <div class="flex items-center mb-4">
+            <span class="text-3xl mr-3">📋</span>
+            <h3 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Conteudo Detalhado</h3>
+          </div>
+          <div class="space-y-4">
+            <div class="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded border-l-4 border-emerald-400">
+              <p class="font-bold text-emerald-900 dark:text-emerald-300 mb-1 text-sm">6.1 Auditoria de IA que Fecha Contratos</p>
+              <p class="text-xs text-neutral-700 dark:text-neutral-300">Pesquisa profunda, 6-7 workflows, deck visual, Trojan Horse ou Premium.</p>
+            </div>
+            <div class="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded border-l-4 border-emerald-400">
+              <p class="font-bold text-emerald-900 dark:text-emerald-300 mb-1 text-sm">6.2 Evolucao Profissional</p>
+              <p class="text-xs text-neutral-700 dark:text-neutral-300">Freelancer (3-5 projetos), Consultor (US$10k+), Agencia (com equipe).</p>
+            </div>
+            <div class="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded border-l-4 border-emerald-400">
+              <p class="font-bold text-emerald-900 dark:text-emerald-300 mb-1 text-sm">6.3 Posicionamento e Diferenciacao</p>
+              <p class="text-xs text-neutral-700 dark:text-neutral-300">1 dor de 1 nicho, resultado especifico, ex: "70% menos tempo de atendimento".</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-br from-emerald-600 to-green-600 text-white rounded-lg p-6 text-center">
+          <h3 class="text-xl font-bold mb-3">🚀 Pronto para Comecar?</h3>
+          <p class="mb-4 text-sm">Acesse o conteudo completo e domine vendas de IA</p>
+          <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="conteudo/modulo6.html" class="inline-block bg-white text-emerald-600 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors">
+              Ver Conteudo Completo →
+            </a>
+            <a href="../assets/downloads/vendas-modulo6.pdf" class="inline-block bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-800 transition-colors border border-white/30">
+              📥 Baixar PDF
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="bg-neutral-900 text-white py-8">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-neutral-400">&copy; 2025 TDS - Transformacao Digital Sustentavel</p>
+      <p class="text-neutral-400">&copy; 2025 TDS - Transformacao Digital e Social</p>
     </div>
   </footer>
 
@@ -641,6 +1096,44 @@
 
           explanation.classList.toggle('hidden');
         }
+      }
+    });
+
+    // Modal Functions
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Close modal on backdrop click or X button
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('modal')) {
+        e.target.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+
+      if (e.target.classList.contains('close-modal')) {
+        const modal = e.target.closest('.modal');
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // Close modal on ESC
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        const activeModals = document.querySelectorAll('.modal.active');
+        activeModals.forEach(modal => {
+          modal.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        });
       }
     });
   </script>
