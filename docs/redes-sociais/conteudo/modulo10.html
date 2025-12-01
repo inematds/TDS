@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 10: Monetizacao - TDS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>body { font-family: 'Inter', sans-serif; } .prose h2 { scroll-margin-top: 100px; }</style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900 transition-colors">
+
+  <nav class="sticky top-0 z-50 bg-white dark:bg-neutral-800 shadow-sm">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center space-x-4">
+          <a href="../../../index.html" class="text-2xl font-bold text-blue-600 dark:text-blue-400">TDS</a>
+          <span class="text-neutral-400">/</span>
+          <a href="../index.html" class="text-pink-600 dark:text-pink-400 font-semibold hover:underline">Redes Sociais</a>
+          <span class="text-neutral-400">/</span>
+          <span class="text-neutral-600 dark:text-neutral-400">Modulo 10</span>
+        </div>
+        <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-700" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-green-600 via-green-700 to-emerald-700 py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+      <a href="../index.html" class="inline-flex items-center text-green-200 hover:text-white mb-4 text-sm">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        Voltar para Trilha de Redes Sociais
+      </a>
+      <div class="flex items-center gap-4 mb-4">
+        <span class="text-5xl">💰</span>
+        <div>
+          <p class="text-green-200 text-sm font-medium">MODULO 10</p>
+          <h1 class="text-3xl sm:text-4xl font-bold">Monetizacao</h1>
+        </div>
+      </div>
+      <p class="text-lg text-white/90 max-w-2xl mb-4">Transforme sua audiencia em receita recorrente. Estrategias comprovadas de 0 a R$37k MRR.</p>
+      <div class="flex flex-wrap gap-3">
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">8 horas</span>
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">10 topicos</span>
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">Nivel: Avancado</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 py-4 sticky top-16 z-40">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2 text-sm overflow-x-auto pb-2">
+        <span class="text-neutral-500 dark:text-neutral-400 whitespace-nowrap">Ir para:</span>
+        <a href="#topico-1" class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full whitespace-nowrap hover:bg-green-200">10.1</a>
+        <a href="#topico-2" class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full whitespace-nowrap hover:bg-green-200">10.2</a>
+        <a href="#topico-3" class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full whitespace-nowrap hover:bg-green-200">10.3</a>
+        <a href="#topico-4" class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full whitespace-nowrap hover:bg-green-200">10.4</a>
+        <a href="#topico-5" class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full whitespace-nowrap hover:bg-green-200">10.5</a>
+        <a href="#topico-6" class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full whitespace-nowrap hover:bg-green-200">10.6</a>
+        <a href="#topico-7" class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full whitespace-nowrap hover:bg-green-200">10.7</a>
+        <a href="#topico-8" class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full whitespace-nowrap hover:bg-green-200">10.8</a>
+        <a href="#topico-9" class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full whitespace-nowrap hover:bg-green-200">10.9</a>
+        <a href="#topico-10" class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full whitespace-nowrap hover:bg-green-200">10.10</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <div class="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-2xl p-8 mb-12 border-2 border-green-200 dark:border-green-800">
+      <h2 class="text-2xl font-bold text-green-900 dark:text-green-100 mb-4 flex items-center">
+        <span class="text-3xl mr-3">🚀</span>Caso de Sucesso Real
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+          <p class="text-3xl font-bold text-green-600">R$37k</p>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">MRR alcancado por Ryan seguindo estas estrategias</p>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+          <p class="text-3xl font-bold text-green-600">100%</p>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Redes Sociais como unica fonte de trafego</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">10.1</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Modelos de Monetizacao</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">Existem <strong>multiplos caminhos</strong> para monetizar redes sociais. Cada modelo tem vantagens e pode ser combinado.</p>
+        <div class="space-y-3">
+          <div class="flex items-start gap-3 p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
+            <span class="font-bold text-green-600">1</span>
+            <div><strong>Produtos Digitais (Infoprodutos)</strong> - Cursos, ebooks, mentorias. Margem 95%+.</div>
+          </div>
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="font-bold text-green-600">2</span>
+            <div><strong>Servicos High Ticket</strong> - Consultoria, done-for-you. R$5k-50k por cliente.</div>
+          </div>
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="font-bold text-green-600">3</span>
+            <div><strong>Afiliados</strong> - Promova produtos de terceiros. 10-50% de comissao.</div>
+          </div>
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="font-bold text-green-600">4</span>
+            <div><strong>Parcerias com Marcas</strong> - Publi, UGC, embaixador. R$2k-100k por campanha.</div>
+          </div>
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="font-bold text-green-600">5</span>
+            <div><strong>Assinaturas/Comunidades</strong> - Receita recorrente mensal (MRR).</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">10.2</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Info Produtos</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="font-bold mb-4">Hierarquia de Infoprodutos</h3>
+        <div class="space-y-4">
+          <div class="border-l-4 border-green-500 pl-4">
+            <p class="font-bold text-green-600">Produto Gratuito (Lead Magnet)</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Checklist, mini-ebook, aula gratis. Gera lista de emails.</p>
+          </div>
+          <div class="border-l-4 border-blue-500 pl-4">
+            <p class="font-bold text-blue-600">Tripwire (R$27-97)</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Produto de entrada. Converte lead em comprador.</p>
+          </div>
+          <div class="border-l-4 border-purple-500 pl-4">
+            <p class="font-bold text-purple-600">Core Offer (R$497-2.997)</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Curso completo. Seu produto principal.</p>
+          </div>
+          <div class="border-l-4 border-amber-500 pl-4">
+            <p class="font-bold text-amber-600">High Ticket (R$5k-50k)</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Mentoria, mastermind, implementacao.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">10.3</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Servicos High Ticket</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">Servicos de <strong>alto valor</strong> sao a forma mais rapida de gerar receita significativa com audiencia pequena.</p>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+            <p class="font-bold text-green-700">Vantagens</p>
+            <ul class="text-sm mt-2 space-y-1">
+              <li>• Precisa poucos clientes (5-10)</li>
+              <li>• Margem de lucro altissima</li>
+              <li>• Audiencia minima (1k seguidores)</li>
+              <li>• Resultado rapido (30-60 dias)</li>
+            </ul>
+          </div>
+          <div class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg">
+            <p class="font-bold text-amber-700">Tipos de Servico</p>
+            <ul class="text-sm mt-2 space-y-1">
+              <li>• Consultoria estrategica</li>
+              <li>• Done-for-you (fazemos pra voce)</li>
+              <li>• Gestao de trafego pago</li>
+              <li>• Social media completo</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">10.4</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Afiliados</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">Marketing de afiliados e ganhar <strong>comissao vendendo produtos de terceiros</strong>. Nao precisa criar nada.</p>
+        <div class="space-y-3">
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded-lg">
+            <strong>Hotmart</strong> - Maior plataforma BR. Cursos, ebooks. Comissao 30-50%.
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded-lg">
+            <strong>Monetizze</strong> - Produtos fisicos e digitais. Recorrencia.
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded-lg">
+            <strong>Amazon Afiliados</strong> - Produtos fisicos. Comissao 1-10%.
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded-lg">
+            <strong>Shopee/Magalu</strong> - Programas de afiliados com comissao variavel.
+          </div>
+          <div class="bg-green-50 dark:bg-green-900/20 p-3 rounded-lg">
+            <strong>Dica de Ouro:</strong> Promova apenas produtos que voce usaria. Confianca e tudo.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">10.5</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Parcerias com Marcas</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="font-bold mb-4">Como Conseguir Parcerias</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold">Media Kit Profissional</p>
+            <p class="text-sm">Dados de audiencia, engajamento, cases, valores.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold">Nicho Definido</p>
+            <p class="text-sm">Marcas buscam audiencia especifica, nao generica.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold">Plataformas de Match</p>
+            <p class="text-sm">YoüPix, Squid, YOUPIX Creator pra achar marcas.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold">Pitch Direto</p>
+            <p class="text-sm">Procure marcas do nicho, envie proposta no LinkedIn.</p>
+          </div>
+        </div>
+        <div class="mt-4 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+          <strong>Valores de Referencia:</strong>
+          <ul class="text-sm mt-2 space-y-1">
+            <li>• 10k seguidores: R$500-2k por post</li>
+            <li>• 50k seguidores: R$2k-8k por post</li>
+            <li>• 100k+ seguidores: R$8k-50k+ por campanha</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">10.6</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Plataformas de Monetizacao</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="font-bold mb-4">Stack de Ferramentas</h3>
+        <div class="space-y-4">
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+            <strong>Hotmart/Eduzz/Monetizze</strong>
+            <p class="text-sm">Venda infoprodutos. Checkout, area de membros, afiliados.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>Kiwify</strong>
+            <p class="text-sm">Pagamentos via PIX, checkout otimizado, taxa baixa (4,99%).</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>Patreon/Apoia.se</strong>
+            <p class="text-sm">Assinaturas recorrentes. Comunidades pagas.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>Gumroad</strong>
+            <p class="text-sm">Produtos digitais simples. Interface minimalista.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>WhatsApp Business API + CRM</strong>
+            <p class="text-sm">Vendas diretas high ticket. Ferramentas: Kommo, Huggy.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">10.7</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Precificacao Estrategica</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="font-bold mb-4">Como Definir Precos</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead class="bg-green-100 dark:bg-green-900/30">
+              <tr>
+                <th class="p-3 text-left">Tipo de Produto</th>
+                <th class="p-3 text-left">Faixa de Preco</th>
+                <th class="p-3 text-left">Estrategia</th>
+              </tr>
+            </thead>
+            <tbody class="text-neutral-700 dark:text-neutral-300">
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-medium">Ebook/Guia</td>
+                <td class="p-3">R$27-97</td>
+                <td class="p-3">Entrada. Volume.</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-medium">Curso Online</td>
+                <td class="p-3">R$297-1.997</td>
+                <td class="p-3">Core offer. Valor percebido.</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-medium">Mentoria Grupo</td>
+                <td class="p-3">R$997-5.000</td>
+                <td class="p-3">Acesso limitado. Exclusividade.</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-medium">Consultoria 1:1</td>
+                <td class="p-3">R$5k-50k</td>
+                <td class="p-3">Resultado garantido. Poucos clientes.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mt-4 p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg">
+          <strong>Regra de Ouro:</strong> Preco alto + garantia de resultados = mais vendas do que preco baixo.
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 8 -->
+    <section id="topico-8" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">10.8</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Funil de Vendas Social</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="font-bold mb-4">Framework de Conversao</h3>
+        <div class="space-y-4">
+          <div class="border-l-4 border-blue-500 pl-4">
+            <p class="font-bold text-blue-600">1. TOPO: Conteudo Viral</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Atrai audiencia fria. Gera views e seguidores.</p>
+          </div>
+          <div class="border-l-4 border-purple-500 pl-4">
+            <p class="font-bold text-purple-600">2. MEIO: Conteudo de Valor</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Educa e constroi autoridade. Nutre a audiencia.</p>
+          </div>
+          <div class="border-l-4 border-amber-500 pl-4">
+            <p class="font-bold text-amber-600">3. MEIO-FUNDO: Prova Social</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Cases, depoimentos, resultados. Gera desejo.</p>
+          </div>
+          <div class="border-l-4 border-green-500 pl-4">
+            <p class="font-bold text-green-600">4. FUNDO: CTA Direto</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Link na bio, DM, WhatsApp. Conversao.</p>
+          </div>
+        </div>
+        <div class="mt-4 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+          <strong>Proporcao Ideal:</strong> 60% Topo, 30% Meio, 10% Venda direta.
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 9 -->
+    <section id="topico-9" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">10.9</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Escala e Automacao</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">De 0 a R$10k voce trabalha muito. De R$10k a R$100k voce <strong>automatiza</strong>.</p>
+        <div class="space-y-3">
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded-lg">
+            <strong>Email Marketing Automatizado</strong> - Sequencias de nurturing. ActiveCampaign, ConvertKit.
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded-lg">
+            <strong>Chatbot de Vendas</strong> - ManyChat, Typebot. Qualifica leads no automatico.
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded-lg">
+            <strong>Evergreen Webinar</strong> - Webinar gravado rodando 24/7. EverWebinar, Demio.
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded-lg">
+            <strong>Agendamento de Conteudo</strong> - Buffer, Metricool. Poste sem estar online.
+          </div>
+          <div class="bg-green-50 dark:bg-green-900/20 p-3 rounded-lg">
+            <strong>Delegacao:</strong> VA para edicao, resposta DM, suporte. Libere seu tempo pra estrategia.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 10 -->
+    <section id="topico-10" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">10.10</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">De 0 a R$37k MRR</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="font-bold mb-4">Roadmap de Ryan (Caso Real)</h3>
+        <div class="space-y-4">
+          <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+            <strong>Mes 1-3: Construcao de Audiencia</strong>
+            <ul class="text-sm mt-2 space-y-1">
+              <li>• Postou 2x/dia no Instagram + TikTok</li>
+              <li>• Definiu nicho: Marketing para coaches</li>
+              <li>• 0 → 5k seguidores</li>
+            </ul>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>Mes 4-6: Primeiras Vendas</strong>
+            <ul class="text-sm mt-2 space-y-1">
+              <li>• Lancou consultoria R$3k (5 clientes = R$15k)</li>
+              <li>• Criou ebook R$47 (vendeu 200 = R$9,4k)</li>
+              <li>• Total: R$24,4k em 3 meses</li>
+            </ul>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>Mes 7-9: Produto Digital</strong>
+            <ul class="text-sm mt-2 space-y-1">
+              <li>• Lancou curso R$997</li>
+              <li>• Vendeu 35 unidades = R$34,9k</li>
+              <li>• Manteve consultoria (3 clientes = R$9k)</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+            <strong>Mes 10-12: Recorrencia</strong>
+            <ul class="text-sm mt-2 space-y-1">
+              <li>• Criou comunidade R$97/mes (180 membros)</li>
+              <li>• Afiliados gerando R$8k/mes passivo</li>
+              <li>• Curso evergreen: R$12k/mes</li>
+              <li>• <strong>Total MRR: R$37k</strong></li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-4 p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg">
+          <strong>Licao Principal:</strong> Comece com servico (rapido), crie produto (escalavel), adicione recorrencia (previsivel).
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-green-600 to-emerald-600 rounded-2xl p-8 text-white">
+        <h2 class="text-2xl font-bold mb-6">Resumo do Modulo 10</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold">Modelos</p>
+            <p class="text-sm text-white/90">5 formas principais de monetizar</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold">Infoprodutos</p>
+            <p class="text-sm text-white/90">Da R$27 a R$50k em hierarquia</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold">Plataformas</p>
+            <p class="text-sm text-white/90">Stack de ferramentas essencial</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold">R$37k MRR</p>
+            <p class="text-sm text-white/90">Roadmap comprovado em 12 meses</p>
+          </div>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="modulo9.html" class="bg-white text-green-600 px-6 py-3 rounded-lg font-semibold text-center hover:bg-neutral-100">← Modulo 9</a>
+          <a href="../index.html" class="bg-green-700 text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-green-800 border border-white/30">Voltar para Trilha →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-neutral-900 text-white py-8">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-neutral-400">&copy; 2025 TDS - Transformacao Digital e Social</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      themeToggleLightIcon.classList.remove('hidden');
+    } else {
+      themeToggleDarkIcon.classList.remove('hidden');
+    }
+    themeToggleBtn.addEventListener('click', function() {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

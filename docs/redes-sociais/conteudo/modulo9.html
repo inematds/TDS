@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 9: Comunidades Online - TDS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>body { font-family: 'Inter', sans-serif; } .prose h2 { scroll-margin-top: 100px; }</style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900 transition-colors">
+
+  <nav class="sticky top-0 z-50 bg-white dark:bg-neutral-800 shadow-sm">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center space-x-4">
+          <a href="../../../index.html" class="text-2xl font-bold text-blue-600 dark:text-blue-400">TDS</a>
+          <span class="text-neutral-400">/</span>
+          <a href="../index.html" class="text-pink-600 dark:text-pink-400 font-semibold hover:underline">Redes Sociais</a>
+          <span class="text-neutral-400">/</span>
+          <span class="text-neutral-600 dark:text-neutral-400">Modulo 9</span>
+        </div>
+        <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-700" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-indigo-600 via-indigo-700 to-purple-700 py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+      <a href="../index.html" class="inline-flex items-center text-indigo-200 hover:text-white mb-4 text-sm">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        Voltar para Trilha de Redes Sociais
+      </a>
+      <div class="flex items-center gap-4 mb-4">
+        <span class="text-5xl">👥</span>
+        <div>
+          <p class="text-indigo-200 text-sm font-medium">MODULO 9</p>
+          <h1 class="text-3xl sm:text-4xl font-bold">Comunidades Online</h1>
+        </div>
+      </div>
+      <p class="text-lg text-white/90 max-w-2xl mb-4">Construa e monetize comunidades engajadas. Aprenda a escalar para $90-110k/mes com Skool, Discord e Circle.</p>
+      <div class="flex flex-wrap gap-3">
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">6 horas</span>
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">10 topicos</span>
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">Nivel: Avancado</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 py-4 sticky top-16 z-40">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2 text-sm overflow-x-auto pb-2">
+        <span class="text-neutral-500 dark:text-neutral-400 whitespace-nowrap">Ir para:</span>
+        <a href="#topico-1" class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full whitespace-nowrap hover:bg-indigo-200">9.1</a>
+        <a href="#topico-2" class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full whitespace-nowrap hover:bg-indigo-200">9.2</a>
+        <a href="#topico-3" class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full whitespace-nowrap hover:bg-indigo-200">9.3</a>
+        <a href="#topico-4" class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full whitespace-nowrap hover:bg-indigo-200">9.4</a>
+        <a href="#topico-5" class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full whitespace-nowrap hover:bg-indigo-200">9.5</a>
+        <a href="#topico-6" class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full whitespace-nowrap hover:bg-indigo-200">9.6</a>
+        <a href="#topico-7" class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full whitespace-nowrap hover:bg-indigo-200">9.7</a>
+        <a href="#topico-8" class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full whitespace-nowrap hover:bg-indigo-200">9.8</a>
+        <a href="#topico-9" class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full whitespace-nowrap hover:bg-indigo-200">9.9</a>
+        <a href="#topico-10" class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full whitespace-nowrap hover:bg-indigo-200">9.10</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <div class="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-2xl p-8 mb-12 border-2 border-indigo-200 dark:border-indigo-800">
+      <h2 class="text-2xl font-bold text-indigo-900 dark:text-indigo-100 mb-4 flex items-center">
+        <span class="text-3xl mr-3">💰</span>O Poder das Comunidades em 2025
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+          <p class="text-3xl font-bold text-indigo-600">$90-110k</p>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Receita mensal de Calvin Hollywood (Skool)</p>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+          <p class="text-3xl font-bold text-indigo-600">300</p>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Regra de Ryan: 100 posts + 100 comments + 100 DMs</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-indigo-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">9.1</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Por Que Comunidades</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">Comunidades sao <strong>o modelo de negocio mais lucrativo e resiliente</strong> do marketing digital. Voce constroi um ecossistema proprio.</p>
+        <div class="space-y-3">
+          <div class="flex items-start gap-3 p-3 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg">
+            <span class="font-bold text-indigo-600">1</span>
+            <div><strong>Receita Recorrente</strong> - MRR previsivel. Nao depende de lancamento.</div>
+          </div>
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="font-bold text-indigo-600">2</span>
+            <div><strong>Engajamento Organico</strong> - Membros geram conteudo. Voce nao precisa criar tudo.</div>
+          </div>
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="font-bold text-indigo-600">3</span>
+            <div><strong>Prova Social</strong> - Comunidade ativa vende o proprio produto.</div>
+          </div>
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="font-bold text-indigo-600">4</span>
+            <div><strong>Feedback Loop</strong> - Descubra o que seu publico realmente quer.</div>
+          </div>
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="font-bold text-indigo-600">5</span>
+            <div><strong>Ativo de Longo Prazo</strong> - Comunidade bem construida vale milhoes.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-indigo-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">9.2</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Plataformas: Skool, Discord, Circle</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="font-bold mb-4">Comparacao de Plataformas</h3>
+        <div class="space-y-4">
+          <div class="border-l-4 border-indigo-500 pl-4">
+            <p class="font-bold text-indigo-600">Skool</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-2">Melhor para: Cursos + comunidade. Interface limpa, gamificacao nativa.</p>
+            <p class="text-xs">Pros: Tudo em um, facil usar, checkout integrado, leaderboards</p>
+            <p class="text-xs">Cons: $99/mes, customizacao limitada</p>
+          </div>
+          <div class="border-l-4 border-purple-500 pl-4">
+            <p class="font-bold text-purple-600">Discord</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-2">Melhor para: Comunidades tech, gaming, real-time.</p>
+            <p class="text-xs">Pros: Gratis, canais de voz/video, bots poderosos</p>
+            <p class="text-xs">Cons: UX confusa para iniciantes, sem paywall nativo</p>
+          </div>
+          <div class="border-l-4 border-rose-500 pl-4">
+            <p class="font-bold text-rose-600">Circle</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-2">Melhor para: Creators, marcas, experiencia premium.</p>
+            <p class="text-xs">Pros: Design bonito, espacos customizaveis, white-label</p>
+            <p class="text-xs">Cons: $89-219/mes, curva de aprendizado</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-indigo-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">9.3</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Rule of 300 (Ryan)</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">Ryan descobriu o framework perfeito: <strong>300 interacoes diarias</strong> para construir comunidade de 6-7 figuras.</p>
+        <div class="grid md:grid-cols-3 gap-4">
+          <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+            <p class="text-3xl font-bold text-green-600">100</p>
+            <p class="font-bold">Posts de Conteudo</p>
+            <ul class="text-sm mt-2 space-y-1">
+              <li>• Dicas, insights, wins</li>
+              <li>• Pode ser micro-conteudo</li>
+              <li>• Qualidade > quantidade</li>
+            </ul>
+          </div>
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+            <p class="text-3xl font-bold text-blue-600">100</p>
+            <p class="font-bold">Comentarios</p>
+            <ul class="text-sm mt-2 space-y-1">
+              <li>• Responda membros</li>
+              <li>• Adicione valor</li>
+              <li>• Seja genuino</li>
+            </ul>
+          </div>
+          <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+            <p class="text-3xl font-bold text-purple-600">100</p>
+            <p class="font-bold">DMs</p>
+            <ul class="text-sm mt-2 space-y-1">
+              <li>• Boas-vindas personalizadas</li>
+              <li>• Check-ins com ativos</li>
+              <li>• Ajuda individual</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-indigo-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">9.4</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Engajamento Diario</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">Comunidades morrem sem movimento constante. Crie <strong>rituais diarios</strong>.</p>
+        <div class="space-y-3">
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded-lg">
+            <strong>Daily Wins Thread</strong> - Membros compartilham pequenas vitorias. Celebre tudo.
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded-lg">
+            <strong>Morning Briefing</strong> - Resumo do dia, dica rapida, pergunta pra engajar.
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded-lg">
+            <strong>Hot Seat Semanal</strong> - Membro escolhido recebe feedback de todos.
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded-lg">
+            <strong>Q&A ao Vivo</strong> - Sessao semanal respondendo perguntas ao vivo.
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded-lg">
+            <strong>Challenges</strong> - Desafios de 7-30 dias com accountability.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-indigo-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">9.5</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Conteudo para Comunidade</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="font-bold mb-4">Tipos de Conteudo que Funcionam</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold">Cursos Estruturados</p>
+            <p class="text-sm">Modulos progressivos. Video + texto + acao.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold">Templates e Ferramentas</p>
+            <p class="text-sm">Recursos prontos. Copiar e usar.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold">Case Studies</p>
+            <p class="text-sm">Membros que conseguiram. Prova social interna.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold">Expert Sessions</p>
+            <p class="text-sm">Convidados especialistas. Adiciona valor extra.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold">Behind the Scenes</p>
+            <p class="text-sm">Mostre bastidores do seu negocio.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold">Vault de Recursos</p>
+            <p class="text-sm">Biblioteca crescente. Valor aumenta com tempo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-indigo-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">9.6</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Gamificacao e Rewards</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">Gamificacao aumenta engajamento em <strong>40-60%</strong>. Pessoas amam competir e progredir.</p>
+        <div class="space-y-4">
+          <div class="bg-indigo-50 dark:bg-indigo-900/20 p-4 rounded-lg">
+            <strong>Sistema de Pontos</strong>
+            <p class="text-sm">Posts = 10pts, Comentarios = 5pts, Wins = 20pts</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>Leaderboards</strong>
+            <p class="text-sm">Semanal, mensal, all-time. Top 3 ganham reconhecimento.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>Badges e Titulos</strong>
+            <p class="text-sm">"100 Day Streak", "Helper Hero", "Top Contributor"</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>Unlock de Niveis</strong>
+            <p class="text-sm">Acesso a canais exclusivos conforme progresso.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>Premios Reais</strong>
+            <p class="text-sm">Calls 1-on-1, swag, mencao em conteudo publico.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-indigo-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">9.7</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Eventos e Lives</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="font-bold mb-4">Eventos que Constroem Comunidade</h3>
+        <div class="space-y-3">
+          <div class="border-l-4 border-green-500 pl-4">
+            <p class="font-bold text-green-600">Live Q&As Semanais</p>
+            <p class="text-sm">Horario fixo. Mostre o rosto. Seja acessivel.</p>
+          </div>
+          <div class="border-l-4 border-blue-500 pl-4">
+            <p class="font-bold text-blue-600">Workshops Mensais</p>
+            <p class="text-sm">Deep dive em topico especifico. Traga convidados.</p>
+          </div>
+          <div class="border-l-4 border-purple-500 pl-4">
+            <p class="font-bold text-purple-600">Challenges com Kickoff Live</p>
+            <p class="text-sm">Inicie desafios com live motivacional.</p>
+          </div>
+          <div class="border-l-4 border-orange-500 pl-4">
+            <p class="font-bold text-orange-600">Virtual Summits Anuais</p>
+            <p class="text-sm">Evento de 2-3 dias. 10+ palestrantes. Epic.</p>
+          </div>
+          <div class="border-l-4 border-red-500 pl-4">
+            <p class="font-bold text-red-600">Presenciais (se possivel)</p>
+            <p class="text-sm">Nada supera encontro ao vivo. Anual ou semestral.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 8 -->
+    <section id="topico-8" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-indigo-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">9.8</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Retencao de Membros</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="font-bold mb-4">Churn E o Inimigo #1</h3>
+        <div class="overflow-x-auto mb-4">
+          <table class="w-full text-sm">
+            <thead class="bg-indigo-100 dark:bg-indigo-900/30">
+              <tr>
+                <th class="p-3 text-left">Estrategia</th>
+                <th class="p-3 text-left">Descricao</th>
+                <th class="p-3 text-left">Impacto</th>
+              </tr>
+            </thead>
+            <tbody class="text-neutral-700 dark:text-neutral-300">
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-medium">Onboarding Forte</td>
+                <td class="p-3">Primeiros 7 dias decidem. Tour guiado, quick wins.</td>
+                <td class="p-3">+60% retencao</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-medium">Check-ins Automaticos</td>
+                <td class="p-3">Email/DM em 1, 7, 30, 90 dias.</td>
+                <td class="p-3">+30% retencao</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-medium">Progress Tracking</td>
+                <td class="p-3">Mostre o progresso deles visualmente.</td>
+                <td class="p-3">+25% retencao</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-medium">Win Celebration</td>
+                <td class="p-3">Destaque membros que conquistam resultados.</td>
+                <td class="p-3">+40% retencao</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
+          <strong>Sinais de Churn:</strong> Inativo 14+ dias, nao completa onboarding, zero interacoes sociais. Aja rapido!
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 9 -->
+    <section id="topico-9" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-indigo-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">9.9</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Comunidade Paga vs Gratuita</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="font-bold mb-4">Modelo Hibrido Vence</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+            <p class="font-bold text-green-700">Comunidade Gratuita</p>
+            <ul class="text-sm mt-2 space-y-1">
+              <li>• Funil de entrada</li>
+              <li>• Conteudo basico</li>
+              <li>• Networking aberto</li>
+              <li>• Qualifica leads</li>
+              <li>• Discord ou grupo gratuito</li>
+            </ul>
+          </div>
+          <div class="bg-indigo-50 dark:bg-indigo-900/20 p-4 rounded-lg">
+            <p class="font-bold text-indigo-700">Comunidade Paga</p>
+            <ul class="text-sm mt-2 space-y-1">
+              <li>• Conteudo premium</li>
+              <li>• Acesso a voce diretamente</li>
+              <li>• Ferramentas e recursos</li>
+              <li>• Networking de alto nivel</li>
+              <li>• Skool ou Circle</li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+          <strong>Ladder de Precos:</strong> Free → $47/mes (acesso basico) → $197/mes (full access) → $997/ano (VIP)
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 10 -->
+    <section id="topico-10" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-indigo-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">9.10</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Escala: $90-110k/mes (Calvin)</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="font-bold mb-4">Case Study: Calvin Hollywood</h3>
+        <div class="space-y-4">
+          <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+            <strong>Numeros da Comunidade</strong>
+            <p class="text-sm">2.000+ membros pagos a $49-99/mes no Skool = $90-110k MRR</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>Estrategia de Calvin</strong>
+            <ul class="text-sm mt-2 space-y-1">
+              <li>• Daily posts com dicas de fotografia/edicao</li>
+              <li>• Reviews semanais de trabalhos de membros</li>
+              <li>• Lives mensais com Q&A e tutoriais avancados</li>
+              <li>• Biblioteca de 500+ presets e recursos</li>
+              <li>• Networking entre fotografos profissionais</li>
+            </ul>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>Como Ele Conseguiu</strong>
+            <ul class="text-sm mt-2 space-y-1">
+              <li>• 10+ anos construindo audiencia no YouTube</li>
+              <li>• Migrou grupo do Facebook para Skool</li>
+              <li>• Foco em transformacao, nao so ensino</li>
+              <li>• Comunidade ativa gera novos conteudos organicamente</li>
+            </ul>
+          </div>
+          <div class="bg-indigo-50 dark:bg-indigo-900/20 p-4 rounded-lg">
+            <strong>Roadmap para 6 Figuras/Mes</strong>
+            <p class="text-sm">Ano 1: 200 membros ($10k). Ano 2: 800 membros ($40k). Ano 3: 2000 membros ($100k+)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl p-8 text-white">
+        <h2 class="text-2xl font-bold mb-6">Resumo do Modulo 9</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold">Plataformas</p>
+            <p class="text-sm text-white/90">Skool, Discord, Circle - cada uma tem seu caso.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold">Rule of 300</p>
+            <p class="text-sm text-white/90">100 posts + 100 comments + 100 DMs diario.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold">Gamificacao</p>
+            <p class="text-sm text-white/90">Pontos, leaderboards, badges aumentam 40-60%.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold">Escala</p>
+            <p class="text-sm text-white/90">Calvin: $90-110k/mes com 2000 membros.</p>
+          </div>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="modulo8.html" class="bg-white text-indigo-600 px-6 py-3 rounded-lg font-semibold text-center hover:bg-neutral-100">← Modulo 8</a>
+          <a href="modulo10.html" class="bg-indigo-700 text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-indigo-800 border border-white/30">Modulo 10: Analytics →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-neutral-900 text-white py-8">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-neutral-400">&copy; 2025 TDS - Transformacao Digital e Social</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      themeToggleLightIcon.classList.remove('hidden');
+    } else {
+      themeToggleDarkIcon.classList.remove('hidden');
+    }
+    themeToggleBtn.addEventListener('click', function() {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 7: Conteudo Viral - TDS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>body { font-family: 'Inter', sans-serif; } .prose h2 { scroll-margin-top: 100px; }</style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900 transition-colors">
+
+  <nav class="sticky top-0 z-50 bg-white dark:bg-neutral-800 shadow-sm">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center space-x-4">
+          <a href="../../../index.html" class="text-2xl font-bold text-blue-600 dark:text-blue-400">TDS</a>
+          <span class="text-neutral-400">/</span>
+          <a href="../index.html" class="text-pink-600 dark:text-pink-400 font-semibold hover:underline">Redes Sociais</a>
+          <span class="text-neutral-400">/</span>
+          <span class="text-neutral-600 dark:text-neutral-400">Modulo 7</span>
+        </div>
+        <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-700" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-orange-600 via-orange-700 to-red-700 py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+      <a href="../index.html" class="inline-flex items-center text-orange-200 hover:text-white mb-4 text-sm">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        Voltar para Trilha de Redes Sociais
+      </a>
+      <div class="flex items-center gap-4 mb-4">
+        <span class="text-5xl">🔥</span>
+        <div>
+          <p class="text-orange-200 text-sm font-medium">MODULO 7</p>
+          <h1 class="text-3xl sm:text-4xl font-bold">Conteudo Viral</h1>
+        </div>
+      </div>
+      <p class="text-lg text-white/90 max-w-2xl mb-4">Decodifique a ciencia da viralidade. Aprenda a criar conteudo que espalha organicamente e gera milhoes de impressoes.</p>
+      <div class="flex flex-wrap gap-3">
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">8 horas</span>
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">10 topicos</span>
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">Nivel: Avancado</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 py-4 sticky top-16 z-40">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2 text-sm overflow-x-auto pb-2">
+        <span class="text-neutral-500 dark:text-neutral-400 whitespace-nowrap">Ir para:</span>
+        <a href="#topico-1" class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full whitespace-nowrap hover:bg-orange-200">7.1</a>
+        <a href="#topico-2" class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full whitespace-nowrap hover:bg-orange-200">7.2</a>
+        <a href="#topico-3" class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full whitespace-nowrap hover:bg-orange-200">7.3</a>
+        <a href="#topico-4" class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full whitespace-nowrap hover:bg-orange-200">7.4</a>
+        <a href="#topico-5" class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full whitespace-nowrap hover:bg-orange-200">7.5</a>
+        <a href="#topico-6" class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full whitespace-nowrap hover:bg-orange-200">7.6</a>
+        <a href="#topico-7" class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full whitespace-nowrap hover:bg-orange-200">7.7</a>
+        <a href="#topico-8" class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full whitespace-nowrap hover:bg-orange-200">7.8</a>
+        <a href="#topico-9" class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full whitespace-nowrap hover:bg-orange-200">7.9</a>
+        <a href="#topico-10" class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full whitespace-nowrap hover:bg-orange-200">7.10</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <div class="bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 rounded-2xl p-8 mb-12 border-2 border-orange-200 dark:border-orange-800">
+      <h2 class="text-2xl font-bold text-orange-900 dark:text-orange-100 mb-4 flex items-center">
+        <span class="text-3xl mr-3">🚀</span>A Ciencia Por Tras da Viralidade
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+          <p class="text-3xl font-bold text-orange-600">92%</p>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Dos conteudos virais seguem padroes emocionais especificos</p>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+          <p class="text-3xl font-bold text-orange-600">3 segundos</p>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Tempo medio para decidir se compartilha ou nao</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">7.1</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Psicologia da Viralidade</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">Viralidade nao e sorte - e <strong>ciencia comportamental aplicada</strong>. Entenda os gatilhos psicologicos que fazem pessoas compartilharem.</p>
+        <div class="space-y-3">
+          <div class="flex items-start gap-3 p-3 bg-orange-50 dark:bg-orange-900/20 rounded-lg">
+            <span class="font-bold text-orange-600">1</span>
+            <div><strong>Moeda Social</strong> - Pessoas compartilham para parecer inteligentes, engraçadas ou bem-informadas.</div>
+          </div>
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="font-bold text-orange-600">2</span>
+            <div><strong>Gatilhos</strong> - Associacoes mentais que fazem lembrar do seu conteudo constantemente.</div>
+          </div>
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="font-bold text-orange-600">3</span>
+            <div><strong>Emocao</strong> - Conteudo que gera emocoes fortes (positivas ou negativas) viraliza mais.</div>
+          </div>
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="font-bold text-orange-600">4</span>
+            <div><strong>Publico</strong> - Quanto mais visivel, mais compartilhado (efeito manada).</div>
+          </div>
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="font-bold text-orange-600">5</span>
+            <div><strong>Valor Pratico</strong> - Informacao util que melhora a vida de quem recebe.</div>
+          </div>
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="font-bold text-orange-600">6</span>
+            <div><strong>Historias</strong> - Narrativas sao veiculos naturais de transmissao viral.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">7.2</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Emocoes que Compartilham</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="font-bold mb-4">Hierarquia das Emocoes Virais</h3>
+        <div class="space-y-4">
+          <div class="border-l-4 border-red-500 pl-4">
+            <p class="font-bold text-red-600">MAIS VIRAL: Raiva/Indignacao</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Estimula acao imediata. "Olha essa absurdo!" = compartilhamento instantaneo.</p>
+          </div>
+          <div class="border-l-4 border-yellow-500 pl-4">
+            <p class="font-bold text-yellow-600">ALTO: Admiracao/Inspiracao</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Stories de superacao, conquistas impossíveis. "Voce precisa ver isso!"</p>
+          </div>
+          <div class="border-l-4 border-pink-500 pl-4">
+            <p class="font-bold text-pink-600">ALTO: Humor/Diversao</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Risada genuina e uma das emocoes mais compartilhadas.</p>
+          </div>
+          <div class="border-l-4 border-purple-500 pl-4">
+            <p class="font-bold text-purple-600">MEDIO: Surpresa/Choque</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Plot twists, revelacoes inesperadas. "Nao acredito no final!"</p>
+          </div>
+          <div class="border-l-4 border-blue-500 pl-4">
+            <p class="font-bold text-blue-600">BAIXO: Tristeza</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Compartilhamento menor, mas gera conexao profunda quando relevante.</p>
+          </div>
+          <div class="border-l-4 border-neutral-400 pl-4">
+            <p class="font-bold text-neutral-600">EVITAR: Tedio/Apatia</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Emocoes de baixa energia matam viralidade.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">7.3</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Formatos Virais</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">Certos formatos tem <strong>viralidade embutida</strong> na estrutura. Use esses frameworks testados.</p>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-orange-50 dark:bg-orange-900/20 p-4 rounded-lg">
+            <p class="font-bold text-orange-700">Listas Numeradas</p>
+            <p class="text-sm mt-2">"7 coisas que voce nao sabe sobre..."</p>
+            <p class="text-xs text-neutral-500 mt-1">Promessa clara de valor. Facil de consumir.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold">Antes x Depois</p>
+            <p class="text-sm mt-2">Transformacao visual ou de resultados</p>
+            <p class="text-xs text-neutral-500 mt-1">Prova social visivel. Gera aspiracao.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold">Secrets Revelados</p>
+            <p class="text-sm mt-2">"O que empresas escondem de voce"</p>
+            <p class="text-xs text-neutral-500 mt-1">Informacao privilegiada = moeda social.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold">Erros Comuns</p>
+            <p class="text-sm mt-2">"Pare de fazer isso imediatamente"</p>
+            <p class="text-xs text-neutral-500 mt-1">Utilidade pratica + prevencao de dor.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold">POV/Relaçao</p>
+            <p class="text-sm mt-2">"POV: Você descobriu que..."</p>
+            <p class="text-xs text-neutral-500 mt-1">Identificacao pessoal. "Isso e literalmente eu!"</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold">Desafios/Testes</p>
+            <p class="text-sm mt-2">"Tente fazer isso sem rir"</p>
+            <p class="text-xs text-neutral-500 mt-1">Interacao direta. UGC garantido.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">7.4</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Timing e Frequencia</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">Viralidade tem <strong>janelas de oportunidade</strong>. Poste no momento certo, na frequencia certa.</p>
+        <div class="space-y-3">
+          <div class="bg-orange-50 dark:bg-orange-900/20 p-4 rounded-lg">
+            <strong>Melhores Horarios (Brasil)</strong>
+            <ul class="text-sm mt-2 space-y-1">
+              <li>• 07h-09h: Caminho trabalho/escola</li>
+              <li>• 12h-14h: Almoco (pico de scroll)</li>
+              <li>• 19h-23h: Pos-trabalho (maior janela)</li>
+            </ul>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>Frequencia Ideal</strong>
+            <p class="text-sm mt-1">Contas pequenas: 1-2x/dia. Grandes: 3-5x/dia. Consistencia > volume.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>Janela de Ouro</strong>
+            <p class="text-sm mt-1">Primeiras 2 horas pos-publicacao definem 80% do alcance viral.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>Dias da Semana</strong>
+            <p class="text-sm mt-1">Terca, Quarta, Quinta tem melhor performance. Segunda pior. Fim de semana: depende do nicho.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">7.5</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Trends e Memes</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="font-bold mb-4">Ciclo de Vida de uma Trend</h3>
+        <div class="space-y-4">
+          <div class="border-l-4 border-green-500 pl-4">
+            <p class="font-bold text-green-600">Dia 1-3: Nascimento (IDEAL)</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Poucos fazendo. Entre agora para maximo alcance. Monitore creators grandes.</p>
+          </div>
+          <div class="border-l-4 border-blue-500 pl-4">
+            <p class="font-bold text-blue-600">Dia 4-7: Crescimento</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Algoritmo ainda favorece. Adicione twist unico ao formato.</p>
+          </div>
+          <div class="border-l-4 border-yellow-500 pl-4">
+            <p class="font-bold text-yellow-600">Dia 8-14: Pico (SATURADO)</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Todos fazendo. Alcance menor. So vale se tiver angulo muito diferente.</p>
+          </div>
+          <div class="border-l-4 border-red-500 pl-4">
+            <p class="font-bold text-red-600">Dia 15+: Declinio (EVITAR)</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Trend morta. Voce parece atrasado. Pule para proxima.</p>
+          </div>
+        </div>
+        <div class="mt-4 bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+          <strong>Fontes de Trends</strong>
+          <ul class="text-sm mt-2 space-y-1">
+            <li>• TikTok Creative Center</li>
+            <li>• Twitter/X trending topics</li>
+            <li>• Reddit r/OutOfTheLoop</li>
+            <li>• Discord de criadores</li>
+            <li>• Newsletter Exploding Topics</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">7.6</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">User Generated Content</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">Conteudo viral gera mais conteudo. <strong>UGC e combustivel de viralidade exponencial</strong>.</p>
+        <div class="grid md:grid-cols-2 gap-4 mb-4">
+          <div class="bg-orange-50 dark:bg-orange-900/20 p-4 rounded-lg">
+            <p class="font-bold text-orange-700">Como Estimular UGC</p>
+            <ul class="text-sm mt-2 space-y-1">
+              <li>• Desafios com hashtag propria</li>
+              <li>• Template "use esse audio"</li>
+              <li>• "Mostre sua versao nos comentarios"</li>
+              <li>• Concursos com repost</li>
+              <li>• Stitch/Duet habilitados</li>
+            </ul>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold">Beneficios do UGC</p>
+            <ul class="text-sm mt-2 space-y-1">
+              <li>• Alcance multiplicado gratuitamente</li>
+              <li>• Prova social automatica</li>
+              <li>• Algoritmo interpreta como trending</li>
+              <li>• Comunidade engajada</li>
+              <li>• Banco de conteudo infinito</li>
+            </ul>
+          </div>
+        </div>
+        <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+          <strong>Case: Desafio #InMyDenim (Guess)</strong>
+          <p class="text-sm mt-2">Marca de roupa lancou desafio simples de danca. 5.5 bilhoes de views organicas. R$0 em midia paga.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">7.7</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Controversia Estrategica</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="font-bold mb-4">O Poder da Opiniao Polarizadora</h3>
+        <div class="space-y-4">
+          <div class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg border-l-4 border-amber-500">
+            <p class="font-bold text-amber-700">ATENCAO: Linha Tenue</p>
+            <p class="text-sm mt-1">Controversia gera engajamento massivo, mas pode destruir marca. Use com estrategia.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>Controversia Boa (Opiniao Forte)</strong>
+            <p class="text-sm mt-1">"Networking e superestimado. 90% do sucesso e execucao sozinho."</p>
+            <p class="text-xs text-neutral-500 mt-1">✓ Gera debate saudavel. ✓ Posiciona autoridade. ✓ Comentarios = alcance.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>Controversia Ruim (Ataque/Preconceito)</strong>
+            <p class="text-sm mt-1">"[Grupo X] nao deveria estar em [Industria Y]"</p>
+            <p class="text-xs text-red-600 mt-1">✗ Cancela marca. ✗ Perde audiencia. ✗ Nao vale o alcance.</p>
+          </div>
+          <div class="bg-orange-50 dark:bg-orange-900/20 p-4 rounded-lg">
+            <strong>Framework: Hot Takes com Fundamento</strong>
+            <ul class="text-sm mt-2 space-y-1">
+              <li>1. Escolha crenca comum no nicho</li>
+              <li>2. Apresente ponto de vista oposto</li>
+              <li>3. Fundamente com dados/experiencia</li>
+              <li>4. Convide debate nos comentarios</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 8 -->
+    <section id="topico-8" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">7.8</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Colaboracoes Virais</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">Colaborar com outros creators <strong>multiplica alcance</strong> e traz audiencias novas.</p>
+        <div class="space-y-3">
+          <div class="bg-orange-50 dark:bg-orange-900/20 p-4 rounded-lg">
+            <strong>Tipos de Colaboracao</strong>
+            <div class="grid md:grid-cols-2 gap-2 mt-2 text-sm">
+              <div>• Duetos e Stitches</div>
+              <div>• Videos conjuntos</div>
+              <div>• Desafios cruzados</div>
+              <div>• Takeover de conta</div>
+              <div>• Series em multiplos perfis</div>
+              <div>• Lives conjuntas</div>
+            </div>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>Como Escolher Parceiros</strong>
+            <ul class="text-sm mt-2 space-y-1">
+              <li>• Audiencia similar, mas nao identica (cross-pollination)</li>
+              <li>• Valores de marca alinhados</li>
+              <li>• Tamanho parecido (ou menor querendo crescer)</li>
+              <li>• Engajamento real, nao so numero de seguidores</li>
+            </ul>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>Pitch para Colaboracoes</strong>
+            <p class="text-sm mt-1">"Oi [nome]! Adoro seu conteudo sobre [tema]. Tenho [X] seguidores no nicho [Y]. Que tal fazermos [ideia especifica]? Beneficio para voce: [valor claro]."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 9 -->
+    <section id="topico-9" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">7.9</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Replicando Viralidade</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="font-bold mb-4">Framework: Viral Video Breakdown</h3>
+        <div class="space-y-3">
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded-lg">
+            <strong>1. Hook (0-3s)</strong> - O que parou o scroll? Texto? Visual? Audio? Replique o padrao.
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded-lg">
+            <strong>2. Retencao (3-15s)</strong> - Como manteve atencao? Ritmo? Cortes? Musica? Liste os elementos.
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded-lg">
+            <strong>3. Emocao</strong> - Qual sentimento gerou? Raiva? Admiracao? Humor? Use mesma emocao em novo contexto.
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded-lg">
+            <strong>4. CTA</strong> - Qual acao pediu? Comentar? Compartilhar? Seguir? Adapte para seu nicho.
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded-lg">
+            <strong>5. Formato</strong> - Estrutura narrativa? POV? Lista? Before/After? Clone a estrutura.
+          </div>
+        </div>
+        <div class="mt-4 bg-orange-50 dark:bg-orange-900/20 p-4 rounded-lg">
+          <strong>Exercicio Pratico</strong>
+          <p class="text-sm mt-2">Salve 20 videos virais do seu nicho. Quebre cada um com framework acima. Identifique padroes. Crie template proprio.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 10 -->
+    <section id="topico-10" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">7.10</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Analise de Cases Virais</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="font-bold mb-4">Cases Brasileiros Decodificados</h3>
+        <div class="space-y-4">
+          <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+            <strong>Case 1: "Cala a boca, Magda" (Casas Bahia)</strong>
+            <p class="text-sm mt-2"><span class="font-semibold">Resultado:</span> 48M de views em 72h</p>
+            <p class="text-sm"><span class="font-semibold">Por que viralizou:</span> Humor genuino + personagem carismatico + timing perfeito (semana promocao)</p>
+            <p class="text-sm"><span class="font-semibold">Licao:</span> Autenticidade > producao cara. Humor relatable destrói conteudo polido.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>Case 2: Nubank "Finge que e um assalto"</strong>
+            <p class="text-sm mt-2"><span class="font-semibold">Resultado:</span> 120M impressoes organicas</p>
+            <p class="text-sm"><span class="font-semibold">Por que viralizou:</span> Twist inesperado + crítica social leve + final feliz</p>
+            <p class="text-sm"><span class="font-semibold">Licao:</span> Plot twist nos 15s finais gera rewatch e shares.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>Case 3: Desafio #Fazendinha (Carlinhos Maia)</strong>
+            <p class="text-sm mt-2"><span class="font-semibold">Resultado:</span> 8.2B de views na hashtag</p>
+            <p class="text-sm"><span class="font-semibold">Por que viralizou:</span> Desafio simples + som pegajoso + ego boost (mostrar sua "fazenda")</p>
+            <p class="text-sm"><span class="font-semibold">Licao:</span> Baixa barreira de entrada + oportunidade de auto-promocao = UGC explosivo.</p>
+          </div>
+          <div class="bg-orange-50 dark:bg-orange-900/20 p-4 rounded-lg">
+            <strong>Padroes Comuns nos 3 Cases</strong>
+            <ul class="text-sm mt-2 space-y-1">
+              <li>✓ Emocao forte nos primeiros 3 segundos</li>
+              <li>✓ Facil de entender (ate crianca compreende)</li>
+              <li>✓ Compartilhavel (da orgulho mostrar pros outros)</li>
+              <li>✓ Timing estrategico (aproveitou momento cultural)</li>
+              <li>✓ Call to action implicito (faz querer participar)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-orange-600 to-red-600 rounded-2xl p-8 text-white">
+        <h2 class="text-2xl font-bold mb-6">Resumo do Modulo 7</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold">Psicologia</p>
+            <p class="text-sm text-white/90">6 principios de viralidade (Moeda Social a Historias)</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold">Emocoes</p>
+            <p class="text-sm text-white/90">Raiva e admiracao viralizam mais que tristeza</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold">Trends</p>
+            <p class="text-sm text-white/90">Entre nos primeiros 3 dias para max alcance</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold">UGC</p>
+            <p class="text-sm text-white/90">Combustivel de viralidade exponencial</p>
+          </div>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="modulo6.html" class="bg-white text-orange-600 px-6 py-3 rounded-lg font-semibold text-center hover:bg-neutral-100">← Modulo 6</a>
+          <a href="modulo8.html" class="bg-orange-700 text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-orange-800 border border-white/30">Modulo 8 →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-neutral-900 text-white py-8">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-neutral-400">&copy; 2025 TDS - Transformacao Digital e Social</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      themeToggleLightIcon.classList.remove('hidden');
+    } else {
+      themeToggleDarkIcon.classList.remove('hidden');
+    }
+    themeToggleBtn.addEventListener('click', function() {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

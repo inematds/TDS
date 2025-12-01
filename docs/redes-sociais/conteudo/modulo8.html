@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 8: ManyChat e Automacao - TDS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>body { font-family: 'Inter', sans-serif; } .prose h2 { scroll-margin-top: 100px; }</style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900 transition-colors">
+
+  <nav class="sticky top-0 z-50 bg-white dark:bg-neutral-800 shadow-sm">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center space-x-4">
+          <a href="../../../index.html" class="text-2xl font-bold text-blue-600 dark:text-blue-400">TDS</a>
+          <span class="text-neutral-400">/</span>
+          <a href="../index.html" class="text-cyan-600 dark:text-cyan-400 font-semibold hover:underline">Redes Sociais</a>
+          <span class="text-neutral-400">/</span>
+          <span class="text-neutral-600 dark:text-neutral-400">Modulo 8</span>
+        </div>
+        <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-700" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-cyan-600 via-cyan-700 to-teal-700 py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+      <a href="../index.html" class="inline-flex items-center text-cyan-200 hover:text-white mb-4 text-sm">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        Voltar para Trilha de Redes Sociais
+      </a>
+      <div class="flex items-center gap-4 mb-4">
+        <span class="text-5xl">🤖</span>
+        <div>
+          <p class="text-cyan-200 text-sm font-medium">MODULO 8</p>
+          <h1 class="text-3xl sm:text-4xl font-bold">ManyChat e Automacao</h1>
+        </div>
+      </div>
+      <p class="text-lg text-white/90 max-w-2xl mb-4">Transforme DMs em vendas automaticas com chatbots inteligentes. 58% de CTR em automacoes bem configuradas!</p>
+      <div class="flex flex-wrap gap-3">
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">5 horas</span>
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">10 topicos</span>
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">Nivel: Avancado</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 py-4 sticky top-16 z-40">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2 text-sm overflow-x-auto pb-2">
+        <span class="text-neutral-500 dark:text-neutral-400 whitespace-nowrap">Ir para:</span>
+        <a href="#topico-1" class="px-3 py-1 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 rounded-full whitespace-nowrap hover:bg-cyan-200">8.1</a>
+        <a href="#topico-2" class="px-3 py-1 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 rounded-full whitespace-nowrap hover:bg-cyan-200">8.2</a>
+        <a href="#topico-3" class="px-3 py-1 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 rounded-full whitespace-nowrap hover:bg-cyan-200">8.3</a>
+        <a href="#topico-4" class="px-3 py-1 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 rounded-full whitespace-nowrap hover:bg-cyan-200">8.4</a>
+        <a href="#topico-5" class="px-3 py-1 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 rounded-full whitespace-nowrap hover:bg-cyan-200">8.5</a>
+        <a href="#topico-6" class="px-3 py-1 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 rounded-full whitespace-nowrap hover:bg-cyan-200">8.6</a>
+        <a href="#topico-7" class="px-3 py-1 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 rounded-full whitespace-nowrap hover:bg-cyan-200">8.7</a>
+        <a href="#topico-8" class="px-3 py-1 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 rounded-full whitespace-nowrap hover:bg-cyan-200">8.8</a>
+        <a href="#topico-9" class="px-3 py-1 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 rounded-full whitespace-nowrap hover:bg-cyan-200">8.9</a>
+        <a href="#topico-10" class="px-3 py-1 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 rounded-full whitespace-nowrap hover:bg-cyan-200">8.10</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <div class="bg-gradient-to-br from-cyan-50 to-teal-50 dark:from-cyan-900/20 dark:to-teal-900/20 rounded-2xl p-8 mb-12 border-2 border-cyan-200 dark:border-cyan-800">
+      <h2 class="text-2xl font-bold text-cyan-900 dark:text-cyan-100 mb-4 flex items-center">
+        <span class="text-3xl mr-3">⚡</span>Por Que Automacao E Essencial em 2025
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+          <p class="text-3xl font-bold text-cyan-600">58%</p>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Click-Through Rate medio com ManyChat</p>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+          <p class="text-3xl font-bold text-cyan-600">24/7</p>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Atendimento automatico sem parar</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-cyan-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">8.1</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Introducao ao ManyChat</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">ManyChat e a <strong>plataforma #1 de automacao para Instagram e Messenger</strong>. Crie chatbots que respondem automaticamente, qualificam leads e vendem enquanto voce dorme.</p>
+        <div class="space-y-3">
+          <div class="flex items-start gap-3 p-3 bg-cyan-50 dark:bg-cyan-900/20 rounded-lg">
+            <span class="font-bold text-cyan-600">1</span>
+            <div><strong>Automacao de DMs</strong> - Responde mensagens automaticamente com fluxos inteligentes.</div>
+          </div>
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="font-bold text-cyan-600">2</span>
+            <div><strong>Comment Guard</strong> - Envia DM automatica quando alguem comenta palavra-chave.</div>
+          </div>
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="font-bold text-cyan-600">3</span>
+            <div><strong>Story Replies</strong> - Automacao para respostas de Stories.</div>
+          </div>
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="font-bold text-cyan-600">4</span>
+            <div><strong>Integracao CRM</strong> - Sincroniza leads com Zapier, Make, Google Sheets.</div>
+          </div>
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="font-bold text-cyan-600">5</span>
+            <div><strong>Metricas Detalhadas</strong> - Taxa de abertura, cliques, conversao por fluxo.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-cyan-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">8.2</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Configuracao Inicial</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="font-bold mb-4">Passo a Passo para Comecar</h3>
+        <div class="space-y-4">
+          <div class="border-l-4 border-cyan-500 pl-4">
+            <p class="font-bold text-cyan-600">Passo 1: Criar Conta</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Acesse manychat.com e crie conta gratuita (Free ate 1.000 contatos).</p>
+          </div>
+          <div class="border-l-4 border-teal-500 pl-4">
+            <p class="font-bold text-teal-600">Passo 2: Conectar Instagram</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Vincule sua conta Instagram Business ou Creator. Precisa ter pagina no Facebook linkada.</p>
+          </div>
+          <div class="border-l-4 border-cyan-500 pl-4">
+            <p class="font-bold text-cyan-600">Passo 3: Permissoes</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Autorize ManyChat a gerenciar mensagens, comentarios e perfil.</p>
+          </div>
+          <div class="border-l-4 border-teal-500 pl-4">
+            <p class="font-bold text-teal-600">Passo 4: Primeiro Fluxo</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Use template pronto de "Boas-vindas" para testar funcionamento.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-cyan-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">8.3</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Keyword Triggers</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">Configure palavras-chave que <strong>ativam automacoes quando alguem manda DM</strong>. Exemplo: pessoa manda "preco" → bot responde tabela automatica.</p>
+        <div class="space-y-3">
+          <div class="bg-cyan-50 dark:bg-cyan-900/20 p-4 rounded-lg">
+            <strong>Como Configurar Keywords</strong>
+            <ul class="text-sm mt-2 space-y-1">
+              <li>• Automation > Keywords</li>
+              <li>• Adicione palavra-chave (ex: "curso", "link", "preco")</li>
+              <li>• Escolha fluxo que sera ativado</li>
+              <li>• Teste mandando DM pra voce mesmo</li>
+            </ul>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>Melhores Praticas</strong>
+            <p class="text-sm mt-1">Use sinonimos ("valor", "quanto custa", "preco"). Configure variacoes para mesma automacao.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-cyan-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">8.4</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Fluxos de Automacao</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="font-bold mb-4">Construindo Fluxos Efetivos</h3>
+        <div class="space-y-3">
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded-lg">
+            <strong>Mensagem Inicial</strong> - Cumprimente e contextualize. "Oi! Vi que voce se interessou por [produto]."
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded-lg">
+            <strong>Botoes de Escolha</strong> - Oferte opcoes claras. "Quer ver precos ou conhecer beneficios?"
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded-lg">
+            <strong>Condicoes Logicas</strong> - "Se clicar A → fluxo X. Se clicar B → fluxo Y."
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded-lg">
+            <strong>Delays Estrategicos</strong> - Aguarde 2-5 segundos entre mensagens para parecer humano.
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded-lg">
+            <strong>CTA Final</strong> - Sempre termine com acao clara: link, botao, contato humano.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-cyan-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">8.5</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Comment Automation</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">A automacao mais poderosa: alguem comenta palavra-chave no seu post → <strong>recebe DM automatica com oferta</strong>.</p>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+            <p class="font-bold text-green-700">Como Funciona</p>
+            <ul class="text-sm mt-2 space-y-1">
+              <li>1. Configure palavra-chave ("EU QUERO", "LINK")</li>
+              <li>2. Pessoa comenta a palavra no post</li>
+              <li>3. ManyChat envia DM automatica</li>
+              <li>4. Fluxo guia pessoa ate conversao</li>
+            </ul>
+          </div>
+          <div class="bg-cyan-50 dark:bg-cyan-900/20 p-4 rounded-lg">
+            <p class="font-bold text-cyan-700">Estrategia de Ouro</p>
+            <ul class="text-sm mt-2 space-y-1">
+              <li>• Post educativo de valor</li>
+              <li>• CTA: "Comente LINK pra receber guia"</li>
+              <li>• Bot envia PDF/video/oferta</li>
+              <li>• Sequencia de vendas automatica</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-cyan-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">8.6</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">DM Automation Instagram</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="font-bold mb-4">Tipos de Automacao DM</h3>
+        <div class="space-y-4">
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>1. Auto-Resposta de Boas-Vindas</strong>
+            <p class="text-sm">Primeira mensagem que alguem manda → resposta automatica com menu de opcoes.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>2. Story Reply Automation</strong>
+            <p class="text-sm">Pessoa responde Story → automacao customizada baseada na resposta.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>3. Menu Permanente</strong>
+            <p class="text-sm">Comando tipo "/menu" que mostra opcoes. "Digite 1 pra precos, 2 pra falar com humano".</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>4. Follow-Up Sequencial</strong>
+            <p class="text-sm">Pessoa entra no fluxo → recebe serie de mensagens ao longo de dias (nutricao).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-cyan-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">8.7</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Integracao com CRM</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">Conecte ManyChat com suas ferramentas de gestao para <strong>nunca perder um lead</strong>.</p>
+        <div class="space-y-3">
+          <div class="bg-cyan-50 dark:bg-cyan-900/20 p-4 rounded-lg">
+            <strong>Integracoes Nativas</strong>
+            <ul class="text-sm mt-2 space-y-1">
+              <li>• Google Sheets - Leads automaticos em planilha</li>
+              <li>• Zapier/Make - Conecta com 5.000+ apps</li>
+              <li>• HubSpot/RD Station - CRM completo</li>
+              <li>• Stripe/PayPal - Pagamentos diretos</li>
+            </ul>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>Fluxo Ideal</strong>
+            <p class="text-sm mt-1">Lead responde bot → dados salvos no CRM → time comercial notificado → follow-up personalizado.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 8 -->
+    <section id="topico-8" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-cyan-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">8.8</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Segmentacao de Leads</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="font-bold mb-4">Crie Audiencias Customizadas</h3>
+        <div class="space-y-3">
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded-lg">
+            <strong>Tags Comportamentais</strong> - Marque leads por interesse. Ex: "Clicou-produto-A", "Abandonou-carrinho".
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded-lg">
+            <strong>Custom Fields</strong> - Colete dados como nome, cidade, telefone durante conversa.
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded-lg">
+            <strong>Fluxos Condicionais</strong> - "Se tag = interesse-alto → fluxo venda. Se nao → fluxo nutricao."
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded-lg">
+            <strong>Broadcasts Segmentados</strong> - Envie mensagens apenas para quem tem tag especifica.
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded-lg">
+            <strong>Sequencias Diferentes</strong> - Lead quente recebe oferta rapida. Lead frio recebe conteudo educativo.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 9 -->
+    <section id="topico-9" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-cyan-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">8.9</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Metricas: 58% CTR</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="font-bold mb-4">Metricas que Importam</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead class="bg-cyan-100 dark:bg-cyan-900/30">
+              <tr>
+                <th class="p-3 text-left">Metrica</th>
+                <th class="p-3 text-left">O Que Medir</th>
+                <th class="p-3 text-left">Benchmark</th>
+              </tr>
+            </thead>
+            <tbody class="text-neutral-700 dark:text-neutral-300">
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-medium">Open Rate</td>
+                <td class="p-3">% que abre mensagem</td>
+                <td class="p-3">&gt;80% (DM)</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-medium">Click-Through Rate</td>
+                <td class="p-3">% que clica em links/botoes</td>
+                <td class="p-3">40-58%</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-medium">Conversion Rate</td>
+                <td class="p-3">% que completa acao final</td>
+                <td class="p-3">&gt;10%</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-medium">Drop-off Rate</td>
+                <td class="p-3">Onde pessoas param no fluxo</td>
+                <td class="p-3">&lt;30%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mt-4 bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+          <strong class="text-green-700">🎯 Meta Ouro: 58% CTR</strong>
+          <p class="text-sm mt-1">Mina masterclass provou: bots bem configurados alcancam 58% de cliques. Email marketing tem media de 2-3%.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 10 -->
+    <section id="topico-10" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-cyan-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">8.10</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Casos de Uso Avancados</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="font-bold mb-4">Estrategias Pro de Automacao</h3>
+        <div class="space-y-4">
+          <div class="bg-cyan-50 dark:bg-cyan-900/20 p-4 rounded-lg">
+            <strong>1. Quiz Interativo de Qualificacao</strong>
+            <p class="text-sm">Bot faz perguntas → segmenta lead → envia oferta personalizada baseada nas respostas.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>2. Webinar Automation</strong>
+            <p class="text-sm">Convite automatico → lembretes pre-evento → link de acesso → follow-up pos-evento.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>3. Carrinho Abandonado</strong>
+            <p class="text-sm">Integracao com loja → pessoa nao finaliza → bot envia lembrete + cupom desconto.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>4. Agendamento Automatico</strong>
+            <p class="text-sm">Bot coleta disponibilidade → integra com Calendly → confirma reuniao → lembretes.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>5. Campanha de Lancamento</strong>
+            <p class="text-sm">Sequencia de 7 dias: aquecimento → revelacao → escassez → encerramento.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-cyan-600 to-teal-600 rounded-2xl p-8 text-white">
+        <h2 class="text-2xl font-bold mb-6">Resumo do Modulo 8</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold">ManyChat</p>
+            <p class="text-sm text-white/90">Automacao de DMs, comentarios e stories.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold">Comment Guard</p>
+            <p class="text-sm text-white/90">Comentario vira DM automatica com oferta.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold">58% CTR</p>
+            <p class="text-sm text-white/90">Taxa de cliques comprovada.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold">Integracao</p>
+            <p class="text-sm text-white/90">CRM, planilhas, pagamentos.</p>
+          </div>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="modulo7.html" class="bg-white text-cyan-600 px-6 py-3 rounded-lg font-semibold text-center hover:bg-neutral-100">← Modulo 7</a>
+          <a href="modulo9.html" class="bg-cyan-700 text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-cyan-800 border border-white/30">Modulo 9 →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-neutral-900 text-white py-8">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-neutral-400">&copy; 2025 TDS - Transformacao Digital e Social</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      themeToggleLightIcon.classList.remove('hidden');
+    } else {
+      themeToggleDarkIcon.classList.remove('hidden');
+    }
+    themeToggleBtn.addEventListener('click', function() {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

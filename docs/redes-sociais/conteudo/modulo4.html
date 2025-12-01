@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 4: LinkedIn B2B - TDS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>body { font-family: 'Inter', sans-serif; } .prose h2 { scroll-margin-top: 100px; }</style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900 transition-colors">
+
+  <nav class="sticky top-0 z-50 bg-white dark:bg-neutral-800 shadow-sm">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center space-x-4">
+          <a href="../../../index.html" class="text-2xl font-bold text-blue-600 dark:text-blue-400">TDS</a>
+          <span class="text-neutral-400">/</span>
+          <a href="../index.html" class="text-pink-600 dark:text-pink-400 font-semibold hover:underline">Redes Sociais</a>
+          <span class="text-neutral-400">/</span>
+          <span class="text-neutral-600 dark:text-neutral-400">Modulo 4</span>
+        </div>
+        <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-700" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-700 py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+      <a href="../index.html" class="inline-flex items-center text-blue-200 hover:text-white mb-4 text-sm">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        Voltar para Trilha de Redes Sociais
+      </a>
+      <div class="flex items-center gap-4 mb-4">
+        <span class="text-5xl">💼</span>
+        <div>
+          <p class="text-blue-200 text-sm font-medium">MODULO 4</p>
+          <h1 class="text-3xl sm:text-4xl font-bold">LinkedIn B2B</h1>
+        </div>
+      </div>
+      <p class="text-lg text-white/90 max-w-2xl mb-4">Domine o LinkedIn para vendas B2B, personal branding e geracao de leads corporativos. A rede profissional mais valiosa do mundo.</p>
+      <div class="flex flex-wrap gap-3">
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">8 horas</span>
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">10 topicos</span>
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">Nivel: Avancado</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 py-4 sticky top-16 z-40">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2 text-sm overflow-x-auto pb-2">
+        <span class="text-neutral-500 dark:text-neutral-400 whitespace-nowrap">Ir para:</span>
+        <a href="#topico-1" class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full whitespace-nowrap hover:bg-blue-200">4.1</a>
+        <a href="#topico-2" class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full whitespace-nowrap hover:bg-blue-200">4.2</a>
+        <a href="#topico-3" class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full whitespace-nowrap hover:bg-blue-200">4.3</a>
+        <a href="#topico-4" class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full whitespace-nowrap hover:bg-blue-200">4.4</a>
+        <a href="#topico-5" class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full whitespace-nowrap hover:bg-blue-200">4.5</a>
+        <a href="#topico-6" class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full whitespace-nowrap hover:bg-blue-200">4.6</a>
+        <a href="#topico-7" class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full whitespace-nowrap hover:bg-blue-200">4.7</a>
+        <a href="#topico-8" class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full whitespace-nowrap hover:bg-blue-200">4.8</a>
+        <a href="#topico-9" class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full whitespace-nowrap hover:bg-blue-200">4.9</a>
+        <a href="#topico-10" class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full whitespace-nowrap hover:bg-blue-200">4.10</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-8 mb-12 border-2 border-blue-200 dark:border-blue-800">
+      <h2 class="text-2xl font-bold text-blue-900 dark:text-blue-100 mb-4 flex items-center">
+        <span class="text-3xl mr-3">🚀</span>Por Que LinkedIn E Essencial para B2B em 2025
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+          <p class="text-3xl font-bold text-blue-600">80%</p>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Dos leads B2B vem do LinkedIn (vs outras redes)</p>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+          <p class="text-3xl font-bold text-blue-600">61M</p>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Tomadores de decisao ativos na plataforma</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">4.1</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Algoritmo do LinkedIn</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">O algoritmo do LinkedIn favorece <strong>conversas autenticas e conteudo que gera discussao</strong>. Engajamento de qualidade vale mais que quantidade.</p>
+        <div class="space-y-3">
+          <div class="flex items-start gap-3 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+            <span class="font-bold text-blue-600">1</span>
+            <div><strong>Dwell Time</strong> - Tempo que pessoas passam lendo seu post. Quanto mais, melhor.</div>
+          </div>
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="font-bold text-blue-600">2</span>
+            <div><strong>Comentarios</strong> - Vale mais que curtidas. Algoritmo prioriza discussoes.</div>
+          </div>
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="font-bold text-blue-600">3</span>
+            <div><strong>Shares</strong> - Repostagens com comentario pessoal multiplicam alcance.</div>
+          </div>
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="font-bold text-blue-600">4</span>
+            <div><strong>Conexoes de Primeiro Grau</strong> - Posts aparecem primeiro para quem interage com voce.</div>
+          </div>
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="font-bold text-blue-600">5</span>
+            <div><strong>Relevancia</strong> - Algoritmo analisa se conteudo e relevante pro seu publico.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">4.2</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Perfil que Atrai Clientes</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="font-bold mb-4">Otimizacao Completa do Perfil</h3>
+        <div class="space-y-4">
+          <div class="border-l-4 border-blue-500 pl-4">
+            <p class="font-bold text-blue-600">Foto de Perfil</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Profissional, fundo neutro, rosto ocupando 60% da imagem. Sorria.</p>
+          </div>
+          <div class="border-l-4 border-indigo-500 pl-4">
+            <p class="font-bold text-indigo-600">Banner</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Comunique sua proposta de valor. Use texto grande e imagem relevante.</p>
+          </div>
+          <div class="border-l-4 border-blue-500 pl-4">
+            <p class="font-bold text-blue-600">Headline</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Nao so cargo. "Ajudo empresas SaaS a crescer 300% via LinkedIn" > "CEO"</p>
+          </div>
+          <div class="border-l-4 border-indigo-500 pl-4">
+            <p class="font-bold text-indigo-600">Sobre</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Historia + resultados + como pode ajudar. Primeira pessoa. 3-5 paragrafos.</p>
+          </div>
+          <div class="border-l-4 border-blue-500 pl-4">
+            <p class="font-bold text-blue-600">Destaque</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Posts, artigos, cases de sucesso. Demonstre autoridade.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">4.3</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Posts que Viralizam</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">Posts que <strong>geram discussao e educam</strong> performam melhor. Evite vendas diretas.</p>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+            <p class="font-bold text-blue-700">Formatos que Funcionam</p>
+            <ul class="text-sm mt-2 space-y-1">
+              <li>• Carrossel (PDF com insights)</li>
+              <li>• Storytelling pessoal</li>
+              <li>• Listas numeradas de dicas</li>
+              <li>• Contrarianas (desafia crencas)</li>
+              <li>• Bastidores da empresa</li>
+            </ul>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold text-neutral-700 dark:text-neutral-300">Estrutura Ideal</p>
+            <ul class="text-sm mt-2 space-y-1">
+              <li>• Hook na primeira linha</li>
+              <li>• Espacamento visual (quebras)</li>
+              <li>• Storytelling + licao</li>
+              <li>• CTA no final (pergunta)</li>
+              <li>• 1-3 hashtags relevantes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">4.4</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Artigos e Newsletters</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">Artigos do LinkedIn sao indexados pelo Google e demonstram autoridade. Newsletters criam audiencia propria.</p>
+        <div class="space-y-3">
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+            <strong>Quando Usar Artigos</strong>
+            <ul class="text-sm mt-2 space-y-1">
+              <li>• Guias completos (1500+ palavras)</li>
+              <li>• Cases de sucesso detalhados</li>
+              <li>• Pesquisas e dados originais</li>
+              <li>• Conteudo evergreen</li>
+            </ul>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>Newsletter do LinkedIn</strong>
+            <p class="text-sm mt-1">Precisa de modo criador. Publique semanalmente. Audiencia recebe notificacao. Gera autoridade massiva.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">4.5</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Networking Estrategico</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="font-bold mb-4">Como Conectar com Decisores</h3>
+        <div class="space-y-3">
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded-lg"><strong>1. Personalize Convites:</strong> Mencione algo especifico do perfil deles</div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded-lg"><strong>2. Comente Antes de Conectar:</strong> Interaja com posts 2-3x antes de enviar convite</div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded-lg"><strong>3. Follow-up Inteligente:</strong> Mensagem de valor apos conexao. Nao venda no primeiro contato</div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded-lg"><strong>4. Engajamento Constante:</strong> Curta e comente posts de conexoes estrategicas</div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded-lg"><strong>5. Reunioes Virtuais:</strong> Peca call de 15 min para trocar ideias (nao vender)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">4.6</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">LinkedIn Sales Navigator</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">Ferramenta paga de prospecao. Filtra decisores por cargo, empresa, setor. <strong>ROI alto para B2B</strong>.</p>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+            <p class="font-bold text-blue-700">Funcionalidades Chave</p>
+            <ul class="text-sm mt-2 space-y-1">
+              <li>• Busca avancada por ICP</li>
+              <li>• Alertas de job changes</li>
+              <li>• InMail (mensagens diretas)</li>
+              <li>• Salvamento de leads</li>
+              <li>• Integracao com CRM</li>
+            </ul>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold text-neutral-700 dark:text-neutral-300">Estrategia de Uso</p>
+            <ul class="text-sm mt-2 space-y-1">
+              <li>• Defina ICP preciso</li>
+              <li>• Crie listas segmentadas</li>
+              <li>• Monitore mudancas de cargo</li>
+              <li>• Sequencia de InMails</li>
+              <li>• Acompanhe metricas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">4.7</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Social Selling</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="font-bold mb-4">Framework de Vendas Consultivas</h3>
+        <div class="space-y-4">
+          <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+            <strong>Fase 1: Educacao</strong>
+            <p class="text-sm">Posts de valor, sem pitch. Construa autoridade por 3-6 meses.</p>
+          </div>
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+            <strong>Fase 2: Conexao</strong>
+            <p class="text-sm">Conecte com decisores. Comente posts deles. Seja util.</p>
+          </div>
+          <div class="bg-indigo-50 dark:bg-indigo-900/20 p-4 rounded-lg">
+            <strong>Fase 3: Conversacao</strong>
+            <p class="text-sm">Inicie dialogo sobre dores. Nao venda, diagnostique.</p>
+          </div>
+          <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+            <strong>Fase 4: Conversao</strong>
+            <p class="text-sm">Apresente solucao customizada. Venda e consequencia, nao objetivo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 8 -->
+    <section id="topico-8" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">4.8</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Personal Branding</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">No LinkedIn, <strong>pessoas compram de pessoas</strong>. Personal brand e mais forte que marca corporativa.</p>
+        <div class="space-y-3">
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+            <strong>Pilares do Personal Brand</strong>
+            <ul class="text-sm mt-2 space-y-1">
+              <li>• Expertise - Demonstre conhecimento profundo</li>
+              <li>• Consistencia - Poste 3-5x por semana</li>
+              <li>• Autenticidade - Compartilhe jornada real</li>
+              <li>• Generosidade - De conteudo de valor gratis</li>
+            </ul>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>Elementos de Marca Pessoal</strong>
+            <p class="text-sm mt-1">Tom de voz unico + temas consistentes + estetica visual + storytelling pessoal</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 9 -->
+    <section id="topico-9" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">4.9</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">LinkedIn Ads</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="font-bold mb-4">Anuncios de Alta Conversao B2B</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead class="bg-blue-100 dark:bg-blue-900/30">
+              <tr>
+                <th class="p-3 text-left">Formato</th>
+                <th class="p-3 text-left">Melhor Para</th>
+                <th class="p-3 text-left">CPC Medio</th>
+              </tr>
+            </thead>
+            <tbody class="text-neutral-700 dark:text-neutral-300">
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-medium">Sponsored Content</td>
+                <td class="p-3">Brand awareness, engajamento</td>
+                <td class="p-3">R$15-30</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-medium">Message Ads</td>
+                <td class="p-3">Geracao de leads qualificados</td>
+                <td class="p-3">R$30-60</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-medium">Lead Gen Forms</td>
+                <td class="p-3">Captura rapida de dados</td>
+                <td class="p-3">R$25-50</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-medium">Text Ads</td>
+                <td class="p-3">Trafego de baixo custo</td>
+                <td class="p-3">R$8-15</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 10 -->
+    <section id="topico-10" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">4.10</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Geracao de Leads B2B</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="font-bold mb-4">Sistema Completo de Captacao</h3>
+        <div class="space-y-4">
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+            <strong>1. Lead Magnet</strong>
+            <p class="text-sm">Ebook, webinar, calculadora. Oferta de valor em troca de contato.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>2. Landing Page Otimizada</strong>
+            <p class="text-sm">Formulario simples. Beneficios claros. Social proof (logos clientes).</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>3. Sequencia de Follow-up</strong>
+            <p class="text-sm">Email 1: Entrega do material. Email 2: Caso de uso. Email 3: Call to action.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>4. Nurturing de Longo Prazo</strong>
+            <p class="text-sm">Newsletter semanal. Conteudo educativo. Aquecimento ate decisao de compra.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>5. Qualificacao BANT</strong>
+            <p class="text-sm">Budget, Authority, Need, Timeline. Filtre leads prontos para vendas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl p-8 text-white">
+        <h2 class="text-2xl font-bold mb-6">Resumo do Modulo 4</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold">Algoritmo</p>
+            <p class="text-sm text-white/90">Dwell time e conversas. Qualidade > quantidade.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold">Perfil</p>
+            <p class="text-sm text-white/90">Headline forte. Sobre em primeira pessoa.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold">Social Selling</p>
+            <p class="text-sm text-white/90">Educar > Conectar > Conversar > Converter.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold">Leads B2B</p>
+            <p class="text-sm text-white/90">Lead magnet + nurturing + qualificacao.</p>
+          </div>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="modulo3.html" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold text-center hover:bg-neutral-100">← Modulo 3</a>
+          <a href="modulo5.html" class="bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-blue-800 border border-white/30">Modulo 5: YouTube →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-neutral-900 text-white py-8">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-neutral-400">&copy; 2025 TDS - Transformacao Digital e Social</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      themeToggleLightIcon.classList.remove('hidden');
+    } else {
+      themeToggleDarkIcon.classList.remove('hidden');
+    }
+    themeToggleBtn.addEventListener('click', function() {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

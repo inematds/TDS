@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 6: Copywriting para Redes - TDS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>body { font-family: 'Inter', sans-serif; } .prose h2 { scroll-margin-top: 100px; }</style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900 transition-colors">
+
+  <nav class="sticky top-0 z-50 bg-white dark:bg-neutral-800 shadow-sm">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center space-x-4">
+          <a href="../../../index.html" class="text-2xl font-bold text-blue-600 dark:text-blue-400">TDS</a>
+          <span class="text-neutral-400">/</span>
+          <a href="../index.html" class="text-pink-600 dark:text-pink-400 font-semibold hover:underline">Redes Sociais</a>
+          <span class="text-neutral-400">/</span>
+          <span class="text-neutral-600 dark:text-neutral-400">Modulo 6</span>
+        </div>
+        <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-700" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-amber-600 via-amber-700 to-orange-700 py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+      <a href="../index.html" class="inline-flex items-center text-amber-200 hover:text-white mb-4 text-sm">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        Voltar para Trilha de Redes Sociais
+      </a>
+      <div class="flex items-center gap-4 mb-4">
+        <span class="text-5xl">✍️</span>
+        <div>
+          <p class="text-amber-200 text-sm font-medium">MODULO 6</p>
+          <h1 class="text-3xl sm:text-4xl font-bold">Copywriting para Redes</h1>
+        </div>
+      </div>
+      <p class="text-lg text-white/90 max-w-2xl mb-4">Domine a arte de escrever textos que convertem. Frameworks, ganchos, CTAs e psicologia da persuasao.</p>
+      <div class="flex flex-wrap gap-3">
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">5 horas</span>
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">10 topicos</span>
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">Nivel: Intermediario</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 py-4 sticky top-16 z-40">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2 text-sm overflow-x-auto pb-2">
+        <span class="text-neutral-500 dark:text-neutral-400 whitespace-nowrap">Ir para:</span>
+        <a href="#topico-1" class="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 rounded-full whitespace-nowrap hover:bg-amber-200">6.1</a>
+        <a href="#topico-2" class="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 rounded-full whitespace-nowrap hover:bg-amber-200">6.2</a>
+        <a href="#topico-3" class="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 rounded-full whitespace-nowrap hover:bg-amber-200">6.3</a>
+        <a href="#topico-4" class="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 rounded-full whitespace-nowrap hover:bg-amber-200">6.4</a>
+        <a href="#topico-5" class="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 rounded-full whitespace-nowrap hover:bg-amber-200">6.5</a>
+        <a href="#topico-6" class="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 rounded-full whitespace-nowrap hover:bg-amber-200">6.6</a>
+        <a href="#topico-7" class="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 rounded-full whitespace-nowrap hover:bg-amber-200">6.7</a>
+        <a href="#topico-8" class="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 rounded-full whitespace-nowrap hover:bg-amber-200">6.8</a>
+        <a href="#topico-9" class="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 rounded-full whitespace-nowrap hover:bg-amber-200">6.9</a>
+        <a href="#topico-10" class="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 rounded-full whitespace-nowrap hover:bg-amber-200">6.10</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <div class="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-2xl p-8 mb-12 border-2 border-amber-200 dark:border-amber-800">
+      <h2 class="text-2xl font-bold text-amber-900 dark:text-amber-100 mb-4 flex items-center">
+        <span class="text-3xl mr-3">🎯</span>Por Que Copywriting E Decisivo
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+          <p class="text-3xl font-bold text-amber-600">68%</p>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Aumento em conversoes com copy otimizado</p>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+          <p class="text-3xl font-bold text-amber-600">3 seg</p>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Tempo medio de atencao - headline decide tudo</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-amber-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">6.1</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Fundamentos de Copywriting</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">Copywriting nao e escrever bonito. E <strong>escrever para vender, persuadir e converter</strong>. Cada palavra tem proposito.</p>
+        <div class="space-y-3">
+          <div class="flex items-start gap-3 p-3 bg-amber-50 dark:bg-amber-900/20 rounded-lg">
+            <span class="font-bold text-amber-600">1</span>
+            <div><strong>Conheca Seu Avatar</strong> - Escreva como se falasse com UMA pessoa especifica.</div>
+          </div>
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="font-bold text-amber-600">2</span>
+            <div><strong>Beneficios > Features</strong> - Nao venda "camera 48MP", venda "fotos perfeitas em qualquer luz".</div>
+          </div>
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="font-bold text-amber-600">3</span>
+            <div><strong>Clareza > Criatividade</strong> - Se confuso, ninguem compra. Simples e direto vence.</div>
+          </div>
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="font-bold text-amber-600">4</span>
+            <div><strong>Emocao + Logica</strong> - Decisao e emocional, justificativa e logica.</div>
+          </div>
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="font-bold text-amber-600">5</span>
+            <div><strong>Prova Social</strong> - Depoimentos, numeros, casos de sucesso validam sua copy.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-amber-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">6.2</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Headlines que Convertem</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="font-bold mb-4">80% do Sucesso Esta no Titulo</h3>
+        <div class="space-y-4">
+          <div class="border-l-4 border-red-500 pl-4">
+            <p class="font-bold text-red-600">Formula: Numero + Adjetivo + Keyword + Promessa</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Ex: "7 Estrategias Comprovadas de Marketing que Dobraram Vendas em 30 Dias"</p>
+          </div>
+          <div class="border-l-4 border-amber-500 pl-4">
+            <p class="font-bold text-amber-600">Formula: Como [Resultado Desejado] Sem [Objecao]</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Ex: "Como Ganhar Seguidores Sem Gastar com Anuncios"</p>
+          </div>
+          <div class="border-l-4 border-green-500 pl-4">
+            <p class="font-bold text-green-600">Formula: [Alguem Admiravel] Faz [Acao] e Voce Pode Tambem</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Ex: "Neil Patel Usa Esse Metodo e Voce Deveria Tambem"</p>
+          </div>
+          <div class="border-l-4 border-blue-500 pl-4">
+            <p class="font-bold text-blue-600">Formula: O Segredo de [Desejo] Que Ninguem Conta</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Ex: "O Segredo de Viralizar no Instagram Que Agencias Escondem"</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-amber-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">6.3</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Framework AIDA</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">O framework mais classico e eficaz para <strong>posts, anuncios e landing pages</strong>.</p>
+        <div class="space-y-4">
+          <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
+            <p class="font-bold text-red-700">A - Atencao (Attention)</p>
+            <p class="text-sm mt-1">Gancho forte que para o scroll. Pergunta provocativa, estatistica chocante, afirmacao contraintuitiva.</p>
+            <p class="text-xs italic mt-2 text-neutral-600 dark:text-neutral-400">Ex: "Voce esta perdendo 70% das suas vendas sem saber por que."</p>
+          </div>
+          <div class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg">
+            <p class="font-bold text-amber-700">I - Interesse (Interest)</p>
+            <p class="text-sm mt-1">Desenvolva o problema. Mostre que entende a dor. Crie empatia.</p>
+            <p class="text-xs italic mt-2 text-neutral-600 dark:text-neutral-400">Ex: "A maioria das pessoas investe em trafego, mas ignora o funil de conversao..."</p>
+          </div>
+          <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+            <p class="font-bold text-green-700">D - Desejo (Desire)</p>
+            <p class="text-sm mt-1">Apresente a solucao. Pinte o cenario pos-transformacao. Use beneficios, nao features.</p>
+            <p class="text-xs italic mt-2 text-neutral-600 dark:text-neutral-400">Ex: "Imagine dobrar suas vendas sem aumentar o orcamento de ads..."</p>
+          </div>
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+            <p class="font-bold text-blue-700">A - Acao (Action)</p>
+            <p class="text-sm mt-1">CTA claro e direto. Remova friccao. Crie urgencia se possivel.</p>
+            <p class="text-xs italic mt-2 text-neutral-600 dark:text-neutral-400">Ex: "Clique no link e baixe o checklist gratuito agora."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-amber-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">6.4</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Framework PAS</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">Mais direto que AIDA. Perfeito para <strong>anuncios curtos, emails e stories</strong>.</p>
+        <div class="space-y-3">
+          <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
+            <strong class="text-red-700">P - Problema (Problem)</strong>
+            <p class="text-sm mt-1">Identifique a dor especifica do avatar.</p>
+            <p class="text-xs italic mt-2 text-neutral-600 dark:text-neutral-400">Ex: "Cansado de postar todo dia e nao vender nada?"</p>
+          </div>
+          <div class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg">
+            <strong class="text-amber-700">A - Agitacao (Agitate)</strong>
+            <p class="text-sm mt-1">Intensifique a dor. Mostre as consequencias de nao resolver.</p>
+            <p class="text-xs italic mt-2 text-neutral-600 dark:text-neutral-400">Ex: "Enquanto voce perde tempo com estrategias que nao funcionam, seus concorrentes dominam o mercado."</p>
+          </div>
+          <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+            <strong class="text-green-700">S - Solucao (Solution)</strong>
+            <p class="text-sm mt-1">Apresente sua oferta como a solucao. CTA imediato.</p>
+            <p class="text-xs italic mt-2 text-neutral-600 dark:text-neutral-400">Ex: "Baixe nosso guia de copywriting e comece a converter hoje."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-amber-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">6.5</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Storytelling</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="font-bold mb-4">Pessoas Compram de Quem Confiam. Historias Criam Confianca.</h3>
+        <div class="space-y-4">
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold">Estrutura: Antes → Descoberta → Depois</p>
+            <p class="text-sm mt-2 text-neutral-600 dark:text-neutral-400">"Eu estava perdido no Instagram (ANTES). Descobri esse metodo (DESCOBERTA). Hoje tenho 50k seguidores (DEPOIS)."</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold">Hero's Journey Simplificado</p>
+            <p class="text-sm mt-2 text-neutral-600 dark:text-neutral-400">Personagem comum → Desafio → Mentor/Ferramenta → Transformacao</p>
+          </div>
+          <div class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg">
+            <p class="font-bold text-amber-700">Dica: Seja Especifico</p>
+            <p class="text-sm mt-2">"Ganhei dinheiro" VS "Faturei R$12.437 em 14 dias vendendo consultorias pelo Instagram"</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-amber-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">6.6</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">CTAs que Funcionam</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">Call-to-Action e o momento da verdade. Seja <strong>especifico, urgente e sem friccao</strong>.</p>
+        <div class="space-y-3">
+          <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+            <strong>Bom CTA</strong>
+            <p class="text-sm mt-1">"Clique no link da bio e baixe o ebook gratuito agora"</p>
+            <p class="text-xs text-green-700 mt-1">✓ Verbo de acao + Onde ir + O que ganhar + Urgencia</p>
+          </div>
+          <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
+            <strong>Ruim CTA</strong>
+            <p class="text-sm mt-1">"Se quiser, da uma olhada no link"</p>
+            <p class="text-xs text-red-700 mt-1">✗ Vago, sem urgencia, passivo</p>
+          </div>
+          <div class="grid md:grid-cols-2 gap-3 mt-4">
+            <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded text-sm">
+              <strong>Baixa friccao:</strong> "Comenta 'QUERO' que envio"
+            </div>
+            <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded text-sm">
+              <strong>Com escassez:</strong> "Ultimas 5 vagas. Link na bio"
+            </div>
+            <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded text-sm">
+              <strong>Curiosidade:</strong> "Link do segredo nos comentarios"
+            </div>
+            <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded text-sm">
+              <strong>Social proof:</strong> "+2.000 ja baixaram. Seu turno"
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-amber-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">6.7</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Copywriting para Ads</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="font-bold mb-4">Ads Pagos Tem Regras Proprias</h3>
+        <div class="space-y-4">
+          <div class="border-l-4 border-amber-600 pl-4">
+            <p class="font-bold">Primeiro Paragrafo Decide Tudo</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Primeiras 2 linhas aparecem antes do "ver mais". Gancho aqui ou perdeu.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>Estrutura de Ad que Converte:</strong>
+            <ul class="text-sm mt-2 space-y-1">
+              <li>• <strong>Hook:</strong> Pergunta ou afirmacao impactante</li>
+              <li>• <strong>Relacao:</strong> "Eu ja estive ai..."</li>
+              <li>• <strong>Solucao:</strong> Como seu produto resolve</li>
+              <li>• <strong>Prova:</strong> Depoimento ou numero</li>
+              <li>• <strong>CTA:</strong> "Clique e descubra mais"</li>
+            </ul>
+          </div>
+          <div class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg">
+            <strong class="text-amber-700">Gatilhos que Funcionam em Ads</strong>
+            <div class="grid md:grid-cols-2 gap-2 mt-2 text-sm">
+              <div>• Urgencia (24h restantes)</div>
+              <div>• Escassez (Ultimas vagas)</div>
+              <div>• Autoridade (Especialista X recomenda)</div>
+              <div>• Prova social (5.000+ alunos)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 8 -->
+    <section id="topico-8" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-amber-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">6.8</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Email Marketing Copy</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">Email ainda converte melhor que qualquer rede social. Copy certa = Open Rate e Click Rate altos.</p>
+        <div class="space-y-3">
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+            <strong class="text-blue-700">Assunto que Abre</strong>
+            <ul class="text-sm mt-2 space-y-1">
+              <li>• Personalizacao: "[Nome], voce precisa ver isso"</li>
+              <li>• Curiosidade: "O erro que 90% cometem..."</li>
+              <li>• Urgencia: "Ultima chance: Expira hoje"</li>
+              <li>• Beneficio direto: "Como ganhar R$5k extra/mes"</li>
+            </ul>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>Corpo do Email</strong>
+            <p class="text-sm mt-2">1. Comece com o nome da pessoa<br>
+            2. Uma frase que conecta ao assunto<br>
+            3. Historia curta OU lista de beneficios<br>
+            4. CTA claro (botao ou link destacado)<br>
+            5. PS: Repita o CTA ou adicione urgencia</p>
+          </div>
+          <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+            <strong class="text-green-700">Dica Pro: O PS E Ouro</strong>
+            <p class="text-sm mt-1">Muita gente pula direto pro final. Use o PS para reforcar a oferta ou criar FOMO.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 9 -->
+    <section id="topico-9" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-amber-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">6.9</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Scripts para Videos</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="font-bold mb-4">Video E Rei, Mas Precisa de Roteiro</h3>
+        <div class="space-y-4">
+          <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg border-l-4 border-red-500">
+            <p class="font-bold text-red-700">0-3s: GANCHO VISUAL + VERBAL</p>
+            <p class="text-sm mt-1">"Pare de perder dinheiro com ads!" [mostra tela com numeros em vermelho]</p>
+          </div>
+          <div class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg border-l-4 border-amber-500">
+            <p class="font-bold text-amber-700">3-15s: PROBLEMA + IDENTIFICACAO</p>
+            <p class="text-sm mt-1">"Se voce ja investiu em trafego e nao viu retorno, eu sei exatamente o que esta acontecendo..."</p>
+          </div>
+          <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border-l-4 border-green-500">
+            <p class="font-bold text-green-700">15-45s: SOLUCAO + PROVA</p>
+            <p class="text-sm mt-1">"O segredo e otimizar o funil, nao apenas o anuncio. Meus clientes dobraram conversao assim..."</p>
+          </div>
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border-l-4 border-blue-500">
+            <p class="font-bold text-blue-700">Final: CTA + LOOP</p>
+            <p class="text-sm mt-1">"Link na bio pra ver o passo a passo completo. Comenta 'FUNIL' que eu mando nos DM."</p>
+          </div>
+        </div>
+        <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg mt-4">
+          <strong>Dica: Escreva Como Fala</strong>
+          <p class="text-sm mt-1">Leia em voz alta. Se soar robotico, reescreva. Video pede naturalidade.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 10 -->
+    <section id="topico-10" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-amber-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">6.10</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Testes A/B de Copy</h2>
+      </div>
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="font-bold mb-4">Nunca Confie em Achismo. Teste Tudo.</h3>
+        <div class="space-y-4">
+          <div class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg">
+            <strong class="text-amber-700">O Que Testar em Copy</strong>
+            <ul class="text-sm mt-2 space-y-1">
+              <li>• <strong>Headlines:</strong> 2-3 versoes com angulos diferentes</li>
+              <li>• <strong>CTAs:</strong> "Compre agora" vs "Garanta sua vaga"</li>
+              <li>• <strong>Tamanho:</strong> Copy longa vs curta</li>
+              <li>• <strong>Gatilhos:</strong> Urgencia vs Prova Social vs Autoridade</li>
+              <li>• <strong>Tom:</strong> Casual vs Profissional</li>
+            </ul>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead class="bg-amber-100 dark:bg-amber-900/30">
+                <tr>
+                  <th class="p-3 text-left">Elemento</th>
+                  <th class="p-3 text-left">Versao A</th>
+                  <th class="p-3 text-left">Versao B</th>
+                  <th class="p-3 text-left">Vencedor</th>
+                </tr>
+              </thead>
+              <tbody class="text-neutral-700 dark:text-neutral-300">
+                <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                  <td class="p-3 font-medium">CTA</td>
+                  <td class="p-3">Comprar agora</td>
+                  <td class="p-3">Garantir desconto</td>
+                  <td class="p-3 text-green-600 font-bold">B (+23%)</td>
+                </tr>
+                <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                  <td class="p-3 font-medium">Headline</td>
+                  <td class="p-3">Aumente vendas</td>
+                  <td class="p-3">Dobre vendas em 30d</td>
+                  <td class="p-3 text-green-600 font-bold">B (+41%)</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-medium">Tamanho</td>
+                  <td class="p-3">Copy longa</td>
+                  <td class="p-3">Copy curta</td>
+                  <td class="p-3 text-green-600 font-bold">A (+15%)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <strong>Regra de Ouro do Teste A/B</strong>
+            <p class="text-sm mt-1">Mude apenas UM elemento por vez. Se mudar varios, nao saberá o que funcionou.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-amber-600 to-orange-600 rounded-2xl p-8 text-white">
+        <h2 class="text-2xl font-bold mb-6">Resumo do Modulo 6</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold">Fundamentos</p>
+            <p class="text-sm text-white/90">Avatar, beneficios, clareza, emocao.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold">Frameworks</p>
+            <p class="text-sm text-white/90">AIDA e PAS dominam conversao.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold">CTAs</p>
+            <p class="text-sm text-white/90">Especifico, urgente, sem friccao.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold">Testes A/B</p>
+            <p class="text-sm text-white/90">Nunca confie em achismo. Teste.</p>
+          </div>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="modulo5.html" class="bg-white text-amber-600 px-6 py-3 rounded-lg font-semibold text-center hover:bg-neutral-100">← Modulo 5</a>
+          <a href="modulo7.html" class="bg-amber-700 text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-amber-800 border border-white/30">Modulo 7 →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-neutral-900 text-white py-8">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-neutral-400">&copy; 2025 TDS - Transformacao Digital e Social</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      themeToggleLightIcon.classList.remove('hidden');
+    } else {
+      themeToggleDarkIcon.classList.remove('hidden');
+    }
+    themeToggleBtn.addEventListener('click', function() {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
