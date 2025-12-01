@@ -22,9 +22,84 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    .animate-fade-in { animation: fadeIn 0.8s ease-out; }
+    body {
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6);
+      backdrop-filter: blur(4px);
+    }
+
+    .modal.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      background-color: white;
+      margin: auto;
+      padding: 0;
+      width: 90%;
+      max-width: 1000px;
+      max-height: 90vh;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 20px 25px rgba(0,0,0,0.3);
+    }
+
+    .dark .modal-content {
+      background-color: #262626;
+    }
+
+    .modal-header {
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid #e5e7eb;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .dark .modal-header {
+      border-bottom-color: #404040;
+    }
+
+    .modal-body {
+      padding: 2rem;
+      overflow-y: auto;
+      max-height: calc(90vh - 80px);
+    }
+
+    .close-modal {
+      color: #9ca3af;
+      font-size: 2rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .close-modal:hover {
+      color: #ef4444;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 0.8s ease-out;
+    }
   </style>
 </head>
 <body class="bg-neutral-50 dark:bg-neutral-900 transition-colors">
@@ -68,7 +143,7 @@
         </div>
       </div>
       <p class="text-xl text-white/90 max-w-2xl mb-6">
-        Domine TikTok, Instagram, LinkedIn e YouTube. Aprenda a criar conteudo viral, construir comunidades e monetizar sua audiencia.
+        Domine TikTok, Instagram, LinkedIn e YouTube. Aprenda a criar conteudo viral, construir comunidades e monetizar sua audiencia com estrategias comprovadas.
       </p>
       <div class="flex flex-wrap gap-3">
         <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-medium">50 horas</span>
@@ -97,123 +172,357 @@
 
       <!-- Modulo 1 -->
       <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
-        <div class="flex items-center justify-between mb-4">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4 gap-4">
           <div class="flex items-center">
             <span class="text-2xl mr-3">📚</span>
             <div>
               <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 1: Fundamentos de Marketing de Conteudo</h2>
-              <p class="text-sm text-neutral-600 dark:text-neutral-400">As 5 regras essenciais, nicho e multiforma</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">As 5 regras essenciais, nicho, publico e multiforma</p>
             </div>
           </div>
-          <div class="flex items-center gap-2">
+          <div class="flex flex-wrap items-center gap-2">
             <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full">5h</span>
-            <a href="conteudo/modulo1.html" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">Acessar</a>
+            <button onclick="openModal('modal-modulo1')" class="px-3 py-1.5 bg-blue-500 text-white text-xs font-medium rounded-lg hover:bg-blue-600 transition-colors">
+              Ver em Modal
+            </button>
+            <a href="conteudo/modulo1.html" class="px-3 py-1.5 bg-blue-600 text-white text-xs font-medium rounded-lg hover:bg-blue-700 transition-colors">
+              Abrir Pagina
+            </a>
           </div>
         </div>
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-2 text-xs text-neutral-600 dark:text-neutral-400">
-          <span>1.1 As 5 Regras Essenciais</span>
-          <span>1.2 Frequencia e Consistencia</span>
-          <span>1.3 Definicao de Nicho</span>
-          <span>1.4 Publico-Alvo e ICP</span>
-          <span>1.5 Niveis de Consciencia</span>
-          <span>1.6 Conhecendo Plataformas</span>
-          <span>1.7 Objetivos de Venda</span>
-          <span>1.8 Formatos de Conteudo</span>
-          <span>1.9 Reaproveitamento</span>
-          <span>1.10 Calendario Editorial</span>
-        </div>
+
+        <ul class="topics-list grid grid-cols-1 md:grid-cols-2 gap-1">
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">
+              📌 1.1 As 5 Regras Essenciais
+            </button>
+            <div class="topic-explanation hidden ml-4 mt-2 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+              <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600">O que e:</strong> Framework fundamental: frequencia, nicho, publico, plataforma, objetivo.</p>
+            </div>
+          </li>
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">
+              📌 1.2 Frequencia e Consistencia
+            </button>
+            <div class="topic-explanation hidden ml-4 mt-2 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+              <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600">O que e:</strong> 1 post por dia minimo. Consistencia vence qualidade. 90 dias de compromisso.</p>
+            </div>
+          </li>
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">
+              📌 1.3 Definicao de Nicho
+            </button>
+            <div class="topic-explanation hidden ml-4 mt-2 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+              <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600">O que e:</strong> Quanto mais especifico, melhor. 4 perguntas para validar seu nicho.</p>
+            </div>
+          </li>
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">
+              📌 1.4 Publico-Alvo e ICP
+            </button>
+            <div class="topic-explanation hidden ml-4 mt-2 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+              <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600">O que e:</strong> Perfil do Cliente Ideal. Idade, dores, desejos, linguagem.</p>
+            </div>
+          </li>
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">
+              📌 1.5 Niveis de Consciencia
+            </button>
+            <div class="topic-explanation hidden ml-4 mt-2 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+              <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600">O que e:</strong> Desinformado, problema reconhecido, pronto para comprar. Conteudo para cada nivel.</p>
+            </div>
+          </li>
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">
+              📌 1.6 Conhecendo Plataformas
+            </button>
+            <div class="topic-explanation hidden ml-4 mt-2 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+              <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600">O que e:</strong> Cada rede tem regras proprias. O que funciona no TikTok nao funciona no LinkedIn.</p>
+            </div>
+          </li>
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">
+              📌 1.7 Objetivos de Venda
+            </button>
+            <div class="topic-explanation hidden ml-4 mt-2 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+              <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600">O que e:</strong> Conteudo sem CTA e hobby. Todo post deve levar a uma acao.</p>
+            </div>
+          </li>
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">
+              📌 1.8 Formatos de Conteudo
+            </button>
+            <div class="topic-explanation hidden ml-4 mt-2 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+              <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600">O que e:</strong> Textos, fotos, videos longos, videos curtos, carrosseis, stories.</p>
+            </div>
+          </li>
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">
+              📌 1.9 Reaproveitamento
+            </button>
+            <div class="topic-explanation hidden ml-4 mt-2 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+              <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600">O que e:</strong> Um conteudo vira multiplos formatos. Video longo → 5 cortes → carrossel → texto.</p>
+            </div>
+          </li>
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">
+              📌 1.10 Calendario Editorial
+            </button>
+            <div class="topic-explanation hidden ml-4 mt-2 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+              <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600">O que e:</strong> Planejamento semanal/mensal. Batch content creation. Ferramentas de agendamento.</p>
+            </div>
+          </li>
+        </ul>
       </div>
 
       <!-- Modulo 2 -->
       <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
-        <div class="flex items-center justify-between mb-4">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4 gap-4">
           <div class="flex items-center">
             <span class="text-2xl mr-3">🎵</span>
             <div>
               <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 2: TikTok Mastery</h2>
-              <p class="text-sm text-neutral-600 dark:text-neutral-400">Algoritmo, TikTok Shop e estrategias virais</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Algoritmo, TikTok Shop, SEO e estrategias virais</p>
             </div>
           </div>
-          <div class="flex items-center gap-2">
+          <div class="flex flex-wrap items-center gap-2">
             <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full">5h</span>
-            <a href="conteudo/modulo2.html" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">Acessar</a>
+            <button onclick="openModal('modal-modulo2')" class="px-3 py-1.5 bg-blue-500 text-white text-xs font-medium rounded-lg hover:bg-blue-600 transition-colors">
+              Ver em Modal
+            </button>
+            <a href="conteudo/modulo2.html" class="px-3 py-1.5 bg-blue-600 text-white text-xs font-medium rounded-lg hover:bg-blue-700 transition-colors">
+              Abrir Pagina
+            </a>
           </div>
         </div>
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-2 text-xs text-neutral-600 dark:text-neutral-400">
-          <span>2.1 Algoritmo FYP</span>
-          <span>2.2 Watch Time e Retencao</span>
-          <span>2.3 TikTok Shop Brasil</span>
-          <span>2.4 Live Commerce</span>
-          <span>2.5 TikTok SEO</span>
-          <span>2.6 Hashtags e Sons</span>
-          <span>2.7 Estrutura de Videos</span>
-          <span>2.8 Ganchos Virais</span>
-          <span>2.9 TikTok Ads Basico</span>
-          <span>2.10 Metricas e Analytics</span>
-        </div>
+
+        <ul class="topics-list grid grid-cols-1 md:grid-cols-2 gap-1">
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">
+              📌 2.1 Algoritmo For You Page
+            </button>
+            <div class="topic-explanation hidden ml-4 mt-2 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+              <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600">O que e:</strong> Baseado em conteudo, nao seguidores. Cada video e uma nova chance.</p>
+            </div>
+          </li>
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">
+              📌 2.2 Watch Time e Retencao
+            </button>
+            <div class="topic-explanation hidden ml-4 mt-2 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+              <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600">O que e:</strong> Fator #1 do algoritmo. Videos reassistidos performam ainda melhor.</p>
+            </div>
+          </li>
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">
+              📌 2.3 TikTok Shop Brasil
+            </button>
+            <div class="topic-explanation hidden ml-4 mt-2 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+              <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600">O que e:</strong> Crescimento de 4.510% em 3 meses. Venda direta dentro do app com PIX.</p>
+            </div>
+          </li>
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">
+              📌 2.4 Live Commerce
+            </button>
+            <div class="topic-explanation hidden ml-4 mt-2 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+              <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600">O que e:</strong> Vendas ao vivo com urgencia e prova social em tempo real.</p>
+            </div>
+          </li>
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">
+              📌 2.5 TikTok SEO
+            </button>
+            <div class="topic-explanation hidden ml-4 mt-2 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+              <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600">O que e:</strong> Otimizacao para busca. Gen Z usa TikTok como buscador.</p>
+            </div>
+          </li>
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">
+              📌 2.6 Hashtags e Sons
+            </button>
+            <div class="topic-explanation hidden ml-4 mt-2 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+              <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600">O que e:</strong> Mix de hashtags grandes com nichadas. Sons trending dao boost.</p>
+            </div>
+          </li>
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">
+              📌 2.7 Estrutura de Videos
+            </button>
+            <div class="topic-explanation hidden ml-4 mt-2 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+              <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600">O que e:</strong> 30-90 segundos ideal. Hook nos primeiros 3 segundos.</p>
+            </div>
+          </li>
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">
+              📌 2.8 Ganchos Virais
+            </button>
+            <div class="topic-explanation hidden ml-4 mt-2 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+              <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600">O que e:</strong> Titulos com numeros, curiosidade, medo de perder. Gancho > timing.</p>
+            </div>
+          </li>
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">
+              📌 2.9 Gravacao e Edicao
+            </button>
+            <div class="topic-explanation hidden ml-4 mt-2 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+              <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600">O que e:</strong> iPhone + CapCut. Estilo simples = proximidade e autenticidade.</p>
+            </div>
+          </li>
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">
+              📌 2.10 Metricas e Analytics
+            </button>
+            <div class="topic-explanation hidden ml-4 mt-2 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+              <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600">O que e:</strong> 5k+ views = tema validado. Dobre nos acertos com 10 variacoes.</p>
+            </div>
+          </li>
+        </ul>
       </div>
 
       <!-- Modulo 3 -->
       <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
-        <div class="flex items-center justify-between mb-4">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4 gap-4">
           <div class="flex items-center">
             <span class="text-2xl mr-3">📸</span>
             <div>
               <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 3: Instagram Strategy</h2>
-              <p class="text-sm text-neutral-600 dark:text-neutral-400">Reels, Stories, algoritmo e monetizacao</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Reels, Stories, algoritmo e 80% das vendas</p>
             </div>
           </div>
-          <div class="flex items-center gap-2">
+          <div class="flex flex-wrap items-center gap-2">
             <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full">5h</span>
-            <a href="conteudo/modulo3.html" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">Acessar</a>
+            <button onclick="openModal('modal-modulo3')" class="px-3 py-1.5 bg-blue-500 text-white text-xs font-medium rounded-lg hover:bg-blue-600 transition-colors">
+              Ver em Modal
+            </button>
+            <a href="conteudo/modulo3.html" class="px-3 py-1.5 bg-blue-600 text-white text-xs font-medium rounded-lg hover:bg-blue-700 transition-colors">
+              Abrir Pagina
+            </a>
           </div>
         </div>
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-2 text-xs text-neutral-600 dark:text-neutral-400">
-          <span>3.1 Algoritmo Instagram</span>
-          <span>3.2 Reels que Viralizam</span>
-          <span>3.3 Stories Estrategicos</span>
-          <span>3.4 Carrosseis de Alto Engajamento</span>
-          <span>3.5 Bio e Perfil Otimizado</span>
-          <span>3.6 Hashtags e Explore</span>
-          <span>3.7 DMs e Automacao</span>
-          <span>3.8 Instagram x TikTok</span>
-          <span>3.9 Conversao e CTAs</span>
-          <span>3.10 80% das Vendas vem Daqui</span>
-        </div>
+
+        <ul class="topics-list grid grid-cols-1 md:grid-cols-2 gap-1">
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">
+              📌 3.1 Algoritmo Instagram 2025
+            </button>
+            <div class="topic-explanation hidden ml-4 mt-2 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+              <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600">O que e:</strong> Mais previsivel que TikTok. 80% das vendas vem daqui.</p>
+            </div>
+          </li>
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">
+              📌 3.2 Reels que Viralizam
+            </button>
+            <div class="topic-explanation hidden ml-4 mt-2 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+              <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600">O que e:</strong> Mesmo formato TikTok. Pode usar mesma versao nos dois.</p>
+            </div>
+          </li>
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">
+              📌 3.3 Stories Estrategicos
+            </button>
+            <div class="topic-explanation hidden ml-4 mt-2 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+              <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600">O que e:</strong> Humanizacao, bastidores, enquetes. Construcao de relacionamento.</p>
+            </div>
+          </li>
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">
+              📌 3.4 Carrosseis de Alto Engajamento
+            </button>
+            <div class="topic-explanation hidden ml-4 mt-2 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+              <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600">O que e:</strong> Alto salvamento e compartilhamento. Educativo e visual.</p>
+            </div>
+          </li>
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">
+              📌 3.5 Bio e Perfil Otimizado
+            </button>
+            <div class="topic-explanation hidden ml-4 mt-2 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+              <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600">O que e:</strong> Perfil e seu funil. Uma acao clara, nada de Linktree.</p>
+            </div>
+          </li>
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">
+              📌 3.6 Hashtags e Explore
+            </button>
+            <div class="topic-explanation hidden ml-4 mt-2 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+              <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600">O que e:</strong> 3-5 hashtags relevantes. Aparecer no Explore multiplica alcance.</p>
+            </div>
+          </li>
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">
+              📌 3.7 DMs e Relacionamento
+            </button>
+            <div class="topic-explanation hidden ml-4 mt-2 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+              <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600">O que e:</strong> Conversa direta fecha vendas. Responder rapido e essencial.</p>
+            </div>
+          </li>
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">
+              📌 3.8 Instagram x TikTok
+            </button>
+            <div class="topic-explanation hidden ml-4 mt-2 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+              <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600">O que e:</strong> TikTok = alcance, Instagram = conversao. Use ambos estrategicamente.</p>
+            </div>
+          </li>
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">
+              📌 3.9 Conversao e CTAs
+            </button>
+            <div class="topic-explanation hidden ml-4 mt-2 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+              <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600">O que e:</strong> Chamada para acao em todo conteudo. Link na bio, stories com link.</p>
+            </div>
+          </li>
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">
+              📌 3.10 Seguidores Qualificados
+            </button>
+            <div class="topic-explanation hidden ml-4 mt-2 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+              <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600">O que e:</strong> 1000 seguidores certos > 100k errados. Foco em quem compra.</p>
+            </div>
+          </li>
+        </ul>
       </div>
 
       <!-- Modulo 4 -->
       <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
-        <div class="flex items-center justify-between mb-4">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4 gap-4">
           <div class="flex items-center">
             <span class="text-2xl mr-3">💼</span>
             <div>
               <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 4: LinkedIn para Negocios</h2>
-              <p class="text-sm text-neutral-600 dark:text-neutral-400">Posts virais, copywriting e autoridade B2B</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Posts virais, copywriting B2B e autoridade</p>
             </div>
           </div>
-          <div class="flex items-center gap-2">
+          <div class="flex flex-wrap items-center gap-2">
             <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full">5h</span>
-            <a href="conteudo/modulo4.html" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">Acessar</a>
+            <button onclick="openModal('modal-modulo4')" class="px-3 py-1.5 bg-blue-500 text-white text-xs font-medium rounded-lg hover:bg-blue-600 transition-colors">
+              Ver em Modal
+            </button>
+            <a href="conteudo/modulo4.html" class="px-3 py-1.5 bg-blue-600 text-white text-xs font-medium rounded-lg hover:bg-blue-700 transition-colors">
+              Abrir Pagina
+            </a>
           </div>
         </div>
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-2 text-xs text-neutral-600 dark:text-neutral-400">
-          <span>4.1 Algoritmo LinkedIn</span>
-          <span>4.2 Posts que Viralizam</span>
-          <span>4.3 Estrutura de Copywriting</span>
-          <span>4.4 Hook Poderoso</span>
-          <span>4.5 Historia Pessoal</span>
-          <span>4.6 CTA e Engajamento</span>
-          <span>4.7 Horarios e Frequencia</span>
-          <span>4.8 Perfil de Autoridade</span>
-          <span>4.9 Comentarios Estrategicos</span>
-          <span>4.10 De 0 a 50k Seguidores</span>
-        </div>
+
+        <ul class="topics-list grid grid-cols-1 md:grid-cols-2 gap-1">
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 4.1 Algoritmo LinkedIn</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 4.2 Posts que Viralizam</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 4.3 Estrutura de Copywriting</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 4.4 Hook Poderoso</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 4.5 Historia Pessoal</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 4.6 CTA e Engajamento</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 4.7 Horarios e Frequencia</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 4.8 Perfil de Autoridade</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 4.9 Comentarios Estrategicos</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 4.10 De 0 a 50k Seguidores</button></li>
+        </ul>
       </div>
 
       <!-- Modulo 5 -->
       <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
-        <div class="flex items-center justify-between mb-4">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4 gap-4">
           <div class="flex items-center">
             <span class="text-2xl mr-3">🎬</span>
             <div>
@@ -221,28 +530,34 @@
               <p class="text-sm text-neutral-600 dark:text-neutral-400">Algoritmo, thumbnails, hooks e monetizacao</p>
             </div>
           </div>
-          <div class="flex items-center gap-2">
+          <div class="flex flex-wrap items-center gap-2">
             <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full">5h</span>
-            <a href="conteudo/modulo5.html" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">Acessar</a>
+            <button onclick="openModal('modal-modulo5')" class="px-3 py-1.5 bg-blue-500 text-white text-xs font-medium rounded-lg hover:bg-blue-600 transition-colors">
+              Ver em Modal
+            </button>
+            <a href="conteudo/modulo5.html" class="px-3 py-1.5 bg-blue-600 text-white text-xs font-medium rounded-lg hover:bg-blue-700 transition-colors">
+              Abrir Pagina
+            </a>
           </div>
         </div>
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-2 text-xs text-neutral-600 dark:text-neutral-400">
-          <span>5.1 Algoritmo YouTube</span>
-          <span>5.2 CTR e Retencao</span>
-          <span>5.3 Thumbnails que Geram Cliques</span>
-          <span>5.4 Titulos com IA</span>
-          <span>5.5 Hooks PPP</span>
-          <span>5.6 Shorts vs Long-form</span>
-          <span>5.7 SEO YouTube</span>
-          <span>5.8 Monetizacao e AdSense</span>
-          <span>5.9 Ferramentas Essenciais</span>
-          <span>5.10 Do Zero aos 100K</span>
-        </div>
+
+        <ul class="topics-list grid grid-cols-1 md:grid-cols-2 gap-1">
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 5.1 Algoritmo YouTube</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 5.2 CTR e Retencao</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 5.3 Thumbnails que Geram Cliques</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 5.4 Titulos com IA</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 5.5 Hooks PPP</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 5.6 Shorts vs Long-form</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 5.7 SEO YouTube</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 5.8 Monetizacao e AdSense</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 5.9 Ferramentas Essenciais</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 5.10 Do Zero aos 100K</button></li>
+        </ul>
       </div>
 
       <!-- Modulo 6 -->
       <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
-        <div class="flex items-center justify-between mb-4">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4 gap-4">
           <div class="flex items-center">
             <span class="text-2xl mr-3">✍️</span>
             <div>
@@ -250,28 +565,34 @@
               <p class="text-sm text-neutral-600 dark:text-neutral-400">Formulas, estruturas e escrita persuasiva</p>
             </div>
           </div>
-          <div class="flex items-center gap-2">
+          <div class="flex flex-wrap items-center gap-2">
             <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full">5h</span>
-            <a href="conteudo/modulo6.html" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">Acessar</a>
+            <button onclick="openModal('modal-modulo6')" class="px-3 py-1.5 bg-blue-500 text-white text-xs font-medium rounded-lg hover:bg-blue-600 transition-colors">
+              Ver em Modal
+            </button>
+            <a href="conteudo/modulo6.html" class="px-3 py-1.5 bg-blue-600 text-white text-xs font-medium rounded-lg hover:bg-blue-700 transition-colors">
+              Abrir Pagina
+            </a>
           </div>
         </div>
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-2 text-xs text-neutral-600 dark:text-neutral-400">
-          <span>6.1 Formula do Valor</span>
-          <span>6.2 Estrutura DIC</span>
-          <span>6.3 Estrutura PAS</span>
-          <span>6.4 Estrutura HSO</span>
-          <span>6.5 Frases Curtas</span>
-          <span>6.6 Imagens Mentais</span>
-          <span>6.7 Palavras de Poder</span>
-          <span>6.8 CTA Irresistivel</span>
-          <span>6.9 IA no Copywriting</span>
-          <span>6.10 Teste e Iteracao</span>
-        </div>
+
+        <ul class="topics-list grid grid-cols-1 md:grid-cols-2 gap-1">
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 6.1 Formula do Valor</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 6.2 Estrutura DIC</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 6.3 Estrutura PAS</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 6.4 Estrutura HSO</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 6.5 Frases Curtas</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 6.6 Imagens Mentais</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 6.7 Palavras de Poder</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 6.8 CTA Irresistivel</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 6.9 IA no Copywriting</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 6.10 Teste e Iteracao</button></li>
+        </ul>
       </div>
 
       <!-- Modulo 7 -->
       <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
-        <div class="flex items-center justify-between mb-4">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4 gap-4">
           <div class="flex items-center">
             <span class="text-2xl mr-3">🎯</span>
             <div>
@@ -279,57 +600,69 @@
               <p class="text-sm text-neutral-600 dark:text-neutral-400">Ganchos, estruturas e psicologia viral</p>
             </div>
           </div>
-          <div class="flex items-center gap-2">
+          <div class="flex flex-wrap items-center gap-2">
             <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full">5h</span>
-            <a href="conteudo/modulo7.html" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">Acessar</a>
+            <button onclick="openModal('modal-modulo7')" class="px-3 py-1.5 bg-blue-500 text-white text-xs font-medium rounded-lg hover:bg-blue-600 transition-colors">
+              Ver em Modal
+            </button>
+            <a href="conteudo/modulo7.html" class="px-3 py-1.5 bg-blue-600 text-white text-xs font-medium rounded-lg hover:bg-blue-700 transition-colors">
+              Abrir Pagina
+            </a>
           </div>
         </div>
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-2 text-xs text-neutral-600 dark:text-neutral-400">
-          <span>7.1 Psicologia do Viral</span>
-          <span>7.2 Ganchos de Medo</span>
-          <span>7.3 Ganchos de Ganho</span>
-          <span>7.4 Curiosity Gap</span>
-          <span>7.5 Primeiros 3 Segundos</span>
-          <span>7.6 Looping e Rewatch</span>
-          <span>7.7 Deu Ruim Framework</span>
-          <span>7.8 Numeros e Provas</span>
-          <span>7.9 Dobrar nos Acertos</span>
-          <span>7.10 Analise de Virais</span>
-        </div>
+
+        <ul class="topics-list grid grid-cols-1 md:grid-cols-2 gap-1">
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 7.1 Psicologia do Viral</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 7.2 Ganchos de Medo</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 7.3 Ganchos de Ganho</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 7.4 Curiosity Gap</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 7.5 Primeiros 3 Segundos</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 7.6 Looping e Rewatch</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 7.7 Deu Ruim Framework</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 7.8 Numeros e Provas</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 7.9 Dobrar nos Acertos</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 7.10 Analise de Virais</button></li>
+        </ul>
       </div>
 
       <!-- Modulo 8 -->
       <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
-        <div class="flex items-center justify-between mb-4">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4 gap-4">
           <div class="flex items-center">
             <span class="text-2xl mr-3">🤖</span>
             <div>
               <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 8: Automacao com ManyChat</h2>
-              <p class="text-sm text-neutral-600 dark:text-neutral-400">DMs automaticas, leads e conversao</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">DMs automaticas, leads e taxa de 58%</p>
             </div>
           </div>
-          <div class="flex items-center gap-2">
+          <div class="flex flex-wrap items-center gap-2">
             <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full">5h</span>
-            <a href="conteudo/modulo8.html" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">Acessar</a>
+            <button onclick="openModal('modal-modulo8')" class="px-3 py-1.5 bg-blue-500 text-white text-xs font-medium rounded-lg hover:bg-blue-600 transition-colors">
+              Ver em Modal
+            </button>
+            <a href="conteudo/modulo8.html" class="px-3 py-1.5 bg-blue-600 text-white text-xs font-medium rounded-lg hover:bg-blue-700 transition-colors">
+              Abrir Pagina
+            </a>
           </div>
         </div>
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-2 text-xs text-neutral-600 dark:text-neutral-400">
-          <span>8.1 O que e ManyChat</span>
-          <span>8.2 Configuracao Basica</span>
-          <span>8.3 Palavra-chave Gatilho</span>
-          <span>8.4 Fluxos de DM</span>
-          <span>8.5 Lead Magnets</span>
-          <span>8.6 Taxa de 58% de Clique</span>
-          <span>8.7 Integracao com CRM</span>
-          <span>8.8 Sequencias de Nurturing</span>
-          <span>8.9 Automacao com Humor</span>
-          <span>8.10 Metricas e Otimizacao</span>
-        </div>
+
+        <ul class="topics-list grid grid-cols-1 md:grid-cols-2 gap-1">
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 8.1 O que e ManyChat</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 8.2 Configuracao Basica</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 8.3 Palavra-chave Gatilho</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 8.4 Fluxos de DM</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 8.5 Lead Magnets</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 8.6 Taxa de 58% de Clique</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 8.7 Integracao com CRM</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 8.8 Sequencias de Nurturing</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 8.9 Automacao com Humor</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 8.10 Metricas e Otimizacao</button></li>
+        </ul>
       </div>
 
       <!-- Modulo 9 -->
       <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
-        <div class="flex items-center justify-between mb-4">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4 gap-4">
           <div class="flex items-center">
             <span class="text-2xl mr-3">👥</span>
             <div>
@@ -337,52 +670,64 @@
               <p class="text-sm text-neutral-600 dark:text-neutral-400">Construcao, engajamento e monetizacao</p>
             </div>
           </div>
-          <div class="flex items-center gap-2">
+          <div class="flex flex-wrap items-center gap-2">
             <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full">5h</span>
-            <a href="conteudo/modulo9.html" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">Acessar</a>
+            <button onclick="openModal('modal-modulo9')" class="px-3 py-1.5 bg-blue-500 text-white text-xs font-medium rounded-lg hover:bg-blue-600 transition-colors">
+              Ver em Modal
+            </button>
+            <a href="conteudo/modulo9.html" class="px-3 py-1.5 bg-blue-600 text-white text-xs font-medium rounded-lg hover:bg-blue-700 transition-colors">
+              Abrir Pagina
+            </a>
           </div>
         </div>
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-2 text-xs text-neutral-600 dark:text-neutral-400">
-          <span>9.1 Comunidade e Pipeline</span>
-          <span>9.2 Comece com Amigos</span>
-          <span>9.3 Modelo da Festa</span>
-          <span>9.4 Gratuita vs Paga</span>
-          <span>9.5 Engajamento Constante</span>
-          <span>9.6 Regra das 3 Horas</span>
-          <span>9.7 Membros como Criadores</span>
-          <span>9.8 Retencao e Churn</span>
-          <span>9.9 Plataformas (Skool, Discord)</span>
-          <span>9.10 De 0 a 100k/mes</span>
-        </div>
+
+        <ul class="topics-list grid grid-cols-1 md:grid-cols-2 gap-1">
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 9.1 Por que Comunidades</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 9.2 Comece com Amigos</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 9.3 Modelo da Festa</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 9.4 Gratuita vs Paga</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 9.5 Engajamento Constante</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 9.6 Regra das 3 Horas</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 9.7 Membros como Criadores</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 9.8 Retencao e Churn</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 9.9 Plataformas (Skool, Discord)</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 9.10 De 0 a 100k/mes</button></li>
+        </ul>
       </div>
 
       <!-- Modulo 10 -->
       <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
-        <div class="flex items-center justify-between mb-4">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4 gap-4">
           <div class="flex items-center">
             <span class="text-2xl mr-3">💰</span>
             <div>
               <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 10: Monetizacao e Escala</h2>
-              <p class="text-sm text-neutral-600 dark:text-neutral-400">Produtos, servicos e crescimento</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Regra dos 300, produtos e equipe</p>
             </div>
           </div>
-          <div class="flex items-center gap-2">
+          <div class="flex flex-wrap items-center gap-2">
             <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full">5h</span>
-            <a href="conteudo/modulo10.html" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">Acessar</a>
+            <button onclick="openModal('modal-modulo10')" class="px-3 py-1.5 bg-blue-500 text-white text-xs font-medium rounded-lg hover:bg-blue-600 transition-colors">
+              Ver em Modal
+            </button>
+            <a href="conteudo/modulo10.html" class="px-3 py-1.5 bg-blue-600 text-white text-xs font-medium rounded-lg hover:bg-blue-700 transition-colors">
+              Abrir Pagina
+            </a>
           </div>
         </div>
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-2 text-xs text-neutral-600 dark:text-neutral-400">
-          <span>10.1 Regra dos 300</span>
-          <span>10.2 Funil Gratuito-Pago</span>
-          <span>10.3 Lead Magnets</span>
-          <span>10.4 Produtos Digitais</span>
-          <span>10.5 Servicos High-Ticket</span>
-          <span>10.6 Afiliados e Parcerias</span>
-          <span>10.7 Ads com Testemunhos</span>
-          <span>10.8 Equipe e Delegacao</span>
-          <span>10.9 Produtividade 14h/dia</span>
-          <span>10.10 Nunca Pare</span>
-        </div>
+
+        <ul class="topics-list grid grid-cols-1 md:grid-cols-2 gap-1">
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 10.1 Regra dos 300</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 10.2 Funil Gratuito-Pago</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 10.3 Lead Magnets</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 10.4 Produtos Digitais</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 10.5 Servicos High-Ticket</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 10.6 Afiliados e Parcerias</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 10.7 Ads com Testemunhos</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 10.8 Equipe e Delegacao</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 10.9 Produtividade</button></li>
+          <li class="topic-item"><button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200 text-sm">📌 10.10 Nunca Pare</button></li>
+        </ul>
       </div>
 
       <!-- CTA Final -->
@@ -436,6 +781,69 @@
       } else {
         document.documentElement.classList.add('dark');
         localStorage.setItem('color-theme', 'dark');
+      }
+    });
+
+    // Topic Accordion
+    document.addEventListener('click', function(e) {
+      const topicButton = e.target.closest('.topic-button');
+
+      if (topicButton) {
+        const topicItem = topicButton.closest('.topic-item');
+        const explanation = topicItem.querySelector('.topic-explanation');
+
+        if (explanation) {
+          const moduleCard = topicItem.closest('.module-card');
+          moduleCard.querySelectorAll('.topic-explanation').forEach(exp => {
+            if (exp !== explanation) {
+              exp.classList.add('hidden');
+            }
+          });
+
+          explanation.classList.toggle('hidden');
+        }
+      }
+    });
+
+    // Modal Functions
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    }
+
+    // Close modal on backdrop click or X button
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('modal')) {
+        e.target.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+
+      if (e.target.classList.contains('close-modal')) {
+        const modal = e.target.closest('.modal');
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // Close modal on ESC
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        const activeModals = document.querySelectorAll('.modal.active');
+        activeModals.forEach(modal => {
+          modal.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        });
       }
     });
   </script>
