@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trilha de Redes Sociais - TDS</title>
 
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -20,23 +19,12 @@
     }
   </script>
 
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .animate-fade-in {
-      animation: fadeIn 0.8s ease-out;
-    }
+    body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-fade-in { animation: fadeIn 0.8s ease-out; }
   </style>
 </head>
 <body class="bg-neutral-50 dark:bg-neutral-900 transition-colors">
@@ -80,12 +68,12 @@
         </div>
       </div>
       <p class="text-xl text-white/90 max-w-2xl mb-6">
-        Domine os algoritmos e crie conteudo que viraliza. De TikTok a LinkedIn, todas as plataformas com estrategias comprovadas.
+        Domine TikTok, Instagram, LinkedIn e YouTube. Aprenda a criar conteudo viral, construir comunidades e monetizar sua audiencia.
       </p>
       <div class="flex flex-wrap gap-3">
-        <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-medium">35 horas</span>
+        <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-medium">50 horas</span>
         <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-medium">10 Modulos</span>
-        <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-medium">25+ Casos Praticos</span>
+        <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-medium">100 Topicos</span>
       </div>
     </div>
   </section>
@@ -114,64 +102,26 @@
             <span class="text-2xl mr-3">📚</span>
             <div>
               <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 1: Fundamentos de Marketing de Conteudo</h2>
-              <p class="text-sm text-neutral-600 dark:text-neutral-400">5 regras essenciais para sucesso nas redes</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">As 5 regras essenciais, nicho e multiforma</p>
             </div>
           </div>
-          <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full">3h</span>
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full">5h</span>
+            <a href="conteudo/modulo1.html" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">Acessar</a>
+          </div>
         </div>
-
-        <ul class="topics-list space-y-0.5">
-          <li class="topic-item">
-            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 1.1 As 5 Regras Essenciais para Sucesso
-            </button>
-            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">O que e:</strong> Framework fundamental para qualquer estrategia de conteudo.
-              </p>
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">As 5 Regras:</strong> 1) Frequencia (1 post/dia minimo), 2) Nicho definido, 3) Publico-alvo claro, 4) Conhecer a plataforma, 5) Objetivo de vendas.
-              </p>
-              <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Conceitos chave:</strong> Consistencia vence qualidade, 5 minutos de conteudo e suficiente.
-              </p>
-            </div>
-          </li>
-
-          <li class="topic-item">
-            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 1.2 Definicao de Nicho e Publico-Alvo
-            </button>
-            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">O que e:</strong> Processo de encontrar seu espaco unico no mercado.
-              </p>
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Perguntas chave:</strong> Nicho bem definido? Qual o potencial? Quem sao concorrentes? Durabilidade?
-              </p>
-              <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Conceitos chave:</strong> Publico por nivel de consciencia (desinformado, problema reconhecido, pronto para comprar).
-              </p>
-            </div>
-          </li>
-
-          <li class="topic-item">
-            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 1.3 Criacao de Conteudo Multiforma
-            </button>
-            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">O que e:</strong> Dominar diferentes formatos de conteudo para cada plataforma.
-              </p>
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Formatos:</strong> Textos otimizados, fotos/infograficos, videos longos, videos curtos, carrosseis, enquetes.
-              </p>
-              <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Conceitos chave:</strong> Combinacao estrategica de formatos, reaproveitamento de conteudo.
-              </p>
-            </div>
-          </li>
-        </ul>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-2 text-xs text-neutral-600 dark:text-neutral-400">
+          <span>1.1 As 5 Regras Essenciais</span>
+          <span>1.2 Frequencia e Consistencia</span>
+          <span>1.3 Definicao de Nicho</span>
+          <span>1.4 Publico-Alvo e ICP</span>
+          <span>1.5 Niveis de Consciencia</span>
+          <span>1.6 Conhecendo Plataformas</span>
+          <span>1.7 Objetivos de Venda</span>
+          <span>1.8 Formatos de Conteudo</span>
+          <span>1.9 Reaproveitamento</span>
+          <span>1.10 Calendario Editorial</span>
+        </div>
       </div>
 
       <!-- Modulo 2 -->
@@ -181,64 +131,26 @@
             <span class="text-2xl mr-3">🎵</span>
             <div>
               <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 2: TikTok Mastery</h2>
-              <p class="text-sm text-neutral-600 dark:text-neutral-400">Algoritmo, TikTok Shop e estrategias de crescimento</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Algoritmo, TikTok Shop e estrategias virais</p>
             </div>
           </div>
-          <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full">5h</span>
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full">5h</span>
+            <a href="conteudo/modulo2.html" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">Acessar</a>
+          </div>
         </div>
-
-        <ul class="topics-list space-y-0.5">
-          <li class="topic-item">
-            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 2.1 Algoritmo do TikTok Decodificado
-            </button>
-            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">O que e:</strong> Entenda como o For You Page funciona e como hackear.
-              </p>
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Fatores:</strong> Watch time, engajamento, personalizacao, informacoes do video, qualidade.
-              </p>
-              <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Conceitos chave:</strong> Algoritmo baseado em conteudo, nao seguidores - oportunidade unica para novos.
-              </p>
-            </div>
-          </li>
-
-          <li class="topic-item">
-            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 2.2 TikTok Shop e Live Commerce
-            </button>
-            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">O que e:</strong> O futuro do e-commerce - vendas diretamente no TikTok.
-              </p>
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Dados Brasil:</strong> Crescimento de 4.510% em 3 meses! 40% ja compraram algo indicado na plataforma.
-              </p>
-              <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Conceitos chave:</strong> Algoritmo otimizado para conversao, PIX facilitando vendas.
-              </p>
-            </div>
-          </li>
-
-          <li class="topic-item">
-            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 2.3 TikTok SEO e Otimizacao
-            </button>
-            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">O que e:</strong> Otimizacao para busca dentro do TikTok - nova fronteira de SEO.
-              </p>
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Elementos:</strong> Pesquisa de palavras-chave, otimizacao de perfil, hashtags estrategicas, sons em alta.
-              </p>
-              <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Conceitos chave:</strong> Barra de pesquisa do TikTok, fatores de classificacao.
-              </p>
-            </div>
-          </li>
-        </ul>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-2 text-xs text-neutral-600 dark:text-neutral-400">
+          <span>2.1 Algoritmo FYP</span>
+          <span>2.2 Watch Time e Retencao</span>
+          <span>2.3 TikTok Shop Brasil</span>
+          <span>2.4 Live Commerce</span>
+          <span>2.5 TikTok SEO</span>
+          <span>2.6 Hashtags e Sons</span>
+          <span>2.7 Estrutura de Videos</span>
+          <span>2.8 Ganchos Virais</span>
+          <span>2.9 TikTok Ads Basico</span>
+          <span>2.10 Metricas e Analytics</span>
+        </div>
       </div>
 
       <!-- Modulo 3 -->
@@ -248,382 +160,229 @@
             <span class="text-2xl mr-3">📸</span>
             <div>
               <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 3: Instagram Strategy</h2>
-              <p class="text-sm text-neutral-600 dark:text-neutral-400">Reels, Stories, Carrosseis e ManyChat</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Reels, Stories, algoritmo e monetizacao</p>
             </div>
           </div>
-          <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full">4h</span>
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full">5h</span>
+            <a href="conteudo/modulo3.html" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">Acessar</a>
+          </div>
         </div>
-
-        <ul class="topics-list space-y-0.5">
-          <li class="topic-item">
-            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 3.1 Reels e Videos Curtos
-            </button>
-            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">O que e:</strong> O formato de maior alcance organico no Instagram atualmente.
-              </p>
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Estrutura:</strong> Gancho forte (3 segundos), desenvolvimento rapido, quebra de expectativa, CTA emocional.
-              </p>
-              <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Conceitos chave:</strong> Primeiros segundos sao 80% do resultado, mostre o rosto sempre.
-              </p>
-            </div>
-          </li>
-
-          <li class="topic-item">
-            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 3.2 Carrosseis Informativos
-            </button>
-            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">O que e:</strong> Formato perfeito para educar e gerar salvamentos.
-              </p>
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Estrutura:</strong> 3-5 slides, capa chamativa, conteudo denso, CTA no final.
-              </p>
-              <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Conceitos chave:</strong> Mapa visual do funil de vendas, series de "Antes e Depois".
-              </p>
-            </div>
-          </li>
-
-          <li class="topic-item">
-            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 3.3 Stories e Lives
-            </button>
-            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">O que e:</strong> Conexao direta e humanizacao da marca.
-              </p>
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Estrategias:</strong> Bastidores, enquetes, perguntas, Lives com especialistas.
-              </p>
-              <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Conceitos chave:</strong> ManyChat para captar leads, automacao de DMs.
-              </p>
-            </div>
-          </li>
-        </ul>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-2 text-xs text-neutral-600 dark:text-neutral-400">
+          <span>3.1 Algoritmo Instagram</span>
+          <span>3.2 Reels que Viralizam</span>
+          <span>3.3 Stories Estrategicos</span>
+          <span>3.4 Carrosseis de Alto Engajamento</span>
+          <span>3.5 Bio e Perfil Otimizado</span>
+          <span>3.6 Hashtags e Explore</span>
+          <span>3.7 DMs e Automacao</span>
+          <span>3.8 Instagram x TikTok</span>
+          <span>3.9 Conversao e CTAs</span>
+          <span>3.10 80% das Vendas vem Daqui</span>
+        </div>
       </div>
 
       <!-- Modulo 4 -->
       <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
         <div class="flex items-center justify-between mb-4">
           <div class="flex items-center">
-            <span class="text-2xl mr-3">🎬</span>
+            <span class="text-2xl mr-3">💼</span>
             <div>
-              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 4: YouTube Authority</h2>
-              <p class="text-sm text-neutral-600 dark:text-neutral-400">Construcao de marca e confianca com long-form</p>
+              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 4: LinkedIn para Negocios</h2>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Posts virais, copywriting e autoridade B2B</p>
             </div>
           </div>
-          <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full">4h</span>
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full">5h</span>
+            <a href="conteudo/modulo4.html" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">Acessar</a>
+          </div>
         </div>
-
-        <ul class="topics-list space-y-0.5">
-          <li class="topic-item">
-            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 4.1 YouTube Constroi Marca e Confianca
-            </button>
-            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">O que e:</strong> YouTube e o melhor canal para autoridade - 96% dos casos vem dele.
-              </p>
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Estrutura:</strong> Prova → Promessa → Plano (3 elementos principais).
-              </p>
-              <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Conceitos chave:</strong> Long-form constroi relacionamento, primeiros 20 segundos sao cruciais.
-              </p>
-            </div>
-          </li>
-
-          <li class="topic-item">
-            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 4.2 Titulos Virais e Thumbnails
-            </button>
-            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">O que e:</strong> Packaging importa mais que conteudo - 80% do sucesso.
-              </p>
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Tecnicas:</strong> Curiosity gap, benchmark de titulos, regra dos 5 passos para thumbnails.
-              </p>
-              <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Conceitos chave:</strong> Desconstrua os melhores frame por frame, teste A/B de thumbnails.
-              </p>
-            </div>
-          </li>
-
-          <li class="topic-item">
-            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 4.3 Playlists e Organizacao
-            </button>
-            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">O que e:</strong> Organizacao que aumenta watch time e retencao.
-              </p>
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Estrategias:</strong> Series, playlists tematicas, cards e end screens estrategicos.
-              </p>
-              <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Conceitos chave:</strong> Compartilhamento em outras plataformas, relacionamento com subscribers.
-              </p>
-            </div>
-          </li>
-        </ul>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-2 text-xs text-neutral-600 dark:text-neutral-400">
+          <span>4.1 Algoritmo LinkedIn</span>
+          <span>4.2 Posts que Viralizam</span>
+          <span>4.3 Estrutura de Copywriting</span>
+          <span>4.4 Hook Poderoso</span>
+          <span>4.5 Historia Pessoal</span>
+          <span>4.6 CTA e Engajamento</span>
+          <span>4.7 Horarios e Frequencia</span>
+          <span>4.8 Perfil de Autoridade</span>
+          <span>4.9 Comentarios Estrategicos</span>
+          <span>4.10 De 0 a 50k Seguidores</span>
+        </div>
       </div>
 
       <!-- Modulo 5 -->
       <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
         <div class="flex items-center justify-between mb-4">
           <div class="flex items-center">
-            <span class="text-2xl mr-3">💼</span>
+            <span class="text-2xl mr-3">🎬</span>
             <div>
-              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 5: LinkedIn B2B</h2>
-              <p class="text-sm text-neutral-600 dark:text-neutral-400">Viralizacao profissional e autoridade</p>
+              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 5: YouTube Growth</h2>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Algoritmo, thumbnails, hooks e monetizacao</p>
             </div>
           </div>
-          <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full">3h</span>
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full">5h</span>
+            <a href="conteudo/modulo5.html" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">Acessar</a>
+          </div>
         </div>
-
-        <ul class="topics-list space-y-0.5">
-          <li class="topic-item">
-            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 5.1 Masterclass: Viralizar no LinkedIn
-            </button>
-            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">O que e:</strong> LinkedIn e ouro para B2B - postar semanalmente te coloca entre 1% mais ativos.
-              </p>
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Estrategias:</strong> Historias pessoais identificaveis, comentar em posts de criadores, engajamento estrategico.
-              </p>
-              <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Conceitos chave:</strong> Conteudo corporativo vs pessoal, posicionamento de autoridade.
-              </p>
-            </div>
-          </li>
-
-          <li class="topic-item">
-            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 5.2 Posts Educacionais e Estudos
-            </button>
-            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">O que e:</strong> Conteudo que demonstra expertise e gera confianca.
-              </p>
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Tipos:</strong> Compartilhamento de estudos, pesquisas, tendencias, artigos sobre impacto.
-              </p>
-              <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Conceitos chave:</strong> Abordagem consultiva e educativa, parcerias com decisores.
-              </p>
-            </div>
-          </li>
-        </ul>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-2 text-xs text-neutral-600 dark:text-neutral-400">
+          <span>5.1 Algoritmo YouTube</span>
+          <span>5.2 CTR e Retencao</span>
+          <span>5.3 Thumbnails que Geram Cliques</span>
+          <span>5.4 Titulos com IA</span>
+          <span>5.5 Hooks PPP</span>
+          <span>5.6 Shorts vs Long-form</span>
+          <span>5.7 SEO YouTube</span>
+          <span>5.8 Monetizacao e AdSense</span>
+          <span>5.9 Ferramentas Essenciais</span>
+          <span>5.10 Do Zero aos 100K</span>
+        </div>
       </div>
 
       <!-- Modulo 6 -->
       <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
         <div class="flex items-center justify-between mb-4">
           <div class="flex items-center">
-            <span class="text-2xl mr-3">🔥</span>
+            <span class="text-2xl mr-3">✍️</span>
             <div>
-              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 6: Viralidade e Hooks</h2>
-              <p class="text-sm text-neutral-600 dark:text-neutral-400">Tecnicas de edicao e ganchos que prendem</p>
+              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 6: Copywriting para Redes</h2>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Formulas, estruturas e escrita persuasiva</p>
             </div>
           </div>
-          <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full">4h</span>
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full">5h</span>
+            <a href="conteudo/modulo6.html" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">Acessar</a>
+          </div>
         </div>
-
-        <ul class="topics-list space-y-0.5">
-          <li class="topic-item">
-            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 6.1 Estrutura de Videos Virais
-            </button>
-            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">O que e:</strong> Formula comprovada para criar conteudo que viraliza.
-              </p>
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Estrutura:</strong> Gancho forte (3 seg), desenvolvimento rapido, quebra de expectativa ("porta na cara"), CTA emocional.
-              </p>
-              <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Conceitos chave:</strong> Videos simples com frases curtas, autenticidade vence producao.
-              </p>
-            </div>
-          </li>
-
-          <li class="topic-item">
-            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 6.2 Estrategias de Hooks (Ganchos)
-            </button>
-            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">O que e:</strong> Os primeiros segundos que determinam se alguem vai assistir.
-              </p>
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Tipos:</strong> Ganho financeiro, medo/risco, autoridade, exclusividade/status, "Deu Ruim" (muito eficaz).
-              </p>
-              <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Conceitos chave:</strong> Contrastes emocionais, curiosity gap, provocar reacoes imediatas.
-              </p>
-            </div>
-          </li>
-
-          <li class="topic-item">
-            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 6.3 Tecnicas de Edicao para Engajamento
-            </button>
-            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">O que e:</strong> Cortes e edicao que maximizam retencao.
-              </p>
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Tecnicas:</strong> Cortar comeco/final, tirar do contexto, criar suspense, sincronizacao com audio.
-              </p>
-              <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Conceitos chave:</strong> Ritmo acelerado, transicoes, composicao 16:9.
-              </p>
-            </div>
-          </li>
-        </ul>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-2 text-xs text-neutral-600 dark:text-neutral-400">
+          <span>6.1 Formula do Valor</span>
+          <span>6.2 Estrutura DIC</span>
+          <span>6.3 Estrutura PAS</span>
+          <span>6.4 Estrutura HSO</span>
+          <span>6.5 Frases Curtas</span>
+          <span>6.6 Imagens Mentais</span>
+          <span>6.7 Palavras de Poder</span>
+          <span>6.8 CTA Irresistivel</span>
+          <span>6.9 IA no Copywriting</span>
+          <span>6.10 Teste e Iteracao</span>
+        </div>
       </div>
 
       <!-- Modulo 7 -->
       <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
         <div class="flex items-center justify-between mb-4">
           <div class="flex items-center">
-            <span class="text-2xl mr-3">✍️</span>
+            <span class="text-2xl mr-3">🎯</span>
             <div>
-              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 7: Copywriting para Social</h2>
-              <p class="text-sm text-neutral-600 dark:text-neutral-400">Legendas, CTAs e formulas de copy</p>
+              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 7: Conteudo Viral</h2>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Ganchos, estruturas e psicologia viral</p>
             </div>
           </div>
-          <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full">4h</span>
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full">5h</span>
+            <a href="conteudo/modulo7.html" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">Acessar</a>
+          </div>
         </div>
-
-        <ul class="topics-list space-y-0.5">
-          <li class="topic-item">
-            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 7.1 Estrutura de Legendas para Instagram
-            </button>
-            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">O que e:</strong> Legendas que convertem visualizacoes em acoes.
-              </p>
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Elementos:</strong> CTAs claros, historias que geram identificacao, emojis estrategicos, tom de voz consistente.
-              </p>
-              <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Conceitos chave:</strong> Perguntas instigantes, provocacoes, conteudo reflexivo.
-              </p>
-            </div>
-          </li>
-
-          <li class="topic-item">
-            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 7.2 Formulas de Copy: DIC e HSO
-            </button>
-            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">O que e:</strong> Frameworks testados para criar copy persuasivo.
-              </p>
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Formulas:</strong> DIC (Disrupt > Intrigue > Click), HSO (Hook > Story > Offer).
-              </p>
-              <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Conceitos chave:</strong> Gatilhos reflexos, gatilhos motivacionais, conteudo ousado.
-              </p>
-            </div>
-          </li>
-
-          <li class="topic-item">
-            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 7.3 Email Marketing Avancado
-            </button>
-            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">O que e:</strong> Integracao de email com estrategia de social media.
-              </p>
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Tecnicas:</strong> Linhas de assunto (6-10 palavras), gatilhos comportamentais (8x mais aberturas), video em emails (+65% cliques).
-              </p>
-              <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Conceitos chave:</strong> Storytelling, personalizacao, segmentacao inteligente.
-              </p>
-            </div>
-          </li>
-        </ul>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-2 text-xs text-neutral-600 dark:text-neutral-400">
+          <span>7.1 Psicologia do Viral</span>
+          <span>7.2 Ganchos de Medo</span>
+          <span>7.3 Ganchos de Ganho</span>
+          <span>7.4 Curiosity Gap</span>
+          <span>7.5 Primeiros 3 Segundos</span>
+          <span>7.6 Looping e Rewatch</span>
+          <span>7.7 Deu Ruim Framework</span>
+          <span>7.8 Numeros e Provas</span>
+          <span>7.9 Dobrar nos Acertos</span>
+          <span>7.10 Analise de Virais</span>
+        </div>
       </div>
 
       <!-- Modulo 8 -->
       <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
         <div class="flex items-center justify-between mb-4">
           <div class="flex items-center">
-            <span class="text-2xl mr-3">👥</span>
+            <span class="text-2xl mr-3">🤖</span>
             <div>
-              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 8: Comunidade e Engajamento</h2>
-              <p class="text-sm text-neutral-600 dark:text-neutral-400">Construindo tribo e retencao</p>
+              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 8: Automacao com ManyChat</h2>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">DMs automaticas, leads e conversao</p>
             </div>
           </div>
-          <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full">4h</span>
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full">5h</span>
+            <a href="conteudo/modulo8.html" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">Acessar</a>
+          </div>
         </div>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-2 text-xs text-neutral-600 dark:text-neutral-400">
+          <span>8.1 O que e ManyChat</span>
+          <span>8.2 Configuracao Basica</span>
+          <span>8.3 Palavra-chave Gatilho</span>
+          <span>8.4 Fluxos de DM</span>
+          <span>8.5 Lead Magnets</span>
+          <span>8.6 Taxa de 58% de Clique</span>
+          <span>8.7 Integracao com CRM</span>
+          <span>8.8 Sequencias de Nurturing</span>
+          <span>8.9 Automacao com Humor</span>
+          <span>8.10 Metricas e Otimizacao</span>
+        </div>
+      </div>
 
-        <ul class="topics-list space-y-0.5">
-          <li class="topic-item">
-            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 8.1 Construindo Comunidade como Diferencial
-            </button>
-            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">O que e:</strong> Comunidades geram mais autoridade e leads que anuncios caros.
-              </p>
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Principios:</strong> Liberdade, variedade, sem peso - comunidades autonomas e significativas.
-              </p>
-              <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Conceitos chave:</strong> Telegram/Discord como centros de gravidade, cocriacao de conteudo.
-              </p>
+      <!-- Modulo 9 -->
+      <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center">
+            <span class="text-2xl mr-3">👥</span>
+            <div>
+              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 9: Comunidades Online</h2>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Construcao, engajamento e monetizacao</p>
             </div>
-          </li>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full">5h</span>
+            <a href="conteudo/modulo9.html" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">Acessar</a>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-2 text-xs text-neutral-600 dark:text-neutral-400">
+          <span>9.1 Comunidade e Pipeline</span>
+          <span>9.2 Comece com Amigos</span>
+          <span>9.3 Modelo da Festa</span>
+          <span>9.4 Gratuita vs Paga</span>
+          <span>9.5 Engajamento Constante</span>
+          <span>9.6 Regra das 3 Horas</span>
+          <span>9.7 Membros como Criadores</span>
+          <span>9.8 Retencao e Churn</span>
+          <span>9.9 Plataformas (Skool, Discord)</span>
+          <span>9.10 De 0 a 100k/mes</span>
+        </div>
+      </div>
 
-          <li class="topic-item">
-            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 8.2 Retencao e Fidelizacao
-            </button>
-            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">O que e:</strong> Transformar seguidores em fas leais.
-              </p>
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Estrategias:</strong> Responder todos comentarios, beneficios exclusivos, eventos mensais, gamificacao.
-              </p>
-              <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Conceitos chave:</strong> Senso de pertencimento, valores compartilhados, suporte ativo.
-              </p>
+      <!-- Modulo 10 -->
+      <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center">
+            <span class="text-2xl mr-3">💰</span>
+            <div>
+              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 10: Monetizacao e Escala</h2>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Produtos, servicos e crescimento</p>
             </div>
-          </li>
-
-          <li class="topic-item">
-            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 8.3 Marca Pessoal e Posicionamento
-            </button>
-            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">O que e:</strong> Trate seu nome como empresa - visibilidade como estrategia.
-              </p>
-              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Acoes:</strong> Poste, ensine, documente diariamente. Quem nao e visto, nao e lembrado.
-              </p>
-              <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-blue-600">Conceitos chave:</strong> Cases, depoimentos, prova social nao monetaria, reputacao online.
-              </p>
-            </div>
-          </li>
-        </ul>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full">5h</span>
+            <a href="conteudo/modulo10.html" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">Acessar</a>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-2 text-xs text-neutral-600 dark:text-neutral-400">
+          <span>10.1 Regra dos 300</span>
+          <span>10.2 Funil Gratuito-Pago</span>
+          <span>10.3 Lead Magnets</span>
+          <span>10.4 Produtos Digitais</span>
+          <span>10.5 Servicos High-Ticket</span>
+          <span>10.6 Afiliados e Parcerias</span>
+          <span>10.7 Ads com Testemunhos</span>
+          <span>10.8 Equipe e Delegacao</span>
+          <span>10.9 Produtividade 14h/dia</span>
+          <span>10.10 Nunca Pare</span>
+        </div>
       </div>
 
       <!-- CTA Final -->
@@ -648,7 +407,7 @@
   <!-- Footer -->
   <footer class="bg-neutral-900 text-white py-8">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-neutral-400">&copy; 2025 TDS - Transformacao Digital Sustentavel</p>
+      <p class="text-neutral-400">&copy; 2025 TDS - Transformacao Digital e Social</p>
     </div>
   </footer>
 
@@ -677,27 +436,6 @@
       } else {
         document.documentElement.classList.add('dark');
         localStorage.setItem('color-theme', 'dark');
-      }
-    });
-
-    // Topic Accordion
-    document.addEventListener('click', function(e) {
-      const topicButton = e.target.closest('.topic-button');
-
-      if (topicButton) {
-        const topicItem = topicButton.closest('.topic-item');
-        const explanation = topicItem.querySelector('.topic-explanation');
-
-        if (explanation) {
-          const moduleCard = topicItem.closest('.module-card');
-          moduleCard.querySelectorAll('.topic-explanation').forEach(exp => {
-            if (exp !== explanation) {
-              exp.classList.add('hidden');
-            }
-          });
-
-          explanation.classList.toggle('hidden');
-        }
       }
     });
   </script>

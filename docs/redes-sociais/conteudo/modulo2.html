@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 2: TikTok Mastery - TDS</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .prose h2 { scroll-margin-top: 100px; }
+  </style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900 transition-colors">
+
+  <!-- Navegacao -->
+  <nav class="sticky top-0 z-50 bg-white dark:bg-neutral-800 shadow-sm">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center space-x-4">
+          <a href="../../../index.html" class="text-2xl font-bold text-blue-600 dark:text-blue-400">TDS</a>
+          <span class="text-neutral-400">/</span>
+          <a href="../index.html" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline">Redes Sociais</a>
+          <span class="text-neutral-400">/</span>
+          <span class="text-neutral-600 dark:text-neutral-400">Modulo 2</span>
+        </div>
+
+        <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-700" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero do Modulo -->
+  <header class="bg-gradient-to-br from-pink-600 via-pink-700 to-rose-700 py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+      <a href="../index.html" class="inline-flex items-center text-pink-200 hover:text-white mb-4 text-sm">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Voltar para Trilha de Redes Sociais
+      </a>
+      <div class="flex items-center gap-4 mb-4">
+        <span class="text-5xl">🎵</span>
+        <div>
+          <p class="text-pink-200 text-sm font-medium">MODULO 2</p>
+          <h1 class="text-3xl sm:text-4xl font-bold">TikTok Mastery</h1>
+        </div>
+      </div>
+      <p class="text-lg text-white/90 max-w-2xl mb-4">
+        Domine o algoritmo do TikTok, aprenda TikTok Shop e crie estrategias de crescimento explosivo. Brasil e o 3o maior mercado mundial!
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">5 horas</span>
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">3 topicos</span>
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">Nivel: Intermediario</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Indice -->
+  <div class="bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 py-4 sticky top-16 z-40">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2 text-sm overflow-x-auto pb-2">
+        <span class="text-neutral-500 dark:text-neutral-400 whitespace-nowrap">Ir para:</span>
+        <a href="#topico-1" class="px-3 py-1 bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 rounded-full whitespace-nowrap hover:bg-pink-200 dark:hover:bg-pink-900/50">2.1 Algoritmo</a>
+        <a href="#topico-2" class="px-3 py-1 bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 rounded-full whitespace-nowrap hover:bg-pink-200 dark:hover:bg-pink-900/50">2.2 TikTok Shop</a>
+        <a href="#topico-3" class="px-3 py-1 bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 rounded-full whitespace-nowrap hover:bg-pink-200 dark:hover:bg-pink-900/50">2.3 TikTok SEO</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conteudo Principal -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Introducao -->
+    <div class="bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-900/20 dark:to-rose-900/20 rounded-2xl p-8 mb-12 border-2 border-pink-200 dark:border-pink-800">
+      <h2 class="text-2xl font-bold text-pink-900 dark:text-pink-100 mb-4 flex items-center">
+        <span class="text-3xl mr-3">🚀</span>
+        Por Que TikTok E Ouro em 2025
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+          <p class="text-3xl font-bold text-pink-600 dark:text-pink-400">111M</p>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Usuarios no Brasil (3o maior mercado mundial)</p>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+          <p class="text-3xl font-bold text-pink-600 dark:text-pink-400">4.510%</p>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Crescimento do TikTok Shop em 3 meses (mai-ago 2025)</p>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+          <p class="text-3xl font-bold text-pink-600 dark:text-pink-400">80%</p>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Dos usuarios brasileiros acessam diariamente</p>
+        </div>
+        <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+          <p class="text-3xl font-bold text-pink-600 dark:text-pink-400">40%</p>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Ja compraram algo indicado na plataforma</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-pink-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">2.1</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Algoritmo do TikTok Decodificado</h2>
+      </div>
+
+      <!-- Conceito Principal -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🧠</span> Como Funciona o For You Page
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4 leading-relaxed">
+          O algoritmo do TikTok e <strong>baseado em conteudo, nao em seguidores</strong>. Isso significa que um video de uma conta nova pode viralizar tao rapido quanto de uma conta com milhoes. Oportunidade unica para novos criadores!
+        </p>
+        <div class="bg-pink-50 dark:bg-pink-900/20 p-4 rounded-lg border-l-4 border-pink-500">
+          <p class="text-pink-800 dark:text-pink-200 font-semibold">
+            "O TikTok mostra seu conteudo para quem vai gostar, nao para quem te segue. Cada video e uma nova chance."
+          </p>
+        </div>
+      </div>
+
+      <!-- Fatores do Algoritmo -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📊</span> Os 5 Fatores de Classificacao
+        </h3>
+
+        <div class="space-y-4">
+          <div class="flex items-start gap-4 p-4 bg-gradient-to-r from-pink-50 to-rose-50 dark:from-pink-900/20 dark:to-rose-900/20 rounded-lg">
+            <div class="w-10 h-10 bg-pink-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">1</div>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Watch Time (Tempo de Visualizacao)</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">O fator #1. Quanto mais tempo as pessoas assistem, mais o algoritmo distribui. Videos que sao reassistidos sao ainda melhores.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-10 h-10 bg-pink-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">2</div>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Engajamento</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Curtidas, comentarios, salvamentos e compartilhamentos. Comentarios longos e discussoes pesam mais.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-10 h-10 bg-pink-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">3</div>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Personalizacao</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">O TikTok aprende as preferencias de cada usuario e mostra conteudo relevante.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-10 h-10 bg-pink-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">4</div>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Informacoes do Video</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Legendas, hashtags, sons e texto no video. Tudo e analisado para categorizar o conteudo.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-10 h-10 bg-pink-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">5</div>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Qualidade do Video</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Resolucao boa, audio claro, iluminacao adequada. Videos de baixa qualidade sao penalizados.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-pink-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">2.2</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">TikTok Shop e Live Commerce</h2>
+      </div>
+
+      <!-- Conceito Principal -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🛒</span> O Futuro do E-commerce
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4 leading-relaxed">
+          TikTok Shop permite vender <strong>diretamente dentro da plataforma</strong>. O usuario ve o produto, clica e compra sem sair do app. Com PIX, a conversao e instantanea.
+        </p>
+        <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border-l-4 border-green-500">
+          <p class="text-green-800 dark:text-green-200 font-semibold">
+            Crescimento de 4.510% em 3 meses no Brasil! Janela de oportunidade unica.
+          </p>
+        </div>
+      </div>
+
+      <!-- Por Que Funciona -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">💡</span> Por Que TikTok Shop Funciona
+        </h3>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2">🎯 Algoritmo para Conversao</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">O algoritmo e otimizado para mostrar produtos para quem tem intencao de compra.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2">💳 PIX Instantaneo</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Pagamento imediato reduz abandonos de carrinho drasticamente.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2">📱 Jornada Simplificada</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Ver → Clicar → Comprar. Tudo dentro do app, sem fricao.</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2">🔴 Live Commerce</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Lives com produtos ao vivo geram urgencia e prova social em tempo real.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Checklist -->
+      <div class="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-xl p-6 border-2 border-amber-200 dark:border-amber-800">
+        <h3 class="text-lg font-bold text-amber-900 dark:text-amber-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">✅</span> Checklist para TikTok Shop
+        </h3>
+        <ul class="text-neutral-700 dark:text-neutral-300 space-y-2">
+          <li class="flex items-start"><span class="text-amber-500 mr-2">☑️</span> Criar conta de empresa no TikTok Ads</li>
+          <li class="flex items-start"><span class="text-amber-500 mr-2">☑️</span> Vincular ao perfil principal</li>
+          <li class="flex items-start"><span class="text-amber-500 mr-2">☑️</span> Cadastrar produtos com fotos e descricoes otimizadas</li>
+          <li class="flex items-start"><span class="text-amber-500 mr-2">☑️</span> Criar videos mostrando o produto em uso</li>
+          <li class="flex items-start"><span class="text-amber-500 mr-2">☑️</span> Fazer lives semanais demonstrando produtos</li>
+          <li class="flex items-start"><span class="text-amber-500 mr-2">☑️</span> Usar influenciadores como afiliados</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-pink-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">2.3</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">TikTok SEO e Otimizacao</h2>
+      </div>
+
+      <!-- Conceito Principal -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🔍</span> O Que E
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4 leading-relaxed">
+          TikTok SEO e a <strong>otimizacao para busca dentro do TikTok</strong>. Muitas pessoas ja usam o TikTok como buscador (especialmente Gen Z), entao aparecer nas buscas certas e ouro.
+        </p>
+      </div>
+
+      <!-- Elementos de SEO -->
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🎯</span> Elementos para Otimizar
+        </h3>
+
+        <div class="space-y-4">
+          <div class="border-l-4 border-pink-500 pl-4">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Palavras-chave na Legenda</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Use termos que seu publico pesquisa. Ex: "como ganhar dinheiro online" no inicio da legenda.</p>
+          </div>
+
+          <div class="border-l-4 border-pink-500 pl-4">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Hashtags Estrategicas</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Mix de hashtags grandes (#fyp) com nichadas (#marketingdigitalbrasil). 3-5 hashtags e ideal.</p>
+          </div>
+
+          <div class="border-l-4 border-pink-500 pl-4">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Texto no Video</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">O TikTok le o texto sobreposto. Use palavras-chave no titulo do video.</p>
+          </div>
+
+          <div class="border-l-4 border-pink-500 pl-4">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Sons em Alta</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Usar audios trending da um boost no alcance. Verifique a aba "Descobrir".</p>
+          </div>
+
+          <div class="border-l-4 border-pink-500 pl-4">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Perfil Otimizado</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Bio com palavras-chave do seu nicho. Nome de usuario memoravel e buscavel.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dicas de Pesquisa -->
+      <div class="bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 rounded-xl p-6 border-2 border-purple-200 dark:border-purple-800">
+        <h3 class="text-lg font-bold text-purple-900 dark:text-purple-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">💡</span> Como Pesquisar Palavras-Chave
+        </h3>
+        <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+          <ol class="text-sm text-neutral-700 dark:text-neutral-300 space-y-2">
+            <li><strong>1.</strong> Abra a busca do TikTok e digite uma palavra do seu nicho</li>
+            <li><strong>2.</strong> Veja as sugestoes de autocomplete - sao buscas reais</li>
+            <li><strong>3.</strong> Analise os videos que aparecem no topo - o que tem em comum?</li>
+            <li><strong>4.</strong> Note as hashtags mais usadas nos videos de sucesso</li>
+            <li><strong>5.</strong> Crie conteudo respondendo essas buscas especificas</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resumo e Proximos Passos -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-pink-600 to-rose-600 rounded-2xl p-8 text-white">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="text-3xl mr-3">🎓</span> Resumo do Modulo 2
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-6 mb-8">
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Algoritmo</p>
+            <p class="text-sm text-white/90">Watch time e rei. Cada video e uma nova chance. Baseado em conteudo, nao seguidores.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">TikTok Shop</p>
+            <p class="text-sm text-white/90">Crescimento explosivo no Brasil. Venda direta dentro do app. PIX acelera conversoes.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">TikTok SEO</p>
+            <p class="text-sm text-white/90">Otimize legendas, hashtags e texto no video. Pesquise o que seu publico busca.</p>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="modulo1.html" class="bg-white text-pink-600 px-6 py-3 rounded-lg font-semibold text-center hover:bg-neutral-100 transition-colors">
+            ← Modulo 1: Fundamentos
+          </a>
+          <a href="modulo3.html" class="bg-pink-700 text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-pink-800 transition-colors border border-white/30">
+            Proximo: Modulo 3 - Instagram Strategy →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-900 text-white py-8">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-neutral-400">&copy; 2025 TDS - Transformacao Digital e Social</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Theme Toggle
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+    if (localStorage.getItem('color-theme') === 'dark' ||
+        (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      themeToggleLightIcon.classList.remove('hidden');
+    } else {
+      themeToggleDarkIcon.classList.remove('hidden');
+    }
+
+    themeToggleBtn.addEventListener('click', function() {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+    });
+  </script>
+
+</body>
+</html>
