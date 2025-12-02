@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trilha de Negocios - TDS</title>
+  <title>Trilha de Negócios - TDS</title>
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -27,6 +27,71 @@
     body {
       font-family: 'Inter', sans-serif;
       -webkit-font-smoothing: antialiased;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6);
+      backdrop-filter: blur(4px);
+    }
+
+    .modal.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      background-color: white;
+      margin: auto;
+      padding: 0;
+      width: 90%;
+      max-width: 1000px;
+      max-height: 90vh;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 20px 25px rgba(0,0,0,0.3);
+    }
+
+    .dark .modal-content {
+      background-color: #262626;
+    }
+
+    .modal-header {
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid #e5e7eb;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .dark .modal-header {
+      border-bottom-color: #404040;
+    }
+
+    .modal-body {
+      padding: 2rem;
+      overflow-y: auto;
+      max-height: calc(90vh - 80px);
+    }
+
+    .close-modal {
+      color: #9ca3af;
+      font-size: 2rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .close-modal:hover {
+      color: #ef4444;
     }
 
     @keyframes fadeIn {
@@ -70,7 +135,7 @@
   </nav>
 
   <!-- Hero -->
-  <section class="bg-gradient-to-br from-purple-600 via-purple-700 to-pink-700 py-16 lg:py-24">
+  <section class="bg-gradient-to-br from-purple-600 via-purple-700 to-purple-800 py-16 lg:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white animate-fade-in">
       <div class="flex items-center mb-4">
         <span class="text-5xl mr-4">🚀</span>
@@ -80,12 +145,12 @@
         </div>
       </div>
       <p class="text-xl text-white/90 max-w-2xl mb-6">
-        Construa negocios escalaveis com automacao, IA e modelos inovadores. Prepare-se para as tendencias de 2025-2026.
+        Construa, gerencie e escale negocios digitais de alto impacto. Aprenda estrategias de gestao, financas, marketing, vendas e inovacao.
       </p>
       <div class="flex flex-wrap gap-3">
-        <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-medium">45 horas</span>
-        <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-medium">14 Modulos</span>
-        <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-medium">27+ Casos Praticos</span>
+        <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-medium">50 horas</span>
+        <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-medium">10 Modulos</span>
+        <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-medium">100 Topicos</span>
       </div>
     </div>
   </section>
@@ -98,7 +163,7 @@
         <span class="text-sm font-medium text-purple-600 dark:text-purple-400">0%</span>
       </div>
       <div class="w-full h-2 bg-neutral-200 dark:bg-neutral-700 rounded-full overflow-hidden">
-        <div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-500" style="width: 0%"></div>
+        <div class="h-full bg-gradient-to-r from-purple-500 to-purple-700 transition-all duration-500" style="width: 0%"></div>
       </div>
     </div>
   </div>
@@ -109,65 +174,195 @@
 
       <!-- Modulo 1 -->
       <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
-        <div class="flex items-center justify-between mb-4">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4 gap-4">
           <div class="flex items-center">
-            <span class="text-2xl mr-3">🏗️</span>
+            <span class="text-2xl mr-3">🎯</span>
             <div>
-              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 1: Modelos de Negocio Inovadores</h2>
-              <p class="text-sm text-neutral-600 dark:text-neutral-400">SaaS, InfoSaaS, Consultoria e novos modelos</p>
+              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 1: Fundamentos de Negocios Digitais</h2>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Base essencial para empreender no digital</p>
             </div>
           </div>
-          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium rounded-full">4h</span>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium rounded-full">5h</span>
+            <button onclick="openModal('modal-modulo1')" class="px-3 py-1.5 bg-purple-500 text-white text-xs font-medium rounded-lg hover:bg-purple-600 transition-colors">
+              Ver em Modal
+            </button>
+            <a href="conteudo/modulo1.html" class="px-3 py-1.5 bg-purple-600 text-white text-xs font-medium rounded-lg hover:bg-purple-700 transition-colors">
+              Abrir Pagina
+            </a>
+            <a href="../assets/downloads/negocios-modulo1.md" download class="px-3 py-1.5 border border-purple-500 text-purple-600 dark:text-purple-400 text-xs font-medium rounded-lg hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors">
+              Download MD
+            </a>
+          </div>
         </div>
 
         <ul class="topics-list space-y-0.5">
           <li class="topic-item">
             <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 1.1 SaaS Verticais e Microsolucoes
+              📌 1.1 O que e um Negocio Digital
             </button>
             <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">O que e:</strong> Solucoes ultra-especificas para nichos - quanto mais nichado, mais valor.
+                <strong class="text-purple-600">O que e:</strong> Negocio que opera primariamente online, aproveitando tecnologia e internet para criar, entregar e capturar valor de forma escalavel.
               </p>
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Exemplos:</strong> CRM para psicologos, gestao para barbearias, plataforma para esteticistas.
+                <strong class="text-purple-600">Por que aprender:</strong> O mercado digital cresce exponencialmente e oferece baixo custo de entrada, alcance global e possibilidade de automacao que negocios tradicionais nao tem.
               </p>
               <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Conceitos chave:</strong> Alto impacto + baixa dificuldade, focar em dores especificas.
+                <strong class="text-purple-600">Conceitos chave:</strong> E-commerce, SaaS, infoprodutos, marketplaces, plataformas digitais, receita recorrente, escalabilidade sem fricao.
               </p>
             </div>
           </li>
 
           <li class="topic-item">
             <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 1.2 InfoSaaS: Conteudo + Solucao
+              📌 1.2 Modelos de Negocios Online
             </button>
             <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">O que e:</strong> Novo modelo que combina conhecimento pessoal com software funcionando.
+                <strong class="text-purple-600">O que e:</strong> Diferentes formas de monetizacao e estruturacao de negocios digitais, cada uma com vantagens e desafios especificos.
               </p>
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Estrutura:</strong> Criadores deixam de so ensinar para resolver - microprodutos digitais automatizados.
+                <strong class="text-purple-600">Por que aprender:</strong> Escolher o modelo certo para seu produto/servico determina viabilidade, escalabilidade e potencial de lucro do negocio.
               </p>
               <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Conceitos chave:</strong> Conhecimento + IA + comunidade = produto, plataformas autorais.
+                <strong class="text-purple-600">Conceitos chave:</strong> Assinatura (SaaS), marketplace, freemium, comissao, publicidade, venda direta, dropshipping, afiliacao, licenciamento.
               </p>
             </div>
           </li>
 
           <li class="topic-item">
             <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 1.3 Agentes no WhatsApp (Interfaces Invisiveis)
+              📌 1.3 Lean Startup e MVP
             </button>
             <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">O que e:</strong> Futuro sem paineis - bots conversacionais que resolvem tudo.
+                <strong class="text-purple-600">O que e:</strong> Metodologia de desenvolvimento de produtos que prioriza aprendizado validado, experimentacao e iteracao rapida ao inves de planejamento extensivo.
               </p>
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Visao:</strong> WhatsApp como novo sistema operacional - resolver por voz, mensagem ou QR code.
+                <strong class="text-purple-600">Por que aprender:</strong> Reduz drasticamente tempo e capital necessarios para validar ideias, evitando desperdicio de recursos em produtos que ninguem quer.
               </p>
               <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Conceitos chave:</strong> Valor esta no que se resolve, nao na UI. Quem domina conversa, domina caixa.
+                <strong class="text-purple-600">Conceitos chave:</strong> MVP (Produto Minimo Viavel), Build-Measure-Learn, pivot vs persevere, validated learning, hipoteses testaveis.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 1.4 Proposta de Valor Unica
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Beneficio claro e diferenciado que seu produto oferece ao cliente, respondendo "por que escolher voce e nao a concorrencia?"
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Uma UVP forte e a base de todo marketing e vendas eficaz - sem ela, voce compete apenas por preco.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Diferenciacao, posicionamento, jobs-to-be-done, dores vs ganhos, matriz de valor, mensagem clara em 10 segundos.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 1.5 Analise de Mercado e Concorrencia
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Pesquisa sistematica do mercado-alvo (tamanho, crescimento, tendencias) e competidores (forcas, fraquezas, estrategias).
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Entender o campo de batalha antes de entrar - identificar oportunidades, gaps e ameacas que outros nao veem.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> TAM/SAM/SOM, analise das 5 Forcas de Porter, benchmarking, ocean azul vs vermelho, nichos lucrativos.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 1.6 Publico-Alvo e Persona
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Representacao semi-ficcional do cliente ideal baseada em dados reais (demograficos, comportamentais, psicograficos).
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Marketing generico nao converte - falar diretamente com uma pessoa especifica multiplica resultados e reduz desperdicio.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Entrevistas com clientes, segmentacao, dores/objetivos/medos, jornada de compra, linguagem do cliente.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 1.7 Validacao de Ideias
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Processo de testar se existe demanda real antes de investir tempo e dinheiro em construir o produto completo.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> 42% das startups falham por falta de demanda - validacao precoce salva meses de trabalho desperdicado.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Landing pages de teste, pre-vendas, smoke tests, entrevistas problema-solucao, metricas de validacao (taxa de conversao, CAC).
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 1.8 Product-Market Fit
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Momento em que seu produto satisfaz uma demanda forte do mercado - clientes amam e recomendam ativamente.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Escalar antes de atingir PMF e fatal - voce multiplica problemas. PMF e pre-requisito para crescimento sustentavel.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Sean Ellis Test (40% muito desapontados), retencao organica, NPS alto, crescimento boca-a-boca, churn baixo.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 1.9 Metricas Essenciais (KPIs)
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Indicadores-chave que mostram saude e progresso do negocio - numeros que realmente importam para decisoes estrategicas.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> "O que nao e medido, nao e gerenciado" - KPIs corretos orientam acoes e evitam metricas de vaidade.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> MRR/ARR, CAC/LTV, churn rate, burn rate, runway, unit economics, North Star Metric, cohort analysis.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 1.10 Mindset Empreendedor
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Mentalidade de crescimento, resiliencia emocional e habitos mentais que diferenciam empreendedores de sucesso dos demais.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> 90% do sucesso empreendedor e psicologico - lidar com incerteza, rejeicao e fracasso sem desistir.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Growth mindset vs fixed, bias de acao, antifragilidade, mentalidade de abundancia, disciplina sobre motivacao.
               </p>
             </div>
           </li>
@@ -176,65 +371,195 @@
 
       <!-- Modulo 2 -->
       <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
-        <div class="flex items-center justify-between mb-4">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4 gap-4">
           <div class="flex items-center">
-            <span class="text-2xl mr-3">🤖</span>
+            <span class="text-2xl mr-3">📊</span>
             <div>
-              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 2: Automacao com IA</h2>
-              <p class="text-sm text-neutral-600 dark:text-neutral-400">Agentes, workflows e ferramentas essenciais</p>
+              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 2: Planejamento Estrategico</h2>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Estruturacao e planejamento de negocios sustentaveis</p>
             </div>
           </div>
-          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium rounded-full">5h</span>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium rounded-full">5h</span>
+            <button onclick="openModal('modal-modulo2')" class="px-3 py-1.5 bg-purple-500 text-white text-xs font-medium rounded-lg hover:bg-purple-600 transition-colors">
+              Ver em Modal
+            </button>
+            <a href="conteudo/modulo2.html" class="px-3 py-1.5 bg-purple-600 text-white text-xs font-medium rounded-lg hover:bg-purple-700 transition-colors">
+              Abrir Pagina
+            </a>
+            <a href="../assets/downloads/negocios-modulo2.md" download class="px-3 py-1.5 border border-purple-500 text-purple-600 dark:text-purple-400 text-xs font-medium rounded-lg hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors">
+              Download MD
+            </a>
+          </div>
         </div>
 
         <ul class="topics-list space-y-0.5">
           <li class="topic-item">
             <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 2.1 Agentes Autonomos com IA
+              📌 2.1 Business Model Canvas
             </button>
             <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">O que e:</strong> Agentes com memoria, contexto e decisoes autonomas - nao chatbots travados.
+                <strong class="text-purple-600">O que e:</strong> Ferramenta visual de uma pagina que mapeia os 9 blocos fundamentais de qualquer modelo de negocio - da proposta de valor a receitas.
               </p>
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Aplicacoes:</strong> Agentes de voz (Vapi, Retell), bots de vendas completos, atendentes 24/7.
+                <strong class="text-purple-600">Por que aprender:</strong> Substitui planos de negocio de 40 paginas por um diagrama iterativo que facilita experimentacao e alinhamento de equipe.
               </p>
               <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Conceitos chave:</strong> Contexto persistente, orquestracao, fallback humano.
+                <strong class="text-purple-600">Conceitos chave:</strong> Segmentos de clientes, proposta de valor, canais, relacionamento, receitas, recursos-chave, atividades, parcerias, custos.
               </p>
             </div>
           </li>
 
           <li class="topic-item">
             <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 2.2 Ferramentas de Automacao
+              📌 2.2 Analise SWOT
             </button>
             <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">O que e:</strong> Stack essencial para criar automacoes poderosas.
+                <strong class="text-purple-600">O que e:</strong> Matriz que identifica Forcas (Strengths), Fraquezas (Weaknesses), Oportunidades (Opportunities) e Ameacas (Threats) do negocio.
               </p>
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Ferramentas:</strong> Make.com, n8n, Zapier, ChatGPT/Claude APIs, WhatsApp API (Z-API, Gupshup).
+                <strong class="text-purple-600">Por que aprender:</strong> Visao 360 graus do posicionamento competitivo - ajuda priorizar onde focar energia e recursos limitados.
               </p>
               <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Conceitos chave:</strong> Webhooks, integracoes, CRM automatizado, email marketing behavior-based.
+                <strong class="text-purple-600">Conceitos chave:</strong> Fatores internos vs externos, analise competitiva, vantagens competitivas, gaps de mercado, riscos sistemicos.
               </p>
             </div>
           </li>
 
           <li class="topic-item">
             <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 2.3 Desenvolvimento No-Code com IA
+              📌 2.3 Definicao de Metas SMART
             </button>
             <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">O que e:</strong> Criar apps completos sem programar - democratizacao do desenvolvimento.
+                <strong class="text-purple-600">O que e:</strong> Metodologia para criar objetivos Especificos, Mensuravelis, Atingiveis, Relevantes e Temporais que realmente levam a resultados.
               </p>
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Ferramentas:</strong> Cursor, Lovable, Replit - dashboard funcional em minutos.
+                <strong class="text-purple-600">Por que aprender:</strong> Metas vagas geram resultados vagos - SMART transforma intencoes em planos de acao concretos e rastreáveis.
               </p>
               <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Conceitos chave:</strong> Automatize ou morra tentando, integracao com APIs automatica.
+                <strong class="text-purple-600">Conceitos chave:</strong> OKRs (Objectives and Key Results), KPIs de acompanhamento, metas escalonadas (curto/medio/longo prazo), alinhamento estrategico.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 2.4 Planejamento Financeiro Basico
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Estimativa de investimento inicial, custos operacionais, projecoes de receita e ponto de equilibrio financeiro do negocio.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Empreendedores quebram por falta de caixa, nao de ideias - planejamento financeiro evita surpresas fatais.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Custos fixos vs variaveis, projecao de fluxo de caixa 12 meses, reserva de emergencia, capital inicial necessario.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 2.5 Fluxo de Caixa
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Controle de entradas e saidas de dinheiro em tempo real - quanto tem disponivel agora e proximo a entrar/sair.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> "Cash is king" - voce pode ter lucro no papel mas quebrar por falta de caixa para pagar contas.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Regime de caixa vs competencia, ciclo de conversao, prazo medio de recebimento/pagamento, gestao de inadimplencia.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 2.6 Precificacao Estrategica
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Metodologia de definir precos baseada em valor percebido pelo cliente, nao apenas em custos mais margem.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Preco e a alavanca mais poderosa de lucro - pequenos ajustes de preco tem impacto maior que reducao de custos.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Value-based pricing, ancoragem, psicologia de precos ($99 vs $100), pacotes (bom-melhor-otimo), testes de preco.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 2.7 Break-even Point
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Ponto de equilibrio onde receitas totais = custos totais - momento em que o negocio para de dar prejuizo.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Saber quantas vendas precisa fazer para cobrir custos e crucial para metas realistas e viabilidade do negocio.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Margem de contribuicao, custos fixos/variaveis, calculo de unidades necessarias, tempo ate break-even, sensibilidade a variacoes.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 2.8 Projecoes de Crescimento
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Previsao fundamentada de crescimento de receita, clientes e metricas-chave baseada em dados historicos e premissas validadas.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Investidores, credores e parceiros exigem projecoes - tambem orienta contratacoes e investimentos em infraestrutura.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Cenarios (otimista/realista/pessimista), taxa de crescimento sustentavel, curvas S vs exponencial, premissas criticas.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 2.9 Gestao de Riscos
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Identificacao, avaliacao e mitigacao proativa de riscos (financeiros, operacionais, juridicos, reputacionais) que podem afetar o negocio.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Empresas resilientes antecipam problemas e tem planos B - nao sao pegas de surpresa por crises previsiveis.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Matriz de risco (probabilidade x impacto), planos de contingencia, diversificacao de receita, seguros, compliance.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 2.10 Plano de Acao
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Documento operacional que traduz estrategia em tarefas concretas com responsaveis, prazos e recursos definidos.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> A ponte entre planejamento e execucao - sem plano de acao, estrategias ficam no papel.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> 5W2H (What, Why, Who, When, Where, How, How much), milestones, dependencias, revisoes periodicas.
               </p>
             </div>
           </li>
@@ -243,65 +568,195 @@
 
       <!-- Modulo 3 -->
       <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
-        <div class="flex items-center justify-between mb-4">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4 gap-4">
           <div class="flex items-center">
-            <span class="text-2xl mr-3">📈</span>
+            <span class="text-2xl mr-3">📢</span>
             <div>
-              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 3: Escalabilidade</h2>
-              <p class="text-sm text-neutral-600 dark:text-neutral-400">Os 3 pilares do crescimento sustentavel</p>
+              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 3: Marketing Digital Estrategico</h2>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Atraia, engaje e converta clientes online</p>
             </div>
           </div>
-          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium rounded-full">4h</span>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium rounded-full">5h</span>
+            <button onclick="openModal('modal-modulo3')" class="px-3 py-1.5 bg-purple-500 text-white text-xs font-medium rounded-lg hover:bg-purple-600 transition-colors">
+              Ver em Modal
+            </button>
+            <a href="conteudo/modulo3.html" class="px-3 py-1.5 bg-purple-600 text-white text-xs font-medium rounded-lg hover:bg-purple-700 transition-colors">
+              Abrir Pagina
+            </a>
+            <a href="../assets/downloads/negocios-modulo3.md" download class="px-3 py-1.5 border border-purple-500 text-purple-600 dark:text-purple-400 text-xs font-medium rounded-lg hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors">
+              Download MD
+            </a>
+          </div>
         </div>
 
         <ul class="topics-list space-y-0.5">
           <li class="topic-item">
             <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 3.1 Os 3 Pilares da Escalabilidade
+              📌 3.1 Fundamentos de Marketing Digital
             </button>
             <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">O que e:</strong> Framework fundamental para crescer de forma sustentavel.
+                <strong class="text-purple-600">O que e:</strong> Conjunto de estrategias para promover produtos e servicos usando canais digitais como redes sociais, email, buscadores e sites.
               </p>
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Os 3 Pilares:</strong> 1) Automacao (sistemas para tarefas repetitivas), 2) Expansao (novos mercados), 3) Padronizacao (processos replicaveis).
+                <strong class="text-purple-600">Por que aprender:</strong> O marketing digital permite alcancar o publico certo com investimento acessivel e resultados mensuraveis.
               </p>
               <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Conceitos chave:</strong> Teoria das Restricoes, eliminacao de gargalos.
+                <strong class="text-purple-600">Conceitos chave:</strong> Presenca online, canais de aquisicao, jornada digital, metricas de performance, ROI de marketing.
               </p>
             </div>
           </li>
 
           <li class="topic-item">
             <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 3.2 Estrategia 10 → 100 → 1000
+              📌 3.2 Inbound vs Outbound Marketing
             </button>
             <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">O que e:</strong> Fases de crescimento com pontos criticos em cada etapa.
+                <strong class="text-purple-600">O que e:</strong> Inbound atrai clientes com conteudo relevante; Outbound vai ativamente atras do cliente com anuncios e prospeccao.
               </p>
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Fases:</strong> Ate 10 clientes (validacao), ate 100 (processos), ate 1000 (equipe e sistemas).
+                <strong class="text-purple-600">Por que aprender:</strong> Combinar ambas estrategias maximiza resultados - Inbound reduz CAC, Outbound acelera vendas.
               </p>
               <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Conceitos chave:</strong> Cada fase requer habilidades diferentes, nao pular etapas.
+                <strong class="text-purple-600">Conceitos chave:</strong> Marketing de atracao, interrupcao vs permissao, flywheel, nurturing, cold outreach.
               </p>
             </div>
           </li>
 
           <li class="topic-item">
             <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 3.3 Receita Recorrente (Retainers)
+              📌 3.3 Marketing de Conteudo
             </button>
             <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">O que e:</strong> Transformar projetos unicos em fluxo de receita previsivel.
+                <strong class="text-purple-600">O que e:</strong> Estrategia de criar e distribuir conteudo valioso para atrair, engajar e converter uma audiencia definida.
               </p>
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Modelos:</strong> Assinaturas mensais, retainers de manutencao, participacao em receita.
+                <strong class="text-purple-600">Por que aprender:</strong> Conteudo de qualidade constroi autoridade, gera trafego organico e cria relacionamento com potenciais clientes.
               </p>
               <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Conceitos chave:</strong> LTV (valor do cliente), churn reduction, upsell estrategico.
+                <strong class="text-purple-600">Conceitos chave:</strong> Blog, video, podcast, infograficos, ebooks, calendario editorial, pillar content.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 3.4 SEO - Otimizacao para Buscadores
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Conjunto de tecnicas para melhorar o posicionamento de paginas nos resultados organicos do Google e outros buscadores.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Trafego organico e gratuito e altamente qualificado - quem busca ja tem intencao de resolver um problema.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Palavras-chave, on-page SEO, off-page SEO, backlinks, autoridade de dominio, Core Web Vitals.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 3.5 Email Marketing
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Estrategia de comunicacao direta com leads e clientes atraves de emails segmentados e personalizados.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Email tem o maior ROI do marketing digital (ate 40x) e voce e dono da sua lista, nao depende de algoritmos.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Lista de emails, segmentacao, taxa de abertura, CTR, automacao, sequencias de nurturing.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 3.6 Automacao de Marketing
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Uso de software para automatizar tarefas repetitivas de marketing como envio de emails, posts e qualificacao de leads.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Escala suas acoes de marketing sem aumentar equipe, permite personalizacao em massa e reduz erros.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Workflows, triggers, lead scoring, drip campaigns, ferramentas (Mailchimp, RD Station, HubSpot).
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 3.7 Copywriting Persuasivo
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Arte de escrever textos que persuadem o leitor a tomar uma acao especifica como comprar, cadastrar ou clicar.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Palavras certas multiplicam conversoes - uma mudanca de headline pode dobrar vendas.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> AIDA (Atencao, Interesse, Desejo, Acao), headlines, CTAs, beneficios vs caracteristicas, storytelling.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 3.8 Landing Pages que Convertem
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Paginas focadas em um unico objetivo de conversao, sem distracao, otimizadas para transformar visitantes em leads ou clientes.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Landing pages bem feitas convertem 5-10x mais que paginas genericas - sao essenciais para campanhas pagas.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Above the fold, formulario, prova social, garantia, escassez, design limpo, mobile-first.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 3.9 Testes A/B
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Metodo cientifico de comparar duas versoes de uma pagina, email ou anuncio para descobrir qual performa melhor.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Decisoes baseadas em dados superam intuicao - testes A/B eliminam achismo e otimizam continuamente.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Hipotese, variavel, controle, significancia estatistica, tamanho da amostra, ferramentas (Google Optimize).
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 3.10 Analytics e Metricas de Marketing
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Coleta e analise de dados para medir o desempenho das acoes de marketing e tomar decisoes informadas.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> O que nao e medido nao e gerenciado - analytics revela o que funciona e onde investir.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Google Analytics, CAC, LTV, taxa de conversao, bounce rate, atribuicao, dashboards.
               </p>
             </div>
           </li>
@@ -310,65 +765,195 @@
 
       <!-- Modulo 4 -->
       <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
-        <div class="flex items-center justify-between mb-4">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4 gap-4">
           <div class="flex items-center">
-            <span class="text-2xl mr-3">🎯</span>
+            <span class="text-2xl mr-3">💰</span>
             <div>
-              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 4: Consultoria de IA</h2>
-              <p class="text-sm text-neutral-600 dark:text-neutral-400">Auditoria, implementacao e monetizacao</p>
+              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 4: Vendas e Conversao</h2>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Transforme leads em clientes pagantes</p>
             </div>
           </div>
-          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium rounded-full">5h</span>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium rounded-full">5h</span>
+            <button onclick="openModal('modal-modulo4')" class="px-3 py-1.5 bg-purple-500 text-white text-xs font-medium rounded-lg hover:bg-purple-600 transition-colors">
+              Ver em Modal
+            </button>
+            <a href="conteudo/modulo4.html" class="px-3 py-1.5 bg-purple-600 text-white text-xs font-medium rounded-lg hover:bg-purple-700 transition-colors">
+              Abrir Pagina
+            </a>
+            <a href="../assets/downloads/negocios-modulo4.md" download class="px-3 py-1.5 border border-purple-500 text-purple-600 dark:text-purple-400 text-xs font-medium rounded-lg hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors">
+              Download MD
+            </a>
+          </div>
         </div>
 
         <ul class="topics-list space-y-0.5">
           <li class="topic-item">
             <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 4.1 Estrutura de Consultoria de IA
+              📌 4.1 Funil de Vendas
             </button>
             <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">O que e:</strong> Framework completo para vender consultoria em IA para empresas.
+                <strong class="text-purple-600">O que e:</strong> Representacao das etapas que um potencial cliente percorre desde o primeiro contato ate a compra.
               </p>
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Pacotes:</strong> Diagnostico (R$5k-15k), Implementacao por sprints (R$8k-30k/mes), Retainer (R$2k-10k/mes).
+                <strong class="text-purple-600">Por que aprender:</strong> Entender o funil permite identificar gargalos, otimizar conversoes e prever receita com precisao.
               </p>
               <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Conceitos chave:</strong> Diagnostico como diferencial, roadmap trimestral com OKRs.
+                <strong class="text-purple-600">Conceitos chave:</strong> ToFu (topo), MoFu (meio), BoFu (fundo), taxa de conversao por etapa, pipeline de vendas.
               </p>
             </div>
           </li>
 
           <li class="topic-item">
             <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 4.2 Formulario de Auditoria de IA
+              📌 4.2 Jornada do Cliente
             </button>
             <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">O que e:</strong> Ferramenta que qualifica leads e gera insights automaticamente.
+                <strong class="text-purple-600">O que e:</strong> Mapeamento de todos os pontos de contato e experiencias do cliente com sua marca, do descobrimento a fidelizacao.
               </p>
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Secoes:</strong> Operacoes atuais e dores, ecossistema de tecnologia, oportunidades de automacao, consideracoes para implementacao.
+                <strong class="text-purple-600">Por que aprender:</strong> Permite criar experiencias personalizadas em cada etapa e eliminar fricoes que impedem a compra.
               </p>
               <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Conceitos chave:</strong> Automatizar processamento com IA, gerar PDF de insights automatico.
+                <strong class="text-purple-600">Conceitos chave:</strong> Touchpoints, momentos da verdade, mapa de empatia, customer journey map, experiencia do cliente.
               </p>
             </div>
           </li>
 
           <li class="topic-item">
             <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 4.3 Metricas e ROI
+              📌 4.3 Tecnicas de Persuasao
             </button>
             <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">O que e:</strong> Como medir e demonstrar valor das implementacoes de IA.
+                <strong class="text-purple-600">O que e:</strong> Principios psicologicos que influenciam decisoes de compra de forma etica e eficaz.
               </p>
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Formula:</strong> Horas poupadas/mes x valor/hora = economia mensal. Preco do MVP ≤ 1-2 meses de economia.
+                <strong class="text-purple-600">Por que aprender:</strong> Entender como pessoas decidem permite comunicar valor de forma que ressoe com o cliente.
               </p>
               <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Conceitos chave:</strong> Planilha de metricas antes/depois, % auto-resolvido, R$ economizado.
+                <strong class="text-purple-600">Conceitos chave:</strong> 6 principios de Cialdini (reciprocidade, escassez, autoridade, consistencia, afinidade, consenso social).
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 4.4 Gatilhos Mentais
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Estimulos que ativam respostas automaticas no cerebro, acelerando decisoes de compra.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Gatilhos bem aplicados reduzem objecoes e aceleram o ciclo de vendas significativamente.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Urgencia, escassez, prova social, autoridade, novidade, exclusividade, FOMO.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 4.5 Objecoes e Como Contorna-las
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Resistencias e duvidas que clientes apresentam antes de comprar e como responde-las de forma eficaz.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Objecoes nao tratadas matam vendas - saber responde-las e a diferenca entre fechar ou perder.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Objecoes de preco, tempo, confianca, necessidade; tecnica Feel-Felt-Found, antecipacao.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 4.6 Fechamento de Vendas
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Momento decisivo onde o cliente toma a decisao de compra e tecnicas para facilitar esse momento.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Muitos vendedores falham no fechamento por nao pedir a venda - tecnicas certas aumentam conversao.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Assumptive close, alternativa, urgencia, trial close, perguntas de fechamento.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 4.7 Upsell e Cross-sell
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Upsell oferece versao superior do produto; Cross-sell oferece produtos complementares a compra principal.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Aumentar ticket medio e mais facil e barato que conquistar novos clientes - pode dobrar receita.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Order bump, one-click upsell, bundles, timing de oferta, relevancia.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 4.8 Vendas Consultivas
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Abordagem de vendas focada em entender profundamente as necessidades do cliente antes de oferecer solucoes.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Clientes B2B e high-ticket exigem consultoria, nao pitch - gera vendas maiores e relacionamentos duradouros.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Discovery call, perguntas SPIN, diagnostico, proposta personalizada, venda de valor.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 4.9 CRM e Gestao de Leads
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Sistema para gerenciar relacionamentos com clientes, organizar pipeline de vendas e automatizar follow-ups.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> CRM evita que leads escapem, organiza o processo de vendas e fornece dados para melhorar performance.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Pipeline, stages, lead scoring, automacao, integracao, relatorios (Pipedrive, HubSpot, Salesforce).
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 4.10 Pos-venda e Fidelizacao
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Estrategias para manter clientes satisfeitos apos a compra, gerando recompra e indicacoes.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Reter um cliente custa 5-7x menos que conquistar novo - clientes fieis compram mais e indicam.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Onboarding, NPS, customer success, programa de fidelidade, comunidade, referral.
               </p>
             </div>
           </li>
@@ -377,48 +962,195 @@
 
       <!-- Modulo 5 -->
       <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
-        <div class="flex items-center justify-between mb-4">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4 gap-4">
           <div class="flex items-center">
-            <span class="text-2xl mr-3">👥</span>
+            <span class="text-2xl mr-3">📊</span>
             <div>
-              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 5: Comunidade como Motor</h2>
-              <p class="text-sm text-neutral-600 dark:text-neutral-400">Aquisicao, retencao e fidelizacao</p>
+              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 5: Gestao Financeira</h2>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Controle financeiro para crescer com seguranca</p>
             </div>
           </div>
-          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium rounded-full">3h</span>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium rounded-full">5h</span>
+            <button onclick="openModal('modal-modulo5')" class="px-3 py-1.5 bg-purple-500 text-white text-xs font-medium rounded-lg hover:bg-purple-600 transition-colors">
+              Ver em Modal
+            </button>
+            <a href="conteudo/modulo5.html" class="px-3 py-1.5 bg-purple-600 text-white text-xs font-medium rounded-lg hover:bg-purple-700 transition-colors">
+              Abrir Pagina
+            </a>
+            <a href="../assets/downloads/negocios-modulo5.md" download class="px-3 py-1.5 border border-purple-500 text-purple-600 dark:text-purple-400 text-xs font-medium rounded-lg hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors">
+              Download MD
+            </a>
+          </div>
         </div>
 
         <ul class="topics-list space-y-0.5">
           <li class="topic-item">
             <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 5.1 Comunidade Nao E Bonus, E Pipeline
+              📌 5.1 Contabilidade Basica para Empreendedores
             </button>
             <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">O que e:</strong> Comunidades geram mais autoridade e leads que anuncios caros.
+                <strong class="text-purple-600">O que e:</strong> Fundamentos de registro e controle financeiro que todo empreendedor precisa dominar.
               </p>
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Dado:</strong> Grupos no Telegram superam paginas com 50k seguidores em conversao.
+                <strong class="text-purple-600">Por que aprender:</strong> Sem controle financeiro basico, negocios quebram mesmo faturando bem - numeros nao mentem.
               </p>
               <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Conceitos chave:</strong> Funil completo (fidelizacao, autoridade, aquisicao), boca a boca amplificado.
+                <strong class="text-purple-600">Conceitos chave:</strong> Receitas, despesas, ativos, passivos, patrimonio liquido, regime de caixa vs competencia.
               </p>
             </div>
           </li>
 
           <li class="topic-item">
             <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 5.2 Construcao de Comunidade
+              📌 5.2 DRE - Demonstracao de Resultados
             </button>
             <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">O que e:</strong> Comunidade deve ser cocriada, nao centralizada.
+                <strong class="text-purple-600">O que e:</strong> Relatorio que mostra se a empresa teve lucro ou prejuizo em determinado periodo.
               </p>
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Principios:</strong> 1000 pequenas acoes (DMs, ligacoes, suporte), eventos exclusivos, gamificacao.
+                <strong class="text-purple-600">Por que aprender:</strong> DRE revela a saude real do negocio - faturamento alto nao significa lucro.
               </p>
               <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Conceitos chave:</strong> Telegram/Discord como centros de gravidade, indicacoes naturais.
+                <strong class="text-purple-600">Conceitos chave:</strong> Receita bruta, deducoes, custos, despesas operacionais, lucro bruto, lucro liquido.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 5.3 Gestao de Custos
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Identificacao, classificacao e controle de todos os gastos necessarios para operar o negocio.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Custos descontrolados corroem margens - conhecer cada centavo e essencial para precificar e lucrar.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Custos fixos, variaveis, diretos, indiretos, custeio por absorcao, custeio variavel.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 5.4 Margem de Lucro
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Percentual do faturamento que sobra como lucro apos pagar todos os custos e despesas.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Margem saudavel garante sustentabilidade - negocios com margem baixa sao frageis a qualquer imprevisto.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Margem bruta, margem operacional, margem liquida, markup, margem de contribuicao.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 5.5 Capital de Giro
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Recursos necessarios para manter as operacoes do dia a dia enquanto o dinheiro das vendas nao entra.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Falta de capital de giro quebra empresas lucrativas - e preciso ter caixa para operar.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Ciclo operacional, ciclo financeiro, necessidade de capital de giro, folga financeira.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 5.6 Investimentos e ROI
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Analise de retorno sobre investimentos para decidir onde alocar recursos com maior eficiencia.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Todo gasto deve ser visto como investimento - ROI permite comparar opcoes e maximizar resultados.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> ROI, ROAS, payback, VPL (Valor Presente Liquido), TIR (Taxa Interna de Retorno).
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 5.7 Impostos e Tributacao
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Obrigacoes fiscais que empresas devem cumprir e estrategias para otimizar a carga tributaria legalmente.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Tributacao errada pode custar ate 40% do faturamento - planejamento tributario e essencial.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Simples Nacional, Lucro Presumido, Lucro Real, ISS, ICMS, PIS/COFINS, elisao fiscal.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 5.8 Formalizacao (MEI, ME, LTDA)
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Tipos de empresas disponiveis no Brasil e como escolher a melhor estrutura para cada momento do negocio.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Formalizacao correta reduz impostos, protege patrimonio pessoal e abre portas para clientes maiores.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> MEI (ate R$81k/ano), ME, EPP, LTDA, EIRELI, SLU, protecao patrimonial, CNPJ.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 5.9 Controle de Estoque
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Gestao de produtos armazenados, equilibrando disponibilidade para vendas e capital empatado.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Estoque parado e dinheiro parado - excesso ou falta prejudicam igualmente o negocio.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Giro de estoque, estoque minimo, curva ABC, FIFO/LIFO, inventario, SKU.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 5.10 Indicadores Financeiros
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Metricas que revelam a saude financeira do negocio e permitem comparar performance ao longo do tempo.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Indicadores sao o painel de controle do negocio - sem eles, voce dirige no escuro.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Liquidez, rentabilidade, endividamento, EBITDA, burn rate, runway, unit economics.
               </p>
             </div>
           </li>
@@ -427,65 +1159,195 @@
 
       <!-- Modulo 6 -->
       <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
-        <div class="flex items-center justify-between mb-4">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4 gap-4">
           <div class="flex items-center">
-            <span class="text-2xl mr-3">⚠️</span>
+            <span class="text-2xl mr-3">⚙️</span>
             <div>
-              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 6: 26 Erros de Agencias que Falham</h2>
-              <p class="text-sm text-neutral-600 dark:text-neutral-400">Licoes de quem errou para voce nao errar</p>
+              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 6: Operacoes e Processos</h2>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Eficiencia operacional e automacao</p>
             </div>
           </div>
-          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium rounded-full">4h</span>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium rounded-full">5h</span>
+            <button onclick="openModal('modal-modulo6')" class="px-3 py-1.5 bg-purple-500 text-white text-xs font-medium rounded-lg hover:bg-purple-600 transition-colors">
+              Ver em Modal
+            </button>
+            <a href="conteudo/modulo6.html" class="px-3 py-1.5 bg-purple-600 text-white text-xs font-medium rounded-lg hover:bg-purple-700 transition-colors">
+              Abrir Pagina
+            </a>
+            <a href="../assets/downloads/negocios-modulo6.md" download class="px-3 py-1.5 border border-purple-500 text-purple-600 dark:text-purple-400 text-xs font-medium rounded-lg hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors">
+              Download MD
+            </a>
+          </div>
         </div>
 
         <ul class="topics-list space-y-0.5">
           <li class="topic-item">
             <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 6.1 Erros de Estrategia e Foco
+              📌 6.1 Mapeamento de Processos
             </button>
             <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">O que e:</strong> Erros mais comuns que quebram agencias antes de decolar.
+                <strong class="text-purple-600">O que e:</strong> Documentacao visual de como as atividades do negocio sao executadas, do inicio ao fim.
               </p>
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Erros:</strong> Nao ter nicho definido, ser amplo demais, criar produtos antes de validar, nao focar em dores.
+                <strong class="text-purple-600">Por que aprender:</strong> Processos mapeados revelam gargalos, permitem padronizacao e facilitam treinamento de novos membros.
               </p>
               <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Solucao:</strong> Escolha 1 nicho, valide demanda com entrevistas, foque em problemas reais.
+                <strong class="text-purple-600">Conceitos chave:</strong> Fluxograma, BPMN, swimlanes, inputs/outputs, pontos de decisao, gargalos.
               </p>
             </div>
           </li>
 
           <li class="topic-item">
             <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 6.2 Erros de Precificacao e Vendas
+              📌 6.2 Automacao de Processos
             </button>
             <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">O que e:</strong> Erros que destroem margem e sustentabilidade.
+                <strong class="text-purple-600">O que e:</strong> Uso de tecnologia para executar tarefas repetitivas automaticamente, sem intervencao humana.
               </p>
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Erros:</strong> Cobrar muito barato, nao alinhar expectativas, vender sem retainers, assumir cliente antes de pagar.
+                <strong class="text-purple-600">Por que aprender:</strong> Automacao libera tempo para atividades estrategicas, reduz erros e permite escalar sem aumentar custos.
               </p>
               <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Solucao:</strong> Precifique por ROI, use contratos claros, nunca trabalhe de graca.
+                <strong class="text-purple-600">Conceitos chave:</strong> RPA, Zapier, Make (Integromat), n8n, workflows, triggers, APIs, integracao de sistemas.
               </p>
             </div>
           </li>
 
           <li class="topic-item">
             <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 6.3 Erros de Gestao de Projetos
+              📌 6.3 Ferramentas de Produtividade
             </button>
             <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">O que e:</strong> Erros operacionais que consomem tempo e recursos.
+                <strong class="text-purple-600">O que e:</strong> Softwares e aplicativos que otimizam o trabalho individual e em equipe.
               </p>
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Erros:</strong> Scope creep, subestimar prazos, nao considerar testes, gastar com ferramentas antes de ter cliente.
+                <strong class="text-purple-600">Por que aprender:</strong> Ferramentas certas multiplicam produtividade - escolher errado gera atrito e desperidcio de tempo.
               </p>
               <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Solucao:</strong> Limite de escopo em contrato, buffers de tempo, MVP antes de escalar.
+                <strong class="text-purple-600">Conceitos chave:</strong> Notion, Slack, Google Workspace, Trello, Asana, calendarios, gestao de tempo.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 6.4 Gestao de Projetos
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Planejamento, execucao e controle de iniciativas com inicio, meio e fim definidos.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Projetos bem gerenciados entregam no prazo e orcamento - mal gerenciados drenam recursos e frustram.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Escopo, cronograma, orcamento, riscos, stakeholders, entregas, milestones.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 6.5 Metodologias Ageis (Scrum/Kanban)
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Frameworks de gestao que priorizam entregas incrementais, adaptacao rapida e colaboracao.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Metodologias ageis respondem melhor a mudancas e entregam valor mais rapido que metodos tradicionais.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Sprints, backlog, daily standup, retrospectiva, quadro Kanban, WIP limits, velocity.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 6.6 Terceirizacao e Outsourcing
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Delegacao de atividades para prestadores externos, focando recursos internos no core business.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Terceirizar bem reduz custos e acessa expertise especializada sem contratar full-time.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Core vs non-core, freelancers, agencias, SLAs, contratos, gestao de terceiros.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 6.7 Gestao de Fornecedores
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Selecao, negociacao e relacionamento com parceiros que fornecem produtos ou servicos ao negocio.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Bons fornecedores sao vantagem competitiva - maus fornecedores podem destruir sua reputacao.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Qualificacao, cotacao, negociacao, contratos, avaliacao de desempenho, backup suppliers.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 6.8 Logistica e Entrega
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Gestao do fluxo de produtos desde a producao ate o cliente final, incluindo armazenamento e transporte.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Logistica eficiente reduz custos e melhora experiencia do cliente - atrasos geram cancelamentos.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Fulfillment, last mile, frete, rastreamento, reversa logistica, centros de distribuicao.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 6.9 Atendimento ao Cliente
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Suporte e assistencia oferecidos aos clientes antes, durante e apos a compra.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Atendimento excelente diferencia marcas e transforma clientes em promotores - mau atendimento viraliza.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Canais de atendimento, SLA, primeiro contato, escalonamento, chatbots, humanizacao.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 6.10 Qualidade e Melhoria Continua
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Cultura e praticas para garantir excelencia e aprimorar constantemente produtos, servicos e processos.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Empresas que nao melhoram continuamente sao ultrapassadas - qualidade e vantagem competitiva sustentavel.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> PDCA, Kaizen, Six Sigma, indicadores de qualidade, feedback loops, root cause analysis.
               </p>
             </div>
           </li>
@@ -494,65 +1356,195 @@
 
       <!-- Modulo 7 -->
       <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
-        <div class="flex items-center justify-between mb-4">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4 gap-4">
           <div class="flex items-center">
-            <span class="text-2xl mr-3">🔮</span>
+            <span class="text-2xl mr-3">👥</span>
             <div>
-              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 7: Tendencias 2025-2026</h2>
-              <p class="text-sm text-neutral-600 dark:text-neutral-400">Os 10 mandamentos do jogo digital</p>
+              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 7: Equipe e Lideranca</h2>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Construa e lidere times de alta performance</p>
             </div>
           </div>
-          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium rounded-full">5h</span>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium rounded-full">5h</span>
+            <button onclick="openModal('modal-modulo7')" class="px-3 py-1.5 bg-purple-500 text-white text-xs font-medium rounded-lg hover:bg-purple-600 transition-colors">
+              Ver em Modal
+            </button>
+            <a href="conteudo/modulo7.html" class="px-3 py-1.5 bg-purple-600 text-white text-xs font-medium rounded-lg hover:bg-purple-700 transition-colors">
+              Abrir Pagina
+            </a>
+            <a href="../assets/downloads/negocios-modulo7.md" download class="px-3 py-1.5 border border-purple-500 text-purple-600 dark:text-purple-400 text-xs font-medium rounded-lg hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors">
+              Download MD
+            </a>
+          </div>
         </div>
 
         <ul class="topics-list space-y-0.5">
           <li class="topic-item">
             <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 7.1 As 10 Tendencias que Dominam o Mercado
+              📌 7.1 Construindo uma Equipe
             </button>
             <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">O que e:</strong> Mapa do futuro do mercado digital para os proximos 2 anos.
+                <strong class="text-purple-600">O que e:</strong> Processo de definir papeis, encontrar talentos e montar um time alinhado com a visao do negocio.
               </p>
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Tendencias:</strong> 1) Agentes autonomos, 2) SaaS verticais, 3) WhatsApp = novo SO, 4) Comunidade como motor, 5) Videos com avatares IA.
+                <strong class="text-purple-600">Por que aprender:</strong> Negocios sao feitos de pessoas - uma equipe forte supera qualquer estrategia individual.
               </p>
               <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Mais:</strong> 6) Precificacao por resultado, 7) Operadores de voz, 8) No-code obrigatorio, 9) LLMs open source, 10) InfoSaaS.
+                <strong class="text-purple-600">Conceitos chave:</strong> Estrutura organizacional, descricao de cargos, competencias, fit cultural, diversidade.
               </p>
             </div>
           </li>
 
           <li class="topic-item">
             <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 7.2 Os 10 Mandamentos do Jogo Digital
+              📌 7.2 Contratacao e Selecao
             </button>
             <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">O que e:</strong> Regras fundamentais para sobreviver e prosperar.
+                <strong class="text-purple-600">O que e:</strong> Processo estruturado para atrair, avaliar e escolher os melhores candidatos para cada posicao.
               </p>
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Mandamentos:</strong> IA que age sozinha, SaaS de nicho cirurgico, WhatsApp domina, comunidade e motor, video infinito com IA.
+                <strong class="text-purple-600">Por que aprender:</strong> Contratar errado custa caro (ate 3x salario) - processo bem feito reduz turnover e aumenta performance.
               </p>
               <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Mais:</strong> Cobrar por resultado, operadores de voz, automacao sem desculpa, LLMs abertos, InfoSaaS.
+                <strong class="text-purple-600">Conceitos chave:</strong> Job description, triagem, entrevistas comportamentais, testes tecnicos, referencias, oferta.
               </p>
             </div>
           </li>
 
           <li class="topic-item">
             <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 7.3 Conteudo FRG, UGC e Avatares IA
+              📌 7.3 Onboarding de Colaboradores
             </button>
             <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">O que e:</strong> Novos modelos de criacao de conteudo em escala.
+                <strong class="text-purple-600">O que e:</strong> Processo de integracao de novos membros, garantindo que se adaptem e contribuam rapidamente.
               </p>
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Tipos:</strong> FRG (Founder Generated - bastidores), UGC (User Generated - prova social), Avatares IA (escala 10x).
+                <strong class="text-purple-600">Por que aprender:</strong> Onboarding bem feito acelera produtividade e reduz desistencias nos primeiros 90 dias.
               </p>
               <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Ferramentas:</strong> HeyGen, Synthesia, ElevenLabs para voz, Lumina.
+                <strong class="text-purple-600">Conceitos chave:</strong> Primeiro dia, primeira semana, mentor/buddy, documentacao, metas iniciais, check-ins.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 7.4 Cultura Organizacional
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Conjunto de valores, crencas e comportamentos que definem como a empresa opera e trata pessoas.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Cultura atrai talentos certos e repele os errados - empresas com cultura forte performam melhor.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Missao, visao, valores, rituais, simbolos, comportamentos esperados, cultura toxica.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 7.5 Lideranca Situacional
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Adaptar o estilo de lideranca conforme a maturidade e necessidade de cada liderado e situacao.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Nao existe um estilo de lideranca unico - grandes lideres se adaptam ao contexto e as pessoas.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Direcionar, orientar, apoiar, delegar, maturidade do liderado, flexibilidade.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 7.6 Delegacao Eficaz
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Transferir responsabilidade e autoridade para que outros executem tarefas de forma autonoma.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Lider que nao delega vira gargalo - delegacao libera tempo estrategico e desenvolve o time.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> O que delegar, para quem, clareza de expectativas, acompanhamento, feedback, confianca.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 7.7 Feedback e Avaliacao
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Comunicacao estruturada sobre desempenho para reconhecer acertos e corrigir desvios.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Feedback e a ferramenta mais poderosa de desenvolvimento - sem ele, pessoas nao evoluem.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Feedback continuo, SBI (Situacao-Comportamento-Impacto), 1:1s, avaliacao de desempenho.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 7.8 Motivacao e Engajamento
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Criar condicoes para que as pessoas queiram dar o seu melhor e se sintam parte de algo maior.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Funcionarios engajados sao 21% mais produtivos - desengajados sabotam silenciosamente.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Autonomia, maestria, proposito, reconhecimento, ambiente psicologicamente seguro.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 7.9 Gestao Remota
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Liderar e coordenar equipes que trabalham de diferentes locais, sem presenca fisica diaria.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Trabalho remoto e hibrido veio para ficar - saber gerenciar a distancia e competencia essencial.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Comunicacao assincrona, documentacao, rituais virtuais, confianca, resultados vs presenca.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 7.10 Desenvolvimento de Talentos
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Investir no crescimento profissional dos colaboradores atraves de treinamento, mentoria e novos desafios.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Desenvolver talentos internos e mais barato que contratar externos e aumenta retencao.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> PDI (Plano de Desenvolvimento Individual), mentoria, job rotation, promocao interna, sucessao.
               </p>
             </div>
           </li>
@@ -561,65 +1553,589 @@
 
       <!-- Modulo 8 -->
       <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
-        <div class="flex items-center justify-between mb-4">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4 gap-4">
           <div class="flex items-center">
-            <span class="text-2xl mr-3">🏆</span>
+            <span class="text-2xl mr-3">🤖</span>
             <div>
-              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 8: 41 Licoes de Quem Faturou R$1M</h2>
-              <p class="text-sm text-neutral-600 dark:text-neutral-400">Sabedoria pratica condensada</p>
+              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 8: Inovacao e Tecnologia</h2>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Transformacao digital e ferramentas modernas</p>
             </div>
           </div>
-          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium rounded-full">4h</span>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium rounded-full">5h</span>
+            <button onclick="openModal('modal-modulo8')" class="px-3 py-1.5 bg-purple-500 text-white text-xs font-medium rounded-lg hover:bg-purple-600 transition-colors">
+              Ver em Modal
+            </button>
+            <a href="conteudo/modulo8.html" class="px-3 py-1.5 bg-purple-600 text-white text-xs font-medium rounded-lg hover:bg-purple-700 transition-colors">
+              Abrir Pagina
+            </a>
+            <a href="../assets/downloads/negocios-modulo8.md" download class="px-3 py-1.5 border border-purple-500 text-purple-600 dark:text-purple-400 text-xs font-medium rounded-lg hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors">
+              Download MD
+            </a>
+          </div>
         </div>
 
         <ul class="topics-list space-y-0.5">
           <li class="topic-item">
             <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 8.1 Mindset e Execucao
+              📌 8.1 Transformacao Digital
             </button>
             <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Licoes chave:</strong> Cliente quer resultado, nao tecnologia. Venda o destino, nao a passagem.
+                <strong class="text-purple-600">O que e:</strong> Integracao de tecnologia digital em todas as areas do negocio, mudando como opera e entrega valor.
               </p>
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Mais licoes:</strong> Volume e seu gargalo. Ninguem sabe exatamente o que esta fazendo - faca mesmo assim.
+                <strong class="text-purple-600">Por que aprender:</strong> Empresas que nao se digitalizam estao fadadas a irrelevancia - transformacao e sobrevivencia.
               </p>
               <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Atitude:</strong> Construa o aviao enquanto voa. Comece antes de estar pronto.
+                <strong class="text-purple-600">Conceitos chave:</strong> Digitalizacao vs digitalizacao, cultura digital, change management, digital-first.
               </p>
             </div>
           </li>
 
           <li class="topic-item">
             <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 8.2 Negocio e Precificacao
+              📌 8.2 Inteligencia Artificial nos Negocios
             </button>
             <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Licoes chave:</strong> Venda para quem tem dinheiro - melhor pagador, menos trabalho.
+                <strong class="text-purple-600">O que e:</strong> Aplicacao de sistemas inteligentes para automatizar decisoes, prever comportamentos e otimizar processos.
               </p>
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Mais licoes:</strong> Precifique pelo valor, nao pelo custo. Compre seu tempo de volta.
+                <strong class="text-purple-600">Por que aprender:</strong> IA e a maior revolucao desde a internet - quem dominar primeiro tera vantagem competitiva enorme.
               </p>
               <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Diferencial:</strong> Junte 3 talentos unicos = rarissimo no mercado. Nunca subestime seu valor.
+                <strong class="text-purple-600">Conceitos chave:</strong> Machine Learning, GPT/LLMs, casos de uso, implementacao pratica, riscos e etica.
               </p>
             </div>
           </li>
 
           <li class="topic-item">
             <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
-              📌 8.3 Crescimento e Aprendizado
+              📌 8.3 Automacao com IA
             </button>
             <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Licoes chave:</strong> YouTube constroi marca. Packaging importa mais que conteudo.
+                <strong class="text-purple-600">O que e:</strong> Uso de inteligencia artificial para automatizar tarefas que antes exigiam inteligencia humana.
               </p>
               <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Mais licoes:</strong> Faca 20 videos ruins primeiro. Desconstrua os melhores frame por frame.
+                <strong class="text-purple-600">Por que aprender:</strong> IA automatiza trabalho cognitivo como RPA automatizou trabalho manual - oportunidade imensa.
               </p>
               <p class="text-sm text-neutral-700 dark:text-neutral-300">
-                <strong class="text-purple-600">Rede:</strong> Voce e a media das 5 pessoas com quem mais convive. Bons talentos sao investimentos.
+                <strong class="text-purple-600">Conceitos chave:</strong> Agentes de IA, workflows inteligentes, ChatGPT API, Claude, prompts, fine-tuning.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 8.4 Ferramentas No-Code/Low-Code
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Plataformas que permitem criar aplicativos, sites e automacoes sem escrever codigo ou com codigo minimo.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> No-code democratiza a tecnologia - permite criar solucoes rapidamente sem depender de desenvolvedores.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Bubble, Webflow, Airtable, Glide, Softr, integracao visual, prototipacao rapida.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 8.5 E-commerce e Marketplaces
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Vendas de produtos e servicos pela internet, seja em loja propria ou em plataformas de terceiros.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> E-commerce cresce dois digitos ao ano - presenca online e obrigatoria para qualquer negocio.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Shopify, WooCommerce, Mercado Livre, Amazon, D2C, omnichannel, social commerce.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 8.6 Pagamentos Digitais
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Solucoes para receber pagamentos online de forma segura e conveniente para o cliente.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Friccao no pagamento mata vendas - oferecer multiplas opcoes aumenta conversao significativamente.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> PIX, cartao de credito, boleto, gateways, split payment, recorrencia, checkout otimizado.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 8.7 Seguranca Digital
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Protecao de dados, sistemas e informacoes contra ameacas ciberneticas e vazamentos.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Vazamentos de dados destroem reputacoes e geram multas - seguranca e obrigacao legal (LGPD).
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> LGPD, autenticacao, criptografia, backups, phishing, senhas, 2FA, politicas de seguranca.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 8.8 Cloud Computing
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Uso de servidores, armazenamento e softwares pela internet em vez de infraestrutura local.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Cloud reduz custos, aumenta flexibilidade e permite escalar rapidamente sem investimento pesado.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> AWS, Google Cloud, Azure, SaaS, IaaS, PaaS, custos por uso, escalabilidade.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 8.9 Big Data e Analytics
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Coleta, processamento e analise de grandes volumes de dados para extrair insights de negocio.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Dados sao o novo petroleo - empresas data-driven tomam decisoes melhores e mais rapidas.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Data warehouse, BI, dashboards, KPIs, predicao, segmentacao, data-driven decisions.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 8.10 Tendencias Tecnologicas
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Tecnologias emergentes que vao impactar negocios nos proximos anos e como se preparar.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Antecipar tendencias permite se posicionar antes da concorrencia e capturar oportunidades.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> IA generativa, Web3, IoT, realidade aumentada, 5G, computacao quantica, sustentabilidade tech.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Modulo 9 -->
+      <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4 gap-4">
+          <div class="flex items-center">
+            <span class="text-2xl mr-3">📈</span>
+            <div>
+              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 9: Escala e Crescimento</h2>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Estrategias para crescer de forma sustentavel</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium rounded-full">5h</span>
+            <button onclick="openModal('modal-modulo9')" class="px-3 py-1.5 bg-purple-500 text-white text-xs font-medium rounded-lg hover:bg-purple-600 transition-colors">
+              Ver em Modal
+            </button>
+            <a href="conteudo/modulo9.html" class="px-3 py-1.5 bg-purple-600 text-white text-xs font-medium rounded-lg hover:bg-purple-700 transition-colors">
+              Abrir Pagina
+            </a>
+            <a href="../assets/downloads/negocios-modulo9.md" download class="px-3 py-1.5 border border-purple-500 text-purple-600 dark:text-purple-400 text-xs font-medium rounded-lg hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors">
+              Download MD
+            </a>
+          </div>
+        </div>
+
+        <ul class="topics-list space-y-0.5">
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 9.1 Estrategias de Escala
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Planejamento para crescer receita mais rapido que custos, aumentando lucro e participacao de mercado.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Escalar errado quebra empresas - crescer de forma sustentavel exige estrategia clara.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Economia de escala, unit economics, CAC/LTV, margem de contribuicao, alavancagem operacional.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 9.2 Growth Hacking
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Mentalidade e tecnicas para acelerar crescimento atraves de experimentacao rapida e criatividade.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Growth hacking permite crescer rapidamente com recursos limitados, essencial para startups.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> AARRR (Pirate Metrics), experimentos, loops de crescimento, viralidade, product-led growth.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 9.3 Parcerias Estrategicas
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Aliancas com outras empresas para acessar novos mercados, clientes ou recursos de forma colaborativa.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Parcerias aceleram crescimento alavancando ativos de outros - 1+1 pode ser maior que 2.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Co-marketing, co-selling, integracao de produtos, revenue share, white label.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 9.4 Franquias e Licenciamento
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Modelos para replicar o negocio atraves de terceiros que operam sob sua marca e sistema.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Franquias permitem escala nacional/global sem capital proprio - modelo comprovado.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> COF, royalties, padronizacao, suporte ao franqueado, selecao, territorio.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 9.5 Internacionalizacao
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Expansao do negocio para mercados estrangeiros, adaptando produto e estrategia para cada regiao.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Mercado global multiplica oportunidades - produtos digitais podem escalar para milhoes.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Localizacao, regulamentacao local, pagamentos internacionais, suporte multilingual, cultural fit.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 9.6 Diversificacao de Produtos
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Expansao do portfolio de produtos ou servicos para aumentar receita e reduzir risco.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Diversificacao protege contra mudancas de mercado e aumenta LTV de clientes existentes.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Matriz de Ansoff, extensao de linha, novos mercados, inovacao adjacente.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 9.7 Aquisicao de Clientes em Escala
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Sistemas e canais para atrair grandes volumes de clientes de forma previsivel e rentavel.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Crescimento sustentavel requer canais de aquisicao escalaveis com CAC controlado.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Paid ads, SEO, content, referral, canais de distribuicao, CAC payback, channel mix.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 9.8 Retencao e LTV
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Estrategias para manter clientes ativos e maximizar o valor gerado ao longo do relacionamento.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Aumentar retencao em 5% pode aumentar lucros em 25-95% - retencao e mais rentavel que aquisicao.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Churn rate, cohort analysis, customer success, engagement loops, reativacao.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 9.9 Captacao de Investimentos
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Buscar capital externo de investidores para acelerar crescimento em troca de participacao societaria.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Investimento permite crescer mais rapido que bootstrapping - mas dilui participacao e adiciona pressao.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Anjos, Seed, Series A/B/C, valuation, pitch deck, due diligence, term sheet, cap table.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 9.10 Exit Strategy
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Planejamento de como realizar o valor criado atraves de venda, fusao, IPO ou sucessao.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Empreender e criar valor - exit e o momento de transformar esse valor em liquidez.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> M&A, acqui-hire, IPO, secondary sale, buyout, multiplos de valuation, earnout.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Modulo 10 -->
+      <div class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4 gap-4">
+          <div class="flex items-center">
+            <span class="text-2xl mr-3">🌱</span>
+            <div>
+              <h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">Modulo 10: Sustentabilidade e Impacto</h2>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Negocios com proposito e responsabilidade</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium rounded-full">5h</span>
+            <button onclick="openModal('modal-modulo10')" class="px-3 py-1.5 bg-purple-500 text-white text-xs font-medium rounded-lg hover:bg-purple-600 transition-colors">
+              Ver em Modal
+            </button>
+            <a href="conteudo/modulo10.html" class="px-3 py-1.5 bg-purple-600 text-white text-xs font-medium rounded-lg hover:bg-purple-700 transition-colors">
+              Abrir Pagina
+            </a>
+            <a href="../assets/downloads/negocios-modulo10.md" download class="px-3 py-1.5 border border-purple-500 text-purple-600 dark:text-purple-400 text-xs font-medium rounded-lg hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors">
+              Download MD
+            </a>
+          </div>
+        </div>
+
+        <ul class="topics-list space-y-0.5">
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 10.1 Negocios de Impacto Social
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Empresas que geram lucro enquanto resolvem problemas sociais ou ambientais de forma intencional.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Negocios de impacto atraem talentos, clientes e investidores que buscam proposito alem do lucro.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Triple bottom line, B Corps, Sistema B, teoria da mudanca, medicao de impacto.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 10.2 ESG - Ambiental, Social e Governanca
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Framework para avaliar praticas empresariais em tres pilares: meio ambiente, social e governanca corporativa.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> ESG virou criterio para investidores, clientes corporativos e talentos - e diferencial competitivo.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Carbono neutro, diversidade, transparencia, relatorios ESG, ratings, greenwashing.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 10.3 Economia Circular
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Modelo economico que elimina residuos e poluicao, circulando produtos e materiais em uso continuo.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Economia circular reduz custos, cria novos modelos de negocio e atende demanda por sustentabilidade.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Reduce, reuse, recycle, upcycling, product-as-a-service, design for circularity.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 10.4 Responsabilidade Social
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Compromisso da empresa em contribuir positivamente para a sociedade alem das obrigacoes legais.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Empresas socialmente responsaveis constroem reputacao solida e relacionamentos duradouros.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Filantropia estrategica, voluntariado corporativo, investimento social privado, stakeholders.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 10.5 Governanca Corporativa
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Sistema de regras, praticas e processos pelos quais uma empresa e dirigida e controlada.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Boa governanca atrai investidores, reduz riscos e profissionaliza a gestao para crescer.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Conselho, compliance, auditoria, transparencia, acordos de socios, conflito de interesses.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 10.6 Etica nos Negocios
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Aplicacao de principios morais nas decisoes empresariais, fazendo o que e certo mesmo quando ninguem esta olhando.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Etica constroi confianca de longo prazo - atalhos antiéticos destroem reputacoes rapidamente.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Codigo de etica, dilemas eticos, whistleblowing, integridade, conflitos de interesse.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 10.7 Bem-estar e Saude Mental
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Cuidado com a saude fisica e mental propria e dos colaboradores como pilar do negocio sustentavel.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Burnout e a epidemia do seculo 21 - empreendedores e equipes saudaveis performam melhor.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Burnout, sindrome do impostor, limites, descanso, terapia, cultura de bem-estar.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 10.8 Work-Life Balance
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Equilibrio entre vida profissional e pessoal, garantindo tempo para familia, saude e lazer.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Sucesso sem equilibrio e piramide invertida - desmorona eventualmente. Sustentabilidade pessoal e crucial.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Boundaries, desconexao, hobbies, relacionamentos, prioridades, lifestyle business.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 10.9 Legado e Proposito
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Reflexao sobre o impacto duradouro que voce e seu negocio deixarao no mundo.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Proposito da clareza nas decisoes e motivacao nos momentos dificeis - vai alem do dinheiro.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> Ikigai, missao pessoal, contribuicao, mentoria, sucessao, impacto geracional.
+              </p>
+            </div>
+          </li>
+
+          <li class="topic-item">
+            <button class="topic-button w-full text-left px-4 py-2 bg-neutral-50 dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 rounded-lg transition-colors font-medium text-neutral-800 dark:text-neutral-200">
+              📌 10.10 Futuro dos Negocios
+            </button>
+            <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">O que e:</strong> Tendencias e transformacoes que moldarao o mundo dos negocios nas proximas decadas.
+              </p>
+              <p class="text-sm mb-2 text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Por que aprender:</strong> Antecipar o futuro permite se preparar e posicionar antes da massa - visao de longo prazo.
+              </p>
+              <p class="text-sm text-neutral-700 dark:text-neutral-300">
+                <strong class="text-purple-600">Conceitos chave:</strong> IA e trabalho, remote-first, gig economy, descentralizacao, proposito-driven, longevidade.
               </p>
             </div>
           </li>
@@ -627,7 +2143,7 @@
       </div>
 
       <!-- CTA Final -->
-      <div class="bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl p-8 text-white text-center">
+      <div class="bg-gradient-to-br from-purple-600 to-purple-800 rounded-xl p-8 text-white text-center">
         <h3 class="text-2xl font-bold mb-4">Continue Sua Jornada</h3>
         <p class="mb-6 text-white/90">
           Explore as outras trilhas para uma formacao completa em transformacao digital
@@ -645,10 +2161,211 @@
     </div>
   </section>
 
+  <!-- MODAIS -->
+  <!-- Modal Modulo 1 -->
+  <div id="modal-modulo1" class="modal">
+    <div class="modal-content">
+      <div class="modal-header dark:border-neutral-700">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">📚 Modulo 1: Fundamentos de Negocios Digitais</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="text-lg text-neutral-800 dark:text-neutral-200 mb-4">Construa uma base solida para seu negocio digital. Aprenda conceitos essenciais de empreendedorismo, validacao de ideias e posicionamento de mercado.</p>
+        <div class="flex gap-3 flex-wrap mb-6">
+          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-semibold">5 horas</span>
+          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-semibold">10 topicos</span>
+        </div>
+        <div class="bg-gradient-to-br from-purple-600 to-purple-800 text-white rounded-lg p-6 text-center">
+          <a href="conteudo/modulo1.html" class="inline-block bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors">Ver Conteudo Completo →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Modulo 2 -->
+  <div id="modal-modulo2" class="modal">
+    <div class="modal-content">
+      <div class="modal-header dark:border-neutral-700">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">📋 Modulo 2: Planejamento Estrategico</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="text-lg text-neutral-800 dark:text-neutral-200 mb-4">Domine ferramentas de planejamento como Business Model Canvas, analise SWOT e metas SMART para direcionar seu negocio.</p>
+        <div class="flex gap-3 flex-wrap mb-6">
+          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-semibold">5 horas</span>
+          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-semibold">10 topicos</span>
+        </div>
+        <div class="bg-gradient-to-br from-purple-600 to-purple-800 text-white rounded-lg p-6 text-center">
+          <a href="conteudo/modulo2.html" class="inline-block bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors">Ver Conteudo Completo →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Modulo 3 -->
+  <div id="modal-modulo3" class="modal">
+    <div class="modal-content">
+      <div class="modal-header dark:border-neutral-700">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">📢 Modulo 3: Marketing Digital Estrategico</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="text-lg text-neutral-800 dark:text-neutral-200 mb-4">Aprenda a atrair, engajar e converter clientes usando marketing digital, SEO, email marketing e automacao.</p>
+        <div class="flex gap-3 flex-wrap mb-6">
+          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-semibold">5 horas</span>
+          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-semibold">10 topicos</span>
+        </div>
+        <div class="bg-gradient-to-br from-purple-600 to-purple-800 text-white rounded-lg p-6 text-center">
+          <a href="conteudo/modulo3.html" class="inline-block bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors">Ver Conteudo Completo →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Modulo 4 -->
+  <div id="modal-modulo4" class="modal">
+    <div class="modal-content">
+      <div class="modal-header dark:border-neutral-700">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">💰 Modulo 4: Vendas e Conversao</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="text-lg text-neutral-800 dark:text-neutral-200 mb-4">Transforme leads em clientes pagantes dominando funis de vendas, gatilhos mentais e tecnicas de fechamento.</p>
+        <div class="flex gap-3 flex-wrap mb-6">
+          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-semibold">5 horas</span>
+          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-semibold">10 topicos</span>
+        </div>
+        <div class="bg-gradient-to-br from-purple-600 to-purple-800 text-white rounded-lg p-6 text-center">
+          <a href="conteudo/modulo4.html" class="inline-block bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors">Ver Conteudo Completo →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Modulo 5 -->
+  <div id="modal-modulo5" class="modal">
+    <div class="modal-content">
+      <div class="modal-header dark:border-neutral-700">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">📊 Modulo 5: Gestao Financeira</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="text-lg text-neutral-800 dark:text-neutral-200 mb-4">Domine controle financeiro, fluxo de caixa, precificacao e tributacao para crescer com seguranca.</p>
+        <div class="flex gap-3 flex-wrap mb-6">
+          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-semibold">5 horas</span>
+          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-semibold">10 topicos</span>
+        </div>
+        <div class="bg-gradient-to-br from-purple-600 to-purple-800 text-white rounded-lg p-6 text-center">
+          <a href="conteudo/modulo5.html" class="inline-block bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors">Ver Conteudo Completo →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Modulo 6 -->
+  <div id="modal-modulo6" class="modal">
+    <div class="modal-content">
+      <div class="modal-header dark:border-neutral-700">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">⚙️ Modulo 6: Operacoes e Processos</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="text-lg text-neutral-800 dark:text-neutral-200 mb-4">Otimize operacoes com mapeamento de processos, automacao e metodologias ageis.</p>
+        <div class="flex gap-3 flex-wrap mb-6">
+          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-semibold">5 horas</span>
+          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-semibold">10 topicos</span>
+        </div>
+        <div class="bg-gradient-to-br from-purple-600 to-purple-800 text-white rounded-lg p-6 text-center">
+          <a href="conteudo/modulo6.html" class="inline-block bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors">Ver Conteudo Completo →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Modulo 7 -->
+  <div id="modal-modulo7" class="modal">
+    <div class="modal-content">
+      <div class="modal-header dark:border-neutral-700">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">👥 Modulo 7: Equipe e Lideranca</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="text-lg text-neutral-800 dark:text-neutral-200 mb-4">Construa e lidere times de alta performance com tecnicas de contratacao, cultura e gestao remota.</p>
+        <div class="flex gap-3 flex-wrap mb-6">
+          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-semibold">5 horas</span>
+          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-semibold">10 topicos</span>
+        </div>
+        <div class="bg-gradient-to-br from-purple-600 to-purple-800 text-white rounded-lg p-6 text-center">
+          <a href="conteudo/modulo7.html" class="inline-block bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors">Ver Conteudo Completo →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Modulo 8 -->
+  <div id="modal-modulo8" class="modal">
+    <div class="modal-content">
+      <div class="modal-header dark:border-neutral-700">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">🤖 Modulo 8: Inovacao e Tecnologia</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="text-lg text-neutral-800 dark:text-neutral-200 mb-4">Domine transformacao digital, IA, no-code e tendencias tecnologicas para inovar seu negocio.</p>
+        <div class="flex gap-3 flex-wrap mb-6">
+          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-semibold">5 horas</span>
+          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-semibold">10 topicos</span>
+        </div>
+        <div class="bg-gradient-to-br from-purple-600 to-purple-800 text-white rounded-lg p-6 text-center">
+          <a href="conteudo/modulo8.html" class="inline-block bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors">Ver Conteudo Completo →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Modulo 9 -->
+  <div id="modal-modulo9" class="modal">
+    <div class="modal-content">
+      <div class="modal-header dark:border-neutral-700">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">📈 Modulo 9: Escala e Crescimento</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="text-lg text-neutral-800 dark:text-neutral-200 mb-4">Aprenda estrategias de escala, growth hacking, parcerias e captacao de investimentos.</p>
+        <div class="flex gap-3 flex-wrap mb-6">
+          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-semibold">5 horas</span>
+          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-semibold">10 topicos</span>
+        </div>
+        <div class="bg-gradient-to-br from-purple-600 to-purple-800 text-white rounded-lg p-6 text-center">
+          <a href="conteudo/modulo9.html" class="inline-block bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors">Ver Conteudo Completo →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Modulo 10 -->
+  <div id="modal-modulo10" class="modal">
+    <div class="modal-content">
+      <div class="modal-header dark:border-neutral-700">
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">🌱 Modulo 10: Sustentabilidade e Impacto</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="text-lg text-neutral-800 dark:text-neutral-200 mb-4">Construa negocios com proposito, ESG, responsabilidade social e equilibrio vida-trabalho.</p>
+        <div class="flex gap-3 flex-wrap mb-6">
+          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-semibold">5 horas</span>
+          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-semibold">10 topicos</span>
+        </div>
+        <div class="bg-gradient-to-br from-purple-600 to-purple-800 text-white rounded-lg p-6 text-center">
+          <a href="conteudo/modulo10.html" class="inline-block bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors">Ver Conteudo Completo →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="bg-neutral-900 text-white py-8">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-neutral-400">&copy; 2025 TDS - Transformacao Digital Sustentavel</p>
+      <p class="text-neutral-400">&copy; 2025 TDS - Transformacao Digital e Social</p>
     </div>
   </footer>
 
@@ -677,7 +2394,7 @@
       } else {
         document.documentElement.classList.add('dark');
         localStorage.setItem('color-theme', 'dark');
-      }
+      </p>
     });
 
     // Topic Accordion
@@ -698,6 +2415,44 @@
 
           explanation.classList.toggle('hidden');
         }
+      }
+    });
+
+    // Modal Functions
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Close modal on backdrop click or X button
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('modal')) {
+        e.target.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+
+      if (e.target.classList.contains('close-modal')) {
+        const modal = e.target.closest('.modal');
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // Close modal on ESC
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        const activeModals = document.querySelectorAll('.modal.active');
+        activeModals.forEach(modal => {
+          modal.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        });
       }
     });
   </script>
