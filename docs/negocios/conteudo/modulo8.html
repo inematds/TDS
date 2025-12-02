@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 8: Vendas B2B - TDS</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .prose h2 { scroll-margin-top: 100px; }
+  </style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900 transition-colors">
+
+  <!-- Navegacao -->
+  <nav class="sticky top-0 z-50 bg-white dark:bg-neutral-800 shadow-sm">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center space-x-4">
+          <a href="../../../index.html" class="text-2xl font-bold text-blue-600 dark:text-blue-400">TDS</a>
+          <span class="text-neutral-400">/</span>
+          <a href="../index.html" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline">Negocios</a>
+          <span class="text-neutral-400">/</span>
+          <span class="text-neutral-600 dark:text-neutral-400">Modulo 8</span>
+        </div>
+
+        <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-700" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero do Modulo -->
+  <header class="bg-gradient-to-br from-blue-600 via-blue-700 to-cyan-700 py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+      <a href="../index.html" class="inline-flex items-center text-blue-200 hover:text-white mb-4 text-sm">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Voltar para Trilha de Negocios
+      </a>
+      <div class="flex items-center gap-4 mb-4">
+        <span class="text-5xl">🤝</span>
+        <div>
+          <p class="text-blue-200 text-sm font-medium">MODULO 8</p>
+          <h1 class="text-3xl sm:text-4xl font-bold">Vendas B2B</h1>
+        </div>
+      </div>
+      <p class="text-lg text-white/90 max-w-2xl mb-4">
+        Domine vendas corporativas complexas. Aprenda a prospectar, qualificar, negociar e fechar contratos de alto valor com ciclos longos de venda.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">10 horas</span>
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">10 topicos</span>
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">Nivel: Avancado</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Indice -->
+  <div class="bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 py-4 sticky top-16 z-40">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2 text-sm overflow-x-auto pb-2">
+        <span class="text-neutral-500 dark:text-neutral-400 whitespace-nowrap">Ir para:</span>
+        <a href="#topico-1" class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full whitespace-nowrap hover:bg-blue-200 dark:hover:bg-blue-900/50">8.1</a>
+        <a href="#topico-2" class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full whitespace-nowrap hover:bg-blue-200 dark:hover:bg-blue-900/50">8.2</a>
+        <a href="#topico-3" class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full whitespace-nowrap hover:bg-blue-200 dark:hover:bg-blue-900/50">8.3</a>
+        <a href="#topico-4" class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full whitespace-nowrap hover:bg-blue-200 dark:hover:bg-blue-900/50">8.4</a>
+        <a href="#topico-5" class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full whitespace-nowrap hover:bg-blue-200 dark:hover:bg-blue-900/50">8.5</a>
+        <a href="#topico-6" class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full whitespace-nowrap hover:bg-blue-200 dark:hover:bg-blue-900/50">8.6</a>
+        <a href="#topico-7" class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full whitespace-nowrap hover:bg-blue-200 dark:hover:bg-blue-900/50">8.7</a>
+        <a href="#topico-8" class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full whitespace-nowrap hover:bg-blue-200 dark:hover:bg-blue-900/50">8.8</a>
+        <a href="#topico-9" class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full whitespace-nowrap hover:bg-blue-200 dark:hover:bg-blue-900/50">8.9</a>
+        <a href="#topico-10" class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full whitespace-nowrap hover:bg-blue-200 dark:hover:bg-blue-900/50">8.10</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conteudo Principal -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Introducao -->
+    <div class="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-2xl p-8 mb-12 border-2 border-blue-200 dark:border-blue-800">
+      <h2 class="text-2xl font-bold text-blue-900 dark:text-blue-100 mb-4 flex items-center">
+        <span class="text-3xl mr-3">🎯</span>
+        O Que Voce Vai Aprender Neste Modulo
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <ul class="space-y-2 text-neutral-700 dark:text-neutral-300">
+          <li class="flex items-start"><span class="text-blue-500 mr-2 mt-1">✓</span> Estruturar pipeline de vendas eficiente</li>
+          <li class="flex items-start"><span class="text-blue-500 mr-2 mt-1">✓</span> Qualificar leads com BANT e MEDDIC</li>
+          <li class="flex items-start"><span class="text-blue-500 mr-2 mt-1">✓</span> Conduzir discovery calls eficazes</li>
+          <li class="flex items-start"><span class="text-blue-500 mr-2 mt-1">✓</span> Criar propostas comerciais vencedoras</li>
+          <li class="flex items-start"><span class="text-blue-500 mr-2 mt-1">✓</span> Negociar com tecnicas avancadas</li>
+        </ul>
+        <ul class="space-y-2 text-neutral-700 dark:text-neutral-300">
+          <li class="flex items-start"><span class="text-blue-500 mr-2 mt-1">✓</span> Follow-up estrategico que converte</li>
+          <li class="flex items-start"><span class="text-blue-500 mr-2 mt-1">✓</span> Usar CRM e processos de vendas</li>
+          <li class="flex items-start"><span class="text-blue-500 mr-2 mt-1">✓</span> Venda consultiva vs transacional</li>
+          <li class="flex items-start"><span class="text-blue-500 mr-2 mt-1">✓</span> Account-Based Selling (ABS)</li>
+          <li class="flex items-start"><span class="text-blue-500 mr-2 mt-1">✓</span> Metricas e KPIs de vendas</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">8.1</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Pipeline de Vendas</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🔄</span> As 7 Etapas do Pipeline B2B
+        </h3>
+
+        <div class="space-y-3">
+          <div class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-sm">1</div>
+            <div class="flex-1">
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Prospeccao</p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">Identificar e contatar empresas-alvo</p>
+            </div>
+            <span class="text-sm text-neutral-500">Taxa: 100%</span>
+          </div>
+
+          <div class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-sm">2</div>
+            <div class="flex-1">
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Qualificacao</p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">Validar fit, orcamento, autoridade</p>
+            </div>
+            <span class="text-sm text-neutral-500">Taxa: 40-50%</span>
+          </div>
+
+          <div class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-sm">3</div>
+            <div class="flex-1">
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Reuniao/Discovery</p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">Entender dores, necessidades, processo</p>
+            </div>
+            <span class="text-sm text-neutral-500">Taxa: 60-70%</span>
+          </div>
+
+          <div class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-sm">4</div>
+            <div class="flex-1">
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Proposta</p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">Apresentar solucao customizada</p>
+            </div>
+            <span class="text-sm text-neutral-500">Taxa: 50-60%</span>
+          </div>
+
+          <div class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-sm">5</div>
+            <div class="flex-1">
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Negociacao</p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">Alinhar termos, precos, garantias</p>
+            </div>
+            <span class="text-sm text-neutral-500">Taxa: 60-70%</span>
+          </div>
+
+          <div class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-sm">6</div>
+            <div class="flex-1">
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Fechamento</p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">Assinatura de contrato</p>
+            </div>
+            <span class="text-sm text-neutral-500">Taxa: 70-80%</span>
+          </div>
+
+          <div class="flex items-center gap-3 p-3 bg-green-50 dark:bg-green-900/20 rounded-lg border-2 border-green-300">
+            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-sm">7</div>
+            <div class="flex-1">
+              <p class="font-semibold text-green-700 dark:text-green-400">Cliente Ativo</p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">Onboarding, expansion, advocacy</p>
+            </div>
+            <span class="text-sm text-green-600">Ganho!</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border-l-4 border-blue-500">
+        <p class="text-blue-800 dark:text-blue-200 font-semibold">
+          💡 Regra: Conversao total do pipeline B2B = 15-25%. Para fechar 10 vendas, precisa de 40-65 leads qualificados.
+        </p>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">8.2</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Qualificacao (BANT, MEDDIC)</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🎯</span> Framework BANT
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4 text-sm">
+          Metodo classico para qualificar leads rapidamente. Ideal para vendas simples e ciclos curtos.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+            <p class="font-bold text-blue-700 dark:text-blue-400 mb-2">B - Budget (Orcamento)</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">Tem verba aprovada? Quanto?</p>
+            <p class="text-xs text-blue-600 dark:text-blue-400 mt-1">"Qual o investimento previsto para resolver isso?"</p>
+          </div>
+
+          <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+            <p class="font-bold text-green-700 dark:text-green-400 mb-2">A - Authority (Autoridade)</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">E o decisor ou influenciador?</p>
+            <p class="text-xs text-green-600 dark:text-green-400 mt-1">"Quem mais precisa aprovar essa compra?"</p>
+          </div>
+
+          <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+            <p class="font-bold text-purple-700 dark:text-purple-400 mb-2">N - Need (Necessidade)</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">Tem uma dor real urgente?</p>
+            <p class="text-xs text-purple-600 dark:text-purple-400 mt-1">"O que acontece se nao resolver isso?"</p>
+          </div>
+
+          <div class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg">
+            <p class="font-bold text-amber-700 dark:text-amber-400 mb-2">T - Timeline (Tempo)</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">Quando precisa implementar?</p>
+            <p class="text-xs text-amber-600 dark:text-amber-400 mt-1">"Qual o prazo ideal para comecar?"</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🔬</span> Framework MEDDIC
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4 text-sm">
+          Metodo avancado para vendas enterprise complexas. Mais profundo que BANT.
+        </p>
+
+        <div class="space-y-2">
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">M - Metrics (Metricas)</p>
+            <p class="text-xs text-neutral-600 dark:text-neutral-400">Valor economico quantificavel da solucao</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">E - Economic Buyer (Comprador Economico)</p>
+            <p class="text-xs text-neutral-600 dark:text-neutral-400">Quem controla o orcamento final?</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">D - Decision Criteria (Criterios de Decisao)</p>
+            <p class="text-xs text-neutral-600 dark:text-neutral-400">Como e por que vao escolher a solucao?</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">D - Decision Process (Processo de Decisao)</p>
+            <p class="text-xs text-neutral-600 dark:text-neutral-400">Etapas formais ate aprovacao</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">I - Identify Pain (Identificar Dor)</p>
+            <p class="text-xs text-neutral-600 dark:text-neutral-400">Problema critico que justifica mudanca</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">C - Champion (Campeao)</p>
+            <p class="text-xs text-neutral-600 dark:text-neutral-400">Aliado interno que vende por voce</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">8.3</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Discovery Calls</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📞</span> Estrutura da Reuniao (60 min)
+        </h3>
+
+        <div class="space-y-3">
+          <div class="flex gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="text-2xl">1️⃣</div>
+            <div class="flex-1">
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Abertura (5 min)</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Quebra-gelo, agenda, expectativas</p>
+            </div>
+            <div class="text-sm text-neutral-500">5min</div>
+          </div>
+
+          <div class="flex gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="text-2xl">2️⃣</div>
+            <div class="flex-1">
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Contexto da Empresa (10 min)</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Negocio, objetivos, desafios atuais</p>
+            </div>
+            <div class="text-sm text-neutral-500">10min</div>
+          </div>
+
+          <div class="flex gap-3 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-2 border-blue-300">
+            <div class="text-2xl">3️⃣</div>
+            <div class="flex-1">
+              <p class="font-semibold text-blue-700 dark:text-blue-400">Discovery Profundo (30 min)</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Perguntas abertas sobre dores, impactos, solucoes tentadas</p>
+            </div>
+            <div class="text-sm text-blue-600">30min</div>
+          </div>
+
+          <div class="flex gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="text-2xl">4️⃣</div>
+            <div class="flex-1">
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Apresentacao de Solucao (10 min)</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Como voce pode ajudar (customizado ao que ouviu)</p>
+            </div>
+            <div class="text-sm text-neutral-500">10min</div>
+          </div>
+
+          <div class="flex gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="text-2xl">5️⃣</div>
+            <div class="flex-1">
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Proximos Passos (5 min)</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Timeline, proposta, proxima reuniao agendada</p>
+            </div>
+            <div class="text-sm text-neutral-500">5min</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">❓</span> 10 Perguntas Essenciais
+        </h3>
+        <div class="grid md:grid-cols-2 gap-3 text-sm">
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded">1. Qual o maior desafio hoje?</div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded">2. Como isso impacta o negocio?</div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded">3. O que ja tentaram fazer?</div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded">4. Por que nao funcionou?</div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded">5. Como seria o cenario ideal?</div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded">6. Quanto isso vale em R$?</div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded">7. Qual o prazo para resolver?</div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded">8. Quem esta envolvido na decisao?</div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded">9. Ha orcamento aprovado?</div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded">10. O que define sucesso?</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">8.4</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Proposta Comercial</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📄</span> Anatomia da Proposta Vencedora
+        </h3>
+
+        <div class="space-y-3">
+          <div class="border-l-4 border-blue-500 pl-4 bg-blue-50 dark:bg-blue-900/20 p-3 rounded-r">
+            <p class="font-bold text-blue-700 dark:text-blue-400">1. Sumario Executivo</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">1 pagina: problema + solucao + valor</p>
+          </div>
+
+          <div class="border-l-4 border-blue-500 pl-4 bg-blue-50 dark:bg-blue-900/20 p-3 rounded-r">
+            <p class="font-bold text-blue-700 dark:text-blue-400">2. Contexto e Desafios</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Demonstre que entendeu o problema deles</p>
+          </div>
+
+          <div class="border-l-4 border-blue-500 pl-4 bg-blue-50 dark:bg-blue-900/20 p-3 rounded-r">
+            <p class="font-bold text-blue-700 dark:text-blue-400">3. Solucao Proposta</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Como resolve cada dor especifica</p>
+          </div>
+
+          <div class="border-l-4 border-blue-500 pl-4 bg-blue-50 dark:bg-blue-900/20 p-3 rounded-r">
+            <p class="font-bold text-blue-700 dark:text-blue-400">4. Metodologia e Timeline</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Como e quando sera implementado</p>
+          </div>
+
+          <div class="border-l-4 border-blue-500 pl-4 bg-blue-50 dark:bg-blue-900/20 p-3 rounded-r">
+            <p class="font-bold text-blue-700 dark:text-blue-400">5. Resultados Esperados (ROI)</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Metricas, ganhos, payback period</p>
+          </div>
+
+          <div class="border-l-4 border-blue-500 pl-4 bg-blue-50 dark:bg-blue-900/20 p-3 rounded-r">
+            <p class="font-bold text-blue-700 dark:text-blue-400">6. Casos de Sucesso</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Social proof de clientes similares</p>
+          </div>
+
+          <div class="border-l-4 border-blue-500 pl-4 bg-blue-50 dark:bg-blue-900/20 p-3 rounded-r">
+            <p class="font-bold text-blue-700 dark:text-blue-400">7. Investimento e Opcoes</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">3 pacotes (bom, melhor, premium)</p>
+          </div>
+
+          <div class="border-l-4 border-blue-500 pl-4 bg-blue-50 dark:bg-blue-900/20 p-3 rounded-r">
+            <p class="font-bold text-blue-700 dark:text-blue-400">8. Sobre Nossa Empresa</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Credibilidade, time, diferenciais</p>
+          </div>
+
+          <div class="border-l-4 border-green-500 pl-4 bg-green-50 dark:bg-green-900/20 p-3 rounded-r">
+            <p class="font-bold text-green-700 dark:text-green-400">9. Proximos Passos</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">CTA claro, contrato anexo, validade</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg border-l-4 border-amber-500">
+        <p class="text-amber-800 dark:text-amber-200 font-semibold">
+          ⚠️ Nunca envie proposta sem discovery. Proposta generica = taxa de conversao <10%.
+        </p>
+      </div>
+    </section>
+
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">8.5</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Negociacao</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🤝</span> Principios de Negociacao Win-Win
+        </h3>
+
+        <div class="space-y-3">
+          <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+            <p class="font-bold text-green-700 dark:text-green-400 mb-2">✅ O Que Fazer</p>
+            <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+              <li>• Foque em valor, nao em preco</li>
+              <li>• Entenda as motivacoes reais do cliente</li>
+              <li>• Prepare alternativas (BATNA)</li>
+              <li>• Negocie em pacotes, nao itens isolados</li>
+              <li>• Documente tudo por escrito</li>
+            </ul>
+          </div>
+
+          <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
+            <p class="font-bold text-red-700 dark:text-red-400 mb-2">❌ O Que Evitar</p>
+            <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+              <li>• Fazer primeira concessao sem nada em troca</li>
+              <li>• Negociar quando nao ha fit</li>
+              <li>• Aceitar prazo impossivel por pressao</li>
+              <li>• Desconto sem contrapartida (ex: contrato anual)</li>
+              <li>• Passar por cima do processo de compra deles</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🎯</span> Tacticas de Negociacao
+        </h3>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 mb-1">Ancoragem</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Apresente primeiro o valor mais alto</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 mb-1">Concessoes Graduais</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Reduza valor das concessoes com o tempo</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 mb-1">Silencio</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Apos propor preco, fique quieto</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 mb-1">Se/Entao</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">"Se eu fizer X, voce fecha hoje?"</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">8.6</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Follow-up Estrategico</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📧</span> Sequencia de Follow-up (Pos-Proposta)
+        </h3>
+
+        <div class="space-y-3">
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Dia 0 - Envio da Proposta</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Email confirmando envio + resumo executivo + proxima reuniao agendada</p>
+          </div>
+
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Dia 2 - Check-in</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">"Conseguiu revisar a proposta? Alguma duvida?"</p>
+          </div>
+
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Dia 5 - Valor Adicional</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Case study relevante, artigo, dado novo</p>
+          </div>
+
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Dia 7 - Chamada de Alinhamento</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Reuniao para tirar duvidas e objecoes</p>
+          </div>
+
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Dia 10 - Urgencia Suave</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">"Validade da proposta, timeline de implementacao"</p>
+          </div>
+
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Dia 14+ - Follow-up Semanal</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Ate ter resposta definitiva (sim ou nao)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border-l-4 border-blue-500">
+        <p class="text-blue-800 dark:text-blue-200 font-semibold">
+          💡 80% das vendas B2B acontecem entre o 5o e 12o follow-up. Persistencia profissional vence.
+        </p>
+      </div>
+    </section>
+
+    <!-- TOPICO 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">8.7</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">CRM e Processos</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🛠️</span> CRMs Mais Usados
+        </h3>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold text-neutral-900 dark:text-neutral-100">HubSpot</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Melhor para: SMB, marketing + vendas integrado</p>
+            <p class="text-xs text-green-600">Free tier robusto</p>
+          </div>
+
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold text-neutral-900 dark:text-neutral-100">Salesforce</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Melhor para: Enterprise, customizacao total</p>
+            <p class="text-xs text-blue-600">Mais completo</p>
+          </div>
+
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold text-neutral-900 dark:text-neutral-100">Pipedrive</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Melhor para: Times pequenos, foco em pipeline</p>
+            <p class="text-xs text-purple-600">UI simples</p>
+          </div>
+
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold text-neutral-900 dark:text-neutral-100">RD Station CRM</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Melhor para: Brasil, integracao com RD Marketing</p>
+            <p class="text-xs text-orange-600">Suporte local</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">✅</span> Higiene de CRM
+        </h3>
+        <div class="space-y-2 text-sm">
+          <div class="flex items-start gap-2">
+            <span class="text-green-500">✓</span>
+            <p class="text-neutral-700 dark:text-neutral-300">Atualizar estagio do lead em 24h</p>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-green-500">✓</span>
+            <p class="text-neutral-700 dark:text-neutral-300">Registrar toda interacao (call, email, reuniao)</p>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-green-500">✓</span>
+            <p class="text-neutral-700 dark:text-neutral-300">Definir data de follow-up sempre</p>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-green-500">✓</span>
+            <p class="text-neutral-700 dark:text-neutral-300">Marcar leads inativos (90+ dias sem resposta)</p>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-green-500">✓</span>
+            <p class="text-neutral-700 dark:text-neutral-300">Review semanal de pipeline com gestor</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 8 -->
+    <section id="topico-8" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">8.8</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Vendas Consultivas</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🎓</span> Consultiva vs Transacional
+        </h3>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg border-2 border-red-300">
+            <p class="font-bold text-red-700 dark:text-red-400 mb-3">❌ Venda Transacional</p>
+            <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+              <li>• Foco no produto</li>
+              <li>• Pitch decorado</li>
+              <li>• Vendedor fala 80%</li>
+              <li>• Objecoes = barreiras</li>
+              <li>• Fechamento agressivo</li>
+              <li>• Relacao termina na venda</li>
+            </ul>
+          </div>
+
+          <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border-2 border-green-300">
+            <p class="font-bold text-green-700 dark:text-green-400 mb-3">✅ Venda Consultiva</p>
+            <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+              <li>• Foco no cliente</li>
+              <li>• Perguntas customizadas</li>
+              <li>• Cliente fala 70%</li>
+              <li>• Objecoes = oportunidades</li>
+              <li>• Fechamento natural</li>
+              <li>• Parceria de longo prazo</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-xl p-6 border-2 border-blue-200 dark:border-blue-800">
+        <h3 class="text-lg font-bold text-blue-900 dark:text-blue-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🧠</span> Mentalidade Consultiva
+        </h3>
+        <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+          <p class="text-neutral-700 dark:text-neutral-300 mb-3">
+            "Meu trabalho nao e vender. E <strong>diagnosticar se minha solucao resolve o problema do cliente</strong>. Se nao resolver, sou honesto e indico outra opcao."
+          </p>
+          <p class="text-sm text-blue-600 dark:text-blue-400">
+            Resultado: Mais confianca, menos objecoes, fechamento mais rapido, maior lifetime value.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 9 -->
+    <section id="topico-9" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">8.9</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Account-Based Selling</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🎯</span> O Que E ABS
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4 leading-relaxed">
+          Estrategia de vendas ultra-direcionada para <strong>contas de alto valor</strong>. Ao inves de volume, foco em profundidade: pesquisa intensiva, personalizacao total, multi-threading (varios stakeholders).
+        </p>
+        <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+          <p class="font-semibold text-blue-900 dark:text-blue-100">Quando usar ABS:</p>
+          <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1 mt-2">
+            <li>• Ticket medio >R$100k</li>
+            <li>• Ciclo de vendas 6+ meses</li>
+            <li>• Multiplos decisores</li>
+            <li>• Mercado muito nichado (ex: 50 empresas potenciais total)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📋</span> Processo ABS (Por Conta)
+        </h3>
+        <div class="space-y-3">
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded">
+            <span class="text-xl">1️⃣</span>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Selecao de Contas</p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">Criterios: fit perfeito, potencial, acessibilidade</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded">
+            <span class="text-xl">2️⃣</span>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Research Profundo</p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">Financas, noticias, decisores, iniciativas, dores</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded">
+            <span class="text-xl">3️⃣</span>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Mapeamento de Stakeholders</p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">Organograma, influenciadores, champion potencial</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded">
+            <span class="text-xl">4️⃣</span>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Campanha Personalizada</p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">Conteudo custom, eventos, gifting, warm intro</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded">
+            <span class="text-xl">5️⃣</span>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Multi-Threading</p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">Relacionamento com 3-5 pessoas da conta simultaneamente</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 p-3 bg-green-50 dark:bg-green-900/20 rounded border-2 border-green-300">
+            <span class="text-xl">6️⃣</span>
+            <div>
+              <p class="font-semibold text-green-700 dark:text-green-400">Fechamento Orquestrado</p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">Alinhamento interno deles + prova de conceito + contrato</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 10 -->
+    <section id="topico-10" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">8.10</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Metricas de Vendas</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📊</span> KPIs Principais
+        </h3>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead class="bg-blue-100 dark:bg-blue-900/30">
+              <tr>
+                <th class="p-3 text-left font-semibold">Metrica</th>
+                <th class="p-3 text-left font-semibold">Formula</th>
+                <th class="p-3 text-left font-semibold">Benchmark</th>
+              </tr>
+            </thead>
+            <tbody class="text-neutral-700 dark:text-neutral-300">
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-medium">Win Rate</td>
+                <td class="p-3">Vendas / Oportunidades</td>
+                <td class="p-3">20-30%</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-medium">Ciclo de Venda</td>
+                <td class="p-3">Tempo medio ate fechar</td>
+                <td class="p-3">30-180 dias</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-medium">Ticket Medio</td>
+                <td class="p-3">Receita / # Vendas</td>
+                <td class="p-3">Varia</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-medium">CAC</td>
+                <td class="p-3">Custo vendas / # Clientes</td>
+                <td class="p-3"><33% LTV</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-medium">Pipeline Coverage</td>
+                <td class="p-3">Pipeline / Meta trimestre</td>
+                <td class="p-3">3-4x</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-medium">Atividades/Dia</td>
+                <td class="p-3">Calls + emails + reunioes</td>
+                <td class="p-3">50-100</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🎯</span> Formula Magica de Vendas
+        </h3>
+        <div class="bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 p-6 rounded-lg border-2 border-blue-300">
+          <p class="text-lg font-semibold text-blue-900 dark:text-blue-100 text-center mb-4">
+            Meta de Receita = Pipeline x Win Rate x Ticket Medio
+          </p>
+          <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+            <p class="text-sm text-neutral-700 dark:text-neutral-300 mb-2">Exemplo:</p>
+            <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+              <li>• Meta: R$1.000.000/trimestre</li>
+              <li>• Ticket medio: R$50.000</li>
+              <li>• Win rate: 25%</li>
+              <li>• <strong>Pipeline necessario:</strong> R$1M / (0.25 x R$50k) = 80 oportunidades qualificadas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resumo e Proximos Passos -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl p-8 text-white">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="text-3xl mr-3">🎓</span> Resumo do Modulo 8
+        </h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Pipeline</p>
+            <p class="text-sm text-white/90">7 etapas estruturadas de vendas.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Qualificacao</p>
+            <p class="text-sm text-white/90">BANT e MEDDIC para filtrar leads.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Consultiva</p>
+            <p class="text-sm text-white/90">Diagnostico > Prescricao > Parceria.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Metricas</p>
+            <p class="text-sm text-white/90">Win rate, ciclo, CAC, pipeline.</p>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="../index.html" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold text-center hover:bg-neutral-100 transition-colors">
+            ← Voltar para Trilha
+          </a>
+          <a href="modulo9.html" class="bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-blue-800 transition-colors border border-white/30">
+            Proximo: Modulo 9 - Crescimento e Escala →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-900 text-white py-8">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-neutral-400">&copy; 2025 TDS - Transformacao Digital e Social</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Theme Toggle
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+    if (localStorage.getItem('color-theme') === 'dark' ||
+        (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      themeToggleLightIcon.classList.remove('hidden');
+    } else {
+      themeToggleDarkIcon.classList.remove('hidden');
+    }
+
+    themeToggleBtn.addEventListener('click', function() {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+    });
+  </script>
+
+</body>
+</html>

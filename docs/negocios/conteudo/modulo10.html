@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 10: Exit e Investimento - TDS</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .prose h2 { scroll-margin-top: 100px; }
+  </style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900 transition-colors">
+
+  <!-- Navegacao -->
+  <nav class="sticky top-0 z-50 bg-white dark:bg-neutral-800 shadow-sm">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center space-x-4">
+          <a href="../../../index.html" class="text-2xl font-bold text-rose-600 dark:text-rose-400">TDS</a>
+          <span class="text-neutral-400">/</span>
+          <a href="../index.html" class="text-rose-600 dark:text-rose-400 font-semibold hover:underline">Negocios</a>
+          <span class="text-neutral-400">/</span>
+          <span class="text-neutral-600 dark:text-neutral-400">Modulo 10</span>
+        </div>
+
+        <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-700" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero do Modulo -->
+  <header class="bg-gradient-to-br from-rose-600 via-rose-700 to-pink-700 py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+      <a href="../index.html" class="inline-flex items-center text-rose-200 hover:text-white mb-4 text-sm">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Voltar para Trilha de Negocios
+      </a>
+      <div class="flex items-center gap-4 mb-4">
+        <span class="text-5xl">🎯</span>
+        <div>
+          <p class="text-rose-200 text-sm font-medium">MODULO 10</p>
+          <h1 class="text-3xl sm:text-4xl font-bold">Exit e Investimento</h1>
+        </div>
+      </div>
+      <p class="text-lg text-white/90 max-w-2xl mb-4">
+        Prepare sua empresa para investimento ou venda. Valuation, captacao, due diligence, M&A, IPO e estrategias de exit bem-sucedidas.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">12 horas</span>
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">10 topicos</span>
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">Nivel: Avancado</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Indice -->
+  <div class="bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 py-4 sticky top-16 z-40">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2 text-sm overflow-x-auto pb-2">
+        <span class="text-neutral-500 dark:text-neutral-400 whitespace-nowrap">Ir para:</span>
+        <a href="#topico-1" class="px-3 py-1 bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-300 rounded-full whitespace-nowrap hover:bg-rose-200 dark:hover:bg-rose-900/50">10.1</a>
+        <a href="#topico-2" class="px-3 py-1 bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-300 rounded-full whitespace-nowrap hover:bg-rose-200 dark:hover:bg-rose-900/50">10.2</a>
+        <a href="#topico-3" class="px-3 py-1 bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-300 rounded-full whitespace-nowrap hover:bg-rose-200 dark:hover:bg-rose-900/50">10.3</a>
+        <a href="#topico-4" class="px-3 py-1 bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-300 rounded-full whitespace-nowrap hover:bg-rose-200 dark:hover:bg-rose-900/50">10.4</a>
+        <a href="#topico-5" class="px-3 py-1 bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-300 rounded-full whitespace-nowrap hover:bg-rose-200 dark:hover:bg-rose-900/50">10.5</a>
+        <a href="#topico-6" class="px-3 py-1 bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-300 rounded-full whitespace-nowrap hover:bg-rose-200 dark:hover:bg-rose-900/50">10.6</a>
+        <a href="#topico-7" class="px-3 py-1 bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-300 rounded-full whitespace-nowrap hover:bg-rose-200 dark:hover:bg-rose-900/50">10.7</a>
+        <a href="#topico-8" class="px-3 py-1 bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-300 rounded-full whitespace-nowrap hover:bg-rose-200 dark:hover:bg-rose-900/50">10.8</a>
+        <a href="#topico-9" class="px-3 py-1 bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-300 rounded-full whitespace-nowrap hover:bg-rose-200 dark:hover:bg-rose-900/50">10.9</a>
+        <a href="#topico-10" class="px-3 py-1 bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-300 rounded-full whitespace-nowrap hover:bg-rose-200 dark:hover:bg-rose-900/50">10.10</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conteudo Principal -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Introducao -->
+    <div class="bg-gradient-to-br from-rose-50 to-pink-50 dark:from-rose-900/20 dark:to-pink-900/20 rounded-2xl p-8 mb-12 border-2 border-rose-200 dark:border-rose-800">
+      <h2 class="text-2xl font-bold text-rose-900 dark:text-rose-100 mb-4 flex items-center">
+        <span class="text-3xl mr-3">🎯</span>
+        O Que Voce Vai Aprender Neste Modulo
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <ul class="space-y-2 text-neutral-700 dark:text-neutral-300">
+          <li class="flex items-start"><span class="text-rose-500 mr-2 mt-1">✓</span> Calcular valuation de startups</li>
+          <li class="flex items-start"><span class="text-rose-500 mr-2 mt-1">✓</span> Conhecer tipos de investidores</li>
+          <li class="flex items-start"><span class="text-rose-500 mr-2 mt-1">✓</span> Criar pitch deck que converte</li>
+          <li class="flex items-start"><span class="text-rose-500 mr-2 mt-1">✓</span> Preparar para due diligence</li>
+          <li class="flex items-start"><span class="text-rose-500 mr-2 mt-1">✓</span> Negociar term sheets</li>
+        </ul>
+        <ul class="space-y-2 text-neutral-700 dark:text-neutral-300">
+          <li class="flex items-start"><span class="text-rose-500 mr-2 mt-1">✓</span> Gerenciar cap table</li>
+          <li class="flex items-start"><span class="text-rose-500 mr-2 mt-1">✓</span> Planejar estrategias de exit</li>
+          <li class="flex items-start"><span class="text-rose-500 mr-2 mt-1">✓</span> Processo de M&A (fusoes e aquisicoes)</li>
+          <li class="flex items-start"><span class="text-rose-500 mr-2 mt-1">✓</span> Caminho para IPO</li>
+          <li class="flex items-start"><span class="text-rose-500 mr-2 mt-1">✓</span> Preparar empresa para venda</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-rose-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">10.1</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Valuation de Startups</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">💰</span> Metodos de Valuation
+        </h3>
+
+        <div class="space-y-4">
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+            <p class="font-bold text-blue-700 dark:text-blue-400 mb-2">1. Metodo do Multiplo de Receita</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300 mb-2">Valuation = Receita Anual x Multiplo do Setor</p>
+            <p class="text-xs text-blue-600 dark:text-blue-400">SaaS B2B: 5-10x | E-commerce: 1-3x | Marketplace: 3-8x</p>
+          </div>
+
+          <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+            <p class="font-bold text-green-700 dark:text-green-400 mb-2">2. Venture Capital Method</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300 mb-2">ROI esperado do investidor em 5-7 anos</p>
+            <p class="text-xs text-green-600 dark:text-green-400">Pre-money = (Receita futura x Multiplo / ROI target) - Investimento</p>
+          </div>
+
+          <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+            <p class="font-bold text-purple-700 dark:text-purple-400 mb-2">3. Scorecard Method</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300 mb-2">Compara com valuation medio de startups similares</p>
+            <p class="text-xs text-purple-600 dark:text-purple-400">Ajusta por: time (30%), produto (25%), mercado (25%), etc</p>
+          </div>
+
+          <div class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg">
+            <p class="font-bold text-amber-700 dark:text-amber-400 mb-2">4. Berkus Method</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300 mb-2">Pre-revenue: Soma pontos por risco mitigado</p>
+            <p class="text-xs text-amber-600 dark:text-amber-400">Idea sana (+500k), prototipo (+500k), time (+500k), traction (+500k), parcerias (+500k)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-rose-50 dark:bg-rose-900/20 p-4 rounded-lg border-l-4 border-rose-500">
+        <p class="text-rose-800 dark:text-rose-200 font-semibold">
+          💡 Valuation e negociacao. Nao existe "valor certo", existe o que mercado aceita pagar.
+        </p>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-rose-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">10.2</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Tipos de Investidores</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">👥</span> Perfis de Investidores
+        </h3>
+
+        <div class="space-y-3">
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold text-neutral-900 dark:text-neutral-100">FFF (Friends, Family, Fools)</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-1">Ticket: R$10k-100k | Estagio: Ideacao</p>
+            <p class="text-xs text-neutral-500">Pros: Rapido, flexivel | Contras: Pouco valor agregado, risco pessoal</p>
+          </div>
+
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold text-neutral-900 dark:text-neutral-100">Anjos (Angel Investors)</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-1">Ticket: R$50k-500k | Estagio: Seed</p>
+            <p class="text-xs text-neutral-500">Pros: Mentoria, network | Contras: Cheque limitado</p>
+          </div>
+
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold text-neutral-900 dark:text-neutral-100">Aceleradoras</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-1">Ticket: R$100k-500k | Estagio: Pre-seed/Seed</p>
+            <p class="text-xs text-neutral-500">Pros: Programa estruturado, network | Contras: Equity alto (5-10%)</p>
+          </div>
+
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold text-neutral-900 dark:text-neutral-100">VCs (Venture Capital)</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-1">Ticket: R$1M-50M+ | Estagio: Series A+</p>
+            <p class="text-xs text-neutral-500">Pros: Cheque grande, governanca | Contras: Exigente, metas agressivas</p>
+          </div>
+
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold text-neutral-900 dark:text-neutral-100">Corporate VC</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-1">Ticket: R$2M-100M+ | Estagio: Growth</p>
+            <p class="text-xs text-neutral-500">Pros: Sinergias estrategicas | Contras: Conflito de interesses potencial</p>
+          </div>
+
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold text-neutral-900 dark:text-neutral-100">Private Equity</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-1">Ticket: R$50M+ | Estagio: Late stage/Maduro</p>
+            <p class="text-xs text-neutral-500">Pros: Recursos ilimitados | Contras: Foco em exit rapido</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-rose-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">10.3</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Pitch Deck</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📊</span> Os 15 Slides Essenciais
+        </h3>
+
+        <div class="space-y-2">
+          <div class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded">
+            <span class="w-8 h-8 bg-rose-500 text-white rounded-full flex items-center justify-center text-sm font-bold">1</span>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300"><strong>Capa:</strong> Nome, tagline, contato</p>
+          </div>
+
+          <div class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded">
+            <span class="w-8 h-8 bg-rose-500 text-white rounded-full flex items-center justify-center text-sm font-bold">2</span>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300"><strong>Problema:</strong> Dor aguda e especifica</p>
+          </div>
+
+          <div class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded">
+            <span class="w-8 h-8 bg-rose-500 text-white rounded-full flex items-center justify-center text-sm font-bold">3</span>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300"><strong>Solucao:</strong> Como resolve o problema</p>
+          </div>
+
+          <div class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded">
+            <span class="w-8 h-8 bg-rose-500 text-white rounded-full flex items-center justify-center text-sm font-bold">4</span>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300"><strong>Produto/Demo:</strong> Screenshots ou video</p>
+          </div>
+
+          <div class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded">
+            <span class="w-8 h-8 bg-rose-500 text-white rounded-full flex items-center justify-center text-sm font-bold">5</span>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300"><strong>Tamanho do Mercado:</strong> TAM, SAM, SOM</p>
+          </div>
+
+          <div class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded">
+            <span class="w-8 h-8 bg-rose-500 text-white rounded-full flex items-center justify-center text-sm font-bold">6</span>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300"><strong>Modelo de Negocio:</strong> Como ganha dinheiro</p>
+          </div>
+
+          <div class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded">
+            <span class="w-8 h-8 bg-rose-500 text-white rounded-full flex items-center justify-center text-sm font-bold">7</span>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300"><strong>Tracao:</strong> Metricas de crescimento</p>
+          </div>
+
+          <div class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded">
+            <span class="w-8 h-8 bg-rose-500 text-white rounded-full flex items-center justify-center text-sm font-bold">8</span>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300"><strong>Competicao:</strong> Matriz de diferenciais</p>
+          </div>
+
+          <div class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded">
+            <span class="w-8 h-8 bg-rose-500 text-white rounded-full flex items-center justify-center text-sm font-bold">9</span>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300"><strong>Vantagem Competitiva:</strong> Seu moat</p>
+          </div>
+
+          <div class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded">
+            <span class="w-8 h-8 bg-rose-500 text-white rounded-full flex items-center justify-center text-sm font-bold">10</span>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300"><strong>Time:</strong> Fundadores e key hires</p>
+          </div>
+
+          <div class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded">
+            <span class="w-8 h-8 bg-rose-500 text-white rounded-full flex items-center justify-center text-sm font-bold">11</span>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300"><strong>Go-to-Market:</strong> Estrategia de aquisicao</p>
+          </div>
+
+          <div class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded">
+            <span class="w-8 h-8 bg-rose-500 text-white rounded-full flex items-center justify-center text-sm font-bold">12</span>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300"><strong>Financeiro:</strong> Receita, margens, burn</p>
+          </div>
+
+          <div class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded">
+            <span class="w-8 h-8 bg-rose-500 text-white rounded-full flex items-center justify-center text-sm font-bold">13</span>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300"><strong>Projecoes:</strong> 3-5 anos realistas</p>
+          </div>
+
+          <div class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded">
+            <span class="w-8 h-8 bg-rose-500 text-white rounded-full flex items-center justify-center text-sm font-bold">14</span>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300"><strong>Pedido (Ask):</strong> Quanto, para que, dilution</p>
+          </div>
+
+          <div class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded">
+            <span class="w-8 h-8 bg-rose-500 text-white rounded-full flex items-center justify-center text-sm font-bold">15</span>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300"><strong>Fechamento:</strong> Visao de futuro, contato</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg border-l-4 border-amber-500">
+        <p class="text-amber-800 dark:text-amber-200 font-semibold">
+          ⚠️ Regra 10/20/30: 10 slides, 20 minutos, fonte minima 30pt. Menos e mais.
+        </p>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-rose-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">10.4</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Due Diligence</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🔍</span> Areas de Due Diligence
+        </h3>
+
+        <div class="space-y-4">
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+            <p class="font-bold text-blue-700 dark:text-blue-400 mb-2">1. Legal</p>
+            <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+              <li>• Contratos sociais, cap table atualizado</li>
+              <li>• Propriedade intelectual (patentes, marcas)</li>
+              <li>• Contratos com clientes, fornecedores, funcionarios</li>
+              <li>• Litigios, processos, passivos trabalhistas</li>
+            </ul>
+          </div>
+
+          <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+            <p class="font-bold text-green-700 dark:text-green-400 mb-2">2. Financeiro</p>
+            <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+              <li>• Balancos auditados ultimos 3 anos</li>
+              <li>• Fluxo de caixa detalhado</li>
+              <li>• Dividas, emprestimos, garantias</li>
+              <li>• Projecoes e premissas</li>
+            </ul>
+          </div>
+
+          <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+            <p class="font-bold text-purple-700 dark:text-purple-400 mb-2">3. Comercial</p>
+            <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+              <li>• Base de clientes, concentracao</li>
+              <li>• Churn rate, NPS, LTV</li>
+              <li>• Pipeline de vendas</li>
+              <li>• Concorrencia e posicionamento</li>
+            </ul>
+          </div>
+
+          <div class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg">
+            <p class="font-bold text-amber-700 dark:text-amber-400 mb-2">4. Tecnologia</p>
+            <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+              <li>• Arquitetura, codigo, documentacao</li>
+              <li>• Divida tecnica, bugs criticos</li>
+              <li>• Seguranca, conformidade (LGPD, GDPR)</li>
+              <li>• Dependencias de terceiros</li>
+            </ul>
+          </div>
+
+          <div class="bg-orange-50 dark:bg-orange-900/20 p-4 rounded-lg">
+            <p class="font-bold text-orange-700 dark:text-orange-400 mb-2">5. Pessoas</p>
+            <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+              <li>• Organograma, contratos chave</li>
+              <li>• Stock options, vesting schedules</li>
+              <li>• Rotatividade, clima organizacional</li>
+              <li>• Key person risk</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-rose-50 dark:bg-rose-900/20 p-4 rounded-lg border-l-4 border-rose-500">
+        <p class="text-rose-800 dark:text-rose-200 font-semibold">
+          💡 Prepare data room digital antes de comecar roadshow. Due diligence demora 4-8 semanas.
+        </p>
+      </div>
+    </section>
+
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-rose-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">10.5</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Term Sheet</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📜</span> Clausulas Principais
+        </h3>
+
+        <div class="space-y-3">
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold text-neutral-900 dark:text-neutral-100">Valuation (Pre-money e Post-money)</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Pre-money: Valor da empresa antes do aporte | Post-money: Pre + Investimento</p>
+          </div>
+
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold text-neutral-900 dark:text-neutral-100">Investimento e Equity</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Quanto sera investido e quanto de equity o investidor recebera</p>
+          </div>
+
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold text-neutral-900 dark:text-neutral-100">Preferencia de Liquidacao</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Em exit, investidor recebe primeiro (1x nao participante e padrao)</p>
+          </div>
+
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold text-neutral-900 dark:text-neutral-100">Antidiluicao</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Protecao se proxima rodada for em valuation menor (down round)</p>
+          </div>
+
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold text-neutral-900 dark:text-neutral-100">Vesting dos Fundadores</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Normalmente 4 anos com cliff de 1 ano</p>
+          </div>
+
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold text-neutral-900 dark:text-neutral-100">Assento no Board</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Investidor pode ter direito a cadeira no conselho</p>
+          </div>
+
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold text-neutral-900 dark:text-neutral-100">Drag-Along e Tag-Along</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Drag: Maioria obriga minoria a vender | Tag: Minoria pode vender junto</p>
+          </div>
+
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold text-neutral-900 dark:text-neutral-100">Pro-rata Rights</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Direito de manter % em proximas rodadas</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg border-l-4 border-amber-500">
+        <p class="text-amber-800 dark:text-amber-200 font-semibold">
+          ⚠️ SEMPRE contrate advogado especializado em venture capital. Term sheet nao negociado pode destruir o negocio.
+        </p>
+      </div>
+    </section>
+
+    <!-- TOPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-rose-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">10.6</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Cap Table</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📊</span> O Que E Cap Table
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4 leading-relaxed">
+          <strong>Capitalization Table</strong> - Tabela que mostra participacao de cada socio/investidor na empresa. Evolui a cada rodada de investimento.
+        </p>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📋</span> Exemplo de Cap Table Simplificado
+        </h3>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead class="bg-rose-100 dark:bg-rose-900/30">
+              <tr>
+                <th class="p-3 text-left font-semibold">Stakeholder</th>
+                <th class="p-3 text-left font-semibold">Acoes</th>
+                <th class="p-3 text-left font-semibold">% Equity</th>
+                <th class="p-3 text-left font-semibold">Valor (R$)</th>
+              </tr>
+            </thead>
+            <tbody class="text-neutral-700 dark:text-neutral-300">
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-medium">Fundador 1</td>
+                <td class="p-3">400,000</td>
+                <td class="p-3">40%</td>
+                <td class="p-3">R$4,000,000</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-medium">Fundador 2</td>
+                <td class="p-3">300,000</td>
+                <td class="p-3">30%</td>
+                <td class="p-3">R$3,000,000</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-medium">VC Seed</td>
+                <td class="p-3">150,000</td>
+                <td class="p-3">15%</td>
+                <td class="p-3">R$1,500,000</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-medium">Anjos</td>
+                <td class="p-3">50,000</td>
+                <td class="p-3">5%</td>
+                <td class="p-3">R$500,000</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-medium">Pool Stock Options</td>
+                <td class="p-3">100,000</td>
+                <td class="p-3">10%</td>
+                <td class="p-3">R$1,000,000</td>
+              </tr>
+              <tr class="bg-neutral-100 dark:bg-neutral-700">
+                <td class="p-3 font-bold">Total</td>
+                <td class="p-3 font-bold">1,000,000</td>
+                <td class="p-3 font-bold">100%</td>
+                <td class="p-3 font-bold">R$10,000,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="bg-rose-50 dark:bg-rose-900/20 p-4 rounded-lg border-l-4 border-rose-500">
+        <p class="text-rose-800 dark:text-rose-200 font-semibold">
+          💡 Mantenha cap table sempre atualizado. Use ferramentas como Carta, Pulley ou Google Sheets modelado.
+        </p>
+      </div>
+    </section>
+
+    <!-- TOPICO 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-rose-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">10.7</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Estrategias de Exit</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🚪</span> 5 Tipos de Exit
+        </h3>
+
+        <div class="space-y-4">
+          <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+            <p class="font-bold text-green-700 dark:text-green-400 mb-2">1. Aquisicao Estrategica (M&A)</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">Comprado por empresa maior do setor. Exit mais comum em startups.</p>
+            <p class="text-xs text-green-600 dark:text-green-400 mt-1">Ex: Instagram vendido para Facebook por US$1B</p>
+          </div>
+
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+            <p class="font-bold text-blue-700 dark:text-blue-400 mb-2">2. IPO (Abertura de Capital)</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">Ações negociadas em bolsa. Para empresas maduras e lucrativas.</p>
+            <p class="text-xs text-blue-600 dark:text-blue-400 mt-1">Ex: Nubank IPO em 2021 - US$41.5B</p>
+          </div>
+
+          <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+            <p class="font-bold text-purple-700 dark:text-purple-400 mb-2">3. Secondary Sale</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">Fundadores/investidores vendem parcial para PE/novo VC.</p>
+            <p class="text-xs text-purple-600 dark:text-purple-400 mt-1">Liquidez parcial, empresa continua operando</p>
+          </div>
+
+          <div class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg">
+            <p class="font-bold text-amber-700 dark:text-amber-400 mb-2">4. Acqui-hire</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">Compra principalmente do time, nao do produto.</p>
+            <p class="text-xs text-amber-600 dark:text-amber-400 mt-1">Comum quando produto nao deu certo mas time e forte</p>
+          </div>
+
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold text-neutral-700 dark:text-neutral-400 mb-2">5. Liquidacao/Shutdown</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">Encerramento das operacoes, venda de ativos.</p>
+            <p class="text-xs text-neutral-600 dark:text-neutral-400 mt-1">Ultimo recurso quando nao ha fit produto-mercado</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 8 -->
+    <section id="topico-8" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-rose-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">10.8</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">M&A</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🤝</span> Processo de M&A (6-12 meses)
+        </h3>
+
+        <div class="space-y-3">
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="text-xl">1️⃣</span>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Preparacao</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Limpar casa, auditoria, data room, valuation interno</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="text-xl">2️⃣</span>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Mandato com M&A Advisor</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Banco de investimento ou boutique especializada</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="text-xl">3️⃣</span>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Teaser e Longlist</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Documento anonimo para 30-50 potenciais compradores</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="text-xl">4️⃣</span>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">NDA e CIM</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Confidential Information Memorandum para interessados</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="text-xl">5️⃣</span>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">IOIs (Indicative Offers)</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Propostas nao-vinculantes iniciais</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="text-xl">6️⃣</span>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Management Presentations</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Reunioes com 5-10 finalistas</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="text-xl">7️⃣</span>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">LOI (Letter of Intent)</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Proposta vinculante do escolhido</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="text-xl">8️⃣</span>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Due Diligence Confirmatorio</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Validacao profunda pelo comprador (60-90 dias)</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <span class="text-xl">9️⃣</span>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">SPA (Stock Purchase Agreement)</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Contrato definitivo de compra e venda</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 p-3 bg-green-50 dark:bg-green-900/20 rounded-lg border-2 border-green-300">
+            <span class="text-xl">🏁</span>
+            <div>
+              <p class="font-semibold text-green-700 dark:text-green-400">Closing</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Transferencia de acoes, pagamento, anuncio publico</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 9 -->
+    <section id="topico-9" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-rose-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">10.9</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">IPO</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📈</span> Requisitos Para IPO (Brasil - B3)
+        </h3>
+
+        <div class="space-y-3">
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Tamanho</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Valuation minimo R$500M-1B | Free float 25%+</p>
+          </div>
+
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Lucratividade</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">EBITDA positivo ou caminho claro para lucro</p>
+          </div>
+
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Historico Financeiro</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Minimo 3 anos de demonstracoes auditadas</p>
+          </div>
+
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Governanca</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Conselho independente, fiscal, compliance, auditoria</p>
+          </div>
+
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Transparencia</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Relatorio trimestral publico, earnings calls</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">💰</span> Custos de IPO
+        </h3>
+
+        <div class="grid md:grid-cols-2 gap-4 text-sm">
+          <div class="bg-red-50 dark:bg-red-900/20 p-3 rounded">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Underwriters</p>
+            <p class="text-xs text-neutral-600 dark:text-neutral-400">5-7% do valor levantado</p>
+          </div>
+          <div class="bg-red-50 dark:bg-red-900/20 p-3 rounded">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Advogados</p>
+            <p class="text-xs text-neutral-600 dark:text-neutral-400">R$2-5M</p>
+          </div>
+          <div class="bg-red-50 dark:bg-red-900/20 p-3 rounded">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Auditoria</p>
+            <p class="text-xs text-neutral-600 dark:text-neutral-400">R$1-3M</p>
+          </div>
+          <div class="bg-red-50 dark:bg-red-900/20 p-3 rounded">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Registro CVM/B3</p>
+            <p class="text-xs text-neutral-600 dark:text-neutral-400">R$500k-1M</p>
+          </div>
+          <div class="bg-red-50 dark:bg-red-900/20 p-3 rounded">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Marketing (Roadshow)</p>
+            <p class="text-xs text-neutral-600 dark:text-neutral-400">R$500k-2M</p>
+          </div>
+          <div class="bg-red-50 dark:bg-red-900/20 p-3 rounded">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Total</p>
+            <p class="text-xs text-neutral-600 dark:text-neutral-400">8-15% do capital levantado</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg border-l-4 border-amber-500">
+        <p class="text-amber-800 dark:text-amber-200 font-semibold">
+          ⚠️ IPO nao e exit para fundadores. Lock-up period de 6-12 meses. Pressao por resultados trimestrais.
+        </p>
+      </div>
+    </section>
+
+    <!-- TOPICO 10 -->
+    <section id="topico-10" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-rose-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">10.10</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Preparacao para Venda</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">✅</span> Checklist 12 Meses Antes da Venda
+        </h3>
+
+        <div class="space-y-2">
+          <div class="flex items-start gap-3">
+            <span class="text-green-500 text-xl">✓</span>
+            <p class="text-neutral-700 dark:text-neutral-300"><strong>Financeiro:</strong> Demonstracoes auditadas, metricas padronizadas (SaaS: MRR, ARR, CAC, LTV, Churn)</p>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-green-500 text-xl">✓</span>
+            <p class="text-neutral-700 dark:text-neutral-300"><strong>Legal:</strong> Contratos revisados, propriedade intelectual registrada, litigios resolvidos</p>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-green-500 text-xl">✓</span>
+            <p class="text-neutral-700 dark:text-neutral-300"><strong>Clientes:</strong> Diversificar (nenhum cliente >20% receita), aumentar retencao, NPS alto</p>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-green-500 text-xl">✓</span>
+            <p class="text-neutral-700 dark:text-neutral-300"><strong>Time:</strong> Reduzir dependencia dos fundadores, contratos chave assinados</p>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-green-500 text-xl">✓</span>
+            <p class="text-neutral-700 dark:text-neutral-300"><strong>Produto:</strong> Documentacao tecnica, codigo limpo, seguranca/compliance em dia</p>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-green-500 text-xl">✓</span>
+            <p class="text-neutral-700 dark:text-neutral-300"><strong>Processos:</strong> Playbooks documentados, operacao pode rodar sem fundadores por 30 dias</p>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-green-500 text-xl">✓</span>
+            <p class="text-neutral-700 dark:text-neutral-300"><strong>Crescimento:</strong> Trend line consistente nos ultimos 12 meses (nao volatil)</p>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-green-500 text-xl">✓</span>
+            <p class="text-neutral-700 dark:text-neutral-300"><strong>Narrative:</strong> Historia clara de por que empresa vale X, onde pode chegar</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-r from-rose-50 to-pink-50 dark:from-rose-900/20 dark:to-pink-900/20 rounded-xl p-6 border-2 border-rose-200 dark:border-rose-800">
+        <h3 class="text-lg font-bold text-rose-900 dark:text-rose-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🎯</span> Maximize Valuation
+        </h3>
+        <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg space-y-2 text-sm">
+          <p>• <strong>Timing:</strong> Venda no pico de performance, nao na crise</p>
+          <p>• <strong>Competicao:</strong> Multiplos compradores interessados = leilao = preco melhor</p>
+          <p>• <strong>Earn-out:</strong> Evite quando possivel. Se aceitar, garanta clausulas claras</p>
+          <p>• <strong>Advisors:</strong> M&A advisor aumenta valuation em media 20-30%</p>
+          <p>• <strong>Paciencia:</strong> Processo leva 6-12 meses. Nao tenha pressa</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resumo e Proximos Passos -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-rose-600 to-pink-600 rounded-2xl p-8 text-white">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="text-3xl mr-3">🎓</span> Resumo do Modulo 10
+        </h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Captacao</p>
+            <p class="text-sm text-white/90">Valuation, investidores, pitch deck.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Negociacao</p>
+            <p class="text-sm text-white/90">Due diligence, term sheet, cap table.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Exit</p>
+            <p class="text-sm text-white/90">M&A, IPO, estrategias de saida.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Preparacao</p>
+            <p class="text-sm text-white/90">12 meses antes da venda.</p>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="../index.html" class="bg-white text-rose-600 px-6 py-3 rounded-lg font-semibold text-center hover:bg-neutral-100 transition-colors">
+            ← Voltar para Trilha
+          </a>
+          <a href="../../../index.html" class="bg-rose-700 text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-rose-800 transition-colors border border-white/30">
+            Concluir Trilha de Negocios
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-900 text-white py-8">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-neutral-400">&copy; 2025 TDS - Transformacao Digital e Social</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Theme Toggle
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+    if (localStorage.getItem('color-theme') === 'dark' ||
+        (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      themeToggleLightIcon.classList.remove('hidden');
+    } else {
+      themeToggleDarkIcon.classList.remove('hidden');
+    }
+
+    themeToggleBtn.addEventListener('click', function() {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+    });
+  </script>
+
+</body>
+</html>

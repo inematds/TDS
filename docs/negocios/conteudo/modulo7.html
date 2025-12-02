@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 7: Marketing Digital - TDS</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .prose h2 { scroll-margin-top: 100px; }
+  </style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900 transition-colors">
+
+  <!-- Navegacao -->
+  <nav class="sticky top-0 z-50 bg-white dark:bg-neutral-800 shadow-sm">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center space-x-4">
+          <a href="../../../index.html" class="text-2xl font-bold text-orange-600 dark:text-orange-400">TDS</a>
+          <span class="text-neutral-400">/</span>
+          <a href="../index.html" class="text-orange-600 dark:text-orange-400 font-semibold hover:underline">Negocios</a>
+          <span class="text-neutral-400">/</span>
+          <span class="text-neutral-600 dark:text-neutral-400">Modulo 7</span>
+        </div>
+
+        <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-700" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero do Modulo -->
+  <header class="bg-gradient-to-br from-orange-600 via-orange-700 to-amber-700 py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+      <a href="../index.html" class="inline-flex items-center text-orange-200 hover:text-white mb-4 text-sm">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Voltar para Trilha de Negocios
+      </a>
+      <div class="flex items-center gap-4 mb-4">
+        <span class="text-5xl">📣</span>
+        <div>
+          <p class="text-orange-200 text-sm font-medium">MODULO 7</p>
+          <h1 class="text-3xl sm:text-4xl font-bold">Marketing Digital</h1>
+        </div>
+      </div>
+      <p class="text-lg text-white/90 max-w-2xl mb-4">
+        Domine as estrategias de marketing digital que geram resultados. Do trafego pago ao organico, aprenda a atrair, converter e fidelizar clientes online.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">10 horas</span>
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">10 topicos</span>
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">Nivel: Intermediario</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Indice -->
+  <div class="bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 py-4 sticky top-16 z-40">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2 text-sm overflow-x-auto pb-2">
+        <span class="text-neutral-500 dark:text-neutral-400 whitespace-nowrap">Ir para:</span>
+        <a href="#topico-1" class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full whitespace-nowrap hover:bg-orange-200 dark:hover:bg-orange-900/50">7.1</a>
+        <a href="#topico-2" class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full whitespace-nowrap hover:bg-orange-200 dark:hover:bg-orange-900/50">7.2</a>
+        <a href="#topico-3" class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full whitespace-nowrap hover:bg-orange-200 dark:hover:bg-orange-900/50">7.3</a>
+        <a href="#topico-4" class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full whitespace-nowrap hover:bg-orange-200 dark:hover:bg-orange-900/50">7.4</a>
+        <a href="#topico-5" class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full whitespace-nowrap hover:bg-orange-200 dark:hover:bg-orange-900/50">7.5</a>
+        <a href="#topico-6" class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full whitespace-nowrap hover:bg-orange-200 dark:hover:bg-orange-900/50">7.6</a>
+        <a href="#topico-7" class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full whitespace-nowrap hover:bg-orange-200 dark:hover:bg-orange-900/50">7.7</a>
+        <a href="#topico-8" class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full whitespace-nowrap hover:bg-orange-200 dark:hover:bg-orange-900/50">7.8</a>
+        <a href="#topico-9" class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full whitespace-nowrap hover:bg-orange-200 dark:hover:bg-orange-900/50">7.9</a>
+        <a href="#topico-10" class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full whitespace-nowrap hover:bg-orange-200 dark:hover:bg-orange-900/50">7.10</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conteudo Principal -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Introducao -->
+    <div class="bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-900/20 dark:to-amber-900/20 rounded-2xl p-8 mb-12 border-2 border-orange-200 dark:border-orange-800">
+      <h2 class="text-2xl font-bold text-orange-900 dark:text-orange-100 mb-4 flex items-center">
+        <span class="text-3xl mr-3">🎯</span>
+        O Que Voce Vai Aprender Neste Modulo
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <ul class="space-y-2 text-neutral-700 dark:text-neutral-300">
+          <li class="flex items-start"><span class="text-orange-500 mr-2 mt-1">✓</span> Estruturar funil de marketing completo</li>
+          <li class="flex items-start"><span class="text-orange-500 mr-2 mt-1">✓</span> Dominar trafego pago (Meta e Google)</li>
+          <li class="flex items-start"><span class="text-orange-500 mr-2 mt-1">✓</span> Estrategias de SEO e trafego organico</li>
+          <li class="flex items-start"><span class="text-orange-500 mr-2 mt-1">✓</span> Email marketing que converte</li>
+          <li class="flex items-start"><span class="text-orange-500 mr-2 mt-1">✓</span> Criar landing pages de alta conversao</li>
+        </ul>
+        <ul class="space-y-2 text-neutral-700 dark:text-neutral-300">
+          <li class="flex items-start"><span class="text-orange-500 mr-2 mt-1">✓</span> Copy persuasivo para conversao</li>
+          <li class="flex items-start"><span class="text-orange-500 mr-2 mt-1">✓</span> Retargeting e remarketing efetivo</li>
+          <li class="flex items-start"><span class="text-orange-500 mr-2 mt-1">✓</span> Marketing de conteudo estrategico</li>
+          <li class="flex items-start"><span class="text-orange-500 mr-2 mt-1">✓</span> Trabalhar com influenciadores</li>
+          <li class="flex items-start"><span class="text-orange-500 mr-2 mt-1">✓</span> Analisar e otimizar campanhas</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">7.1</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Funil de Marketing</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🔻</span> As 4 Etapas do Funil
+        </h3>
+
+        <div class="space-y-4">
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+            <p class="font-bold text-blue-700 dark:text-blue-400 mb-2">1. TOPO - Atracao (Awareness)</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300 mb-2">Objetivo: Gerar trafego e consciencia de marca</p>
+            <ul class="text-xs text-neutral-600 dark:text-neutral-400 space-y-1">
+              <li>• Conteudo educativo, blog posts, videos</li>
+              <li>• SEO, redes sociais, anuncios de alcance</li>
+              <li>• Metrica: Visitantes, impressoes, alcance</li>
+            </ul>
+          </div>
+
+          <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+            <p class="font-bold text-green-700 dark:text-green-400 mb-2">2. MEIO - Consideracao (Interest)</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300 mb-2">Objetivo: Capturar leads e nutrir relacionamento</p>
+            <ul class="text-xs text-neutral-600 dark:text-neutral-400 space-y-1">
+              <li>• Ebooks, webinars, trials gratuitos</li>
+              <li>• Email marketing, retargeting</li>
+              <li>• Metrica: Leads, taxa de conversao, engajamento</li>
+            </ul>
+          </div>
+
+          <div class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg">
+            <p class="font-bold text-amber-700 dark:text-amber-400 mb-2">3. FUNDO - Decisao (Decision)</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300 mb-2">Objetivo: Converter leads em clientes</p>
+            <ul class="text-xs text-neutral-600 dark:text-neutral-400 space-y-1">
+              <li>• Demos, consultorias, propostas</li>
+              <li>• Cases, depoimentos, garantias</li>
+              <li>• Metrica: SQLs, vendas, CAC</li>
+            </ul>
+          </div>
+
+          <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+            <p class="font-bold text-purple-700 dark:text-purple-400 mb-2">4. POS-VENDA - Retencao (Loyalty)</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300 mb-2">Objetivo: Reter, expandir e viralizar</p>
+            <ul class="text-xs text-neutral-600 dark:text-neutral-400 space-y-1">
+              <li>• Onboarding, suporte, upsell</li>
+              <li>• Programa de indicacao, advocacy</li>
+              <li>• Metrica: LTV, churn, NPS</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-orange-50 dark:bg-orange-900/20 p-4 rounded-lg border-l-4 border-orange-500">
+        <p class="text-orange-800 dark:text-orange-200 font-semibold">
+          💡 Regra: Invista 50% do orcamento em topo/meio para alimentar o fundo do funil.
+        </p>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">7.2</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Trafego Pago (Meta, Google)</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📱</span> Meta Ads (Facebook/Instagram)
+        </h3>
+
+        <div class="space-y-3">
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 mb-1">Quando Usar</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">B2C, produtos visuais, awareness, remarketing</p>
+          </div>
+
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 mb-1">Formatos Top</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Stories, Reels, Carrossel, Video (15-30s)</p>
+          </div>
+
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 mb-1">Segmentacao</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Interesses, comportamentos, lookalike audiences</p>
+          </div>
+
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100 mb-1">Benchmarks</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">CPC: R$0.50-2.00 | CTR: 1-3% | CPA: R$20-100</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🔍</span> Google Ads (Search/Display)
+        </h3>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+            <p class="font-bold text-blue-700 dark:text-blue-400 mb-2">Google Search</p>
+            <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+              <li>• Intencao de compra alta</li>
+              <li>• Palavras-chave transacionais</li>
+              <li>• B2B e B2C</li>
+              <li>• CPC mais alto, conversao melhor</li>
+            </ul>
+          </div>
+
+          <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+            <p class="font-bold text-purple-700 dark:text-purple-400 mb-2">Google Display</p>
+            <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+              <li>• Awareness e remarketing</li>
+              <li>• Banners visuais</li>
+              <li>• CPC baixo, volume alto</li>
+              <li>• Segmentacao contextual</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-xl p-6 border-2 border-amber-200 dark:border-amber-800">
+        <h3 class="text-lg font-bold text-amber-900 dark:text-amber-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🎯</span> Framework de Teste A/B
+        </h3>
+        <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+          <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+            <li>• Teste 1 variavel por vez (imagem OU copy OU CTA)</li>
+            <li>• Minimo 100 conversoes por variacao</li>
+            <li>• 95% de confianca estatistica</li>
+            <li>• Vencedor implementado, novo teste iniciado</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">7.3</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">SEO e Organico</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🔎</span> Os 3 Pilares do SEO
+        </h3>
+
+        <div class="space-y-4">
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">1</div>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">SEO Tecnico (30%)</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Velocidade, mobile-first, sitemap, HTTPS, Core Web Vitals</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">2</div>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">On-Page (40%)</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Keywords, titles, meta descriptions, headers, conteudo de qualidade</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">3</div>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Off-Page (30%)</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Backlinks de qualidade, mencoes de marca, autoridade de dominio</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📝</span> Checklist de Conteudo SEO
+        </h3>
+        <div class="grid md:grid-cols-2 gap-3 text-sm">
+          <div class="flex items-start gap-2">
+            <span class="text-green-500 mt-1">✓</span>
+            <p class="text-neutral-700 dark:text-neutral-300">Keyword research completo</p>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-green-500 mt-1">✓</span>
+            <p class="text-neutral-700 dark:text-neutral-300">Titulo com palavra-chave (60 chars)</p>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-green-500 mt-1">✓</span>
+            <p class="text-neutral-700 dark:text-neutral-300">Meta description (155 chars)</p>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-green-500 mt-1">✓</span>
+            <p class="text-neutral-700 dark:text-neutral-300">Headers hierarquicos (H1, H2, H3)</p>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-green-500 mt-1">✓</span>
+            <p class="text-neutral-700 dark:text-neutral-300">Minimo 1500 palavras</p>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-green-500 mt-1">✓</span>
+            <p class="text-neutral-700 dark:text-neutral-300">Imagens otimizadas (alt text)</p>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-green-500 mt-1">✓</span>
+            <p class="text-neutral-700 dark:text-neutral-300">Links internos e externos</p>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-green-500 mt-1">✓</span>
+            <p class="text-neutral-700 dark:text-neutral-300">URL amigavel e curta</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">7.4</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Email Marketing</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📧</span> Anatomia do Email Perfeito
+        </h3>
+
+        <div class="space-y-3">
+          <div class="border-l-4 border-orange-500 pl-4 bg-orange-50 dark:bg-orange-900/20 p-3 rounded-r">
+            <p class="font-bold text-orange-700 dark:text-orange-400">Assunto (Subject Line)</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">40-60 caracteres, personalizacao, curiosidade ou beneficio</p>
+            <p class="text-xs bg-white dark:bg-neutral-800 p-2 rounded mt-1">"[Nome], voce esta perdendo R$5.000/mes"</p>
+          </div>
+
+          <div class="border-l-4 border-orange-500 pl-4 bg-orange-50 dark:bg-orange-900/20 p-3 rounded-r">
+            <p class="font-bold text-orange-700 dark:text-orange-400">Pre-header</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Complementa o assunto, 50-100 caracteres</p>
+            <p class="text-xs bg-white dark:bg-neutral-800 p-2 rounded mt-1">"Descubra como otimizar sua operacao em 3 passos"</p>
+          </div>
+
+          <div class="border-l-4 border-orange-500 pl-4 bg-orange-50 dark:bg-orange-900/20 p-3 rounded-r">
+            <p class="font-bold text-orange-700 dark:text-orange-400">Corpo</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Breve, visual (imagens/GIFs), paragrafo unico, escaneaval</p>
+          </div>
+
+          <div class="border-l-4 border-orange-500 pl-4 bg-orange-50 dark:bg-orange-900/20 p-3 rounded-r">
+            <p class="font-bold text-orange-700 dark:text-orange-400">CTA</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Botao destacado, acao clara, senso de urgencia</p>
+            <p class="text-xs bg-white dark:bg-neutral-800 p-2 rounded mt-1">"Agendar Demo Gratuita Hoje"</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🤖</span> Automacoes Essenciais
+        </h3>
+        <div class="space-y-2">
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">1. Welcome Series (3-5 emails)</p>
+            <p class="text-xs text-neutral-600 dark:text-neutral-400">Apresentacao, educacao, primeira conversao</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">2. Carrinho Abandonado</p>
+            <p class="text-xs text-neutral-600 dark:text-neutral-400">3 emails: lembrete (1h) + desconto (24h) + urgencia (72h)</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">3. Lead Nurturing</p>
+            <p class="text-xs text-neutral-600 dark:text-neutral-400">Conteudo educativo baseado em comportamento</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">4. Re-engajamento</p>
+            <p class="text-xs text-neutral-600 dark:text-neutral-400">Para inativos 30/60/90 dias</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">7.5</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Landing Pages</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🎨</span> Elementos Obrigatorios
+        </h3>
+
+        <div class="space-y-3">
+          <div class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded">
+            <span class="text-2xl">1️⃣</span>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300"><strong>Hero Section:</strong> Proposta de valor clara em 5 segundos</p>
+          </div>
+          <div class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded">
+            <span class="text-2xl">2️⃣</span>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300"><strong>Beneficios:</strong> 3-5 bullet points especificos</p>
+          </div>
+          <div class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded">
+            <span class="text-2xl">3️⃣</span>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300"><strong>Prova Social:</strong> Depoimentos, logos de clientes, numeros</p>
+          </div>
+          <div class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded">
+            <span class="text-2xl">4️⃣</span>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300"><strong>CTA Principal:</strong> Above the fold, cor contrastante</p>
+          </div>
+          <div class="flex items-center gap-3 p-3 bg-neutral-50 dark:bg-neutral-700/50 rounded">
+            <span class="text-2xl">5️⃣</span>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300"><strong>Reducao de Atrito:</strong> Form curto (2-3 campos), sem menu</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl p-6 border-2 border-green-200 dark:border-green-800">
+        <h3 class="text-lg font-bold text-green-900 dark:text-green-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📊</span> Benchmarks de Conversao
+        </h3>
+        <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg">
+          <div class="grid md:grid-cols-3 gap-4 text-center">
+            <div>
+              <p class="text-3xl font-bold text-green-600">10-15%</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Landing Page Boa</p>
+            </div>
+            <div>
+              <p class="text-3xl font-bold text-blue-600">20-30%</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Landing Page Otima</p>
+            </div>
+            <div>
+              <p class="text-3xl font-bold text-purple-600">40%+</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Landing Page Top 1%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">7.6</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Copy para Conversao</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">✍️</span> Framework PAS
+        </h3>
+
+        <div class="space-y-4">
+          <div class="border-l-4 border-red-500 pl-4">
+            <p class="font-bold text-red-600 dark:text-red-400">P - Problem (Problema)</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-1">Identifique a dor especifica do cliente</p>
+            <p class="text-xs bg-neutral-100 dark:bg-neutral-700 p-2 rounded">"Voce gasta 20h/semana em tarefas repetitivas?"</p>
+          </div>
+
+          <div class="border-l-4 border-orange-500 pl-4">
+            <p class="font-bold text-orange-600 dark:text-orange-400">A - Agitate (Agitar)</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-1">Intensifique a dor, mostre consequencias</p>
+            <p class="text-xs bg-neutral-100 dark:bg-neutral-700 p-2 rounded">"Isso representa R$10.000 em oportunidades perdidas todo mes..."</p>
+          </div>
+
+          <div class="border-l-4 border-green-500 pl-4">
+            <p class="font-bold text-green-600 dark:text-green-400">S - Solution (Solucao)</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-1">Apresente sua solucao como inevitavel</p>
+            <p class="text-xs bg-neutral-100 dark:bg-neutral-700 p-2 rounded">"Nossa automacao reduz isso para 2h/semana. Veja como..."</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🔥</span> Gatilhos Mentais
+        </h3>
+        <div class="grid md:grid-cols-2 gap-3">
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Escassez</p>
+            <p class="text-xs text-neutral-600 dark:text-neutral-400">"Apenas 5 vagas disponiveis"</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Urgencia</p>
+            <p class="text-xs text-neutral-600 dark:text-neutral-400">"Oferta termina em 24h"</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Prova Social</p>
+            <p class="text-xs text-neutral-600 dark:text-neutral-400">"Usado por +10.000 empresas"</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Autoridade</p>
+            <p class="text-xs text-neutral-600 dark:text-neutral-400">"Recomendado pela Forbes"</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Reciprocidade</p>
+            <p class="text-xs text-neutral-600 dark:text-neutral-400">"Ebook gratuito + bonus"</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-3 rounded">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Garantia</p>
+            <p class="text-xs text-neutral-600 dark:text-neutral-400">"30 dias money-back"</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">7.7</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Retargeting</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🎯</span> Audiences de Retargeting
+        </h3>
+
+        <div class="space-y-3">
+          <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
+            <p class="font-bold text-red-700 dark:text-red-400 mb-1">1. Visitantes do Site (Quente)</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">Ultimos 30 dias, nao converteram</p>
+            <p class="text-xs text-red-600 dark:text-red-400">Estrategia: Oferta direta, desconto, urgencia</p>
+          </div>
+
+          <div class="bg-orange-50 dark:bg-orange-900/20 p-4 rounded-lg">
+            <p class="font-bold text-orange-700 dark:text-orange-400 mb-1">2. Engajadores de Conteudo (Morno)</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">Viram video 50%+, leram post, interagiram</p>
+            <p class="text-xs text-orange-600 dark:text-orange-400">Estrategia: Conteudo de valor + soft CTA</p>
+          </div>
+
+          <div class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg">
+            <p class="font-bold text-amber-700 dark:text-amber-400 mb-1">3. Clientes (Upsell)</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">Ja compraram, receber oferta complementar</p>
+            <p class="text-xs text-amber-600 dark:text-amber-400">Estrategia: Cross-sell, upgrade, programa fidelidade</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-orange-50 dark:bg-orange-900/20 p-4 rounded-lg border-l-4 border-orange-500">
+        <p class="text-orange-800 dark:text-orange-200 font-semibold">
+          💡 Retargeting converte 10x mais que cold traffic. Invista 30-40% do orcamento.
+        </p>
+      </div>
+    </section>
+
+    <!-- TOPICO 8 -->
+    <section id="topico-8" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">7.8</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Marketing de Conteudo</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📚</span> Piramide de Conteudo
+        </h3>
+
+        <div class="space-y-3">
+          <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+            <p class="font-bold text-purple-700 dark:text-purple-400 mb-1">Topo: Pillar Content (1x/mes)</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">Guia completo 3000+ palavras, video longo, webinar</p>
+          </div>
+
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+            <p class="font-bold text-blue-700 dark:text-blue-400 mb-1">Meio: Supporting Content (1x/semana)</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">Artigos 1000-1500 palavras, videos medios, infograficos</p>
+          </div>
+
+          <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+            <p class="font-bold text-green-700 dark:text-green-400 mb-1">Base: Micro Content (Diario)</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">Posts sociais, threads, shorts, stories, emails</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">♻️</span> Estrategia de Reaproveitamento
+        </h3>
+        <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+          <p class="font-semibold text-neutral-900 dark:text-neutral-100 mb-3">1 Pillar Content vira:</p>
+          <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+            <li>• 5-10 posts de blog</li>
+            <li>• 20-30 posts sociais</li>
+            <li>• 1 ebook/whitepaper</li>
+            <li>• 10+ videos curtos</li>
+            <li>• 5 newsletters</li>
+            <li>• 1 podcast episode</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 9 -->
+    <section id="topico-9" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">7.9</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Influencer Marketing</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">👤</span> Categorias de Influenciadores
+        </h3>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead class="bg-orange-100 dark:bg-orange-900/30">
+              <tr>
+                <th class="p-3 text-left font-semibold">Tipo</th>
+                <th class="p-3 text-left font-semibold">Seguidores</th>
+                <th class="p-3 text-left font-semibold">Engajamento</th>
+                <th class="p-3 text-left font-semibold">Preco Medio</th>
+              </tr>
+            </thead>
+            <tbody class="text-neutral-700 dark:text-neutral-300">
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-medium">Nano</td>
+                <td class="p-3">1K-10K</td>
+                <td class="p-3">8-10%</td>
+                <td class="p-3">R$100-500</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-medium">Micro</td>
+                <td class="p-3">10K-100K</td>
+                <td class="p-3">5-8%</td>
+                <td class="p-3">R$500-5K</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-medium">Macro</td>
+                <td class="p-3">100K-1M</td>
+                <td class="p-3">2-5%</td>
+                <td class="p-3">R$5K-50K</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-medium">Mega</td>
+                <td class="p-3">1M+</td>
+                <td class="p-3">1-2%</td>
+                <td class="p-3">R$50K+</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 rounded-xl p-6 border-2 border-purple-200 dark:border-purple-800">
+        <h3 class="text-lg font-bold text-purple-900 dark:text-purple-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">✅</span> Checklist de Selecao
+        </h3>
+        <div class="bg-white dark:bg-neutral-800 p-4 rounded-lg space-y-2 text-sm">
+          <div class="flex items-start gap-2">
+            <span class="text-green-500">✓</span>
+            <p class="text-neutral-700 dark:text-neutral-300">Alinhamento de nicho e valores</p>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-green-500">✓</span>
+            <p class="text-neutral-700 dark:text-neutral-300">Taxa de engajamento real (nao bots)</p>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-green-500">✓</span>
+            <p class="text-neutral-700 dark:text-neutral-300">Audiencia = seu publico-alvo</p>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-green-500">✓</span>
+            <p class="text-neutral-700 dark:text-neutral-300">Historico de parcerias bem-sucedidas</p>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-green-500">✓</span>
+            <p class="text-neutral-700 dark:text-neutral-300">Contrato com clausulas de performance</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 10 -->
+    <section id="topico-10" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">7.10</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Analise de Campanhas</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📊</span> Metricas Por Estagio do Funil
+        </h3>
+
+        <div class="space-y-4">
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+            <p class="font-bold text-blue-700 dark:text-blue-400 mb-2">Topo (Awareness)</p>
+            <div class="grid grid-cols-2 gap-2 text-sm">
+              <p class="text-neutral-700 dark:text-neutral-300">• Impressoes</p>
+              <p class="text-neutral-700 dark:text-neutral-300">• Alcance</p>
+              <p class="text-neutral-700 dark:text-neutral-300">• CTR</p>
+              <p class="text-neutral-700 dark:text-neutral-300">• CPM</p>
+            </div>
+          </div>
+
+          <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+            <p class="font-bold text-green-700 dark:text-green-400 mb-2">Meio (Consideration)</p>
+            <div class="grid grid-cols-2 gap-2 text-sm">
+              <p class="text-neutral-700 dark:text-neutral-300">• Leads gerados</p>
+              <p class="text-neutral-700 dark:text-neutral-300">• CPL (Custo por Lead)</p>
+              <p class="text-neutral-700 dark:text-neutral-300">• Taxa de conversao</p>
+              <p class="text-neutral-700 dark:text-neutral-300">• Tempo no site</p>
+            </div>
+          </div>
+
+          <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+            <p class="font-bold text-purple-700 dark:text-purple-400 mb-2">Fundo (Decision)</p>
+            <div class="grid grid-cols-2 gap-2 text-sm">
+              <p class="text-neutral-700 dark:text-neutral-300">• Vendas</p>
+              <p class="text-neutral-700 dark:text-neutral-300">• CAC</p>
+              <p class="text-neutral-700 dark:text-neutral-300">• ROAS</p>
+              <p class="text-neutral-700 dark:text-neutral-300">• LTV:CAC ratio</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🎯</span> Benchmarks de Sucesso
+        </h3>
+        <div class="grid md:grid-cols-3 gap-4 text-center">
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="text-2xl font-bold text-orange-600">3:1</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">ROAS Minimo</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="text-2xl font-bold text-green-600">3x</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">LTV:CAC Ideal</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="text-2xl font-bold text-blue-600">2-5%</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">CTR Bom</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resumo e Proximos Passos -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-orange-600 to-amber-600 rounded-2xl p-8 text-white">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="text-3xl mr-3">🎓</span> Resumo do Modulo 7
+        </h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Funil Completo</p>
+            <p class="text-sm text-white/90">Topo, meio, fundo e retencao.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Trafego</p>
+            <p class="text-sm text-white/90">Pago (Meta/Google) e organico (SEO).</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Conversao</p>
+            <p class="text-sm text-white/90">Landing pages, copy, email marketing.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Analise</p>
+            <p class="text-sm text-white/90">Metricas e otimizacao continua.</p>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="../index.html" class="bg-white text-orange-600 px-6 py-3 rounded-lg font-semibold text-center hover:bg-neutral-100 transition-colors">
+            ← Voltar para Trilha
+          </a>
+          <a href="modulo8.html" class="bg-orange-700 text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-orange-800 transition-colors border border-white/30">
+            Proximo: Modulo 8 - Vendas B2B →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-900 text-white py-8">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-neutral-400">&copy; 2025 TDS - Transformacao Digital e Social</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Theme Toggle
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+    if (localStorage.getItem('color-theme') === 'dark' ||
+        (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      themeToggleLightIcon.classList.remove('hidden');
+    } else {
+      themeToggleDarkIcon.classList.remove('hidden');
+    }
+
+    themeToggleBtn.addEventListener('click', function() {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+    });
+  </script>
+
+</body>
+</html>

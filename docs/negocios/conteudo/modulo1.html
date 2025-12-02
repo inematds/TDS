@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 1: Modelos de Negocio Inovadores - TDS</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .prose h2 { scroll-margin-top: 100px; }
+  </style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900 transition-colors">
+
+  <!-- Navegacao -->
+  <nav class="sticky top-0 z-50 bg-white dark:bg-neutral-800 shadow-sm">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center space-x-4">
+          <a href="../../../index.html" class="text-2xl font-bold text-purple-600 dark:text-purple-400">TDS</a>
+          <span class="text-neutral-400">/</span>
+          <a href="../index.html" class="text-purple-600 dark:text-purple-400 font-semibold hover:underline">Negocios</a>
+          <span class="text-neutral-400">/</span>
+          <span class="text-neutral-600 dark:text-neutral-400">Modulo 1</span>
+        </div>
+
+        <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-700" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero do Modulo -->
+  <header class="bg-gradient-to-br from-purple-600 via-purple-700 to-violet-700 py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+      <a href="../index.html" class="inline-flex items-center text-purple-200 hover:text-white mb-4 text-sm">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Voltar para Trilha de Negocios
+      </a>
+      <div class="flex items-center gap-4 mb-4">
+        <span class="text-5xl">🏗️</span>
+        <div>
+          <p class="text-purple-200 text-sm font-medium">MODULO 1</p>
+          <h1 class="text-3xl sm:text-4xl font-bold">Modelos de Negocio Inovadores</h1>
+        </div>
+      </div>
+      <p class="text-lg text-white/90 max-w-2xl mb-4">
+        Descubra os modelos de negocio mais rentaveis e escaláveis do mercado digital. Aprenda a estruturar ofertas que geram receita recorrente.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">8 horas</span>
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">10 topicos</span>
+        <span class="px-3 py-1 bg-white/20 rounded-full text-sm">Nivel: Intermediario</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Indice -->
+  <div class="bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 py-4 sticky top-16 z-40">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2 text-sm overflow-x-auto pb-2">
+        <span class="text-neutral-500 dark:text-neutral-400 whitespace-nowrap">Ir para:</span>
+        <a href="#topico-1" class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full whitespace-nowrap hover:bg-purple-200 dark:hover:bg-purple-900/50">1.1</a>
+        <a href="#topico-2" class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full whitespace-nowrap hover:bg-purple-200 dark:hover:bg-purple-900/50">1.2</a>
+        <a href="#topico-3" class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full whitespace-nowrap hover:bg-purple-200 dark:hover:bg-purple-900/50">1.3</a>
+        <a href="#topico-4" class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full whitespace-nowrap hover:bg-purple-200 dark:hover:bg-purple-900/50">1.4</a>
+        <a href="#topico-5" class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full whitespace-nowrap hover:bg-purple-200 dark:hover:bg-purple-900/50">1.5</a>
+        <a href="#topico-6" class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full whitespace-nowrap hover:bg-purple-200 dark:hover:bg-purple-900/50">1.6</a>
+        <a href="#topico-7" class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full whitespace-nowrap hover:bg-purple-200 dark:hover:bg-purple-900/50">1.7</a>
+        <a href="#topico-8" class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full whitespace-nowrap hover:bg-purple-200 dark:hover:bg-purple-900/50">1.8</a>
+        <a href="#topico-9" class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full whitespace-nowrap hover:bg-purple-200 dark:hover:bg-purple-900/50">1.9</a>
+        <a href="#topico-10" class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full whitespace-nowrap hover:bg-purple-200 dark:hover:bg-purple-900/50">1.10</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conteudo Principal -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Introducao -->
+    <div class="bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 rounded-2xl p-8 mb-12 border-2 border-purple-200 dark:border-purple-800">
+      <h2 class="text-2xl font-bold text-purple-900 dark:text-purple-100 mb-4 flex items-center">
+        <span class="text-3xl mr-3">🎯</span>
+        O Que Voce Vai Aprender Neste Modulo
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <ul class="space-y-2 text-neutral-700 dark:text-neutral-300">
+          <li class="flex items-start"><span class="text-purple-500 mr-2 mt-1">✓</span> Modelos de negocio SaaS verticais</li>
+          <li class="flex items-start"><span class="text-purple-500 mr-2 mt-1">✓</span> InfoSaaS e produtos digitais</li>
+          <li class="flex items-start"><span class="text-purple-500 mr-2 mt-1">✓</span> Consultoria produtizada e escala</li>
+          <li class="flex items-start"><span class="text-purple-500 mr-2 mt-1">✓</span> Marketplaces e plataformas</li>
+          <li class="flex items-start"><span class="text-purple-500 mr-2 mt-1">✓</span> Modelos de assinaturas recorrentes</li>
+        </ul>
+        <ul class="space-y-2 text-neutral-700 dark:text-neutral-300">
+          <li class="flex items-start"><span class="text-purple-500 mr-2 mt-1">✓</span> Licenciamento e white label</li>
+          <li class="flex items-start"><span class="text-purple-500 mr-2 mt-1">✓</span> Estrategias freemium que funcionam</li>
+          <li class="flex items-start"><span class="text-purple-500 mr-2 mt-1">✓</span> Franquias digitais modernas</li>
+          <li class="flex items-start"><span class="text-purple-500 mr-2 mt-1">✓</span> Modelos hibridos de alto valor</li>
+          <li class="flex items-start"><span class="text-purple-500 mr-2 mt-1">✓</span> Como escolher o modelo ideal</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TOPICO 1: SaaS Verticais -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">1.1</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">SaaS Verticais</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">💡</span> O Que E
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4 leading-relaxed">
+          Software como Servico focado em <strong>um nicho especifico</strong>. Em vez de competir com Salesforce (horizontal), voce cria solucao para dentistas, advogados ou restaurantes (vertical).
+        </p>
+        <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg border-l-4 border-purple-500">
+          <p class="text-purple-800 dark:text-purple-200 font-semibold text-lg">
+            "Vertical SaaS cresce 3x mais rapido que SaaS horizontal e tem menos concorrencia."
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🎯</span> Exemplos de Nichos
+        </h3>
+        <div class="grid md:grid-cols-2 gap-3">
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Saude</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Agendamento para clinicas, prontuarios eletronicos, telemedicina</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Educacao</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Plataforma EAD, gestao escolar, gamificacao</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Varejo</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">PDV, gestao de estoque, programa de fidelidade</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Servicos</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">CRM para imobiliarias, gestao para saloes, agenda profissional</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-xl p-6 border-2 border-amber-200 dark:border-amber-800">
+        <h3 class="text-lg font-bold text-amber-900 dark:text-amber-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📖</span> Caso Real
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          <strong>Agendor</strong> - CRM especifico para equipes de vendas B2B. Em vez de competir com Salesforce, focou em PMEs brasileiras. Resultado: mais de 20 mil clientes pagantes.
+        </p>
+        <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+          <li>• Nicho: Vendas B2B para PMEs</li>
+          <li>• Diferencial: Interface simples, preco acessivel</li>
+          <li>• Modelo: R$ 69-399/mes por usuario</li>
+          <li>• Churn baixo: 3-5% ao mes</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TOPICO 2: InfoSaaS -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">1.2</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">InfoSaaS</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📚</span> O Que E
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4 leading-relaxed">
+          Fusao de <strong>infoproduto + software</strong>. Voce entrega conhecimento (cursos, templates) dentro de uma plataforma que facilita aplicacao e oferece continuidade.
+        </p>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🔧</span> Como Funciona
+        </h3>
+        <div class="space-y-4">
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">1</div>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Conteudo Educacional</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Cursos, workshops, metodologias exclusivas</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">2</div>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Ferramentas de Implementacao</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Templates, calculadoras, automacoes, dashboards</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">3</div>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Comunidade e Suporte</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Grupo exclusivo, atualizacoes mensais, Q&A ao vivo</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">4</div>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Receita Recorrente</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Assinatura mensal em vez de venda unica</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg border-l-4 border-purple-500">
+        <p class="text-purple-800 dark:text-purple-200 font-semibold">
+          Exemplo: Plataforma de Marketing que oferece curso + templates prontos + ferramenta de agendamento de posts. R$ 97/mes.
+        </p>
+      </div>
+    </section>
+
+    <!-- TOPICO 3: Consultoria Produtizada -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">1.3</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Consultoria Produtizada</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📦</span> O Que E
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4 leading-relaxed">
+          Transformar servicos personalizados em <strong>pacotes padronizados</strong>. Voce define escopo, preco e entregaveis fixos. Escalavel e previsivel.
+        </p>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">⚖️</span> Consultoria Tradicional vs Produtizada
+        </h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead class="bg-purple-100 dark:bg-purple-900/30">
+              <tr>
+                <th class="p-3 text-left font-semibold">Aspecto</th>
+                <th class="p-3 text-left font-semibold">Tradicional</th>
+                <th class="p-3 text-left font-semibold">Produtizada</th>
+              </tr>
+            </thead>
+            <tbody class="text-neutral-700 dark:text-neutral-300">
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-medium">Precificacao</td>
+                <td class="p-3">Por hora ou projeto customizado</td>
+                <td class="p-3">Pacotes fixos</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-medium">Escopo</td>
+                <td class="p-3">Flexivel, muda sempre</td>
+                <td class="p-3">Definido, nao negocia</td>
+              </tr>
+              <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                <td class="p-3 font-medium">Escala</td>
+                <td class="p-3">Limitada ao seu tempo</td>
+                <td class="p-3">Processos + equipe</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-medium">Margem</td>
+                <td class="p-3">10-30%</td>
+                <td class="p-3">40-70%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl p-6 border-2 border-green-200 dark:border-green-800">
+        <h3 class="text-lg font-bold text-green-900 dark:text-green-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">💼</span> Exemplo Pratico
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          <strong>Pacote "Instagram Pronto"</strong> - R$ 2.997
+        </p>
+        <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+          <li>• Auditoria de perfil (checklist padronizado)</li>
+          <li>• Bio otimizada + destaques (templates)</li>
+          <li>• 30 posts criados (ferramenta de IA + revisao)</li>
+          <li>• Calendario editorial (planilha pronta)</li>
+          <li>• Prazo: 7 dias uteis</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TOPICO 4: Marketplace -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">1.4</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Marketplace</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🏪</span> O Que E
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4 leading-relaxed">
+          Plataforma que conecta <strong>oferta e demanda</strong>. Voce nao vende produtos proprios, mas facilita transacoes entre terceiros e cobra comissao.
+        </p>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🔄</span> Tipos de Marketplace
+        </h3>
+        <div class="space-y-3">
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+            <p class="font-bold text-blue-700 dark:text-blue-400">Produtos Fisicos</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">Mercado Livre, OLX, Enjoei</p>
+          </div>
+          <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+            <p class="font-bold text-green-700 dark:text-green-400">Servicos</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">GetNinjas, 99 Freelas, Workana</p>
+          </div>
+          <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+            <p class="font-bold text-purple-700 dark:text-purple-400">Digitais</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">Hotmart, Udemy, Envato</p>
+          </div>
+          <div class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg">
+            <p class="font-bold text-amber-700 dark:text-amber-400">Verticalizados</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">Airbnb (hospedagem), iFood (alimentacao)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg border-l-4 border-purple-500">
+        <p class="text-purple-800 dark:text-purple-200 font-semibold">
+          Desafio: Problema do ovo e galinha. Precisa atrair vendedores E compradores simultaneamente.
+        </p>
+      </div>
+    </section>
+
+    <!-- TOPICO 5: Assinaturas -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">1.5</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Assinaturas</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🔁</span> Por Que Assinaturas
+        </h3>
+        <ul class="space-y-2 text-neutral-700 dark:text-neutral-300">
+          <li class="flex items-start"><span class="text-purple-500 mr-2">•</span> <strong>Receita previsivel:</strong> Voce sabe quanto vai faturar no proximo mes</li>
+          <li class="flex items-start"><span class="text-purple-500 mr-2">•</span> <strong>Valuation maior:</strong> Investidores pagam mais por receita recorrente</li>
+          <li class="flex items-start"><span class="text-purple-500 mr-2">•</span> <strong>LTV alto:</strong> Cliente paga R$ 100/mes por 12 meses = R$ 1.200</li>
+          <li class="flex items-start"><span class="text-purple-500 mr-2">•</span> <strong>Relacionamento:</strong> Oportunidade de upsell e cross-sell</li>
+        </ul>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📦</span> O Que Pode Ser Assinatura
+        </h3>
+        <div class="grid md:grid-cols-2 gap-3">
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Conteudo</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Newsletter premium, podcast exclusivo, comunidade</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Software</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Acesso a ferramentas, licencas, atualizacoes</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Produtos Fisicos</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Box mensal, reposicao automatica, clube de vinhos</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Servicos</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Retainer de design, suporte tecnico, consultoria</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border-l-4 border-blue-500">
+        <p class="text-blue-800 dark:text-blue-200 font-semibold">
+          Regra de ouro: Churn abaixo de 5% ao mes. Se for maior, conserte a retencao antes de acelerar aquisicao.
+        </p>
+      </div>
+    </section>
+
+    <!-- TOPICO 6: Licenciamento -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">1.6</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Licenciamento</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🔑</span> O Que E
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4 leading-relaxed">
+          Voce cria algo uma vez e <strong>licencia para terceiros usarem</strong>. Eles pagam royalties ou taxa fixa para revender, adaptar ou implementar.
+        </p>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">💰</span> Modelos de Licenciamento
+        </h3>
+        <div class="space-y-4">
+          <div class="border-l-4 border-green-500 pl-4">
+            <p class="font-bold text-green-700 dark:text-green-400">Royalties</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">% sobre vendas. Ex: 10% de cada venda que o licenciado faz</p>
+          </div>
+          <div class="border-l-4 border-blue-500 pl-4">
+            <p class="font-bold text-blue-700 dark:text-blue-400">Taxa Fixa</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Valor unico ou mensal. Ex: R$ 5.000/mes para usar metodologia</p>
+          </div>
+          <div class="border-l-4 border-purple-500 pl-4">
+            <p class="font-bold text-purple-700 dark:text-purple-400">Hibrido</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Minimo garantido + % variavel. Ex: R$ 2.000/mes + 5% sobre R$ 50k</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-xl p-6 border-2 border-amber-200 dark:border-amber-800">
+        <h3 class="text-lg font-bold text-amber-900 dark:text-amber-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📖</span> Exemplo
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          Consultor cria metodologia de vendas. Licencia para 20 parceiros por R$ 3.000/mes cada. Receita: R$ 60k/mes sem atender clientes.
+        </p>
+      </div>
+    </section>
+
+    <!-- TOPICO 7: Freemium -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">1.7</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Freemium</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🎁</span> O Que E
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4 leading-relaxed">
+          Versao gratuita com funcionalidades basicas + versao paga com recursos premium. O free atrai usuarios, o premium monetiza.
+        </p>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">⚖️</span> O Que Oferecer Free vs Premium
+        </h3>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-bold text-neutral-900 dark:text-neutral-100 mb-3">Free (Deve Ter)</p>
+            <ul class="text-sm text-neutral-600 dark:text-neutral-400 space-y-1">
+              <li>• Funcionalidade core funcional</li>
+              <li>• Limite de uso (3 projetos, 100 contatos)</li>
+              <li>• Sem suporte prioritario</li>
+              <li>• Marca d'agua ou branding</li>
+            </ul>
+          </div>
+          <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+            <p class="font-bold text-purple-900 dark:text-purple-100 mb-3">Premium (Valor)</p>
+            <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
+              <li>• Uso ilimitado</li>
+              <li>• Recursos avancados (automacao, IA)</li>
+              <li>• Suporte prioritario</li>
+              <li>• Integracao com outras ferramentas</li>
+              <li>• White label</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg border-l-4 border-purple-500">
+        <p class="text-purple-800 dark:text-purple-200 font-semibold">
+          Taxa de conversao saudavel: 2-5% dos usuarios free viram pagantes. Spotify: 46% pagam Premium.
+        </p>
+      </div>
+    </section>
+
+    <!-- TOPICO 8: White Label -->
+    <section id="topico-8" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">1.8</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">White Label</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🏷️</span> O Que E
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4 leading-relaxed">
+          Produto ou servico criado por voce e <strong>revendido por terceiros com marca deles</strong>. Voce fornece a solucao, eles vendem como propria.
+        </p>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🔄</span> Como Funciona
+        </h3>
+        <div class="space-y-4">
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">1</div>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Voce Cria</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Software, curso, metodologia, servico</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">2</div>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Parceiro Customiza</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Logo, cores, nome, dominio</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">3</div>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Eles Vendem</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Marketing, vendas, suporte = responsabilidade deles</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+            <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">4</div>
+            <div>
+              <p class="font-semibold text-neutral-900 dark:text-neutral-100">Voce Recebe</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Taxa mensal ou % das vendas</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-xl p-6 border-2 border-blue-200 dark:border-blue-800">
+        <h3 class="text-lg font-bold text-blue-900 dark:text-blue-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">💡</span> Exemplo Pratico
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4">
+          Agencia cria plataforma de automacao de marketing. Oferece white label para outras agencias por R$ 500/mes. Agencias revendem para clientes por R$ 1.500/mes.
+        </p>
+      </div>
+    </section>
+
+    <!-- TOPICO 9: Franquias Digitais -->
+    <section id="topico-9" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">1.9</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Franquias Digitais</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🏢</span> O Que E
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4 leading-relaxed">
+          Modelo de franquia aplicado ao digital. Franqueado paga taxa inicial + royalties e recebe <strong>sistema completo</strong>: marca, processos, treinamento, suporte.
+        </p>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">📦</span> O Que o Franqueado Recebe
+        </h3>
+        <div class="grid md:grid-cols-2 gap-3">
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Marca e Identidade</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Logo, site, materiais de marketing</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Processos Documentados</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">SOPs, scripts, playbooks</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Treinamento</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Onboarding, certificacao, atualizacoes</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Tecnologia</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">CRM, ferramentas, automacoes</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Suporte Continuo</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Mentoria, grupo, atualizacoes</p>
+          </div>
+          <div class="bg-neutral-50 dark:bg-neutral-700/50 p-4 rounded-lg">
+            <p class="font-semibold text-neutral-900 dark:text-neutral-100">Territorio Exclusivo</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Protecao geografica ou de nicho</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg border-l-4 border-purple-500">
+        <p class="text-purple-800 dark:text-purple-200 font-semibold">
+          Estrutura tipica: Taxa inicial R$ 20-50k + Royalties 10-15% da receita mensal.
+        </p>
+      </div>
+    </section>
+
+    <!-- TOPICO 10: Modelos Hibridos -->
+    <section id="topico-10" class="mb-16">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">1.10</div>
+        <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Modelos Hibridos</h2>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🔀</span> O Que E
+        </h3>
+        <p class="text-neutral-700 dark:text-neutral-300 mb-4 leading-relaxed">
+          Combinacao de dois ou mais modelos de negocio. Maximiza receita e <strong>diversifica fontes de entrada</strong>. Reduz dependencia de um canal unico.
+        </p>
+      </div>
+
+      <div class="bg-white dark:bg-neutral-800 rounded-xl shadow-md p-6 mb-6 border border-neutral-200 dark:border-neutral-700">
+        <h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">💎</span> Combinacoes Poderosas
+        </h3>
+        <div class="space-y-4">
+          <div class="bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 p-4 rounded-lg">
+            <p class="font-bold text-blue-900 dark:text-blue-100 mb-2">SaaS + Consultoria</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">Software R$ 200/mes + Implementacao R$ 5.000 + Treinamento R$ 2.000</p>
+          </div>
+          <div class="bg-gradient-to-r from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 p-4 rounded-lg">
+            <p class="font-bold text-purple-900 dark:text-purple-100 mb-2">Infoproduto + Comunidade</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">Curso R$ 497 (uma vez) + Assinatura comunidade R$ 97/mes</p>
+          </div>
+          <div class="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 p-4 rounded-lg">
+            <p class="font-bold text-green-900 dark:text-green-100 mb-2">Freemium + Marketplace</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">Ferramenta gratis + Loja de templates (20% de comissao)</p>
+          </div>
+          <div class="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 p-4 rounded-lg">
+            <p class="font-bold text-amber-900 dark:text-amber-100 mb-2">Licenciamento + White Label</p>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">Metodologia R$ 3k/mes + Software white label R$ 500/mes</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl p-6 border-2 border-green-200 dark:border-green-800">
+        <h3 class="text-lg font-bold text-green-900 dark:text-green-100 mb-4 flex items-center">
+          <span class="text-2xl mr-2">🎯</span> Como Escolher Seu Modelo
+        </h3>
+        <ul class="text-sm text-neutral-700 dark:text-neutral-300 space-y-2">
+          <li class="flex items-start"><span class="text-green-500 mr-2 mt-1">1.</span> <strong>Expertise:</strong> O que voce domina e tem credibilidade?</li>
+          <li class="flex items-start"><span class="text-green-500 mr-2 mt-1">2.</span> <strong>Mercado:</strong> Qual a dor mais urgente do publico?</li>
+          <li class="flex items-start"><span class="text-green-500 mr-2 mt-1">3.</span> <strong>Recursos:</strong> Quanto capital e tempo voce tem?</li>
+          <li class="flex items-start"><span class="text-green-500 mr-2 mt-1">4.</span> <strong>Objetivo:</strong> Quer liberdade, impacto ou escala?</li>
+          <li class="flex items-start"><span class="text-green-500 mr-2 mt-1">5.</span> <strong>Teste:</strong> Valide com MVP antes de construir completo</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Resumo e Proximos Passos -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-purple-600 to-violet-600 rounded-2xl p-8 text-white">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="text-3xl mr-3">🎓</span> Resumo do Modulo 1
+        </h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">SaaS Vertical</p>
+            <p class="text-sm text-white/90">Foco em nicho, menos concorrencia.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Recorrencia</p>
+            <p class="text-sm text-white/90">Assinaturas, licenciamento, SaaS.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Escalabilidade</p>
+            <p class="text-sm text-white/90">Produtizar, automatizar, licenciar.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+            <p class="font-bold text-lg mb-2">Hibrido</p>
+            <p class="text-sm text-white/90">Combine modelos para maximizar.</p>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="../index.html" class="bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold text-center hover:bg-neutral-100 transition-colors">
+            ← Voltar para Trilha
+          </a>
+          <a href="modulo2.html" class="bg-purple-700 text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-purple-800 transition-colors border border-white/30">
+            Proximo: Modulo 2 - Validacao e MVP →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-900 text-white py-8">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-neutral-400">&copy; 2025 TDS - Transformacao Digital e Social</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Theme Toggle
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+    if (localStorage.getItem('color-theme') === 'dark' ||
+        (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      themeToggleLightIcon.classList.remove('hidden');
+    } else {
+      themeToggleDarkIcon.classList.remove('hidden');
+    }
+
+    themeToggleBtn.addEventListener('click', function() {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+    });
+  </script>
+
+</body>
+</html>
